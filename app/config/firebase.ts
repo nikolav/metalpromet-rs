@@ -8,12 +8,12 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const config = {
-  apiKey: "AIzaSyDQK3AWnvhc3d7c9aUa0UDq0Pi6Np1V2Wk",
-  authDomain: "junhzyqmxyn--dev.firebaseapp.com",
-  projectId: "junhzyqmxyn--dev",
-  storageBucket: "junhzyqmxyn--dev.firebasestorage.app",
-  messagingSenderId: "527729584059",
-  appId: "1:527729584059:web:f5508c8f9fe7bdcf23469e",
+  apiKey: "AIzaSyDW84qeyQH9c7kx1WnAjqAU9YoC7S1Ncjo",
+  authDomain: "metalpromet-lfqbkw45k5w.firebaseapp.com",
+  projectId: "metalpromet-lfqbkw45k5w",
+  storageBucket: "metalpromet-lfqbkw45k5w.firebasestorage.app",
+  messagingSenderId: "594190123905",
+  appId: "1:594190123905:web:16de4aa1bdaf5be5cc1e80",
 };
 
 // Initialize Firebase
