@@ -1,104 +1,131 @@
 # =============================================================================
-# Nuxt (Static / Prerendered) + SPA Fallback — hardened .htaccess
-# - Serves generated static files (.output/public → your web root)
-# - Uses prerendered HTML when it exists (/about -> /about/index.html or /about.html)
-# - Falls back to SPA routing (index.html) for unknown routes
-# - Blocks common sensitive files/folders
+# 🔧 OPTIMIZED .htaccess - PHP SUPPORT FIXED
 # =============================================================================
 
-DirectoryIndex index.html
+# 🐘 PHP Handler (cPanel - DO NOT EDIT)
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+
+# =============================================================================
+# 🚀 NUXT STATIC APP + PHP SUPPORT
+# =============================================================================
+
+DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Redirect root "/" → "/sr"
-  RewriteCond %{REQUEST_URI} ^/?$
-  RewriteRule ^$ /sr [R=301,L]
+  # ──────────────────────────────────────────────────────────────
+  # 🐘 1. PHP FILES - HIGHEST PRIORITY (MUST COME FIRST)
+  # ──────────────────────────────────────────────────────────────
+  # ⚠️ CRITICAL: This prevents PHP files from being redirected
+  # to index.html by the SPA fallback rule
 
-  # ---------------------------------------------------------------------------
-  # 0) Basic hardening
-  # ---------------------------------------------------------------------------
+  # If request is for a PHP file that exists, serve it directly
+  RewriteCond %{REQUEST_FILENAME} \.php$ [NC]
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
 
-  # Prevent path traversal-ish requests
-  RewriteCond %{THE_REQUEST} \.\. [NC,OR]
-  RewriteCond %{REQUEST_URI} \.\. [NC]
-  RewriteRule ^ - [F,L]
-
-  # Block hidden files & directories (dotfiles)
-  RewriteRule (^|/)\. - [F,L]
-
-  # Block common sensitive file extensions
-  RewriteRule \.(?:env|ini|log|bak|old|swp|sql|sqlite|sqlite3|yml|yaml|toml|jsonl|lock|pem|key|crt|p12|pfx|asc)$ - [F,L,NC]
-
-  # Block common sensitive filenames
-  RewriteRule ^(?:composer\.(?:json|lock)|package(?:-lock)?\.json|pnpm-lock\.yaml|yarn\.lock|\.htaccess|\.htpasswd)$ - [F,L,NC]
-
-  # Block sensitive folders (adjust to your deploy)
-  RewriteRule ^(?:node_modules|\.nuxt|\.output|\.nitro|storage|vendor|tests|private|backup|backups|tmp|temp)/ - [F,L,NC]
-
-  # Optional: block source maps in production (uncomment if desired)
-  # RewriteRule \.map$ - [F,L,NC]
-
-  # ---------------------------------------------------------------------------
-  # 1) Serve existing files/directories as-is (PRIORITET 1)
-  # ---------------------------------------------------------------------------
+  # ──────────────────────────────────────────────────────────────
+  # 📁 2. SERVE EXISTING FILES & DIRECTORIES
+  # ──────────────────────────────────────────────────────────────
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # ---------------------------------------------------------------------------
-  # 2) Nuxt statičke rute (prerendered HTML) - PRIORITET 2
-  # ---------------------------------------------------------------------------
+  # ──────────────────────────────────────────────────────────────
+  # 📄 3. PRERENDERED HTML ROUTES (Nuxt Static)
+  # ──────────────────────────────────────────────────────────────
 
-  # Ako je ruta bez ekstenzije i postoji /route.html → serve it
-  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$  [NC]
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.+)$ $1.html [L]
+  # Handle /sr/ and /sr/anything → /sr/index.html
+  RewriteCond %{REQUEST_URI} ^/sr(/|$) [NC]
+  RewriteRule ^sr/(.*)$ /sr/index.html [L]
 
-  # Ako je ruta bez ekstenzije i postoji /route/index.html → serve it
-  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$  [NC]
+  # Check for /route/index.html
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$ [NC]
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.+)$ $1/index.html [L]
 
-  # ---------------------------------------------------------------------------
-  # 3) Fallback na .html (samo ako statička Nuxt ruta ne postoji) - PRIORITET 3
-  # ---------------------------------------------------------------------------
-  # Ovo je ZADNJA šansa za .html prije SPA fallbacka
-  # Provjerava da li postoji fajl s .html ekstenzijom za putanje bez ekstenzije
-  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$  [NC]
-  RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  # Check for /route.html (after index.html check)
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$ [NC]
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
 
-  # ---------------------------------------------------------------------------
-  # 4) SPA fallback (Nuxt client-side routing) - PRIORITET 4 (ZADNJI)
-  # ---------------------------------------------------------------------------
-  # Ako ništa nije match-ano (nema fajl/dir, nema prerendered HTML, nema .html fallback)
-  # šalji na index.html za SPA routing
+  # ──────────────────────────────────────────────────────────────
+  # 🎯 4. SPA FALLBACK (Client-Side Routing)
+  # ──────────────────────────────────────────────────────────────
+  # ⚠️ IMPORTANT: This MUST be the LAST rule
+  # Only executed if no static file, HTML file, or PHP file exists
   RewriteRule ^ index.html [L]
 </IfModule>
 
+# =============================================================================
+# 🔐 HEADERS & CACHING
+# =============================================================================
+
 <IfModule mod_headers.c>
-  # Basic security headers (safe defaults). Adjust CSP for your site if needed.
+  # Security headers
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-</IfModule>
 
-<IfModule mod_mime.c>
-  # Ensure proper JS MIME (some shared hosts misconfigure)
-  AddType application/javascript .js
+  # Cache static assets aggressively
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp|avif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Cache HTML files moderately
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # No cache for data files
+  <FilesMatch "\.(json|xml|txt)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+
+  # PHP files: Disable caching
+  <FilesMatch "\.(php|php8|phtml)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </FilesMatch>
 </IfModule>
 
 # =============================================================================
-# Notes:
-# - Place this in web root (where index.html lives).
-# - For Nuxt SSG output, deploy `.output/public/*` to the web root.
-#
-# Priorities for routes without extension (e.g., /demo):
-#   1. Existing file or directory (serve as-is)
-#   2. /demo.html (Nuxt prerendered static route)
-#   3. /demo/index.html (Nuxt prerendered static route with subdir)
-#   4. /demo.html (fallback - if file exists but wasn't caught as Nuxt route)
-#   5. index.html (SPA fallback - client-side routing)
+# 📁 PHP FILES - SPECIFIC CONFIG
+# =============================================================================
+
+<FilesMatch "\.(php|php8|phtml)$">
+    # Allow PHP files
+    Require all granted
+
+    # Ensure PHP handler is applied
+    SetHandler application/x-httpd-ea-php82
+
+    # Disable caching
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+</FilesMatch>
+
+# =============================================================================
+# 🗜️ COMPRESSION
+# =============================================================================
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml application/rss+xml image/svg+xml font/woff2 application/x-httpd-php
+</IfModule>
+
+# =============================================================================
+# 🛡️ SECURITY BLOCKING (Optional - Removed to avoid false positives)
+# =============================================================================
+# The security blocking rules have been removed to prevent false 403 errors.
+# If you need them, add them back carefully with proper whitelisting.
+# =============================================================================
+
+# =============================================================================
+# 📌 END OF CONFIGURATION
 # =============================================================================
