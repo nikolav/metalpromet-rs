@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <div class="page--demo app-container-reset">
+  <AppBoxPageWrap class="page--demo">
     <h2 class="text-center">strana:demo ⚙</h2>
     <AppUtilVuetifyConfig />
-  </div>
+  </AppBoxPageWrap>
 </template>
 
 <!-- scoped component styles, default -->

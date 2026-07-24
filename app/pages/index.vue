@@ -18,10 +18,10 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="app-container-reset page--index">
+  <AppBoxPageWrap class="page--index">
     <h2 class="text-center">strana:home 🏠</h2>
     <AppCardMetalprometInfo />
-  </div>
+  </AppBoxPageWrap>
 </template>
 
 <!-- scoped component styles, default -->

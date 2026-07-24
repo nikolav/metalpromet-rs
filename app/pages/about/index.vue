@@ -26,12 +26,12 @@ onNuxtReady(async () => {
 // @@eos
 </script>
 <template>
-  <div class="app-container-reset page--about">
+  <AppBoxPageWrap class="page--about">
     <h2 class="text-center">strana:o-nama 📃</h2>
     <small>
       <pre>{{ logsMain.data }}</pre>
     </small>
-  </div>
+  </AppBoxPageWrap>
 </template>
 <style lang="scss" scoped></style>
 <style module></style>
