@@ -19,7 +19,7 @@ const toggleNavMenu = useToggleFlag();
     <template v-if="!d.smAndUp.value">
       <VAppBarNavIcon variant="plain" @click="toggleNavMenu" />
       <AppOverlayScreen v-model="toggleNavMenu.isActive.value">
-        <div class="d-flex justify-center">
+        <div class="d-flex justify-center pa-2">
           <AppNavLine @click="toggleNavMenu.off" />
         </div>
       </AppOverlayScreen>
