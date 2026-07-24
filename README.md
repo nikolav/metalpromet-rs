@@ -1,15 +1,5 @@
 # metalpromet.rs
 
-## Pregled
-
-**Metalpromet Mladenovac** -- proizvodnja metalnih profila za građevinu.
-
-**Vlasnik:** Dušan Milenković\
-**E-mail:** dusan.milenkovic@metalpromet.rs\
-**Kancelarija:** office@metalpromet.rs
-
-------------------------------------------------------------------------
-
 ## Tehnološki stek
 
 ### Frontend
