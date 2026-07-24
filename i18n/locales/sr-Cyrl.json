@@ -1,0 +1,18 @@
+{
+  "message": {
+    "welcome": "Добродошли",
+    "hello": "Здраво"
+  },
+  "pages": {
+    "index": {
+      "title": "страна:добродошли",
+      "description": "страна:добродошли:опис"
+    },
+    "about": {
+      "title": "страна:о-нама",
+      "description": "страна:о-нама:опис"
+    }
+  },
+  "Zdravo Svete!": "@:message.hello Свете!",
+  "Danas je lepo vreme.": "Данас је лепо време."
+}

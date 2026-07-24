@@ -1,0 +1,16 @@
+{
+  "message": {
+    "welcome": "Dobrodošli",
+    "hello": "Zdravo"
+  },
+  "pages": {
+    "index": {
+      "title": "strana:dobrodosli",
+      "description": "strana:dobrodosli:opis"
+    },
+    "about": {
+      "title": "strana:o-nama",
+      "description": "strana:o-nama:opis"
+    }
+  }
+}
