@@ -8,13 +8,9 @@
 </script>
 
 <template>
-  <AppBoxBase class="component--AppNavLine inline-flex gap-2">
-    <NuxtLinkLocale :to="{ name: 'demo' }">demo</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'index' }">home</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'about' }">about</NuxtLinkLocale>
-  </AppBoxBase>
+  <span class="app-container-reset--inline component--AppBoxBaseInline">
+    <slot />
+  </span>
 </template>
 
 <!-- scoped component styles -->
