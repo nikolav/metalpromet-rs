@@ -3,9 +3,10 @@
 </script>
 
 <template>
-  <AppBoxBase class="page--demo">
-    <h2>page:demo</h2>
-  </AppBoxBase>
+  <div class="page--demo app-container-reset">
+    <h2 class="text-center">strana:demo ⚙</h2>
+    <AppUtilVuetifyConfig />
+  </div>
 </template>
 
 <!-- scoped component styles, default -->

@@ -272,3 +272,4 @@ Dockerfile.dev
 ga-debug.log
 # New Relic
 newrelic_agent.log
+dist

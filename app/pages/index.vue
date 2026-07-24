@@ -19,7 +19,8 @@ definePageMeta({
 
 <template>
   <div class="app-container-reset page--index">
-    <h2>page:home</h2>
+    <h2 class="text-center">strana:home 🏠</h2>
+    <AppCardMetalprometInfo />
   </div>
 </template>
 

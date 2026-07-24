@@ -147,8 +147,8 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport:
         "width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1",
-      title: "nuxtapp | petrol.nikolav.rs",
-      titleTemplate: "%s | petrol.nikolav.rs",
+      title: "metalpromet.rs",
+      titleTemplate: "%s | metalpromet.rs",
       meta: [
         { name: "description", content: "NuxtApp --starter" },
         { name: "theme-color", content: "#fafafa" },

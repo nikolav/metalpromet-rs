@@ -1,5 +1,5 @@
 # =============================================================================
-# 🔧 OPTIMIZED .htaccess - PHP SUPPORT FIXED
+# 🔧 OPTIMIZED .htaccess - NUXT STATIC + PHP SUPPORT FIXED
 # =============================================================================
 
 # 🐘 PHP Handler (cPanel - DO NOT EDIT)
@@ -17,46 +17,55 @@ DirectoryIndex index.html index.php
   RewriteEngine On
 
   # ──────────────────────────────────────────────────────────────
-  # 🐘 1. PHP FILES - HIGHEST PRIORITY (MUST COME FIRST)
+  # 🌐 1. DEFAULT REDIRECT: / → /sr (HIGHEST PRIORITY)
   # ──────────────────────────────────────────────────────────────
-  # ⚠️ CRITICAL: This prevents PHP files from being redirected
-  # to index.html by the SPA fallback rule
+  # Redirect root (and only root) to /sr/
+  RewriteRule ^$ /sr/ [L,R=301]
 
+  # ──────────────────────────────────────────────────────────────
+  # 🐘 2. PHP FILES - SERVE DIRECTLY
+  # ──────────────────────────────────────────────────────────────
   # If request is for a PHP file that exists, serve it directly
   RewriteCond %{REQUEST_FILENAME} \.php$ [NC]
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
   # ──────────────────────────────────────────────────────────────
-  # 📁 2. SERVE EXISTING FILES & DIRECTORIES
+  # 📁 3. SERVE EXISTING FILES & DIRECTORIES
   # ──────────────────────────────────────────────────────────────
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
   # ──────────────────────────────────────────────────────────────
-  # 📄 3. PRERENDERED HTML ROUTES (Nuxt Static)
+  # 📄 4. PRERENDERED HTML ROUTES (Nuxt Static)
   # ──────────────────────────────────────────────────────────────
 
-  # Handle /sr/ and /sr/anything → /sr/index.html
+  # Handle /sr/ routes → /sr/index.html
+  # This catches /sr, /sr/, /sr/anything, /sr/anything/
   RewriteCond %{REQUEST_URI} ^/sr(/|$) [NC]
-  RewriteRule ^sr/(.*)$ /sr/index.html [L]
+  RewriteRule ^sr(/.*)?$ /sr/index.html [L]
 
-  # Check for /route/index.html
+  # Handle sub-routes: /about → /about/index.html (if exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$ [NC]
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^(.+)$ $1/index.html [L]
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
 
-  # Check for /route.html (after index.html check)
+  # Handle sub-routes: /about → /about.html (if exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$ [NC]
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.+)$ $1.html [L]
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)$ $1.html [L]
 
   # ──────────────────────────────────────────────────────────────
-  # 🎯 4. SPA FALLBACK (Client-Side Routing)
+  # 🎯 5. SPA FALLBACK (Client-Side Routing)
   # ──────────────────────────────────────────────────────────────
   # ⚠️ IMPORTANT: This MUST be the LAST rule
   # Only executed if no static file, HTML file, or PHP file exists
+  # Redirect to root index.html (which will handle client-side routing)
   RewriteRule ^ index.html [L]
 </IfModule>
 
@@ -118,13 +127,6 @@ DirectoryIndex index.html index.php
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml application/rss+xml image/svg+xml font/woff2 application/x-httpd-php
 </IfModule>
-
-# =============================================================================
-# 🛡️ SECURITY BLOCKING (Optional - Removed to avoid false positives)
-# =============================================================================
-# The security blocking rules have been removed to prevent false 403 errors.
-# If you need them, add them back carefully with proper whitelisting.
-# =============================================================================
 
 # =============================================================================
 # 📌 END OF CONFIGURATION
