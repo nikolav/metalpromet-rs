@@ -26,7 +26,7 @@ definePageMeta({
 
 <template>
   <AppBoxPageWrap class="page--dashboard">
-    <h2 class="text-center">page:dashboard 🔧</h2>
+    <h2 class="text-center">page:dashboard 🚧</h2>
   </AppBoxPageWrap>
 </template>
 

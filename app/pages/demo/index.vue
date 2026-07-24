@@ -4,7 +4,7 @@
 
 <template>
   <AppBoxPageWrap class="page--demo">
-    <h2 class="text-center">strana:demo ⚙</h2>
+    <h2 class="text-center">strana:demo 🚧</h2>
     <AppUtilVuetifyConfig />
   </AppBoxPageWrap>
 </template>

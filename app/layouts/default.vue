@@ -2,10 +2,8 @@
 // @@eos
 </script>
 <template>
+  <AppNavAppBar />
   <VMain>
-    <div class="d-flex justify-center">
-      <AppNavLine />
-    </div>
     <slot />
   </VMain>
 </template>

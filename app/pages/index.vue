@@ -19,7 +19,6 @@ definePageMeta({
 
 <template>
   <AppBoxPageWrap class="page--index">
-    <h2 class="text-center">strana:home 🏠</h2>
     <AppCardMetalprometInfo />
   </AppBoxPageWrap>
 </template>

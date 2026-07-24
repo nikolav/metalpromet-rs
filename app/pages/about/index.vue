@@ -27,7 +27,7 @@ onNuxtReady(async () => {
 </script>
 <template>
   <AppBoxPageWrap class="page--about">
-    <h2 class="text-center">strana:o-nama 📃</h2>
+    <h2 class="text-center">strana:o-nama 🚧</h2>
     <small>
       <pre>{{ logsMain.data }}</pre>
     </small>
