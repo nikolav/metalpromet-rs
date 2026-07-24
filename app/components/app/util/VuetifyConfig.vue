@@ -7,83 +7,81 @@ const rating = ref(4);
 
 <template>
   <AppBoxBase
-    class="component--AppUtilVuetifyConfig min-h-screen bg-gray-50 p-6 font-sans"
+    class="component--AppUtilVuetifyConfig min-h-screen bg-grey-lighten-4 p-6 font-sans"
   >
     <!-- Glavni kontejner -->
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <div class="mb-8">
-        <h1 class="text-4xl font-bold text-primary-600 flex items-center gap-3">
+        <h1 class="text-4xl font-bold flex items-center gap-3">
           <span class="text-4xl">⚡</span>
           Vuetify 3 · Nuxt 3 demo
         </h1>
-        <p class="text-gray-600 mt-2 text-lg">
+        <p class="text-grey-darken-2 mt-2 text-lg">
           Brzi pregled stilova, tema i nosećih Vuetify komponenti
         </p>
-        <div class="h-px bg-gray-200 mt-4"></div>
+        <div class="h-px bg-grey-lighten-2 mt-4"></div>
       </div>
 
       <!-- Sekcija: Tipografija i boje -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h2 class="text-xl font-semibold mb-4 text-gray-800">
+          <h2 class="text-xl font-semibold mb-4 text-grey-darken-3">
             🎨 Tipografija & boje
           </h2>
           <div class="space-y-2">
-            <div class="text-4xl font-bold text-primary-600">h4 · primary</div>
-            <div class="text-3xl font-semibold text-secondary-600">
+            <div class="text-4xl font-bold text-primary">h4 · primary</div>
+            <div class="text-3xl font-semibold text-secondary">
               h5 · secondary
             </div>
-            <div class="text-2xl font-semibold text-success-600">
-              h6 · success
-            </div>
-            <div class="text-xl text-warning-600">subtitle-1 · warning</div>
-            <div class="text-base text-info-600">body-1 · info</div>
-            <div class="text-sm text-error-600">body-2 · error</div>
-            <div class="text-xs text-gray-500">caption · grey</div>
+            <div class="text-2xl font-semibold text-success">h6 · success</div>
+            <div class="text-xl text-warning">subtitle-1 · warning</div>
+            <div class="text-base text-info">body-1 · info</div>
+            <div class="text-sm text-error">body-2 · error</div>
+            <div class="text-xs text-grey-darken-1">caption · grey</div>
           </div>
-          <div class="h-px bg-gray-200 my-4"></div>
+          <div class="h-px bg-grey-lighten-2 my-4"></div>
           <div class="flex flex-wrap gap-3">
             <div
-              class="w-16 h-16 rounded-lg bg-primary-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-primary flex items-center justify-center text-white text-xs font-medium shadow"
             >
               primary
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-secondary-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-secondary flex items-center justify-center text-white text-xs font-medium shadow"
             >
               secondary
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-success-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-success flex items-center justify-center text-white text-xs font-medium shadow"
             >
               success
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-warning-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-warning flex items-center justify-center text-white text-xs font-medium shadow"
             >
               warning
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-info-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-info flex items-center justify-center text-white text-xs font-medium shadow"
             >
               info
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-error-600 flex items-center justify-center text-white text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-error flex items-center justify-center text-white text-xs font-medium shadow"
             >
               error
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-white border border-gray-300 flex items-center justify-center text-gray-700 text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-surface border border-grey-lighten-2 flex items-center justify-center text-grey-darken-3 text-xs font-medium shadow"
             >
               surface
             </div>
             <div
-              class="w-16 h-16 rounded-lg bg-gray-50 border border-gray-300 flex items-center justify-center text-gray-700 text-xs font-medium shadow"
+              class="w-16 h-16 rounded-lg bg-grey-lighten-5 border border-grey-lighten-2 flex items-center justify-center text-grey-darken-3 text-xs font-medium shadow"
             >
               bg
             </div>
@@ -92,13 +90,13 @@ const rating = ref(4);
 
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h2 class="text-xl font-semibold mb-4 text-gray-800">
+          <h2 class="text-xl font-semibold mb-4 text-grey-darken-3">
             ⚙️ Tema konfiguracija
           </h2>
           <div
-            class="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto"
+            class="bg-grey-darken-4 text-grey-lighten-1 p-4 rounded-lg font-mono text-sm overflow-x-auto"
           >
             <pre
               class="whitespace-pre-wrap"
@@ -128,13 +126,13 @@ const rating = ref(4);
             <VChip
               color="primary"
               size="small"
-              class="bg-primary-600 text-white px-3 py-1 rounded-full text-xs"
+              class="bg-primary text-white px-3 py-1 rounded-full text-xs"
               >light tema</VChip
             >
             <VChip
               color="secondary"
               size="small"
-              class="bg-secondary-600 text-white px-3 py-1 rounded-full text-xs"
+              class="bg-secondary text-white px-3 py-1 rounded-full text-xs"
               >podrazumevana</VChip
             >
           </div>
@@ -142,69 +140,39 @@ const rating = ref(4);
       </div>
 
       <!-- Sekcija: Noseće komponente -->
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      <h2 class="text-2xl font-bold text-grey-darken-3 mb-4">
         🧰 Noseće Vuetify komponente
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <!-- Dugmad -->
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h3 class="text-lg font-semibold mb-3 text-gray-700">🔘 Dugmad</h3>
+          <h3 class="text-lg font-semibold mb-3 text-grey-darken-2">
+            🔘 Dugmad
+          </h3>
           <div class="flex flex-wrap gap-2">
-            <VBtn
-              color="primary"
-              variant="flat"
-              class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm"
-              >primarni</VBtn
-            >
-            <VBtn
-              color="secondary"
-              variant="outlined"
-              class="border-secondary-600 text-secondary-600 px-4 py-2 rounded-lg text-sm"
-              >outline</VBtn
-            >
-            <VBtn
-              color="success"
-              variant="elevated"
-              class="bg-success-600 text-white px-4 py-2 rounded-lg text-sm shadow"
-              >elevated</VBtn
-            >
-            <VBtn
-              color="warning"
-              variant="text"
-              class="text-warning-600 px-4 py-2 rounded-lg text-sm"
-              >text</VBtn
-            >
-            <VBtn
-              color="error"
-              size="small"
-              class="text-error-600 p-1 rounded-full"
-            >
+            <VBtn color="primary" variant="flat">primarni</VBtn>
+            <VBtn color="secondary" variant="outlined">outline</VBtn>
+            <VBtn color="success" variant="elevated">elevated</VBtn>
+            <VBtn color="warning" variant="text">text</VBtn>
+            <VBtn color="error" size="small" icon>
               <span class="text-lg">❤️</span>
             </VBtn>
-            <VBtn
-              color="info"
-              disabled
-              class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm cursor-not-allowed"
-              >disabled</VBtn
-            >
-            <VBtn
-              color="primary"
-              variant="tonal"
-              class="bg-primary-100 text-primary-600 px-4 py-2 rounded-lg text-sm"
-              >tonal</VBtn
-            >
+            <VBtn color="info" disabled>disabled</VBtn>
+            <VBtn color="primary" variant="tonal">tonal</VBtn>
           </div>
         </VCard>
 
         <!-- Forma -->
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h3 class="text-lg font-semibold mb-3 text-gray-700">✏️ Forma</h3>
+          <h3 class="text-lg font-semibold mb-3 text-grey-darken-2">
+            ✏️ Forma
+          </h3>
           <VTextField
             label="Ime"
             variant="outlined"
@@ -230,58 +198,54 @@ const rating = ref(4);
             density="compact"
             class="mb-3"
           />
-          <VBtn
-            color="primary"
-            variant="flat"
-            block
-            class="bg-primary-600 text-white py-2 rounded-lg"
-            >Pošalji</VBtn
-          >
+          <VBtn color="primary" variant="flat" block>Pošalji</VBtn>
         </VCard>
 
         <!-- Tabela -->
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h3 class="text-lg font-semibold mb-3 text-gray-700">📊 Tabela</h3>
+          <h3 class="text-lg font-semibold mb-3 text-grey-darken-2">
+            📊 Tabela
+          </h3>
           <VTable density="compact" hover class="w-full text-sm">
             <thead>
-              <tr class="bg-gray-50">
+              <tr class="bg-grey-lighten-5">
                 <th class="text-left p-2">Ime</th>
                 <th class="text-left p-2">Status</th>
                 <th class="text-left p-2">Akcija</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="border-b border-gray-100">
+              <tr class="border-b border-grey-lighten-2">
                 <td class="p-2">Ana</td>
                 <td class="p-2">
                   <VChip
                     color="success"
                     size="x-small"
-                    class="bg-success-600 text-white px-2 py-0.5 rounded-full text-xs"
+                    class="bg-success text-white px-2 py-0.5 rounded-full text-xs"
                     >aktivan</VChip
                   >
                 </td>
                 <td class="p-2">
-                  <VBtn size="x-small" variant="text" class="text-gray-500">
+                  <VBtn size="x-small" variant="text" icon>
                     <span class="text-sm">✏️</span>
                   </VBtn>
                 </td>
               </tr>
-              <tr class="border-b border-gray-100">
+              <tr class="border-b border-grey-lighten-2">
                 <td class="p-2">Marko</td>
                 <td class="p-2">
                   <VChip
                     color="warning"
                     size="x-small"
-                    class="bg-warning-600 text-white px-2 py-0.5 rounded-full text-xs"
+                    class="bg-warning text-white px-2 py-0.5 rounded-full text-xs"
                     >čekanje</VChip
                   >
                 </td>
                 <td class="p-2">
-                  <VBtn size="x-small" variant="text" class="text-gray-500">
+                  <VBtn size="x-small" variant="text" icon>
                     <span class="text-sm">✏️</span>
                   </VBtn>
                 </td>
@@ -292,12 +256,12 @@ const rating = ref(4);
                   <VChip
                     color="error"
                     size="x-small"
-                    class="bg-error-600 text-white px-2 py-0.5 rounded-full text-xs"
+                    class="bg-error text-white px-2 py-0.5 rounded-full text-xs"
                     >neaktivan</VChip
                   >
                 </td>
                 <td class="p-2">
-                  <VBtn size="x-small" variant="text" class="text-gray-500">
+                  <VBtn size="x-small" variant="text" icon>
                     <span class="text-sm">✏️</span>
                   </VBtn>
                 </td>
@@ -309,21 +273,21 @@ const rating = ref(4);
               color="primary"
               variant="flat"
               size="small"
-              class="bg-primary-600 text-white px-3 py-1 rounded-full text-xs"
+              class="bg-primary text-white px-3 py-1 rounded-full text-xs"
               >filter</VChip
             >
             <VChip
               color="secondary"
               variant="outlined"
               size="small"
-              class="border-secondary-600 text-secondary-600 px-3 py-1 rounded-full text-xs"
+              class="border-secondary text-secondary px-3 py-1 rounded-full text-xs"
               >svi</VChip
             >
             <VChip
               color="success"
               variant="tonal"
               size="small"
-              class="bg-success-100 text-success-600 px-3 py-1 rounded-full text-xs"
+              class="bg-success-lighten-5 text-success px-3 py-1 rounded-full text-xs"
               >aktuelni</VChip
             >
           </div>
@@ -334,33 +298,26 @@ const rating = ref(4);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h3 class="text-lg font-semibold mb-3 text-gray-700">
+          <h3 class="text-lg font-semibold mb-3 text-grey-darken-2">
             📌 Dodatni elementi
           </h3>
           <VAlert
             type="success"
             variant="tonal"
-            class="mb-3 p-3 bg-green-50 border-l-4 border-success-600 rounded"
+            class="mb-3 p-3 bg-success-lighten-5 border-l-4 border-success rounded"
           >
-            <strong class="text-success-600">✅ Uspeh!</strong> Radnja je
-            izvršena.
+            <strong class="text-success">✅ Uspeh!</strong> Radnja je izvršena.
           </VAlert>
           <VAlert
             type="warning"
             variant="outlined"
-            class="mb-3 p-3 border-warning-600 border rounded"
+            class="mb-3 p-3 border-warning rounded"
           >
             ⚠️ Upozorenje: proverite unos.
           </VAlert>
-          <VProgressLinear
-            indeterminate
-            color="primary"
-            class="h-1 bg-gray-200 rounded-full overflow-hidden mt-3"
-          >
-            <div class="h-full bg-primary-600 animate-pulse"></div>
-          </VProgressLinear>
+          <VProgressLinear indeterminate color="primary" class="mt-3" />
           <div class="flex items-center gap-3 mt-3">
             <span class="text-2xl">🏠</span>
             <span class="text-2xl">👤</span>
@@ -371,7 +328,7 @@ const rating = ref(4);
             <div class="relative">
               <span class="text-2xl">🔔</span>
               <span
-                class="absolute -top-1 -right-1 bg-error-600 text-white text-xs rounded-full px-1.5 py-0.5"
+                class="absolute -top-1 -right-1 bg-error text-white text-xs rounded-full px-1.5 py-0.5"
                 >3</span
               >
             </div>
@@ -386,34 +343,22 @@ const rating = ref(4);
 
         <VCard
           variant="outlined"
-          class="p-4 rounded-xl shadow-sm border border-gray-200"
+          class="p-4 rounded-xl shadow-sm border border-grey-lighten-2"
         >
-          <h3 class="text-lg font-semibold mb-3 text-gray-700">
+          <h3 class="text-lg font-semibold mb-3 text-grey-darken-2">
             📐 Layout & navigacija
           </h3>
           <VTabs
             v-model="tab"
             color="primary"
             align-tabs="center"
-            class="mb-2 border-b border-gray-200"
+            class="mb-2 border-b border-grey-lighten-2"
           >
-            <VTab
-              value="1"
-              class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600"
-              >📄 Tab 1</VTab
-            >
-            <VTab
-              value="2"
-              class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600"
-              >⚙️ Tab 2</VTab
-            >
-            <VTab
-              value="3"
-              class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600"
-              >🔧 Tab 3</VTab
-            >
+            <VTab value="1">📄 Tab 1</VTab>
+            <VTab value="2">⚙️ Tab 2</VTab>
+            <VTab value="3">🔧 Tab 3</VTab>
           </VTabs>
-          <VWindow v-model="tab" class="mt-2 p-3 bg-gray-50 rounded-lg">
+          <VWindow v-model="tab" class="mt-2 p-3 bg-grey-lighten-5 rounded-lg">
             <VWindowItem value="1"
               >Sadržaj prvog taba – osnovne informacije.</VWindowItem
             >
@@ -422,57 +367,34 @@ const rating = ref(4);
             >
             <VWindowItem value="3">Treći tab – dodatne opcije.</VWindowItem>
           </VWindow>
-          <div class="h-px bg-gray-200 my-3"></div>
-          <VBtnToggle
-            v-model="toggle"
-            divided
-            color="primary"
-            group
-            class="flex gap-1"
-          >
-            <VBtn
-              value="left"
-              class="p-2 rounded border border-gray-300 hover:bg-primary-50"
-            >
+          <div class="h-px bg-grey-lighten-2 my-3"></div>
+          <VBtnToggle v-model="toggle" divided color="primary" group>
+            <VBtn value="left" variant="outlined">
               <span class="text-lg">⬅️</span>
             </VBtn>
-            <VBtn
-              value="center"
-              class="p-2 rounded border border-gray-300 hover:bg-primary-50"
-            >
+            <VBtn value="center" variant="outlined">
               <span class="text-lg">⬛</span>
             </VBtn>
-            <VBtn
-              value="right"
-              class="p-2 rounded border border-gray-300 hover:bg-primary-50"
-            >
+            <VBtn value="right" variant="outlined">
               <span class="text-lg">➡️</span>
             </VBtn>
           </VBtnToggle>
-          <div class="h-px bg-gray-200 my-3"></div>
+          <div class="h-px bg-grey-lighten-2 my-3"></div>
           <VPagination
             v-model="page"
             :length="5"
             rounded="circle"
             size="small"
-            class="flex gap-1"
-          >
-            <template #item="{ page }">
-              <button
-                class="w-8 h-8 rounded-full border border-gray-300 hover:bg-primary-50 text-sm"
-              >
-                {{ page }}
-              </button>
-            </template>
-          </VPagination>
+            color="primary"
+          />
         </VCard>
       </div>
 
       <!-- Footer -->
       <div
-        class="border-t border-gray-200 pt-4 flex flex-wrap justify-between items-center"
+        class="border-t border-grey-lighten-2 pt-4 flex flex-wrap justify-between items-center"
       >
-        <span class="text-sm text-gray-500"
+        <span class="text-sm text-grey-darken-1"
           >Vuetify 3 · Nuxt 3 · Tailwind CSS</span
         >
         <div class="flex gap-2">
@@ -480,14 +402,14 @@ const rating = ref(4);
             color="primary"
             size="small"
             variant="outlined"
-            class="border-primary-600 text-primary-600 px-3 py-1 rounded-full text-xs"
+            class="border-primary text-primary px-3 py-1 rounded-full text-xs"
             >v3.7.4</VChip
           >
           <VChip
             color="secondary"
             size="small"
             variant="text"
-            class="text-gray-500 px-3 py-1 rounded-full text-xs"
+            class="text-grey-darken-1 px-3 py-1 rounded-full text-xs"
             >CDN</VChip
           >
         </div>
