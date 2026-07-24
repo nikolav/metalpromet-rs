@@ -1,7 +1,5 @@
 # metalpromet.rs
 
-## Tehnološki stek
-
 ### Frontend
 
 -   Nuxt 4.2 (SSR)
