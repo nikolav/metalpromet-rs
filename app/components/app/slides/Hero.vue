@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDisplay } from "vuetify";
 import SLIDES from "~/assets/hero-slides.json";
 
 defineOptions({
@@ -15,6 +16,8 @@ const props = withDefaults(
   },
 );
 
+const d = useDisplay();
+
 const { $$ } = useNuxtApp();
 
 const slides = $$.shuffle(SLIDES);
@@ -23,7 +26,12 @@ const slides = $$.shuffle(SLIDES);
 </script>
 
 <template>
-  <AppGridStacked class="component-AppSlidesHero">
+  <AppGridStacked
+    class="component-AppSlidesHero"
+    :props-stack="{
+      class: 'flex flex-col justify-between',
+    }"
+  >
     <VCarousel
       cycle
       :interval="props.interval"
@@ -43,11 +51,38 @@ const slides = $$.shuffle(SLIDES);
       />
     </VCarousel>
 
-    <template #overlay>
-      <h1 class="!bg-white/20">🚧 :slajdovi :hero</h1>
-      <div>
-        <p>Od ideje do realizacije, sve na jednom mestu!</p>
-      </div>
+    <template #stack>
+      <VCard
+        color="rgba(var(--v-theme-primary-variant), .82)"
+        tile
+        elevation="1"
+        class="!grow-0 !text-v-on-primary"
+      >
+        <VCardText class="text-center">
+          <h1>
+            Metal-Promet
+            <template v-if="d.smAndUp.value">
+              - <em>Od ideje do realizacije.</em></template
+            >
+          </h1>
+          <template v-if="d.smAndUp.value">
+            <p class="text-body-1 max-w-md mx-auto">
+              Nemojte tražiti bravara, farbera i projektanta posebno. <br />
+              Mi smo sve to na jednom mestu!
+            </p>
+          </template>
+        </VCardText>
+      </VCard>
+      <VCardActions
+        class="!grow-0"
+        :class="[d.smAndUp.value ? 'mb-20' : 'mb-5']"
+      >
+        <VSpacer />
+        <AppVBtn size="x-large" color="primary-variant"
+          >Zatražite ponudu</AppVBtn
+        >
+        <VSpacer />
+      </VCardActions>
     </template>
   </AppGridStacked>
 </template>
