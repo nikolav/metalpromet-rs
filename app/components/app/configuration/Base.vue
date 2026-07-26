@@ -2,6 +2,7 @@
 import { useIO } from "~/composables/io/use-io";
 import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
 import { onDebug } from "~/utils/on-debug";
+import PRELOAD_IMAGES from "~/assets/preload-images.json";
 
 // @broadcast:health.ping log
 useOnceMounted([], () => {
@@ -14,6 +15,16 @@ useOnceMounted([], () => {
       ch.stopListeningToAll();
     });
   });
+});
+
+// preload hero images
+useHead({
+  link: PRELOAD_IMAGES.map((src) => ({
+    rel: "preload",
+    as: "image",
+    href: src,
+    fetchpriority: "high",
+  })),
 });
 
 // @@eos

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDisplay } from "vuetify";
+
 definePageMeta({
   layout: "default",
   i18n: {
@@ -14,11 +16,26 @@ definePageMeta({
   },
 });
 
+const d = useDisplay();
+const H = computed(() => (d.smAndUp.value ? 512 : 333));
+
 // @@eos
 </script>
 
 <template>
   <AppBoxPageWrap class="page--index">
+    <AppSlidesHero :height="H" :interval="2222" />
+    <div>
+      <h2>sekcije sajta, @TODO</h2>
+      <ul>
+        <li>HERO</li>
+        <li>kratko o nama</li>
+        <li>delatnoasti</li>
+        <li>radovi (galerija)</li>
+        <li>zašto baš mi? (trust seo)</li>
+        <li>kontakt</li>
+      </ul>
+    </div>
     <AppCardMetalprometInfo />
   </AppBoxPageWrap>
 </template>

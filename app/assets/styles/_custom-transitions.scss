@@ -15,3 +15,31 @@
     transform: translateY(0.22rem);
   }
 }
+
+.app-transition-cross-scale {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+    transition-property: opacity, transform;
+  }
+
+  &-leave-from,
+  &-leave-to {
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &-enter-from,
+    &-leave-to {
+      transform: none;
+    }
+  }
+}

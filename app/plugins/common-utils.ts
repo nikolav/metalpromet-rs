@@ -15,6 +15,7 @@ import pick from "lodash/pick";
 import reduce from "lodash/reduce";
 import sample from "lodash/sample";
 import set from "lodash/set";
+import shuffle from "lodash/shuffle";
 import some from "lodash/some";
 import transform from "lodash/transform";
 import trim from "lodash/trim";
@@ -65,6 +66,7 @@ export default defineNuxtPlugin({
           reduce,
           sample,
           set,
+          shuffle,
           some,
           transform,
           trim,

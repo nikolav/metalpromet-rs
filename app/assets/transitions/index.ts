@@ -1,5 +1,5 @@
 import { createCssTransition } from "vuetify/util/transitions";
 
-export const appTransitionSlideYR = createCssTransition(
+export const AppTransitionSlideYR = createCssTransition(
   "app-transition-slide-y-r",
 );
