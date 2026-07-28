@@ -1,6 +1,14 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
+    "mdi:pencil",
+    "mdi:instagram",
+    "mdi:link-variant",
+    "mdi:link",
+    "mdi:alarm",
+    "mdi:at",
+    "mdi:phone",
+    "mdi:map-marker",
     "mdi:phone-in-talk",
     "mdi:shield",
     "mdi:screwdriver",
