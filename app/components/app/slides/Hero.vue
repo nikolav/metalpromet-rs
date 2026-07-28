@@ -99,7 +99,6 @@ const updateModelValue = (i: unknown) => {
           class="opacity-25 position-absolute top-[50%] -translate-y-[50%] start-5 z-[1]"
         />
         <VCardTitle class="text-shadow-sm">
-          <Iconx icon="mdi:ruler" />
           <em>{{ currentSlide.title }}</em></VCardTitle
         >
         <VCardText v-if="d.smAndUp.value">{{

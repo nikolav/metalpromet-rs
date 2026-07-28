@@ -18,7 +18,7 @@ const toggleNavMenu = useToggleFlag();
 <template>
   <VAppBar
     class="component--AppNavAppBar pe-2"
-    elevation="1"
+    :elevation="d.smAndUp.value ? 1 : 3"
     tile
     :height="$$.config('layout.component.AppNavAppBar.height')!"
   >
