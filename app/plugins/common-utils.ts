@@ -20,6 +20,7 @@ import some from "lodash/some";
 import transform from "lodash/transform";
 import trim from "lodash/trim";
 import trimEnd from "lodash/trimEnd";
+import uniq from "lodash/uniq";
 import unset from "lodash/unset";
 import values from "lodash/values";
 
@@ -71,6 +72,7 @@ export default defineNuxtPlugin({
           transform,
           trim,
           trimEnd,
+          uniq,
           unset,
           values,
           // local

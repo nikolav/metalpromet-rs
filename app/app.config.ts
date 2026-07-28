@@ -61,6 +61,10 @@ export default defineAppConfig({
     default: "default",
     showHeader: true,
     showFooter: true,
+    component: {
+      AppBoxContainerCentered: { maxWidth: 812 },
+      AppNavAppBar: { height: 64 },
+    },
   },
 
   // ---------------------------------------------------------------------------

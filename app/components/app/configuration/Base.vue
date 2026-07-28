@@ -3,6 +3,9 @@ import { useIO } from "~/composables/io/use-io";
 import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
 import { onDebug } from "~/utils/on-debug";
 import PRELOAD_IMAGES from "~/assets/preload-images.json";
+import HERO_SLIDES from "~/assets/hero-slides.json";
+
+const { $$ } = useNuxtApp();
 
 // @broadcast:health.ping log
 useOnceMounted([], () => {
@@ -17,13 +20,30 @@ useOnceMounted([], () => {
   });
 });
 
-// preload hero images
+// preloads
 useHead({
-  link: PRELOAD_IMAGES.map((src) => ({
+  link: $$.uniq([
+    // defaults
+    "/logo.jpg",
+
+    // important
+    ...PRELOAD_IMAGES,
+
+    // hero section images
+    ...HERO_SLIDES.reduce(
+      (res, node) => {
+        if (true === node.show) {
+          res.push(node.src);
+        }
+        return res;
+      },
+      <string[]>[],
+    ),
+  ]).map((src) => ({
+    // fetchpriority: "high",
+    href: src,
     rel: "preload",
     as: "image",
-    href: src,
-    fetchpriority: "high",
   })),
 });
 

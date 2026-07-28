@@ -8,6 +8,7 @@ import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 // });
 
 const d = useDisplay();
+const { $$ } = useNuxtApp();
 
 const toggleNavMenu = useToggleFlag();
 
@@ -15,7 +16,12 @@ const toggleNavMenu = useToggleFlag();
 </script>
 
 <template>
-  <VAppBar class="component--AppNavAppBar pe-2" elevation="1" tile>
+  <VAppBar
+    class="component--AppNavAppBar pe-2"
+    elevation="1"
+    tile
+    :height="$$.config('layout.component.AppNavAppBar.height')!"
+  >
     <template v-if="!d.smAndUp.value">
       <VAppBarNavIcon variant="plain" @click="toggleNavMenu" />
       <AppOverlayScreen v-model="toggleNavMenu.isActive.value">
