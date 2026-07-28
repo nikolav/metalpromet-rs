@@ -16,6 +16,8 @@
     <NuxtLinkLocale :to="{ name: 'about' }">about</NuxtLinkLocale>
     <span> • </span>
     <NuxtLinkLocale :to="{ name: 'dashboard' }">dashboard</NuxtLinkLocale>
+    <span> • </span>
+    <NuxtLinkLocale :to="{ name: 'contact' }">contact</NuxtLinkLocale>
   </AppBoxBase>
 </template>
 

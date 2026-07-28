@@ -58,6 +58,62 @@
 
 ```
 
+## strana 'kontakt'
+```
++----------------------------------------------------------------------------+
+|  [LOGO] Metal-Promet                   [Meni]                             |
++----------------------------------------------------------------------------+
+|                                                                             |
+|  ========================================================================= |
+|  |   KONTAKTIRAJTE NAS                                                    |  <-- H1 NASLOV (Ključno: "Metalne konstrukcije Mladenovac")
+|  |                                                                       |
+|  |   IZRADA METALNIH KONSTRUKCIJA, BRAVARIJA I FARBANJE U MLADENOVCU      |  <-- SEO podnaslov
+|  |                                                                       |
+|  |   *Stojimo vam na raspolaganju za sva pitanja, savete i dogovore       |  <-- Uvodni tekst
+|  |    oko vašeg projekta.*                                               |
+|  |                                                                       |
+|  |   [   POŠALJITE UPIT ZA PONUDU   ]      [   POZOVITE NAS   ]          |  <-- Dva CTA dugmeta
+|  ========================================================================= |
+|                                                                             |
+|  +----------------------------------+  +----------------------------------+ |
+|  |  📍 ADRESA I LOKACIJA           |  |  📞 KONTAKT TELEFONI            | |
+|  |                                  |  |                                  | |
+|  |  Glavna adresa:                  |  |  **064 417 6546**                | |
+|  |  Metal-Promet doo                |  |  **011/XXX-XXX** (ako imaju fiksni)| |
+|  |  [Ulica i broj]                  |  |                                  | |
+|  |  11400 Mladenovac                |  |  ✉️ office@metalpromet.rs        | |
+|  |                                  |  |                                  | |
+|  |  🕒 RADNO VREME:                 |  |  🌍 GDE SVE RADIMO:              | |
+|  |  Ponedeljak - Petak: 07:00 - 16:00|  |  • Celokupna teritorija Srbije   | |
+|  |  Subota: Po dogovoru             |  |  • Inostranstvo (Evropa)         | |
+|  |  Nedelja: Zatvoreno              |  |  • Beograd, Niš, Novi Sad, ...   | |
+|  +----------------------------------+  +----------------------------------+ |
+|                                                                             |
+|  +----------------------------------------------------------------------+   |
+|  |  🗺️ GOOGLE MAPA (Ugrađeni prikaz)                                   |   |
+|  |  [   Mapa lokacije firme u Mladenovcu   ]                           |   |
+|  |  (SEO napomena: Kada programer ubacuje mapu, neka stavi:             |   |
+|  |   "Metal-Promet Mladenovac" kao naslov na mapi)                     |   |
+|  +----------------------------------------------------------------------+   |
+|                                                                             |
+|  +---------------------------------------+  +----------------------------+  |
+|  |  📩 KONTAKT FORMA                    |  |  📝 VAŽNE NAPOMENE          |  |
+|  |                                       |  |                            |  |
+|  |  [Ime i prezime *]                    |  |  **PRE UPOZNAVANJA SA      |  |
+|  |  [Telefon *]                          |  |  SARADNJOM:**               |  |
+|  |  [Email]                              |  |  Pošaljite nam nacrt, sliku |  |
+|  |  [Odaberite uslugu (padajući meni)]   |  |  ili približne dimenzije    |  |
+|  |  [Kratak opis projekta *]             |  |  vašeg projekta.            |  |
+|  |                                       |  |  Tako ćemo vam dati         |  |
+|  |  [   POŠALJI UPIT   ]                 |  |  najbržu i najprecizniju    |  |
+|  |                                       |  |  ponudu.                    |  |
+|  +---------------------------------------+  +----------------------------+  |
+|                                                                             |
+|  ========================================================================= |
+|  |  Footer: Metal-Promet © 2026 | Mladenovac | Politika privatnosti       |
+|  +-----------------------------------------------------------------------+
+```
+
 ### Frontend
 
 -   Nuxt 4.2 (SSR)

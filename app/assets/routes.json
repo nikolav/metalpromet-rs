@@ -12,7 +12,11 @@
 
     "/sr/o-nama",
     "/sr-cyrl/o-nama",
-    "/en/about-us"
+    "/en/about-us",
+
+    "/sr/kontakt",
+    "/sr-cyrl/kontakt",
+    "/en/contact"
   ],
   "ignore": []
 }

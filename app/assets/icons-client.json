@@ -1,6 +1,7 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
+    "mdi:phone-in-talk",
     "mdi:shield",
     "mdi:screwdriver",
     "mdi:wrench",

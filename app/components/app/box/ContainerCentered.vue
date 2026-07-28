@@ -11,7 +11,6 @@ const { $$ } = useNuxtApp();
 
 <template>
   <VContainer
-    fluid
     class="app-container-reset ma-0 pa-0 mx-auto component--AppBoxContainerCentered"
     :max-width="$$.config('layout.component.AppBoxContainerCentered.maxWidth')!"
   >

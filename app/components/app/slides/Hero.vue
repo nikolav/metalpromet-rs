@@ -17,7 +17,9 @@ const props = withDefaults(
 );
 
 const d = useDisplay();
+
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 const { $$ } = useNuxtApp();
 
@@ -118,6 +120,7 @@ const updateModelValue = (i: unknown) => {
           :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
           size="x-large"
           color="primary-variant"
+          :to="localePath({ name: 'contact' })"
         >
           <strong class="text-[122%] me-3">🤝</strong>
           {{ t("Započnimo saradnju") }}</AppVBtn

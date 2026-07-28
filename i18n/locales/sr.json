@@ -4,12 +4,16 @@
     "hello": "Zdravo"
   },
   "pages": {
+    "contact": {
+      "title": "Kontakt • Metal-Promet Mladenovac",
+      "description": "Metal-Promet Mladenovac :opis"
+    },
     "index": {
       "title": "Metal-Promet Mladenovac",
       "description": "Metal-Promet Mladenovac :opis"
     },
     "about": {
-      "title": "strana:o-nama",
+      "title": "O nama • Metal-Promet Mladenovac",
       "description": "strana:o-nama:opis"
     }
   }
