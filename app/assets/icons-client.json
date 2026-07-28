@@ -1,6 +1,10 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
+    "mdi:shield",
+    "mdi:screwdriver",
+    "mdi:wrench",
+    "mdi:ruler",
     "mdi:folder",
     "mdi:eye",
     "mdi:eye-off",

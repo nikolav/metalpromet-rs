@@ -12,7 +12,7 @@ const props = withDefaults(
     propsItem?: any;
   }>(),
   {
-    interval: 8901,
+    interval: 9012,
   },
 );
 
@@ -60,15 +60,16 @@ const updateModelValue = (i: unknown) => {
     </VCarousel>
 
     <template #stack>
+      <!-- header line -->
       <VCard
-        color="rgba(var(--v-theme-primary-variant), .85)"
+        color="rgba(var(--v-theme-primary-variant), .88)"
         tile
         elevation="1"
-        class="!grow-0 !text-v-on-primary"
+        class="!grow-0 !text-v-on-primary backdrop-blur-sm"
       >
         <VCardText class="text-center">
-          <h1>
-            Metal-Promet
+          <h1 class="text-shadow-sm">
+            {{ t("Metal-Promet") }}
             <template v-if="d.smAndUp.value">
               - <em>{{ t("Od ideje do realizacije.") }}</em></template
             >
@@ -82,24 +83,31 @@ const updateModelValue = (i: unknown) => {
           </template>
         </VCardText>
       </VCard>
-      <AppBoxBase v-if="currentSlide">
-        <VCard
-          tile
-          elevation="1"
-          class="text-center text-background backdrop-blur-sm"
-          color="rgba(var(--v-theme-on-background), .66)"
+
+      <!-- druga linija; delatnost i opis  -->
+      <VCard
+        v-if="currentSlide"
+        tile
+        elevation="1"
+        class="text-center text-background backdrop-blur-sm"
+        color="rgba(var(--v-theme-on-background), .66)"
+      >
+        <IconX
+          v-if="d.smAndUp.value"
+          :icon="currentSlide.icon"
+          size="1.88rem"
+          class="opacity-25 position-absolute top-[50%] -translate-y-[50%] start-5 z-[1]"
+        />
+        <VCardTitle class="text-shadow-sm">
+          <Iconx icon="mdi:ruler" />
+          <em>{{ currentSlide.title }}</em></VCardTitle
         >
-          <VCardTitle class="!text-[188%]" v-if="d.smAndUp.value">{{
-            currentSlide.group
-          }}</VCardTitle>
-          <VCardTitle
-            ><em>{{ currentSlide.title }}</em></VCardTitle
-          >
-          <VCardText v-if="d.smAndUp.value">{{
-            currentSlide.description
-          }}</VCardText>
-        </VCard>
-      </AppBoxBase>
+        <VCardText v-if="d.smAndUp.value">{{
+          currentSlide.description
+        }}</VCardText>
+      </VCard>
+
+      <!-- cta -->
       <VSpacer />
       <VCardActions
         class="!grow-0"
@@ -107,6 +115,7 @@ const updateModelValue = (i: unknown) => {
       >
         <VSpacer />
         <AppVBtn
+          class="text-shadow-sm"
           :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
           size="x-large"
           color="primary-variant"

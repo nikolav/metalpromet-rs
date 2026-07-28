@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import reduce from "lodash/reduce";
 
 import { COLOR_PRIMARY as primary } from "./app/assets/themes/colors";
 import { darkRootClass } from "./app/config/vars.env.public";
@@ -101,6 +102,16 @@ export default {
         // Matches Vuetify default rounding better for utility wrappers/cards you add
         "v-card": "var(--v-border-radius, 16px)",
       },
+
+      textShadow: {
+        sm: "0 1px 2px rgba(0, 0, 0, 0.5)",
+        md: "0 2px 4px rgba(0, 0, 0, 0.5)",
+        lg: "0 4px 8px rgba(0, 0, 0, 0.5)",
+        xl: "0 8px 16px rgba(0, 0, 0, 0.5)",
+        glow: "0 0 20px rgba(255, 255, 255, 0.8)",
+        neon: "0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6)",
+        "3d": "0 1px 0 #999, 0 2px 0 #888, 0 3px 0 #777, 0 4px 0 #666, 0 5px 0 #555",
+      },
     },
   },
 
@@ -132,5 +143,17 @@ export default {
   plugins: [
     // require("@tailwindcss/typography"),
     // require("@tailwindcss/container-queries"),
+
+    (_: any) => {
+      const utilities = reduce(
+        _.theme("textShadow", {}),
+        (accum, value, key) => [
+          ...accum,
+          { [`.text-shadow-${key}`]: { "text-shadow": value } },
+        ],
+        <any[]>[],
+      );
+      _.addUtilities(utilities, ["responsive", "hover"]);
+    },
   ],
 } satisfies Config;

@@ -21,7 +21,7 @@ const { $$ } = useNuxtApp();
 const H = computed(() =>
   d.smAndUp.value
     ? `calc(100vh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
-    : 345,
+    : 422,
 );
 
 // @@eos
