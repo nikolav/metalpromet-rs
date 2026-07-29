@@ -135,6 +135,7 @@ export default defineNuxtConfig({
     "@nuxtjs/fontaine",
     "@nuxtjs/i18n",
     "@nuxt/fonts",
+    "@nuxt/scripts",
 
     //testing
     "@nuxt/test-utils/module",
@@ -649,5 +650,12 @@ export default defineNuxtConfig({
     assets: { prefix: "/_fonts/" },
     // google provider settings
     google: {},
+  },
+
+  // #https://scripts.nuxt.com/scripts/google-maps
+  scripts: {
+    registry: {
+      googleMaps: {},
+    },
   },
 });

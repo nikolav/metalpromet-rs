@@ -1,5 +1,6 @@
 import each from "lodash/each";
 import every from "lodash/every";
+import find from "lodash/find";
 import first from "lodash/first";
 import get from "lodash/get";
 import hasPath from "lodash/has";
@@ -52,6 +53,7 @@ export default defineNuxtPlugin({
           // lodash
           each,
           every,
+          find,
           first,
           get,
           hasPath,
