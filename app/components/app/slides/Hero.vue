@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
+
 import SLIDES from "~/assets/hero-slides.json";
+import { useCycleItems } from "~/composables/utils/use-cycle-items";
+import { onDebug } from "~/utils/on-debug";
 
 defineOptions({
   inheritAttrs: false,
@@ -23,13 +26,16 @@ const localePath = useLocalePath();
 
 const { $$ } = useNuxtApp();
 
-const slides = $$.shuffle(SLIDES);
+const ctrl = useCycleItems(
+  $$.shuffle(SLIDES.filter((node) => true === node.show)),
+  {
+    key: (node) => node.src,
+  },
+);
 
-const currentSlide = ref<any>();
-
-const updateModelValue = (i: unknown) => {
-  currentSlide.value = $$.get(slides, `[${i}]`);
-};
+watch(ctrl.current, (slide) => {
+  onDebug({ "hero:side": slide });
+});
 
 // @@eos
 </script>
@@ -48,13 +54,15 @@ const updateModelValue = (i: unknown) => {
       hide-delimiters
       continuous
       crossfade
+      :model-value="ctrl.currentKey.value"
       v-bind="$attrs"
-      @update:model-value="updateModelValue"
+      @update:model-value="ctrl.active"
     >
       <VCarouselItem
-        v-for="slide in slides"
+        v-for="slide in ctrl.items"
         :key="slide.src"
         :src="slide.src"
+        :value="slide.src"
         cover
         transition="app-transition-cross-scale"
         v-bind="props.propsItem"
@@ -88,7 +96,7 @@ const updateModelValue = (i: unknown) => {
 
       <!-- druga linija; delatnost i opis  -->
       <VCard
-        v-if="currentSlide"
+        v-if="ctrl.current"
         tile
         elevation="1"
         class="text-center text-background backdrop-blur-sm"
@@ -96,17 +104,37 @@ const updateModelValue = (i: unknown) => {
       >
         <IconX
           v-if="d.smAndUp.value"
-          :icon="currentSlide.icon"
+          :icon="ctrl.current.value?.icon"
           size="1.88rem"
           class="opacity-25 position-absolute top-[50%] -translate-y-[50%] start-5 z-[1]"
         />
         <VCardTitle class="text-shadow-sm">
-          <em>{{ currentSlide.title }}</em></VCardTitle
+          <em>{{ ctrl.current.value?.title }}</em></VCardTitle
         >
         <VCardText v-if="d.smAndUp.value">{{
-          currentSlide.description
+          ctrl.current.value?.description
         }}</VCardText>
       </VCard>
+      <AppBoxBase class="d-flex justify-end pa-1">
+        <VBtn
+          @click="ctrl.prev"
+          color="white"
+          variant="plain"
+          icon
+          rounded="circle"
+        >
+          <IconX size="2rem" icon="$prev" class="*:!filter-shadow-sharp" />
+        </VBtn>
+        <VBtn
+          @click="ctrl.next"
+          color="white"
+          variant="plain"
+          icon
+          rounded="circle"
+        >
+          <IconX size="2rem" icon="$next" class="*:!filter-shadow-sharp" />
+        </VBtn>
+      </AppBoxBase>
 
       <!-- cta -->
       <VSpacer />

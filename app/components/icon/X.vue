@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { mergeProps } from "vue";
+
 defineOptions({
   inheritAttrs: false,
 });
@@ -10,6 +12,7 @@ const isRenderFN = computed(() => !$$.isString(props.icon));
 const isVuetifyIcon = computed(
   () => !isRenderFN.value && String(props.icon).startsWith("$"),
 );
+
 // @@eos
 </script>
 <template>

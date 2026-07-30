@@ -112,6 +112,19 @@ export default {
         neon: "0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6)",
         "3d": "0 1px 0 #999, 0 2px 0 #888, 0 3px 0 #777, 0 4px 0 #666, 0 5px 0 #555",
       },
+
+      filterShadow: {
+        sm: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))",
+        md: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+        lg: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
+        xl: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))",
+        "2xl": "drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))",
+        glow: "drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))",
+        neon: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(0, 255, 255, 0.6))",
+        colored: "drop-shadow(4px 4px 8px rgba(255, 0, 0, 0.4))",
+        sharp: "drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.3))",
+        soft: "drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15))",
+      },
     },
   },
 
@@ -144,6 +157,7 @@ export default {
     // require("@tailwindcss/typography"),
     // require("@tailwindcss/container-queries"),
 
+    // text-shadow plugin
     (_: any) => {
       const utilities = reduce(
         _.theme("textShadow", {}),
@@ -154,6 +168,25 @@ export default {
         <any[]>[],
       );
       _.addUtilities(utilities, ["responsive", "hover"]);
+    },
+
+    // filter: drop-shadow plugin
+    (_: any) => {
+      const filterUtilities = reduce(
+        _.theme("filterShadow", {}),
+        (accum, value, key) => [
+          ...accum,
+          {
+            [`.filter-shadow-${key}`]: {
+              filter: value,
+              // WebKit prefix for Safari compatibility
+              "-webkit-filter": value,
+            },
+          },
+        ],
+        <any[]>[],
+      );
+      _.addUtilities(filterUtilities, ["responsive", "hover"]);
     },
   ],
 } satisfies Config;
