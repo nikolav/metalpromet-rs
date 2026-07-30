@@ -9,7 +9,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const MP_LOCATION = { lat: 44.4215007, lng: 20.6993889 };
+const MP_LOCATION = { lat: 44.421469237556614, lng: 20.704561980672274 };
 
 const props = withDefaults(
   defineProps<{
@@ -18,7 +18,7 @@ const props = withDefaults(
     markerTitle?: string;
   }>(),
   {
-    markerLocation: { lat: 44.4215007, lng: 20.6993889 },
+    markerLocation: { lat: 44.421469237556614, lng: 20.704561980672274 },
     markerTitle: "Metal-Promet Mladenovac",
   },
 );

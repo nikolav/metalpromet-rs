@@ -5,7 +5,6 @@
 <template>
   <AppBoxPageWrap class="page--demo">
     <h2 class="text-center">strana:demo 🚧</h2>
-    <AppMapsLocationSingle />
   </AppBoxPageWrap>
 </template>
 

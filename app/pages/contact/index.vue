@@ -35,6 +35,7 @@ const toggleOverlayForm = useToggleFlag();
 <template>
   <AppBoxPageWrap class="page--contact">
     <AppBoxContainerCentered
+      class="space-y-8"
       :class="{ 'mt-2': MaxW_AppBoxContainerCentered < d.width.value }"
     >
       <!-- kartica; contact-us -->
@@ -71,6 +72,7 @@ const toggleOverlayForm = useToggleFlag();
 
         <!-- contact text -->
         <VCardText class="text-body-1 text-justify indent-4 pt-5">
+          <strong>💡 </strong>
           {{
             t(
               "Imate ideju, ali ne znate kako da je realizujete? Niste sigurni u dimenzije ili materijal? Nema problema - mi smo tu da vas usmerimo! Slobodno nam se obratite za savet, razmenu ideja ili prvu procenu. Pozovite nas ili nam pošaljite upit danas i krenimo sa realizacijom!",
@@ -110,58 +112,71 @@ const toggleOverlayForm = useToggleFlag();
         </AppOverlayScreen>
       </VCard>
 
-      <VSpacer class="mt-12" />
-
+      <!-- mapa -->
       <!-- kontakti -->
-      <AppBoxBase class="space-y-5 text-center">
-        <AppBoxBase>
-          <VCardTitle
-            ><IconX
-              icon="mdi:map-marker"
-              size="2rem"
-              class="text-primary -translate-y-[2px]"
-            />
-            {{ t("Adresa") }}
-          </VCardTitle>
-          <VCardText class="text-body-1"
-            ><NuxtLink
-              href="https://maps.app.goo.gl/RKmTxP7zQXRBTM6M7"
-              external
-              target="_blank"
-              >Dositejeva 2, Mladenovac 11400, Srbija</NuxtLink
-            >
+      <VCard tile>
+        <AppMapsLocationSingle class="max-h-[320px]" />
+        <AppBoxBase class="space-y-5 text-center">
+          <VCardText class="text-body-1 text-justify indent-4 pt-5">
+            <strong>✅ </strong>
+            {{
+              t(
+                "Naš kvalitet prepoznat je širom Evrope, a za sve detalje i dogovor oko vašeg projekta, kontaktirajte nas direktno – na raspolaganju su vam iskusni inženjeri sa dugogodišnjim iskustvom u oblasti livenja, zavarivanja i obrade metala. Pozovite nas ili pošaljite upit za besplatnu ponudu bez obaveze.",
+              )
+            }}
           </VCardText>
+
+          <AppBoxBase>
+            <VCardTitle
+              ><IconX
+                icon="mdi:map-marker"
+                size="2rem"
+                class="text-primary -translate-y-[2px]"
+              />
+              {{ t("Adresa") }}
+            </VCardTitle>
+            <VCardText class="text-body-1"
+              ><NuxtLink
+                href="https://maps.app.goo.gl/RKmTxP7zQXRBTM6M7"
+                external
+                target="_blank"
+                >Dositejeva 2, Mladenovac 11400, Srbija</NuxtLink
+              >
+            </VCardText>
+          </AppBoxBase>
+          <AppBoxBase>
+            <VCardTitle
+              ><IconX
+                icon="mdi:phone"
+                size="2rem"
+                class="text-primary -translate-y-[2px]"
+              />
+              {{ t("Telefon") }}
+            </VCardTitle>
+            <VCardText class="text-body-1"
+              ><a class="text-xl" href="tel:+38163316521">(+381) 63 316 521</a>
+            </VCardText>
+          </AppBoxBase>
+          <AppBoxBase>
+            <VCardTitle
+              ><IconX
+                icon="mdi:at"
+                size="2rem"
+                class="text-primary -translate-y-[2px]"
+              />
+              {{ t("Email") }}
+            </VCardTitle>
+            <VCardText class="text-body-1"
+              ><a class="text-xl" href="mailto:office@metalpromet.rs"
+                >office@metalpromet.rs</a
+              >
+            </VCardText>
+          </AppBoxBase>
         </AppBoxBase>
-        <AppBoxBase>
-          <VCardTitle
-            ><IconX
-              icon="mdi:phone"
-              size="2rem"
-              class="text-primary -translate-y-[2px]"
-            />
-            {{ t("Telefon") }}
-          </VCardTitle>
-          <VCardText class="text-body-1"
-            ><a class="text-xl" href="tel:+38163316521">(+381) 63 316 521</a>
-          </VCardText>
-        </AppBoxBase>
-        <AppBoxBase>
-          <VCardTitle
-            ><IconX
-              icon="mdi:at"
-              size="2rem"
-              class="text-primary -translate-y-[2px]"
-            />
-            {{ t("Email") }}
-          </VCardTitle>
-          <VCardText class="text-body-1"
-            ><a class="text-xl" href="mailto:office@metalpromet.rs"
-              >office@metalpromet.rs</a
-            >
-          </VCardText>
-        </AppBoxBase>
-      </AppBoxBase>
+        <VSpacer class="mt-5" />
+      </VCard>
     </AppBoxContainerCentered>
+    <VSpacer class="mt-12" />
   </AppBoxPageWrap>
 </template>
 
