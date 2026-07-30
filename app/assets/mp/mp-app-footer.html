@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* ============================================ */
+      /* APP-FOOTER STILOVI ZA METAL-PROMET           */
+      /* ============================================ */
+
+      .app-footer {
+        background: #1a1a2e;
+        color: #e0e0e0;
+        padding: 60px 0 0;
+        font-family: "Segoe UI", Roboto, sans-serif;
+        border-top: 4px solid #e6b800;
+      }
+
+      /* Glavni deo */
+      .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+        gap: 40px;
+      }
+
+      @media (max-width: 992px) {
+        .footer-main {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-main {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Kolone */
+      .footer-col-brand .footer-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 15px 0;
+      }
+
+      .footer-col-brand .highlight {
+        color: #f0c040;
+        font-weight: 600;
+      }
+
+      .footer-heading {
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 18px;
+        border-bottom: 2px solid #e6b800;
+        padding-bottom: 8px;
+        display: inline-block;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+
+      .footer-links a {
+        color: #cccccc;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.92rem;
+      }
+
+      .footer-links a:hover {
+        color: #f0c040;
+        padding-left: 4px;
+      }
+
+      /* Social ikone */
+      .footer-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+      }
+
+      .footer-social a:hover {
+        background: #e6b800;
+        color: #1a1a2e;
+        transform: translateY(-3px);
+      }
+
+      /* Kontakt stavke */
+      .footer-contact-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 14px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .footer-contact-item i {
+        color: #e6b800;
+        font-size: 1.1rem;
+        min-width: 20px;
+        margin-top: 2px;
+      }
+
+      .footer-contact-item a {
+        color: #e6b800;
+        text-decoration: none;
+      }
+
+      .footer-contact-item a:hover {
+        text-decoration: underline;
+      }
+
+      /* Badge boniteta */
+      .footer-badge {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .badge-aa {
+        background: #2e7d32;
+        color: #ffffff;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .badge-year {
+        background: #e6b800;
+        color: #1a1a2e;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      /* Region tags */
+      .footer-regions {
+        margin-top: 20px;
+      }
+
+      .footer-subheading {
+        color: #aaa;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+
+      .region-tags {
+        font-size: 0.8rem;
+        color: #999;
+        line-height: 1.8;
+      }
+
+      .region-tags span {
+        display: inline-block;
+      }
+
+      /* ============================================ */
+      /* DNO FOOTERA - NAJVAŽNIJI ZA SEO             */
+      /* ============================================ */
+
+      .footer-bottom {
+        margin-top: 40px;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.25);
+      }
+
+      .footer-bottom-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .footer-copyright {
+        font-size: 0.85rem;
+        color: #aaa;
+      }
+
+      .footer-copyright strong {
+        color: #ffffff;
+      }
+
+      .footer-company-data {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        font-size: 0.8rem;
+        color: #888;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px 16px;
+        border-radius: 6px;
+      }
+
+      .footer-company-data strong {
+        color: #ccc;
+      }
+
+      .footer-legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.8rem;
+      }
+
+      .footer-legal a {
+        color: #999;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-legal a:hover {
+        color: #f0c040;
+      }
+
+      .footer-legal .separator {
+        color: #555;
+      }
+
+      @media (max-width: 768px) {
+        .footer-bottom-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-company-data {
+          justify-content: center;
+        }
+        .footer-legal {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================ -->
+    <!-- APP-FOOTER ZA METAL-PROMET                   -->
+    <!-- SEO OPTIMIZED | LOCAL BUSINESS SCHEMA        -->
+    <!-- ============================================ -->
+
+    <footer
+      class="app-footer"
+      role="contentinfo"
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
+    >
+      <!-- GLAVNI DEO - 4 KOLONE -->
+      <div class="footer-main">
+        <!-- KOLONA 1: LOGO + O NAMA -->
+        <div class="footer-col footer-col-brand">
+          <div class="footer-logo">
+            <img
+              src="/logo-metal-promet.svg"
+              alt="Metal-Promet logo - izrada čeličnih konstrukcija od 1988"
+              width="180"
+              height="60"
+            />
+          </div>
+          <p class="footer-description" itemprop="description">
+            <strong>Metal-Promet</strong> – izrada čeličnih i aluminijumskih
+            konstrukcija, ograda, plastifikacija metala i hladno cinkovanje.
+            <br />
+            <span class="highlight"
+              >📍 Poslujemo od <strong>1988. godine</strong> – preko 35 godina
+              iskustva!</span
+            >
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/metal_promet/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="#"
+              aria-label="YouTube"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- KOLONA 2: USLUGE (ključne reči) -->
+        <div class="footer-col footer-col-services">
+          <h4 class="footer-heading">📋 Naše usluge</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="/usluge/celicne-konstrukcije">Čelične konstrukcije</a>
+            </li>
+            <li>
+              <a href="/usluge/aluminijumske-konstrukcije"
+                >Aluminijumske konstrukcije</a
+              >
+            </li>
+            <li>
+              <a href="/usluge/plastifikacija-metala"
+                >Plastifikacija metala (peć 7,8m)</a
+              >
+            </li>
+            <li><a href="/usluge/hladno-cinkovanje">Hladno cinkovanje</a></li>
+            <li><a href="/usluge/ograde">Metalne i ALU ograde</a></li>
+            <li>
+              <a href="/usluge/3d-modelovanje">3D modelovanje &amp; renderi</a>
+            </li>
+            <li><a href="/usluge/cnc-obrada">CNC obrada metala</a></li>
+            <li><a href="/usluge/peskarenje">Peskarenje</a></li>
+          </ul>
+        </div>
+
+        <!-- KOLONA 3: BRZI LINKOVI + REGIJE -->
+        <div class="footer-col footer-col-links">
+          <h4 class="footer-heading">🔗 Brzi linkovi</h4>
+          <ul class="footer-links">
+            <li><a href="/o-nama">O nama</a></li>
+            <li><a href="/projekti">Naši projekti</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/karijera">Karijera</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
+          </ul>
+
+          <!-- LOKALNI SEO - regioni poslovanja -->
+          <div class="footer-regions">
+            <h5 class="footer-subheading">📍 Poslujemo u:</h5>
+            <p class="region-tags">
+              <span>Beograd</span> · <span>Mladenovac</span> ·
+              <span>Niš</span> · <span>Šumadija</span> ·
+              <span>Podunavski okrug</span> ·
+              <span>Inostranstvo</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- KOLONA 4: KONTAKT I RADNO VREME -->
+        <div class="footer-col footer-col-contact">
+          <h4 class="footer-heading">📞 Kontakt</h4>
+
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Adresa:</strong>
+              <span
+                itemprop="address"
+                itemscope
+                itemtype="https://schema.org/PostalAddress"
+              >
+                <span itemprop="streetAddress">Palanački put 15</span>,
+                <span itemprop="addressLocality">Mladenovac</span>,
+                <span itemprop="postalCode">11400</span>,
+                <span itemprop="addressCountry">Srbija</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Telefon:</strong>
+              <span itemprop="telephone">064 417 6546</span> (Dušan,
+              dipl.maš.inž.)<br />
+              <span>011 822 0572</span>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email:</strong>
+              <a href="mailto:seka1990@hotmail.com" itemprop="email"
+                >seka1990@hotmail.com</a
+              >
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Radno vreme:</strong><br />
+              Pon - Pet: 07:30 – 16:00<br />
+              Sub - Ned: Neradni dan
+            </div>
+          </div>
+
+          <!-- BONITETNI BADGE -->
+          <div class="footer-badge">
+            <span class="badge-aa">⭐ Bonitet: AA+</span>
+            <span class="badge-year">📅 Od 1988.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- DNO FOOTERA - COPYRIGHT + PIB/MB + TRR      -->
+      <!-- NAJVAŽNIJI ZA SEO I TRANSPARENTNOST         -->
+      <!-- ============================================ -->
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <div class="footer-copyright">
+            <p>
+              © 2026 <strong itemprop="name">Metal-Promet</strong> – Izrada
+              čeličnih konstrukcija, aluminijumskih konstrukcija i
+              plastifikacija metala. Sva prava zadržana.
+            </p>
+          </div>
+
+          <!-- PODACI O FIRMI - SEO GOLD -->
+          <div class="footer-company-data">
+            <span><strong>PIB:</strong> 101479691</span>
+            <span><strong>MB:</strong> 55292698</span>
+            <span><strong>Šifra delatnosti:</strong> 2454</span>
+            <span><strong>TRR:</strong> 325-9500600051279-55 (OTP banka)</span>
+          </div>
+
+          <!-- PRAVNI LINKOVI -->
+          <div class="footer-legal">
+            <a href="/politika-privatnosti">Politika privatnosti</a>
+            <span class="separator">|</span>
+            <a href="/uslovi-koriscenja">Uslovi korišćenja</a>
+            <span class="separator">|</span>
+            <a href="/cookies">Informacije o kolačićima</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- SCHEMA.ORG LOCALBUSINESS (skriveno za SEO)   -->
+      <!-- ============================================ -->
+      <div
+        style="display: none"
+        itemscope
+        itemtype="https://schema.org/LocalBusiness"
+      >
+        <span itemprop="name">Metal-Promet</span>
+        <span itemprop="description"
+          >Izrada čeličnih i aluminijumskih konstrukcija, ograda, plastifikacija
+          i hladno cinkovanje metala od 1988.</span
+        >
+        <span itemprop="foundingDate">1988</span>
+        <span itemprop="telephone">+381644176546</span>
+        <span itemprop="email">seka1990@hotmail.com</span>
+        <span itemprop="taxID">101479691</span>
+        <span
+          itemprop="address"
+          itemscope
+          itemtype="https://schema.org/PostalAddress"
+        >
+          <span itemprop="streetAddress">Palanački put 15</span>
+          <span itemprop="addressLocality">Mladenovac</span>
+          <span itemprop="postalCode">11400</span>
+          <span itemprop="addressCountry">RS</span>
+        </span>
+        <span itemprop="priceRange">$$</span>
+        <span itemprop="areaServed"
+          >Srbija, Beograd, Niš, Šumadija, Inostranstvo</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
