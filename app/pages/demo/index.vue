@@ -5,6 +5,11 @@
 <template>
   <AppBoxPageWrap class="page--demo">
     <h2 class="text-center">strana:demo 🚧</h2>
+    <AppVideoPlayer
+      :sources="[{ src: 'ni1k-4yGADw' }]"
+      provider="youtube"
+      title="Metal-Promet Mladenovac"
+    />
   </AppBoxPageWrap>
 </template>
 

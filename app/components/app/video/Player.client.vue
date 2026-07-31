@@ -106,14 +106,14 @@ defineExpose(exposed);
 </script>
 
 <template>
-  <div class="app-container-reset component--AppVideoPlayer">
+  <AppBoxBase class="component--AppVideoPlayer">
     <component
       :is="COMP[props.provider]"
       :id="ID"
       :sources="props.sources"
       v-bind="mergeProps($attrs, $$.omit(props, ['provider', 'sources']))"
     />
-  </div>
+  </AppBoxBase>
 </template>
 
 <!-- scoped component styles, default -->
