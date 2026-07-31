@@ -13,7 +13,7 @@ import srCyrlDayjs from "dayjs/locale/sr-cyrl";
 import { VBtn } from "vuetify/components/VBtn";
 
 import { TOKEN_appEmitter$ } from "~/keys";
-import { light, dark } from "~/assets/themes";
+import { light_mp as light, dark_mp as dark } from "~/assets/themes";
 import { displayDefaults as display } from "~/assets/breakpoints";
 import { DatetimeService } from "~/services/datetime";
 

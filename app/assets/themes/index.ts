@@ -5,3 +5,5 @@ export { lightNuxtDocs } from "./light-nuxt-docs";
 export { darkNuxtDocs } from "./dark-nuxt-docs";
 export { lightGoogleAnalytics } from "./light-ga4";
 export { darkGoogleAnalytics } from "./dark-ga4";
+export { light as light_mp } from "./light-mp.theme";
+export { dark as dark_mp } from "./dark-mp.theme";

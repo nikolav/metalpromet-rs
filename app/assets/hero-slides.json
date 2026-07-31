@@ -393,6 +393,14 @@
     "description": "Regali, police, radni stolovi, klupe, stolice",
     "show": true
   },
+  {
+    "src": "/images/hero/3-stolarija-ograde-oprema/furniture.04.jpg",
+    "icon": "mdi:screwdriver",
+    "group": "Stolarija, ograde i oprema",
+    "title": "Metalni nameštaj i oprema",
+    "description": "Regali, police, radni stolovi, klupe, stolice",
+    "show": true
+  },
 
   {
     "src": "/images/hero/4-zastita-i-obrada-povrsina/elektrostatic-pain.01.jpg",

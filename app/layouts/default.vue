@@ -10,9 +10,7 @@ const d = useDisplay();
     <VMain>
       <slot />
     </VMain>
-    <AppFooterMain
-      class="*:scale-[.9] !pt-5 !pb-32 !border-t-4 !border-t-v-primary-variant *opacity-85 *!border-opacity-50"
-    />
+    <AppFooterMain />
   </AppBoxBase>
 </template>
 <style lang="scss" scoped></style>

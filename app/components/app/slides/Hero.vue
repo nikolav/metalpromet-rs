@@ -34,7 +34,7 @@ const ctrl = useCycleItems(
 );
 
 watch(ctrl.current, (slide) => {
-  onDebug({ "hero:side": slide });
+  onDebug({ "hero:slide": slide });
 });
 
 // @@eos

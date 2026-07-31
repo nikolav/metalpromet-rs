@@ -1,10 +1,10 @@
 // colors.ts
-export const COLOR_PRIMARY = "#1A73E8"; // Google blue
-export const COLOR_SECONDARY = "#5F6368";
-export const COLOR_ACCENT = "#EA4335"; // Google Red - for visually offset elements (badges, alerts, highlights)
-export const COLOR_PRIMARY_VARIANT = "#1E8AB8"; // Teal-blue - for "there's more" steps/actions
+export const COLOR_PRIMARY = "#2D313E"; // Dark forged steel with blue tint
+export const COLOR_SECONDARY = "#4A5060"; // Medium structural blue-steel
+export const COLOR_ACCENT = "#7A8A9E"; // Cold rolled blue-steel
+export const COLOR_PRIMARY_VARIANT = "#3A3F4C"; // Slightly lighter blue-steel
 
-export const COLOR_PRIMARY_DARK = "#4C8DFF"; // brighter blue for dark surfaces
-export const COLOR_SECONDARY_DARK = "#8A93A1"; // cool neutral gray (icons/labels)
-export const COLOR_ACCENT_DARK = "#EA4335"; // Google Red - stands out well on dark backgrounds
-export const COLOR_PRIMARY_VARIANT_DARK = "#5BB8D4"; // Brighter teal-blue for dark surfaces
+export const COLOR_PRIMARY_DARK = "#2D313E"; // Dark forged steel with blue tint
+export const COLOR_SECONDARY_DARK = "#5A6272"; // Medium structural blue-steel
+export const COLOR_ACCENT_DARK = "#8A9AAE"; // Bright blue-steel accent
+export const COLOR_PRIMARY_VARIANT_DARK = "#3A3F4C"; // Slightly lighter blue-steel

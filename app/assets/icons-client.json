@@ -1,8 +1,14 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
-    "mdi:pencil",
+    "mdi:trophy",
+    "mdi:factory",
+    "mdi:medal",
     "mdi:instagram",
+    "mdi:facebook",
+    "ri:twitter-x-fill",
+    "mdi:youtube",
+    "mdi:pencil",
     "mdi:link-variant",
     "mdi:link",
     "mdi:alarm",
