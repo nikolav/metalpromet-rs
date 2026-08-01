@@ -1,8 +1,12 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
-    "mdi:ruler-square-compass",
+    "local:conveyor-belt-box",
     "local:compass-ruler",
+    "local:shield-improved",
+    "mdi:truck-flatbed",
+    "mdi:package-variant-closed-check",
+    "mdi:ruler-square-compass",
     "mdi:diamond-stone",
     "mdi:certificate",
     "mdi:trophy",
