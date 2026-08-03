@@ -57,7 +57,7 @@ const slideshow = <any>{
     <AppBoxContainerCentered>
       <AppCardSectionPrimary
         :class="{
-          [`!bg-[url('/images/stock/002.png')] !bg-cover`]: d.smAndUp.value,
+          [`!bg-[url('/images/stock/009.png')] !bg-contain !bg-no-repeat !bg-right`]: true,
         }"
       >
         <template #title>
@@ -69,19 +69,23 @@ const slideshow = <any>{
           />
           <h2>Ukratko o nama</h2>
         </template>
-        <VCardText class="text-body-1 space-y-5 py-6">
+        <VCardText class="text-body-1 space-y-5 py-6 *indent-4">
           <AppBoxBase
             :class="{ '!grid !grid-cols-[auto_1fr]': d.smAndUp.value }"
           >
             <IconX
-              icon="mdi:ruler-square-compass"
+              icon="material-symbols:id-card-outline"
               size="2.22rem"
               class="text-on-surface d-block mx-auto opacity-20"
               :class="{ 'w-[4rem]': d.smAndUp.value }"
             />
             <p>
-              Metal-Promet Mladenovac, sa tradicijom od 1988. godine, posluje na
-              principima inženjerske preciznosti i rigorozne kontrole kvaliteta.
+              Mi smo Metal-Promet iz Mladenovca. Porodična firma koja već
+              decenijama diše sa metalom &dash; bukvalno. Pravimo metalne
+              konstrukcije, kapije, ograde... i sve što čvrsto stoji. Svaki
+              posao vodimo od prve skice do poslednjeg zavara. Jer, lepo je
+              nacrtati &dash; ali kad majstor kaže &quot;može&quot;, to je ono
+              pravo.
             </p>
           </AppBoxBase>
           <AppBoxBase
@@ -365,7 +369,7 @@ const slideshow = <any>{
       <ul>
         <li>✔ HERO</li>
         <li>✔ kratko o nama</li>
-        <li>- delatnoasti</li>
+        <li>✔ delatnoasti</li>
         <li>- radovi, projekti, (galerija)</li>
         <li>- zašto baš mi? (trust seo)</li>
         <li>✔ kontakt</li>

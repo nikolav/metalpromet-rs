@@ -39,7 +39,7 @@ const toggleOverlayForm = useToggleFlag();
       :class="{ 'mt-2': MaxW_AppBoxContainerCentered < d.width.value }"
     >
       <!-- kartica; contact-us -->
-      <VCard tile>
+      <VCard tile class="pb-2">
         <VImg src="@/assets/media/phone-laptop.01.jpg" :height="322" cover>
           <VSheet
             tile
@@ -71,13 +71,34 @@ const toggleOverlayForm = useToggleFlag();
         </VImg>
 
         <!-- contact text -->
-        <VCardText class="text-body-1 text-justify indent-4 pt-5">
-          <strong>💡 </strong>
-          {{
-            t(
-              "Imate ideju, ali ne znate kako da je realizujete? Niste sigurni u dimenzije ili materijal? Nema problema - mi smo tu da vas usmerimo! Slobodno nam se obratite za savet, razmenu ideja ili prvu procenu. Pozovite nas ili nam pošaljite upit danas i krenimo sa realizacijom!",
-            )
-          }}
+        <VCardText class="text-body-1 text-justify indent-5 pt-5 space-y-4">
+          <AppGridColsAutoFull
+            :props-left="{ class: 'd-flex' }"
+            :props-right="{ class: d.smAndUp.value ? 'px-5' : undefined }"
+          >
+            <template #left>
+              <VAvatar
+                color="rgba(var(--v-theme-primary-variant), .122)"
+                size="4.22rem"
+                v-if="d.smAndUp.value"
+              >
+                <IconX
+                  icon="local:speech-bubble"
+                  size="2rem"
+                  class="opacity-20"
+                />
+              </VAvatar>
+            </template>
+            <template #right>
+              <p>
+                {{
+                  t(
+                    "Imate ideju, ali ne znate kako da je realizujete? Niste sigurni u dimenzije ili materijal? Nema problema - mi smo tu da vas usmerimo! Slobodno nam se obratite za savet, razmenu ideja ili prvu procenu. Pozovite nas ili nam pošaljite upit danas i krenimo sa realizacijom!",
+                  )
+                }}
+              </p>
+            </template>
+          </AppGridColsAutoFull>
         </VCardText>
 
         <!-- buttons; cta -->
@@ -114,16 +135,37 @@ const toggleOverlayForm = useToggleFlag();
 
       <!-- mapa -->
       <!-- kontakti -->
-      <VCard tile>
+      <VCard tile class="pb-2">
         <AppMapsLocationSingle class="max-h-[320px]" />
         <AppBoxBase class="space-y-5 text-center">
           <VCardText class="text-body-1 text-justify indent-4 pt-5">
-            <strong>✅ </strong>
-            {{
-              t(
-                "Naš kvalitet prepoznat je širom Evrope, a za sve detalje i dogovor oko vašeg projekta, kontaktirajte nas direktno – na raspolaganju su vam iskusni inženjeri sa dugogodišnjim iskustvom u oblasti livenja, zavarivanja i obrade metala. Pozovite nas ili pošaljite upit za besplatnu ponudu bez obaveze.",
-              )
-            }}
+            <AppGridColsAutoFull
+              :props-left="{ class: 'd-flex' }"
+              :props-right="{ class: d.smAndUp.value ? 'px-5' : undefined }"
+            >
+              <template #left>
+                <VAvatar
+                  color="rgba(var(--v-theme-primary-variant), .122)"
+                  size="4.22rem"
+                  v-if="d.smAndUp.value"
+                >
+                  <IconX
+                    icon="mdi:certificate"
+                    size="2rem"
+                    class="opacity-20"
+                  />
+                </VAvatar>
+              </template>
+              <template #right>
+                <p>
+                  {{
+                    t(
+                      "Naš kvalitet prepoznat je širom Evrope, a za sve detalje i dogovor oko vašeg projekta, kontaktirajte nas direktno – na raspolaganju su vam iskusni inženjeri sa dugogodišnjim iskustvom u oblasti livenja, zavarivanja i obrade metala. Pozovite nas ili pošaljite upit za besplatnu ponudu bez obaveze.",
+                    )
+                  }}
+                </p>
+              </template>
+            </AppGridColsAutoFull>
           </VCardText>
 
           <AppBoxBase>
