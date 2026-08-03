@@ -23,9 +23,9 @@ export const light: ThemeDefinition = {
 
     // Accents (Google)
     primary: COLOR_PRIMARY,
-    secondary: COLOR_SECONDARY,
-    accent: COLOR_ACCENT,
     "primary-variant": COLOR_PRIMARY_VARIANT,
+    accent: COLOR_ACCENT,
+    secondary: COLOR_SECONDARY,
 
     // Feedback
     success: "#1E8E3E",

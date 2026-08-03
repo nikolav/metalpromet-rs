@@ -1,9 +1,9 @@
 import type { ThemeDefinition } from "vuetify";
 import {
   COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  COLOR_ACCENT,
   COLOR_PRIMARY_VARIANT,
+  COLOR_ACCENT,
+  COLOR_SECONDARY,
 } from "./colors";
 
 /**
@@ -15,33 +15,40 @@ export const light: ThemeDefinition = {
   dark: false,
 
   colors: {
-    // App surfaces - Cool blue-tinted steel
-    background: "#C8CDD6", // Blue-tinted industrial gray
-    surface: "#D5DAE2", // Bright blue-steel surface
-    "surface-bright": "#E2E6ED", // Polished blue-steel highlight
-    "surface-light": "#BCC1CA", // Weathered blue-steel
-    "surface-variant": "#A8AEB8", // Darker blue-steel
-
-    // Primary - Dark metallic with sky-blue undertone
+    // ===== BASE COLORS =====
+    background: "#C8CDD6",
+    surface: "#D5DAE2",
     primary: COLOR_PRIMARY,
     secondary: COLOR_SECONDARY,
-    accent: COLOR_ACCENT,
+    success: "#4A7A4E",
+    warning: "#C49A2A",
+    error: "#B83230",
+    info: "#3A6B8C",
+
+    // ===== SURFACE VARIANTS =====
+    "surface-bright": "#E2E6ED",
+    "surface-light": "#BCC1CA",
+    "surface-variant": "#A8AEB8",
+
+    // ===== ACCENT, VARIANT =====
     "primary-variant": COLOR_PRIMARY_VARIANT,
+    accent: COLOR_ACCENT,
 
-    // Feedback - Industrial indicators
-    success: "#4A7A4E", // Equipment green
-    warning: "#C49A2A", // Caution yellow
-    error: "#B83230", // Danger red
-    info: "#3A6B8C", // Tool steel blue
-
-    // Text - Maximum contrast on blue-steel backgrounds
-    "on-background": "#1A1C24", // Almost black with blue tint
+    // ===== ON COLORS =====
+    "on-background": "#1A1C24",
     "on-surface": "#1A1C24",
-    "on-surface-variant": "#2D313E", // Dark blue-steel for secondary
-    "on-primary": "#E8EBF0", // Light text on dark primary
-    "on-secondary": "#FFFFFF",
-    "on-accent": "#1A1C24", // Dark text on steel accent
+    "on-surface-bright": "#1A1C24",
+    "on-surface-light": "#1A1C24",
+    "on-surface-variant": "#2D313E",
+
+    "on-primary": "#E8EBF0",
     "on-primary-variant": "#FFFFFF",
+    "on-accent": "#1A1C24",
+    "on-secondary": "#FFFFFF",
+    "on-success": "#FFFFFF",
+    "on-warning": "#1A1C24",
+    "on-error": "#FFFFFF",
+    "on-info": "#FFFFFF",
   },
 
   variables: {

@@ -1,9 +1,9 @@
 import type { ThemeDefinition } from "vuetify";
 import {
   COLOR_PRIMARY_DARK,
-  COLOR_SECONDARY_DARK,
-  COLOR_ACCENT_DARK,
   COLOR_PRIMARY_VARIANT_DARK,
+  COLOR_ACCENT_DARK,
+  COLOR_SECONDARY_DARK,
 } from "./colors";
 
 /**
@@ -15,33 +15,40 @@ export const dark: ThemeDefinition = {
   dark: true,
 
   colors: {
-    // App surfaces - Deep blue-tinted factory environment
-    background: "#14161E", // Deep shadow with blue undertone
-    surface: "#1E212A", // Dark structural blue-steel
-    "surface-bright": "#2D313E", // Lighter forged blue-steel
-    "surface-light": "#262932", // Brushed dark blue-steel
-    "surface-variant": "#3A3F4C", // Medium dark blue-steel
-
-    // Primary - Dark metallic with sky-blue undertone
+    // ===== BASE COLORS =====
+    background: "#14161E",
+    surface: "#1E212A",
     primary: COLOR_PRIMARY_DARK,
     secondary: COLOR_SECONDARY_DARK,
-    accent: COLOR_ACCENT_DARK,
+    success: "#5A9C5E",
+    warning: "#E8A827",
+    error: "#D94A40",
+    info: "#4A7B9C",
+
+    // ===== SURFACE VARIANTS =====
+    "surface-bright": "#2D313E",
+    "surface-light": "#262932",
+    "surface-variant": "#3A3F4C",
+
+    // ===== ACCENT, VARIANT =====
     "primary-variant": COLOR_PRIMARY_VARIANT_DARK,
+    accent: COLOR_ACCENT_DARK,
 
-    // Feedback - Industrial indicators (brighter for dark)
-    success: "#5A9C5E", // Equipment green
-    warning: "#E8A827", // Caution yellow
-    error: "#D94A40", // Danger red
-    info: "#4A7B9C", // Tool steel blue
-
-    // Text - Maximum contrast on dark blue-steel
-    "on-background": "#E8EBF0", // Light text on dark surfaces
+    // ===== ON COLORS =====
+    "on-background": "#E8EBF0",
     "on-surface": "#E8EBF0",
-    "on-surface-variant": "#B0B5C0", // Medium-light secondary
-    "on-primary": "#E8EBF0", // Light text on dark primary
-    "on-secondary": "#FFFFFF",
-    "on-accent": "#1A1C24", // Dark text on steel accent
+    "on-surface-bright": "#E8EBF0",
+    "on-surface-light": "#E8EBF0",
+    "on-surface-variant": "#B0B5C0",
+
+    "on-primary": "#E8EBF0",
     "on-primary-variant": "#FFFFFF",
+    "on-accent": "#1A1C24",
+    "on-secondary": "#FFFFFF",
+    "on-success": "#FFFFFF",
+    "on-warning": "#1A1C24",
+    "on-error": "#FFFFFF",
+    "on-info": "#FFFFFF",
   },
 
   variables: {

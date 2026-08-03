@@ -42,19 +42,18 @@ export default defineNuxtPlugin({
         variations: {
           colors: [
             "primary",
+            "primary-variant",
+            "accent",
             "secondary",
             "success",
             "info",
-            "warning",
             "error",
+            "warning",
 
-            "accent",
-            "primary-variant",
-
-            // "primary2",
-            // "primary3",
-            // "accent2",
-            // "complement",
+            "surface",
+            "surface-bright",
+            "surface-light",
+            "surface-variant",
           ],
           lighten: 1,
           darken: 1,

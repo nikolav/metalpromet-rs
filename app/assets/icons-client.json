@@ -1,9 +1,14 @@
 {
   "clientBundle": [
     "local:logo-nikolav",
+    "local:ironman-mask",
+    "local:brain-outline",
     "local:conveyor-belt-box",
     "local:compass-ruler",
     "local:shield-improved",
+    "mdi:toolbox",
+    "mdi:animation-play",
+    "mdi:eye",
     "mdi:truck-flatbed",
     "mdi:package-variant-closed-check",
     "mdi:ruler-square-compass",

@@ -3,6 +3,10 @@
 //   name: "COMPONENT_NAME",
 //   inheritAttrs: false,
 // });
+const props = defineProps<{
+  propsTitle?: any;
+  propsActions?: any;
+}>();
 
 // @@eos
 </script>
@@ -14,14 +18,15 @@
     class="component--AppCardSectionPrimary"
   >
     <VCardTitle
-      class="text-shadow-sm text-center bg-primary-variant position-relative bg-gradient-to-r from-v-primary to-v-primary-variant"
+      class="text-shadow-sm text-center bg-primary-variant bg-[url('/images/stock/004.png')] bg-blend-multiply bg-cover position-relative"
+      v-bind="props.propsTitle"
     >
       <slot name="title" />
     </VCardTitle>
 
     <slot />
 
-    <VCardActions>
+    <VCardActions v-bind="props.propsActions">
       <slot name="actions" />
     </VCardActions>
   </VCard>

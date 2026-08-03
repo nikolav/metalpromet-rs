@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
 
+import DELATNOSTI from "~/assets/sve-delatnosti.json";
+import SLIDES_PRIPREMA from "~/assets/slides-priprema.json";
+import SLIDES_PROIZVODNJA from "~/assets/slides-proizvodnja.json";
+import SLIDES_GOTOVI_PROIZVODI from "~/assets/slides-gotovi-proizvodi.json";
+import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
+
 definePageMeta({
   layout: "default",
   i18n: {
@@ -18,12 +24,27 @@ definePageMeta({
 
 const localePath = useLocalePath();
 const d = useDisplay();
-const { $$ } = useNuxtApp();
+const { $$, $lightbox } = useNuxtApp();
 const H = computed(() =>
   d.smAndUp.value
     ? `calc(100vh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
     : 422,
 );
+
+const slideshow = <any>{
+  priprema: () => {
+    $lightbox({ slides: $$.shuffle(SLIDES_PRIPREMA) }).open();
+  },
+  proizvodnja: () => {
+    $lightbox({ slides: $$.shuffle(SLIDES_PROIZVODNJA) }).open();
+  },
+  "gotovi-proizvodi": () => {
+    $lightbox({ slides: $$.shuffle(SLIDES_GOTOVI_PROIZVODI) }).open();
+  },
+  "zavrsna-obrada": () => {
+    $lightbox({ slides: $$.shuffle(SLIDES_ZAVRSNA_OBRADA) }).open();
+  },
+};
 
 // @@eos
 </script>
@@ -34,16 +55,12 @@ const H = computed(() =>
 
     <VSpacer class="mt-16" />
     <AppBoxContainerCentered>
-      <VCard
-        tile
-        border="t-md primary-darken-1"
+      <AppCardSectionPrimary
         :class="{
           [`!bg-[url('/images/stock/002.png')] !bg-cover`]: d.smAndUp.value,
         }"
       >
-        <VCardTitle
-          class="text-shadow-sm text-center bg-primary-variant position-relative bg-gradient-to-r from-v-primary to-v-primary-variant"
-        >
+        <template #title>
           <IconX
             v-if="d.smAndUp.value"
             icon="$info"
@@ -51,7 +68,7 @@ const H = computed(() =>
             size="2rem"
           />
           <h2>Ukratko o nama</h2>
-        </VCardTitle>
+        </template>
         <VCardText class="text-body-1 space-y-5 py-6">
           <AppBoxBase
             :class="{ '!grid !grid-cols-[auto_1fr]': d.smAndUp.value }"
@@ -138,7 +155,7 @@ const H = computed(() =>
             title="Metal-Promet Mladenovac"
           />
         </VResponsive>
-        <VCardActions>
+        <template #actions>
           <VSpacer />
           <VBtn
             elevation="1"
@@ -153,8 +170,8 @@ const H = computed(() =>
               <IconX icon="$next" class="opacity-50" size="1.5rem" />
             </template>
           </VBtn>
-        </VCardActions>
-      </VCard>
+        </template>
+      </AppCardSectionPrimary>
     </AppBoxContainerCentered>
 
     <VSpacer class="mt-16" />
@@ -166,57 +183,177 @@ const H = computed(() =>
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>Kompletno rešenje za metal</h2>
+        <h2>
+          Kompletno rešenje <template v-if="d.smAndUp.value">za metal</template>
+        </h2>
       </template>
-      <VCardText class="text-body-1 py-6">
+      <VCardText class="text-body-1 py-6 px-2">
         <VContainer fluid>
-          <VRow>
-            <VCol md="4" class="d-flex flex-col items-center space-y-2">
-              <VAvatar
-                color="rgba(var(--v-theme-primary-variant), .122)"
-                size="4.22rem"
+          <VRow :class="{ 'px-12': d.mdAndUp.value }">
+            <VCol sm="4" class="d-flex flex-col items-center space-y-2">
+              <VBadge
+                color="success"
+                location="bottom end"
+                offset-x="10"
+                offset-y="10"
               >
-                <IconX
-                  icon="local:conveyor-belt-box"
-                  size="2rem"
-                  class="opacity-20"
-                />
-              </VAvatar>
+                <template #badge>
+                  <IconX icon="$complete" />
+                </template>
+                <VAvatar
+                  color="rgba(var(--v-theme-primary-variant), .122)"
+                  size="4.22rem"
+                >
+                  <IconX
+                    icon="local:conveyor-belt-box"
+                    size="2rem"
+                    class="opacity-20"
+                  />
+                </VAvatar>
+              </VBadge>
+
               <p>
-                Od inženjerske ideje, preko precizne proizvodnje i estetske
-                zaštite, do profesionalne montaže &dash; nudimo vam zatvoren
-                tehnološki ciklus bez outsourcinga.
+                Zatvoreni tehnološki krug &dash; od inženjerske ideje, kroz
+                preciznu proizvodnju i estetsku zaštitu, do profesionalne
+                montaže &dash; bez outsourcinga, sve pod jednim krovom.
               </p>
             </VCol>
-            <VCol md="4" class="d-flex flex-col items-center space-y-2">
-              <VAvatar
-                color="rgba(var(--v-theme-primary-variant), .122)"
-                size="4.22rem"
+            <VCol sm="4" class="d-flex flex-col items-center space-y-2">
+              <VBadge
+                color="success"
+                location="bottom end"
+                offset-x="10"
+                offset-y="10"
               >
-                <IconX icon="mdi:map-marker" size="2.22rem" class="opacity-20" />
-              </VAvatar>
+                <template #badge>
+                  <IconX icon="$complete" />
+                </template>
+                <VAvatar
+                  color="rgba(var(--v-theme-primary-variant), .122)"
+                  size="4.22rem"
+                >
+                  <IconX
+                    icon="local:brain-outline"
+                    size="2.122rem"
+                    class="opacity-20"
+                  />
+                </VAvatar>
+              </VBadge>
               <p>
-                Proizvodna baza u Mladenovcu strateški je pozicionirana za brzu
-                i efikasnu realizaciju projekata u celoj Šumadiji, širem
-                beogradskom regionu, kao i svim opštinama centralne Srbije.
+                Proizvodna baza u Mladenovcu je tačka sa koje se upravlja brzom
+                i efikasnom realizacijom projekata u Šumadiji, beogradskom
+                okruženju i svim opštinama centralne Srbije.
               </p>
             </VCol>
-            <VCol md="4" class="d-flex flex-col items-center space-y-2">
-              <VAvatar
-                color="rgba(var(--v-theme-primary-variant), .122)"
-                size="4.22rem"
+            <VCol sm="4" class="d-flex flex-col items-center space-y-2">
+              <VBadge
+                color="success"
+                location="bottom end"
+                offset-x="10"
+                offset-y="10"
               >
-                <IconX
-                  icon="mdi:truck-flatbed"
-                  size="2.5rem"
-                  class="opacity-20"
-                />
-              </VAvatar>
+                <template #badge>
+                  <IconX icon="$complete" />
+                </template>
+                <VAvatar
+                  color="rgba(var(--v-theme-primary-variant), .122)"
+                  size="4.22rem"
+                >
+                  <IconX
+                    icon="mdi:truck-flatbed"
+                    size="2.5rem"
+                    class="opacity-20"
+                  />
+                </VAvatar>
+              </VBadge>
+
               <p>
                 Naši montažni timovi su dostupni u svim većim gradovima Srbije,
                 uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima
                 poput Avale, Kosmaja, Aranđelovca i Sopota.
               </p>
+            </VCol>
+          </VRow>
+          <AppBoxBase class="d-flex flex-col mt-14 mb-5">
+            <AppBoxBase class="d-flex justify-center">
+              <VAvatar
+                color="rgba(var(--v-theme-primary-variant), .122)"
+                size="4.22rem"
+              >
+                <IconX icon="mdi:toolbox" size="2.5rem" class="opacity-20" />
+              </VAvatar>
+            </AppBoxBase>
+            <VCardTitle class="text-h4 text-center">
+              Naše delatnosti
+            </VCardTitle>
+          </AppBoxBase>
+          <VRow>
+            <VCol sm="6" md="3" align-self="stretch" v-for="item in DELATNOSTI">
+              <VCard
+                height="100%"
+                class="space-y-2"
+                :class="{ 'd-flex flex-col': d.smAndUp.value }"
+              >
+                <AppBoxBase class="h-[192px]">
+                  <VImg :src="item.image" cover height="100%">
+                    <AppBoxBase
+                      class="w-full h-full !bg-[rgba(var(--v-theme-primary-variant),.5)] d-flex flex-col"
+                    >
+                      <VSpacer />
+                      <VCardActions>
+                        <VSpacer />
+                        <VBtn
+                          icon
+                          color="white"
+                          rounded="circle"
+                          variant="plain"
+                          class="*:filter-shadow-sm"
+                          @click="slideshow[item.key]()"
+                        >
+                          <IconX icon="mdi:animation-play" size="1.5rem" />
+                        </VBtn>
+                      </VCardActions>
+                    </AppBoxBase>
+                  </VImg>
+                </AppBoxBase>
+                <VCardTitle class="*!text-sm text-center">
+                  {{ item.title }}
+                </VCardTitle>
+                <VCardText>
+                  <p class="indent-2">
+                    {{ item.description }}
+                  </p>
+                  <VList slim variant="text">
+                    <VListItem v-for="service in item.services" class="ps-2">
+                      <template #prepend>
+                        <IconX
+                          icon="$complete"
+                          class="text-success"
+                          size="1.22rem"
+                        />
+                      </template>
+                      {{ service }}
+                    </VListItem>
+                  </VList>
+                </VCardText>
+                <VSpacer v-if="d.smAndUp.value" />
+                <VCardActions>
+                  <VSpacer />
+                  <VBtn
+                    tile
+                    elevation="1"
+                    variant="tonal"
+                    class="ps-4"
+                    :to="item.to"
+                  >
+                    Saznajte više
+                    <template #append>
+                      <IconX icon="$next" class="opacity-50" />
+                    </template>
+                  </VBtn>
+                  <VSpacer />
+                </VCardActions>
+              </VCard>
             </VCol>
           </VRow>
         </VContainer>
@@ -236,12 +373,18 @@ const H = computed(() =>
         <li>- chat</li>
       </ul>
     </AppBoxContainerCentered>
-    <AppCardMetalprometInfo />
   </AppBoxPageWrap>
 </template>
 
 <!-- scoped component styles, default -->
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.foobar122 {
+  background-color: rgba(255, 0, 0, 0.5);
+  background-image: url("/images/stock/003.jpg");
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+</style>
 <!-- css modules, per-class hashing -->
 <style module></style>
 <!-- global styles, rare, prefer styles.scss -->

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssPlugin from "tailwindcss/plugin";
 import reduce from "lodash/reduce";
 
 import { COLOR_PRIMARY as primary } from "./app/assets/themes/colors";
@@ -157,8 +158,8 @@ export default {
     // require("@tailwindcss/typography"),
     // require("@tailwindcss/container-queries"),
 
-    // text-shadow plugin
-    (_: any) => {
+    // text-shadow
+    tailwindcssPlugin((_) => {
       const utilities = reduce(
         _.theme("textShadow", {}),
         (accum, value, key) => [
@@ -167,11 +168,12 @@ export default {
         ],
         <any[]>[],
       );
-      _.addUtilities(utilities, ["responsive", "hover"]);
-    },
+      // _.addUtilities(utilities, ["responsive", "hover"]);
+      _.addUtilities(utilities);
+    }),
 
-    // filter: drop-shadow plugin
-    (_: any) => {
+    // filter: drop-shadow
+    tailwindcssPlugin((_) => {
       const filterUtilities = reduce(
         _.theme("filterShadow", {}),
         (accum, value, key) => [
@@ -186,7 +188,8 @@ export default {
         ],
         <any[]>[],
       );
-      _.addUtilities(filterUtilities, ["responsive", "hover"]);
-    },
+      // _.addUtilities(filterUtilities, ["responsive", "hover"]);
+      _.addUtilities(filterUtilities);
+    }),
   ],
 } satisfies Config;

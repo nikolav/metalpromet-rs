@@ -1,0 +1,56 @@
+[
+  {
+    "key": "priprema",
+    "image": "/images/stock/005.jpg",
+    "title": "Priprema",
+    "description": "Vidite projekat pre gradnje, imate tačne crteže i animirani pregled – što znači brži početak, manje prepravki i potpuna kontrola od prve faze.",
+    "services": [
+      "Modelovanje i renderi",
+      "Tehnička dokumentacija",
+      "Kolor studije i animacije"
+    ],
+    "to": "/"
+  },
+  {
+    "key": "proizvodnja",
+    "image": "/images/stock/006.jpg",
+    "title": "Proizvodnja",
+    "description": "Izrada čeličnih i aluminijumskih konstrukcija, ograda, kapija i nadstrešnica, uz uslužno plastificiranje metala, zavarivanje, CNC obradu i montaže u Srbiji i Evropi.",
+    "services": [
+      "Zavarivanje (MAG/MIG/TIG) i švajsovanje metala",
+      "CNC obrada i lasersko sečenje",
+      "Izrada čeličnih, aluminijumskih i inox konstrukcija",
+      "Montaža nosivih okvira i krovnih sistema",
+      "Kovano gvožđe i umetnička bravarija"
+    ],
+    "to": "/"
+  },
+  {
+    "key": "gotovi-proizvodi",
+    "image": "/images/stock/007.jpg",
+    "title": "Gotovi proizvodi",
+    "description": "Širok asortiman metalnih rešenja za stambene, poslovne i industrijske objekte, izrađenih po meri kupca, sa dugotrajnom zaštitom i estetskim završetkom.",
+    "services": [
+      "Panelne, ALU, prohromske i kovane ograde",
+      "Dvorišne i industrijske kapije",
+      "Metalne nadstrešnice i stepenice",
+      "Metalni nameštaj, žardinjere i oprema po meri",
+      "Stambeni i radni kontejneri"
+    ],
+    "to": "/"
+  },
+  {
+    "key": "zavrsna-obrada",
+    "image": "/images/stock/008.jpg",
+    "title": "Završna obrada",
+    "description": "Površinska obrada metala, sa dugotrajnom zaštitom od korozije i estetskim završetkom, prilagođena individualnim zahtevima svakog proizvoda.",
+    "services": [
+      "Uslužna plastifikacija",
+      "Hemijska predobrada i cink prajmer",
+      "Peskarenje finim abrazivom",
+      "Vruće i hladno cinkovanje",
+      "Veliki izbor RAL nijansi, struktura, šljokice, mat"
+    ],
+    "to": "/"
+  }
+]
