@@ -169,7 +169,7 @@ const slideshow = <any>{
                   text: `Zatvoreni tehnološki krug - od inženjerske ideje, kroz preciznu proizvodnju i estetsku zaštitu, do profesionalne montaže - bez outsourcinga, sve pod jednim krovom.`,
                 },
                 {
-                  icon: { name: 'local:conveyor-belt-box', size: '2.122rem' },
+                  icon: { name: 'local:brain-outline', size: '2.122rem' },
                   text: `Proizvodna baza u Mladenovcu je tačka sa koje se upravlja brzom i efikasnom realizacijom projekata u Šumadiji, beogradskom okruženju i svim opštinama centralne Srbije.`,
                 },
                 {
