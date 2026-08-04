@@ -73,6 +73,7 @@ const onMapReady = ({ map, mapsApi }: any) => {
       "
       class="w-100 h-100"
       @ready="onMapReady"
+      trigger="visible"
       v-bind="$attrs"
     />
   </AppBoxBase>

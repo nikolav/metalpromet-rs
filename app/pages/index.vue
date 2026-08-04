@@ -56,9 +56,7 @@ const slideshow = <any>{
     <VSpacer class="mt-16" />
     <!-- o-nama -->
     <AppBoxContainerCentered>
-      <AppCardSectionPrimary
-        class="!bg-[url('/images/stock/009.png')] !bg-contain !bg-no-repeat !bg-[100%_0]"
-      >
+      <AppCardSectionPrimary>
         <template #title>
           <IconX
             v-if="d.smAndUp.value"
@@ -228,7 +226,7 @@ const slideshow = <any>{
             <VCol sm="6" md="3" align-self="stretch" v-for="item in DELATNOSTI">
               <VCard
                 height="100%"
-                class="space-y-2"
+                class="space-y-2 pb-2"
                 :class="{ 'd-flex flex-col': d.smAndUp.value }"
                 color="surface-bright"
               >
