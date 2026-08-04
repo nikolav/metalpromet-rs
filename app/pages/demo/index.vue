@@ -1,14 +1,4 @@
 <script setup lang="ts">
-import { useTheme } from "vuetify";
-import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
-
-const t = useTheme();
-const themeToggle = () => {
-  t.change(t.global.current.value.dark ? "light" : "dark");
-};
-
-const togglePopup = useToggleFlag();
-
 // @@eos
 </script>
 
@@ -16,6 +6,14 @@ const togglePopup = useToggleFlag();
   <AppBoxPageWrap class="page--demo">
     <h2 class="text-center">strana:demo 🚧</h2>
     <AppUtilVuetifyConfig />
+    <AppBoxTransitionIntersectingViewport>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+        eligendi nemo, hic ea praesentium accusantium maxime voluptatum error
+        autem ducimus facilis repudiandae nam corporis nihil quis? Qui sunt
+        dolores enim.
+      </p>
+    </AppBoxTransitionIntersectingViewport>
   </AppBoxPageWrap>
 </template>
 
