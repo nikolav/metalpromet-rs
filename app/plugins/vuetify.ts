@@ -13,7 +13,7 @@ import srCyrlDayjs from "dayjs/locale/sr-cyrl";
 import { VBtn } from "vuetify/components/VBtn";
 
 import { TOKEN_appEmitter$ } from "~/keys";
-import { light_mp as light, dark_mp as dark } from "~/assets/themes";
+import { light_mp_2 as light, dark_mp_2 as dark } from "~/assets/themes";
 import { displayDefaults as display } from "~/assets/breakpoints";
 import { DatetimeService } from "~/services/datetime";
 
@@ -50,6 +50,7 @@ export default defineNuxtPlugin({
             "error",
             "warning",
 
+            "ui",
             "surface",
             "surface-bright",
             "surface-light",

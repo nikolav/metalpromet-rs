@@ -7,3 +7,5 @@ export { lightGoogleAnalytics } from "./light-ga4";
 export { darkGoogleAnalytics } from "./dark-ga4";
 export { light as light_mp } from "./light-mp.theme";
 export { dark as dark_mp } from "./dark-mp.theme";
+export { light as light_mp_2 } from "./light-mp.2.theme";
+export { dark as dark_mp_2 } from "./dark-mp.2.theme";

@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import { useTheme } from "vuetify";
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
+
+const t = useTheme();
+const themeToggle = () => {
+  t.change(t.global.current.value.dark ? "light" : "dark");
+};
 
 const togglePopup = useToggleFlag();
 
@@ -9,24 +15,7 @@ const togglePopup = useToggleFlag();
 <template>
   <AppBoxPageWrap class="page--demo">
     <h2 class="text-center">strana:demo 🚧</h2>
-    <VBtn @click="togglePopup">ok</VBtn>
-    <AppOverlayStatic
-      :x="122"
-      :y="22"
-      v-model="togglePopup.isActive.value"
-      :scrim="false"
-    >
-      <VCard
-        :width="320"
-        :height="256"
-        variant="elevated"
-        color="primary"
-        @click="togglePopup.off"
-        :link="false"
-      >
-        lorem
-      </VCard>
-    </AppOverlayStatic>
+    <AppUtilVuetifyConfig />
   </AppBoxPageWrap>
 </template>
 

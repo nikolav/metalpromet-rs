@@ -56,9 +56,7 @@ const slideshow = <any>{
     <VSpacer class="mt-16" />
     <AppBoxContainerCentered>
       <AppCardSectionPrimary
-        :class="{
-          [`!bg-[url('/images/stock/009.png')] !bg-contain !bg-no-repeat !bg-right`]: true,
-        }"
+        class="!bg-[url('/images/stock/009.png')] !bg-contain !bg-no-repeat !bg-[100%_0]"
       >
         <template #title>
           <IconX
@@ -301,7 +299,7 @@ const slideshow = <any>{
                 <AppBoxBase class="h-[192px]">
                   <VImg :src="item.image" cover height="100%">
                     <AppBoxBase
-                      class="w-full h-full !bg-[rgba(var(--v-theme-primary-variant),.5)] d-flex flex-col"
+                      class="w-full h-full !bg-[rgba(var(--v-theme-ui),.5)] d-flex flex-col"
                     >
                       <VSpacer />
                       <VCardActions>

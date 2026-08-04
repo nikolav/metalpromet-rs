@@ -18,7 +18,7 @@ const props = defineProps<{
     class="component--AppCardSectionPrimary"
   >
     <VCardTitle
-      class="text-shadow-sm text-center bg-primary-variant bg-[url('/images/stock/004.png')] bg-blend-multiply bg-cover position-relative"
+      class="text-shadow-sm text-center bg-ui bg-[url('/images/stock/004.png')] bg-blend-multiply bg-cover position-relative"
       v-bind="props.propsTitle"
     >
       <slot name="title" />

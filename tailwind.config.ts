@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import tailwindcssPlugin from "tailwindcss/plugin";
 import reduce from "lodash/reduce";
 
-import { COLOR_PRIMARY as primary } from "./app/assets/themes/colors";
 import { darkRootClass } from "./app/config/vars.env.public";
 
 export default {
@@ -46,7 +45,6 @@ export default {
       colors: {
         current: "currentColor",
         transparent: "transparent",
-        primary,
         // handy when mixing with Vuetify CSS vars in utilities:
         // text-v-primary
         // e.g. text-[rgb(var(--v-theme-on-surface))]
@@ -78,6 +76,9 @@ export default {
           "on-surface": "rgb(var(--v-theme-on-surface), <alpha-value>)",
 
           outline: "rgb(var(--v-theme-outline), <alpha-value>)",
+
+          ui: "rgb(var(--v-theme-ui), <alpha-value>)",
+          "on-ui": "rgb(var(--v-theme-on-ui), <alpha-value>)",
         },
       },
 

@@ -72,10 +72,10 @@ watch(ctrl.current, (slide) => {
     <template #stack>
       <!-- header line -->
       <VCard
-        color="rgba(var(--v-theme-primary-variant), .88)"
+        color="rgba(var(--v-theme-ui), .88)"
         tile
         elevation="1"
-        class="!grow-0 !text-v-on-primary backdrop-blur-sm"
+        class="!grow-0 !text-v-on-ui backdrop-blur-sm"
       >
         <VCardText class="text-center">
           <h1 class="text-shadow-sm">
@@ -99,8 +99,8 @@ watch(ctrl.current, (slide) => {
         v-if="ctrl.current"
         tile
         elevation="1"
-        class="text-center text-background backdrop-blur-sm"
-        color="rgba(var(--v-theme-on-background), .66)"
+        class="text-center !text-v-on-ui backdrop-blur-sm"
+        color="rgba(var(--v-theme-ui), .66)"
       >
         <IconX
           v-if="d.smAndUp.value"
@@ -143,15 +143,16 @@ watch(ctrl.current, (slide) => {
         :class="[d.smAndUp.value ? 'mb-20' : 'mb-5']"
       >
         <VSpacer />
-        <AppVBtn
-          class="text-shadow-sm"
+        <VBtn
+          variant="elevated"
+          class="text-shadow-sm !text-v-on-ui"
           :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
           size="x-large"
-          color="primary-variant"
+          color="ui"
           :to="localePath({ name: 'contact' })"
         >
           <strong class="text-[122%] me-3">🤝</strong>
-          {{ t("Započnimo saradnju") }}</AppVBtn
+          {{ t("Započnimo saradnju") }}</VBtn
         >
         <VSpacer />
       </VCardActions>

@@ -43,8 +43,8 @@ const toggleOverlayForm = useToggleFlag();
         <VImg src="@/assets/media/phone-laptop.01.jpg" :height="322" cover>
           <VSheet
             tile
-            color="rgba(var(--v-theme-primary-variant), .88)"
-            class="!text-v-on-primary backdrop-blur-sm text-shadow-sm"
+            color="rgba(var(--v-theme-ui), .88)"
+            class="!text-v-on-ui backdrop-blur-sm text-shadow-sm"
           >
             <VCardTitle class="text-center">
               <h2>
@@ -55,8 +55,8 @@ const toggleOverlayForm = useToggleFlag();
           <VSheet
             tile
             elevation="1"
-            color="rgba(var(--v-theme-on-background), .66)"
-            class="text-center text-background backdrop-blur-sm"
+            color="rgba(var(--v-theme-ui), .66)"
+            class="text-center !text-v-on-ui backdrop-blur-sm"
           >
             <VCardText class="text-shadow-sm">
               <h4>
