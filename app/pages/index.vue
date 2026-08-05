@@ -339,9 +339,7 @@ const slideshow = <any>{
         />
         <h2>Projekti</h2>
       </template>
-      <p>
-        🚧
-      </p>
+      <p>🚧</p>
       <p class="text-disabled">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
         praesentium incidunt vero quas animi officia vitae nam molestiae.
