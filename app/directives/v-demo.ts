@@ -5,11 +5,11 @@ import { onDebug } from "~/utils/on-debug";
 import { useDom } from "~/composables/dom/use-dom";
 
 // augment the GlobalDirectives interface
-declare module "vue" {
-  export interface GlobalDirectives {
-    vDemo: TDirective;
-  }
-}
+// declare module "vue" {
+//   export interface GlobalDirectives {
+//     vDemo: TDirective;
+//   }
+// }
 
 export const vDemo = <TDirective>{
   // .mounted .updated .beforeUnmount ...

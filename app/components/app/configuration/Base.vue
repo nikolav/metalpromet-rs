@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { onDebug } from "~/utils/on-debug";
 import { useIO } from "~/composables/io/use-io";
 import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
-import { onDebug } from "~/utils/on-debug";
+
 import PRELOAD_IMAGES from "~/assets/preload-images.json";
 import HERO_SLIDES from "~/assets/hero-slides.json";
 
@@ -48,7 +49,12 @@ useHead({
 });
 
 // uid:device init
-useLocalStorage($$.config("keys.UID_LOCAL")!, () => $$.nanoid());
+const uidLocal = useLocalStorage($$.config("keys.UID_LOCAL")!, () =>
+  $$.nanoid(),
+);
+onMounted(() => {
+  onDebug({ "keys:UID_LOCAL": uidLocal.value });
+});
 
 // @@eos
 </script>
