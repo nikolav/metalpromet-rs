@@ -47,6 +47,9 @@ useHead({
   })),
 });
 
+// uid:device init
+useLocalStorage($$.config("keys.UID_LOCAL")!, () => $$.nanoid());
+
 // @@eos
 </script>
 

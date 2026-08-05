@@ -39,6 +39,7 @@ export default defineAppConfig({
   },
 
   keys: {
+    UID_LOCAL: "642e0fb1-83ef-5245-bebc-48709f679e91",
     COLLECTIONS_NAME_PREFIX:
       "COLLECTIONS:96f387d7-f82a-5307-be98-831874358ac5:",
     CACHE_BY_KEY: "cache",

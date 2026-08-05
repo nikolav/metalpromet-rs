@@ -78,7 +78,7 @@ const slideshow = <any>{
                     name: 'material-symbols:id-card-outline',
                     size: '2.22rem',
                   },
-                  text: `Metal-Promet iz Mladenovca je porodična firma specijalizovana za kompletne metaloprerađivačke radove – od projektovanja i obrade do zaštite i montaže metalnih konstrukcija.`,
+                  text: `Mi smo Metal-Promet iz Mladenovca, porodična firma specijalizovana za kompletne metaloprerađivačke radove – od projektovanja i obrade do zaštite i montaže metalnih konstrukcija.`,
                 },
 
                 {
