@@ -18,9 +18,14 @@ export const dark: ThemeDefinition = {
   dark: true,
 
   colors: {
-    // ===== BASE COLORS =====
+    // ===== SURFACE =====
     background: SURFACE_DARK.background,
     surface: SURFACE_DARK.surface,
+    "surface-bright": SURFACE_DARK["surface-bright"],
+    "surface-light": SURFACE_DARK["surface-light"],
+    "surface-variant": SURFACE_DARK["surface-variant"],
+
+    // ===== BASE COLORS =====
     primary: COLOR_PRIMARY_DARK,
     secondary: COLOR_SECONDARY_DARK,
     success: COLOR_SUCCESS_DARK,
@@ -28,12 +33,7 @@ export const dark: ThemeDefinition = {
     error: COLOR_ERROR_DARK,
     info: COLOR_INFO_DARK,
 
-    // ===== SURFACE VARIANTS =====
-    "surface-bright": SURFACE_DARK["surface-bright"],
-    "surface-light": SURFACE_DARK["surface-light"],
-    "surface-variant": SURFACE_DARK["surface-variant"],
-
-    // ===== ACCENT, VARIANT =====
+    // ===== ACCENT, VARIANT, OTHER =====
     "primary-variant": COLOR_PRIMARY_VARIANT_DARK,
     accent: COLOR_ACCENT_DARK,
     ui: COLOR_UI,
@@ -48,12 +48,13 @@ export const dark: ThemeDefinition = {
     "on-primary": "#121318",
     "on-primary-variant": "#FFFFFF",
     "on-accent": "#1A1C24",
+    "on-ui": "#FFFFFF",
+
     "on-secondary": "#FFFFFF",
     "on-success": "#121318",
     "on-warning": "#1A1C24",
     "on-error": "#121318",
     "on-info": "#121318",
-    "on-ui": "#FFFFFF",
   },
 
   variables: {

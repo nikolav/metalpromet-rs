@@ -12,11 +12,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <VCard
-    tile
-    border="t-md primary-darken-1"
-    class="component--AppCardSectionPrimary"
-  >
+  <VCard tile border="t-md primary-darken-1" class="component--AppCardSectionPrimary">
     <VCardTitle
       class="text-shadow-sm text-center bg-ui bg-[url('/images/stock/004.png')] bg-blend-multiply bg-cover position-relative"
       v-bind="props.propsTitle"

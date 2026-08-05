@@ -18,9 +18,14 @@ export const light: ThemeDefinition = {
   dark: false,
 
   colors: {
-    // ===== BASE COLORS =====
+    // ===== SURFACE =====
     background: SURFACE_LIGHT.background,
     surface: SURFACE_LIGHT.surface,
+    "surface-bright": SURFACE_LIGHT["surface-bright"],
+    "surface-light": SURFACE_LIGHT["surface-light"],
+    "surface-variant": SURFACE_LIGHT["surface-variant"],
+
+    // ===== BASE =====
     primary: COLOR_PRIMARY,
     secondary: COLOR_SECONDARY,
     success: COLOR_SUCCESS,
@@ -28,12 +33,7 @@ export const light: ThemeDefinition = {
     error: COLOR_ERROR,
     info: COLOR_INFO,
 
-    // ===== SURFACE VARIANTS =====
-    "surface-bright": SURFACE_LIGHT["surface-bright"],
-    "surface-light": SURFACE_LIGHT["surface-light"],
-    "surface-variant": SURFACE_LIGHT["surface-variant"],
-
-    // ===== ACCENT, VARIANT =====
+    // ===== ACCENT, VARIANT, OTHER =====
     "primary-variant": COLOR_PRIMARY_VARIANT,
     accent: COLOR_ACCENT,
     ui: COLOR_UI,
@@ -48,12 +48,13 @@ export const light: ThemeDefinition = {
     "on-primary": "#FFFFFF",
     "on-primary-variant": "#FFFFFF",
     "on-accent": "#1A1C24",
+    "on-ui": "#FFFFFF",
     "on-secondary": "#FFFFFF",
+
     "on-success": "#FFFFFF",
     "on-warning": "#1A1C24",
     "on-error": "#FFFFFF",
     "on-info": "#FFFFFF",
-    "on-ui": "#FFFFFF",
   },
 
   variables: {

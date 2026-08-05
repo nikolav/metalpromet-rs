@@ -145,7 +145,7 @@ watch(ctrl.current, (slide) => {
         <VSpacer />
         <VBtn
           variant="elevated"
-          class="text-shadow-sm !text-v-on-ui"
+          class="text-shadow-sm !text-v-on-ui px-4"
           :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
           size="x-large"
           color="ui"

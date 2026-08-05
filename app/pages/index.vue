@@ -50,102 +50,135 @@ const slideshow = <any>{
 </script>
 
 <template>
-  <AppBoxPageWrap class="page--index">
-    <AppSlidesHero :height="H" />
+  <AppBoxPageWrap class="page--index space-y-20">
+    <AppSlidesHero :height="H" class="mt-0" />
 
-    <VSpacer class="mt-16" />
     <!-- o-nama -->
-    <AppBoxContainerCentered>
-      <AppCardSectionPrimary>
-        <template #title>
-          <IconX
-            v-if="d.smAndUp.value"
-            icon="$info"
-            class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-            size="2rem"
-          />
-          <h2>Ukratko o nama</h2>
-        </template>
-        <VCardText class="text-body-1 space-y-5 py-6 *indent-4">
-          <AppBoxBase
-            :class="{ '!grid !grid-cols-[auto_1fr]': d.smAndUp.value }"
-            :key="node.text"
-            v-for="node in [
-              {
-                icon: {
-                  name: 'material-symbols:id-card-outline',
-                  size: '2.22rem',
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="$info"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2rem"
+        />
+        <h2>Ukratko o nama</h2>
+      </template>
+      <VCardText class="text-body-1 space-y-5 py-6 *indent-4">
+        <AppBoxContainerCentered fluid>
+          <VRow>
+            <VCol
+              :align-self="d.smAndUp.value ? 'stretch' : undefined"
+              sm="6"
+              :key="node.text"
+              v-for="node in [
+                {
+                  image: '/images/stock/009.jpg',
+                  icon: {
+                    name: 'material-symbols:id-card-outline',
+                    size: '2.22rem',
+                  },
+                  text: `Metal-Promet iz Mladenovca je porodična firma specijalizovana za kompletne metaloprerađivačke radove – od projektovanja i obrade do zaštite i montaže metalnih konstrukcija.`,
                 },
-                text: `Mi smo Metal-Promet iz Mladenovca. Porodična firma koja već decenijama diše sa metalom - bukvalno. Pravimo metalne konstrukcije, kapije, ograde... i sve što čvrsto stoji. Svaki posao vodimo od prve skice do poslednjeg zavara. Jer, lepo je nacrtati - ali kad majstor kaže 'može', to je ono pravo.`,
-              },
-              {
-                icon: {
-                  name: 'mdi:factory',
-                  size: '2rem',
-                },
-                text: `Naša proizvodnja obuhvata kompletne metaloprerađivačke radove - od 3D modelovanja i CNC obrade, preko zavarivanja i montaže čeličnih i aluminijumskih konstrukcija, do vrhunske zaštite metala.`,
-              },
-              {
-                icon: {
-                  name: 'local:shield-improved',
-                  size: '1.92rem',
-                },
-                text: `Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5m, uz obavezan hemijski predtretman i cink prajmer koji garantuju dugotrajnu korozionu postojanost.`,
-              },
-              {
-                icon: {
-                  name: 'mdi:certificate',
-                  size: '2rem',
-                },
-                text: `Specijalizovani smo za izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti, sa završnom obradom koja podrazumeva hemijsko čišćenje i nanošenje zaštitnih premaza u peći od 7,8m, te toplo i hladno cinkovanje.`,
-              },
-              {
-                icon: {
-                  name: 'mdi:diamond-stone',
-                  size: '2rem',
-                },
-                text: `Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi (Austrija, Švajcarska i Engleska), garantujemo dugotrajnu korozionu postojanost i estetsku završnicu vaših projekata u celoj Srbiji.`,
-              },
-            ]"
-          >
-            <IconX
-              :icon="node.icon.name"
-              :size="node.icon.size"
-              class="text-on-surface d-block mx-auto opacity-20"
-              :class="{ 'w-[4rem]': d.smAndUp.value }"
-            />
-            <p>
-              {{ node.text }}
-            </p>
-          </AppBoxBase>
-        </VCardText>
-        <VResponsive :max-height="596">
-          <AppVideoPlayer
-            :sources="[{ src: 'ni1k-4yGADw' }]"
-            provider="youtube"
-            title="Metal-Promet Mladenovac"
-          />
-        </VResponsive>
-        <template #actions>
-          <VSpacer />
-          <VBtn
-            elevation="1"
-            tile
-            class="ps-4"
-            variant="tonal"
-            size="large"
-            color="primary"
-            :to="localePath({ name: 'about' })"
-            >Saznajte više
-            <template #append>
-              <IconX icon="$next" class="opacity-50" size="1.5rem" />
-            </template>
-          </VBtn>
-        </template>
-      </AppCardSectionPrimary>
-    </AppBoxContainerCentered>
 
-    <VSpacer class="mt-16" />
+                {
+                  image: '/images/stock/010.jpg',
+                  icon: {
+                    name: 'local:shield-improved',
+                    size: '1.92rem',
+                  },
+                  text: `Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5m, uz obavezan hemijski predtretman i cink prajmer koji garantuju dugotrajnu korozionu postojanost.`,
+                },
+                {
+                  image: '/images/stock/011.jpg',
+                  icon: {
+                    name: 'mdi:certificate',
+                    size: '2rem',
+                  },
+                  text: `Specijalizovani smo za izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti, sa završnom obradom koja podrazumeva hemijsko čišćenje i nanošenje zaštitnih premaza u peći od 7,8m, te toplo i hladno cinkovanje.`,
+                },
+                {
+                  image: '/images/stock/012.jpg',
+                  icon: {
+                    name: 'mdi:diamond-stone',
+                    size: '2rem',
+                  },
+                  text: `Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi (Austrija, Švajcarska i Engleska), garantujemo dugotrajnu korozionu postojanost i estetsku završnicu vaših projekata u celoj Srbiji.`,
+                },
+              ]"
+            >
+              <VCard
+                color="surface-light"
+                elevation="1"
+                class="pb-2 d-flex flex-col"
+                :class="{ 'h-full': d.smAndUp.value }"
+              >
+                <AppBoxBase class="h-[192px]">
+                  <VImg :src="node.image" cover height="100%">
+                    <div
+                      class="position-relative !w-full !h-full !bg-[rgba(var(--v-theme-ui),.5)]"
+                    />
+                  </VImg>
+                </AppBoxBase>
+                <AppBoxCentered class="pt-5">
+                  <IconX
+                    :icon="node.icon.name"
+                    :size="node.icon.size"
+                    class="opacity-20"
+                    :class="{ 'w-[4rem]': d.smAndUp.value }"
+                  />
+                </AppBoxCentered>
+                <VCardText class="indent-4 text-body-1 *pa-2 *ma-2">
+                  {{ node.text }}
+                </VCardText>
+                <VSpacer />
+                <VCardActions>
+                  <VSpacer />
+                  <VBtn
+                    elevation="1"
+                    color="current"
+                    variant="tonal"
+                    tile
+                    class="!ps-4"
+                    :to="localePath({ name: 'under-construction' })"
+                  >
+                    <template #append>
+                      <IconX icon="$next" class="opacity-50" />
+                    </template>
+                    Saznajte više
+                  </VBtn>
+                  <VSpacer />
+                </VCardActions>
+              </VCard>
+            </VCol>
+          </VRow>
+        </AppBoxContainerCentered>
+      </VCardText>
+      <VResponsive :max-height="596">
+        <AppVideoPlayer
+          :sources="[{ src: 'ni1k-4yGADw' }]"
+          provider="youtube"
+          title="Metal-Promet Mladenovac"
+        />
+      </VResponsive>
+      <template #actions>
+        <VSpacer />
+        <VBtn
+          elevation="1"
+          tile
+          class="ps-4"
+          variant="tonal"
+          size="large"
+          color="primary"
+          :to="localePath({ name: 'about' })"
+          >Saznajte više
+          <template #append>
+            <IconX icon="$next" class="opacity-50" size="1.5rem" />
+          </template>
+        </VBtn>
+      </template>
+    </AppCardSectionPrimary>
+
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -296,7 +329,27 @@ const slideshow = <any>{
       </VCardText>
     </AppCardSectionPrimary>
 
-    <VSpacer class="mt-16" />
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:eiffel-tower"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2.22rem"
+        />
+        <h2>Projekti</h2>
+      </template>
+      <p>
+        🚧
+      </p>
+      <p class="text-disabled">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
+        praesentium incidunt vero quas animi officia vitae nam molestiae.
+        Perspiciatis, est! Ea inventore, perferendis iste reiciendis ducimus
+        nihil itaque corporis fugiat.
+      </p>
+    </AppCardSectionPrimary>
+
     <AppBoxContainerCentered class="d-flex flex-col items-center">
       <h2 class="text-center">&#64;TODO; sekcije sajta; 🚧</h2>
       <ul>
