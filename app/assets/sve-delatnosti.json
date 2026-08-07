@@ -9,7 +9,8 @@
       "Tehnička dokumentacija",
       "Kolor studije i animacije"
     ],
-    "to": "/"
+    "icon": "mdi:ruler",
+    "to": "under-construction"
   },
   {
     "key": "proizvodnja",
@@ -23,7 +24,8 @@
       "Montaža nosivih okvira i krovnih sistema",
       "Kovano gvožđe i umetnička bravarija"
     ],
-    "to": "/"
+    "icon": "mdi:wrench",
+    "to": "under-construction"
   },
   {
     "key": "gotovi-proizvodi",
@@ -37,7 +39,8 @@
       "Metalni nameštaj, žardinjere i oprema po meri",
       "Stambeni i radni kontejneri"
     ],
-    "to": "/"
+    "icon": "mdi:screwdriver",
+    "to": "under-construction"
   },
   {
     "key": "zavrsna-obrada",
@@ -51,6 +54,7 @@
       "Vruće i hladno cinkovanje",
       "Veliki izbor RAL nijansi, struktura, šljokice, mat"
     ],
-    "to": "/"
+    "icon": "mdi:shield",
+    "to": "under-construction"
   }
 ]

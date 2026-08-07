@@ -178,8 +178,7 @@ const slideshow = <any>{
                 <VRow no-gutters class="h-100">
                   <VCol
                     sm="6"
-                    md="6"
-                    class="!bg-cover bg-[rgba(var(--v-theme-surface-light),.85)] bg-blend-multiply"
+                    class="!bg-cover bg-[rgba(var(--v-theme-surface-light),.66)] bg-blend-multiply"
                     :class="{
                       [`${node.bgImage}`]: true,
                       'py-12': !d.mdAndUp.value,
@@ -288,13 +287,15 @@ const slideshow = <any>{
 
       <!-- video -->
       <VSpacer class="mt-2" />
-      <VResponsive>
-        <AppVideoPlayer
-          :sources="[{ src: 'ni1k-4yGADw' }]"
-          provider="youtube"
-          title="Metal-Promet Mladenovac"
-        />
-      </VResponsive>
+      <AppBoxContainerCentered fluid>
+        <VCard variant="text" elevation="1">
+          <AppVideoPlayer
+            :sources="[{ src: 'ni1k-4yGADw' }]"
+            provider="youtube"
+            title="Metal-Promet Mladenovac"
+          />
+        </VCard>
+      </AppBoxContainerCentered>
 
       <template #actions>
         <VSpacer />
@@ -328,56 +329,58 @@ const slideshow = <any>{
           Kompletno rešenje<template v-if="d.smAndUp.value"> za metal</template>
         </h2>
       </template>
-      <VCardText class="text-body-1 py-6 px-2">
+      <VCardText class="text-body-1 py-2 px-2">
         <VContainer fluid>
-          <VRow :class="{ 'px-12': d.mdAndUp.value }">
-            <VCol
-              :key="node.text"
-              v-for="node in [
-                {
-                  icon: { name: 'local:conveyor-belt-box', size: '2rem' },
-                  text: `Zatvoreni tehnološki krug - od inženjerske ideje, kroz preciznu proizvodnju i estetsku zaštitu, do profesionalne montaže - bez outsourcinga, sve pod jednim krovom.`,
-                },
-                {
-                  icon: { name: 'local:brain-outline', size: '2.122rem' },
-                  text: `Proizvodna baza u Mladenovcu je tačka sa koje se upravlja brzom i efikasnom realizacijom projekata u Šumadiji, beogradskom okruženju i svim opštinama centralne Srbije.`,
-                },
-                {
-                  icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
-                  text: `Naši montažni timovi su dostupni u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota.`,
-                },
-              ]"
-              sm="4"
-              class="d-flex flex-col items-center space-y-2"
-            >
-              <VBadge
-                color="success"
-                location="bottom end"
-                offset-x="10"
-                offset-y="10"
+          <AppBoxContainerCentered fluid>
+            <VRow>
+              <VCol
+                :key="node.text"
+                v-for="node in [
+                  {
+                    icon: { name: 'local:conveyor-belt-box', size: '2rem' },
+                    text: `Zatvoreni tehnološki krug - od inženjerske ideje, kroz preciznu proizvodnju i estetsku zaštitu, do profesionalne montaže - bez outsourcinga, sve pod jednim krovom.`,
+                  },
+                  {
+                    icon: { name: 'local:brain-outline', size: '2.122rem' },
+                    text: `Proizvodna baza u Mladenovcu je tačka sa koje se upravlja brzom i efikasnom realizacijom projekata u Šumadiji, beogradskom okruženju i svim opštinama centralne Srbije.`,
+                  },
+                  {
+                    icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
+                    text: `Naši montažni timovi su dostupni u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota.`,
+                  },
+                ]"
+                sm="4"
+                class="d-flex flex-col items-center space-y-2"
               >
-                <template #badge>
-                  <IconX icon="$complete" />
-                </template>
-                <VAvatar
-                  color="rgba(var(--v-theme-primary-variant), .122)"
-                  size="4.22rem"
+                <VBadge
+                  color="success"
+                  location="bottom end"
+                  offset-x="10"
+                  offset-y="10"
                 >
-                  <IconX
-                    :icon="node.icon.name"
-                    :size="node.icon.size"
-                    class="opacity-20"
-                  />
-                </VAvatar>
-              </VBadge>
+                  <template #badge>
+                    <IconX icon="$complete" />
+                  </template>
+                  <VAvatar
+                    color="rgba(var(--v-theme-primary-variant), .122)"
+                    size="4.22rem"
+                  >
+                    <IconX
+                      :icon="node.icon.name"
+                      :size="node.icon.size"
+                      class="opacity-20"
+                    />
+                  </VAvatar>
+                </VBadge>
 
-              <p>
-                {{ node.text }}
-              </p>
-            </VCol>
-          </VRow>
+                <p class="mt-4 text-body-2">
+                  {{ node.text }}
+                </p>
+              </VCol>
+            </VRow>
+          </AppBoxContainerCentered>
           <AppGridRowsAutoAuto
-            class="mt-14 mb-5"
+            class="mt-10 *mb-2"
             :props-top="{ class: 'd-flex justify-center' }"
           >
             <template #top>
@@ -392,7 +395,7 @@ const slideshow = <any>{
               Naše delatnosti
             </VCardTitle>
           </AppGridRowsAutoAuto>
-          <VRow>
+          <VRow dense>
             <VCol
               sm="6"
               md="3"
@@ -406,19 +409,23 @@ const slideshow = <any>{
                 :class="{ 'd-flex flex-col': d.smAndUp.value }"
                 color="surface-bright"
               >
-                <AppBoxBase class="h-[192px] mt-0">
+                <AppBoxBase class="h-[222px] mt-0">
                   <VImg :src="item.image" cover height="100%">
                     <AppBoxBase
-                      class="w-full h-full !bg-[rgba(var(--v-theme-ui),.5)] d-flex flex-col"
+                      class="w-full h-full !bg-[rgba(var(--v-theme-ui),.52)]"
                     >
-                      <VSpacer />
-                      <VCardActions>
+                      <VCardActions class="pt-0 pe-0">
+                        <IconX
+                          :icon="item.icon"
+                          size="1.22rem"
+                          class="-translate-y-[2px] opacity-[.52]"
+                        />
                         <VSpacer />
                         <VBtn
                           icon
-                          color="white"
+                          color="on-surface"
                           rounded="circle"
-                          variant="plain"
+                          variant="text"
                           class="*:filter-shadow-sm"
                           @click="slideshow[item.key]()"
                         >
@@ -432,14 +439,14 @@ const slideshow = <any>{
                   {{ item.title }}
                 </VCardTitle>
                 <VCardText>
-                  <p class="indent-2">
+                  <p>
                     {{ item.description }}
                   </p>
                   <VList slim bg-color="transparent">
                     <VListItem
                       :key="service"
                       v-for="service in item.services"
-                      class="ps-2"
+                      class="ps-0"
                     >
                       <template #prepend>
                         <IconX
@@ -460,7 +467,7 @@ const slideshow = <any>{
                     elevation="1"
                     variant="tonal"
                     class="ps-4"
-                    :to="item.to"
+                    :to="localePath({ name: item.to })"
                   >
                     Saznajte više
                     <template #append>

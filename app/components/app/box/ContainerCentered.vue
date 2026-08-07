@@ -3,6 +3,14 @@
 //   name: "COMPONENT_NAME",
 //   inheritAttrs: false,
 // });
+const props = withDefaults(
+  defineProps<{
+    centered?: boolean;
+  }>(),
+  {
+    centered: true,
+  },
+);
 
 const { $$ } = useNuxtApp();
 
@@ -11,16 +19,10 @@ const { $$ } = useNuxtApp();
 
 <template>
   <VContainer
-    class="app-container-reset ma-0 pa-0 mx-auto component--AppBoxContainerCentered"
+    class="app-container-reset ma-0 pa-0 component--AppBoxContainerCentered"
+    :class="{ 'mx-auto': props.centered }"
     :max-width="$$.config('layout.component.AppBoxContainerCentered.maxWidth')!"
   >
     <slot />
   </VContainer>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>
