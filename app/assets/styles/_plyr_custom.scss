@@ -1,3 +1,7 @@
+:root {
+  --plyr-color-main: rgba(var(--v-theme-error), 1);
+}
+
 .plyr__video-embed {
   position: relative;
 

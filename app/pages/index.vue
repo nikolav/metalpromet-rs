@@ -8,6 +8,8 @@ import SLIDES_GOTOVI_PROIZVODI from "~/assets/slides-gotovi-proizvodi.json";
 import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
 
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
+import { useKeyValue } from "~/composables/state/use-key-value";
+import { isPresent } from "~/utils/is-present";
 
 definePageMeta({
   layout: "default",
@@ -49,13 +51,17 @@ const slideshow = <any>{
 };
 
 const toggleVideoPopup = useToggleFlag();
-const videoCurrent = shallowRef<{ key: string }>();
-const videos = <any>{
+const vids = useKeyValue<{
+  tall: boolean;
+  provider: "html5" | "youtube" | "vimeo";
+  src: string;
+  "props-frame": any;
+}>({
   priprema: {
     tall: true,
     provider: "youtube",
     src: "idxkQgb5KNA",
-    "props-iframe": {
+    "props-frame": {
       title:
         "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
     },
@@ -64,7 +70,7 @@ const videos = <any>{
     tall: true,
     provider: "youtube",
     src: "idxkQgb5KNA",
-    "props-iframe": {
+    "props-frame": {
       title:
         "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
     },
@@ -73,7 +79,7 @@ const videos = <any>{
     tall: true,
     provider: "youtube",
     src: "idxkQgb5KNA",
-    "props-iframe": {
+    "props-frame": {
       title:
         "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
     },
@@ -82,14 +88,16 @@ const videos = <any>{
     tall: true,
     provider: "youtube",
     src: "idxkQgb5KNA",
-    "props-iframe": {
+    "props-frame": {
       title:
         "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
     },
   },
-};
+});
+const videoCurrent = shallowRef<{ key: string }>();
 watch(videoCurrent, (vc) => {
   if (!vc?.key) return;
+  vids.use(vc.key);
   toggleVideoPopup();
 });
 
@@ -339,7 +347,7 @@ watch(videoCurrent, (vc) => {
           <AppVideoPlayer
             :sources="[{ src: 'ni1k-4yGADw' }]"
             provider="youtube"
-            :props-iframe="{
+            :props-frame="{
               title: 'Metal-Promet Mladenovac',
             }"
           />
@@ -541,10 +549,10 @@ watch(videoCurrent, (vc) => {
                 </VCardActions>
                 <AppVideoPlayerPopup
                   v-model="toggleVideoPopup.isActive.value"
-                  :tall="videos[videoCurrent?.key!]?.tall"
-                  :provider="videos[videoCurrent?.key!]?.provider"
-                  :sources="[{ src: videos[videoCurrent?.key!]?.src }]"
-                  :props-iframe="videos[videoCurrent?.key!]?.['props-iframe']"
+                  :tall="vids.current.value?.tall"
+                  :provider="vids.current.value?.provider"
+                  :sources="[{ src: vids.current.value?.src ?? '' }]"
+                  :props-frame="vids.current.value?.['props-frame']"
                 />
               </VCard>
             </VCol>

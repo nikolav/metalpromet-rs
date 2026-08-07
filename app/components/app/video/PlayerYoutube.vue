@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   sources: { src: string }[];
-  propsIframe?: any;
+  propsFrame?: any;
 }>();
 // src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;"
 // @@eos
@@ -15,7 +15,7 @@ const props = defineProps<{
       referrerpolicy="strict-origin-when-cross-origin"
       allow="autoplay; encrypted-media; picture-in-picture"
       allowfullscreen
-      v-bind="props.propsIframe"
+      v-bind="props.propsFrame"
     ></iframe>
   </AppBoxBase>
 </template>

@@ -7,7 +7,7 @@ const props = defineProps<{
   tall?: boolean;
   provider?: "html5" | "youtube" | "vimeo";
   sources: { src: string; type?: string; size?: number }[];
-  propsIframe?: any;
+  propsFrame?: any;
   propsDialog?: any;
   propsWrap?: any;
   propsClose?: any;
@@ -15,13 +15,15 @@ const props = defineProps<{
 
 const model = defineModel<boolean>();
 
+const { $$ } = useNuxtApp();
+
 // @@eos
 </script>
 
 <template>
   <VDialog
     v-model="model"
-    transition="app-transition-slide-y-r"
+    :transition="$$.config('ui.DEFAULT_TRANSITION')"
     :content-props="{ class: props.tall ? 'h-full' : undefined }"
     v-bind="props.propsDialog"
   >
@@ -29,7 +31,7 @@ const model = defineModel<boolean>();
       <AppVideoPlayer
         :provider="props.provider"
         :sources="props.sources"
-        :props-iframe="props.propsIframe"
+        :props-frame="props.propsFrame"
         :class="{ '!h-full': props.tall }"
         v-bind="$attrs"
       />
@@ -41,7 +43,7 @@ const model = defineModel<boolean>();
         variant="elevated"
         rounded="circle"
         class="!fixed z-[9999] right-1 top-1"
-        color="error"
+        color="error-darken-1"
         v-bind="props.propsClose"
       >
         <IconX icon="$close" />

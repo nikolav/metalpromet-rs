@@ -1,9 +1,11 @@
 import type { TOrNoValue } from "~/types";
 
-export const useKeyValue = <TValue = unknown>() => {
+export const useKeyValue = <TValue = unknown>(
+  initial = <Record<string, TValue>>{},
+) => {
   const { $$ } = useNuxtApp();
 
-  const values = ref<Record<string, TValue>>({});
+  const values = ref(initial);
   const currentKey = shallowRef<TOrNoValue<string>>();
 
   const current = computed(() =>

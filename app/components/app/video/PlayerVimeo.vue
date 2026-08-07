@@ -2,7 +2,7 @@
 const props = defineProps<{
   // 76979871
   sources: { src: string }[];
-  propsIframe?: any;
+  propsFrame?: any;
 }>();
 
 // @@eos
@@ -16,7 +16,7 @@ const props = defineProps<{
       referrerpolicy="strict-origin-when-cross-origin"
       allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
       frameborder="0"
-      v-bind="props.propsIframe"
+      v-bind="props.propsFrame"
     ></iframe>
   </AppBoxBase>
 </template>

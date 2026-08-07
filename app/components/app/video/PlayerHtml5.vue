@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   sources: { src: string; type: string; size?: number }[];
-  propsIframe?: any;
+  propsFrame?: any;
 }>();
 
 // @@eos
@@ -12,16 +12,10 @@ const props = defineProps<{
     playsinline
     controls
     preload="metadata"
-    :data-title="props.propsIframe.title"
+    :data-title="props.propsFrame.title"
     crossorigin="anonymous"
+    v-bind="props.propsFrame"
   >
     <source v-for="s in props.sources" :src="s.src" :type="s.type" />
   </video>
 </template>
-
-<!-- scoped component styles, default -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles, rare, prefer styles.scss -->
-<style lang="scss"></style>
