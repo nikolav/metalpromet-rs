@@ -9,6 +9,7 @@ import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 
 const d = useDisplay();
 const { $$ } = useNuxtApp();
+const localePath = useLocalePath();
 
 const toggleNavMenu = useToggleFlag();
 
@@ -31,7 +32,19 @@ const toggleNavMenu = useToggleFlag();
       </AppOverlayScreen>
     </template>
     <template v-else>
-      <VSpacer />
+      <VAppBarTitle>
+        <NuxtLinkLocale
+          :to="localePath({ name: 'index' })"
+          class="no-underline text-inherit"
+          title="Metal-Promet Mladenovac"
+        >
+          <IconX
+            icon="local:logo-mp"
+            size="2rem"
+            class="text-[rgba(var(--v-theme-ui),1)]"
+          />
+        </NuxtLinkLocale>
+      </VAppBarTitle>
       <AppNavLine />
     </template>
   </VAppBar>

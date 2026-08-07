@@ -137,6 +137,14 @@
     "show": true
   },
   {
+    "src": "/images/hero/2-bravarija-konstrukcije/montaza.04.jpg",
+    "icon": "mdi:wrench",
+    "group": "Bravarija i izrada konstrukcija",
+    "title": "Montaža čeličnih konstrukcija",
+    "description": "Postavljanje nosivih metalnih okvira",
+    "show": true
+  },
+  {
     "src": "/images/hero/2-bravarija-konstrukcije/alu.01.jpg",
     "icon": "mdi:wrench",
     "group": "Bravarija i izrada konstrukcija",
