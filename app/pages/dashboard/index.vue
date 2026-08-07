@@ -1,5 +1,6 @@
-import { AppBoxPageWrap } from "../../../.nuxt/components";
 <script setup lang="ts">
+import { useDocs } from "~/composables/docs/use-docs";
+
 // defineOptions({
 //   name: "COMPONENT_NAME",
 //   inheritAttrs: false,
@@ -21,18 +22,21 @@ definePageMeta({
   },
 });
 
+const logsMain = useDocs("main", "logs");
+
+onNuxtReady(async () => {
+  console.log("logsMain.start");
+  await logsMain.start();
+});
+
 // @@eos
 </script>
 
 <template>
   <AppBoxPageWrap class="page--dashboard">
     <h2 class="text-center">page:dashboard 🚧</h2>
+    <small>
+      <pre>{{ logsMain.data }}</pre>
+    </small>
   </AppBoxPageWrap>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>

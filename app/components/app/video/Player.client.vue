@@ -10,16 +10,12 @@ import type { TOrNoValue, TPlayerInstance, TPlayerOptions } from "~/types";
 import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
 import { usePlayer } from "~/composables/media/use-player";
 
-defineOptions({
-  inheritAttrs: false,
-});
-
+// propsIframe: { title?:string; poster?:string; }
 const props = withDefaults(
   defineProps<{
-    sources: { src: string; type?: string; size?: number }[];
     provider?: "html5" | "youtube" | "vimeo";
-    title?: string;
-    poster?: string;
+    sources: { src: string; type?: string; size?: number }[];
+    propsIframe?: any;
   }>(),
   {
     provider: "html5",
@@ -106,12 +102,9 @@ defineExpose(exposed);
 </script>
 
 <template>
-  <AppBoxBase class="component--AppVideoPlayer">
-    <component
-      :is="COMP[props.provider]"
-      :id="ID"
-      :sources="props.sources"
-      v-bind="mergeProps($attrs, $$.omit(props, ['provider', 'sources']))"
-    />
-  </AppBoxBase>
+  <component
+    :is="COMP[props.provider]"
+    :sources="props.sources"
+    :props-iframe="mergeProps(props.propsIframe, { id: ID })"
+  />
 </template>

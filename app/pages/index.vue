@@ -7,6 +7,8 @@ import SLIDES_PROIZVODNJA from "~/assets/slides-proizvodnja.json";
 import SLIDES_GOTOVI_PROIZVODI from "~/assets/slides-gotovi-proizvodi.json";
 import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
 
+import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
+
 definePageMeta({
   layout: "default",
   i18n: {
@@ -45,6 +47,51 @@ const slideshow = <any>{
     $lightbox({ slides: $$.shuffle(SLIDES_ZAVRSNA_OBRADA) }).open();
   },
 };
+
+const toggleVideoPopup = useToggleFlag();
+const videoCurrent = shallowRef<{ key: string }>();
+const videos = <any>{
+  priprema: {
+    tall: true,
+    provider: "youtube",
+    src: "idxkQgb5KNA",
+    "props-iframe": {
+      title:
+        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+    },
+  },
+  proizvodnja: {
+    tall: true,
+    provider: "youtube",
+    src: "idxkQgb5KNA",
+    "props-iframe": {
+      title:
+        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+    },
+  },
+  "gotovi-proizvodi": {
+    tall: true,
+    provider: "youtube",
+    src: "idxkQgb5KNA",
+    "props-iframe": {
+      title:
+        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+    },
+  },
+  "zavrsna-obrada": {
+    tall: true,
+    provider: "youtube",
+    src: "idxkQgb5KNA",
+    "props-iframe": {
+      title:
+        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+    },
+  },
+};
+watch(videoCurrent, (vc) => {
+  if (!vc?.key) return;
+  toggleVideoPopup();
+});
 
 // @@eos
 </script>
@@ -292,7 +339,9 @@ const slideshow = <any>{
           <AppVideoPlayer
             :sources="[{ src: 'ni1k-4yGADw' }]"
             provider="youtube"
-            title="Metal-Promet Mladenovac"
+            :props-iframe="{
+              title: 'Metal-Promet Mladenovac',
+            }"
           />
         </VCard>
       </AppBoxContainerCentered>
@@ -414,7 +463,9 @@ const slideshow = <any>{
                     <AppBoxBase
                       class="w-full h-full !bg-[rgba(var(--v-theme-ui),.52)]"
                     >
-                      <VCardActions class="pt-0 pe-0">
+                      <VCardActions
+                        class="pt-0 pe-0 text-[rgba(var(--v-theme-on-ui),1)]"
+                      >
                         <IconX
                           :icon="item.icon"
                           size="1.22rem"
@@ -423,13 +474,25 @@ const slideshow = <any>{
                         <VSpacer />
                         <VBtn
                           icon
-                          color="on-surface"
+                          color="current"
                           rounded="circle"
                           variant="text"
                           class="*:filter-shadow-sm"
+                          title="Slike"
                           @click="slideshow[item.key]()"
                         >
                           <IconX icon="mdi:animation-play" size="1.5rem" />
+                        </VBtn>
+                        <VBtn
+                          icon
+                          color="current"
+                          rounded="circle"
+                          variant="text"
+                          class="*:filter-shadow-sm"
+                          title="Video"
+                          @click="videoCurrent = { key: item.key }"
+                        >
+                          <IconX icon="mdi:play" size="2rem" />
                         </VBtn>
                       </VCardActions>
                     </AppBoxBase>
@@ -476,6 +539,13 @@ const slideshow = <any>{
                   </VBtn>
                   <VSpacer />
                 </VCardActions>
+                <AppVideoPlayerPopup
+                  v-model="toggleVideoPopup.isActive.value"
+                  :tall="videos[videoCurrent?.key!]?.tall"
+                  :provider="videos[videoCurrent?.key!]?.provider"
+                  :sources="[{ src: videos[videoCurrent?.key!]?.src }]"
+                  :props-iframe="videos[videoCurrent?.key!]?.['props-iframe']"
+                />
               </VCard>
             </VCol>
           </VRow>

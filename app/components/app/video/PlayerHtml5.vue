@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   sources: { src: string; type: string; size?: number }[];
-  poster?: string;
+  propsIframe?: any;
 }>();
 
 // @@eos
@@ -12,7 +12,7 @@ const props = defineProps<{
     playsinline
     controls
     preload="metadata"
-    :data-poster="props.poster"
+    :data-title="props.propsIframe.title"
     crossorigin="anonymous"
   >
     <source v-for="s in props.sources" :src="s.src" :type="s.type" />

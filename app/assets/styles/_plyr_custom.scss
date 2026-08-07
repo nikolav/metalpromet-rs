@@ -8,8 +8,8 @@
   aspect-ratio: 16 / 9;
 
   // shuts off legacy padding technique if plyr adds it
-  padding: 0 !important;
-  height: auto !important;
+  padding: 0;
+  height: auto;
 
   overflow: hidden;
   background: #000;
