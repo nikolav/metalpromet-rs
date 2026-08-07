@@ -60,28 +60,25 @@ const vids = useKeyValue<{
   priprema: {
     tall: true,
     provider: "youtube",
-    src: "idxkQgb5KNA",
+    src: "YOM-jmaBUBQ",
     "props-frame": {
-      title:
-        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
     },
   },
   proizvodnja: {
     tall: true,
     provider: "youtube",
-    src: "idxkQgb5KNA",
+    src: "YOM-jmaBUBQ",
     "props-frame": {
-      title:
-        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
     },
   },
   "gotovi-proizvodi": {
     tall: true,
     provider: "youtube",
-    src: "idxkQgb5KNA",
+    src: "YOM-jmaBUBQ",
     "props-frame": {
-      title:
-        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
+      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
     },
   },
   "zavrsna-obrada": {
