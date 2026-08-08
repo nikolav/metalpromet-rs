@@ -9,7 +9,6 @@ import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
 
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 import { useKeyValue } from "~/composables/state/use-key-value";
-import { isPresent } from "~/utils/is-present";
 
 definePageMeta({
   layout: "default",
@@ -52,13 +51,14 @@ const slideshow = <any>{
 
 const toggleVideoPopup = useToggleFlag();
 const vids = useKeyValue<{
-  tall: boolean;
+  fillHeight?: boolean;
+  aspect?: any;
   provider: "html5" | "youtube" | "vimeo";
   src: string;
   "props-frame": any;
 }>({
   priprema: {
-    tall: true,
+    aspect: "335/596",
     provider: "youtube",
     src: "YOM-jmaBUBQ",
     "props-frame": {
@@ -66,7 +66,7 @@ const vids = useKeyValue<{
     },
   },
   proizvodnja: {
-    tall: true,
+    aspect: "335/596",
     provider: "youtube",
     src: "YOM-jmaBUBQ",
     "props-frame": {
@@ -74,7 +74,7 @@ const vids = useKeyValue<{
     },
   },
   "gotovi-proizvodi": {
-    tall: true,
+    aspect: "335/596",
     provider: "youtube",
     src: "YOM-jmaBUBQ",
     "props-frame": {
@@ -82,7 +82,7 @@ const vids = useKeyValue<{
     },
   },
   "zavrsna-obrada": {
-    tall: true,
+    aspect: "335/596",
     provider: "youtube",
     src: "idxkQgb5KNA",
     "props-frame": {
@@ -95,7 +95,7 @@ const videoCurrent = shallowRef<{ key: string }>();
 watch(videoCurrent, (vc) => {
   if (!vc?.key) return;
   vids.use(vc.key);
-  toggleVideoPopup();
+  toggleVideoPopup.on();
 });
 
 // @@eos
@@ -546,10 +546,14 @@ watch(videoCurrent, (vc) => {
                 </VCardActions>
                 <AppVideoPlayerPopup
                   v-model="toggleVideoPopup.isActive.value"
-                  :tall="vids.current.value?.tall"
+                  :fill-height="vids.current.value?.fillHeight"
                   :provider="vids.current.value?.provider"
                   :sources="[{ src: vids.current.value?.src ?? '' }]"
                   :props-frame="vids.current.value?.['props-frame']"
+                  :style="{
+                    '--plyr-x-video-aspect':
+                      vids.current.value?.aspect ?? 'auto',
+                  }"
                 />
               </VCard>
             </VCol>

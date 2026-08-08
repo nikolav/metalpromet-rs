@@ -1,5 +1,21 @@
 :root {
   --plyr-color-main: rgba(var(--v-theme-error), 1);
+
+  // --plyr-x-video-height: auto;
+  // --plyr-x-video-aspect: "16/9";
+}
+
+.plyr-x-video-h-full {
+  --plyr-x-video-height: 100%;
+}
+
+// /* Reset Plyr's aspect ratio padding */
+.plyr--video .plyr__video-wrapper {
+  padding: 0 !important;
+  height: var(--plyr-x-video-height, auto) !important;
+  aspect-ratio: var(--plyr-x-video-aspect, auto);
+  background: #000;
+  position: relative;
 }
 
 .plyr__video-embed {
@@ -9,23 +25,32 @@
   width: 100%;
   margin: 0 auto;
 
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--plyr-x-video-aspect, 16/9);
 
   // shuts off legacy padding technique if plyr adds it
-  padding: 0;
-  height: auto;
+  padding: 0 !important;
+  // height: auto !important;
+  height: var(--plyr-x-video-height, auto) !important;
 
   overflow: hidden;
   background: #000;
+
+  transition: aspect-ratio 0.22s ease;
 }
 
-.plyr__video-embed > iframe {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
+/* Ensure iframe fills container */
+.plyr__video-embed iframe,
+.plyr__video-wrapper iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   border: 0;
   display: block;
 }
+
+// /* Optional: container sizing */
+// .plyr {
+//   width: min(892px, 100%);
+//   margin: 0 auto;
+// }

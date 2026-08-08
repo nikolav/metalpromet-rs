@@ -4,7 +4,7 @@ defineOptions({
 });
 
 const props = defineProps<{
-  tall?: boolean;
+  fillHeight?: boolean;
   provider?: "html5" | "youtube" | "vimeo";
   sources: { src: string; type?: string; size?: number }[];
   propsFrame?: any;
@@ -24,15 +24,15 @@ const { $$ } = useNuxtApp();
   <VDialog
     v-model="model"
     :transition="$$.config('ui.DEFAULT_TRANSITION')"
-    :content-props="{ class: props.tall ? 'h-full' : undefined }"
+    :content-props="{ class: props.fillHeight ? 'h-full' : undefined }"
     v-bind="props.propsDialog"
   >
-    <VCard :class="{ 'h-full': props.tall }" v-bind="props.propsWrap">
+    <VCard v-bind="props.propsWrap">
       <AppVideoPlayer
         :provider="props.provider"
         :sources="props.sources"
         :props-frame="props.propsFrame"
-        :class="{ '!h-full': props.tall }"
+        :class="{ 'plyr-x-video-h-full': props.fillHeight }"
         v-bind="$attrs"
       />
     </VCard>
