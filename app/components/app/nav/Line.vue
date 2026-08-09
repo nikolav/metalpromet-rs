@@ -8,16 +8,14 @@
 </script>
 
 <template>
-  <AppBoxBase class="component--AppNavLine inline-flex gap-2">
-    <NuxtLinkLocale :to="{ name: 'demo' }">demo</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'index' }">home</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'about' }">about</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'dashboard' }">dashboard</NuxtLinkLocale>
-    <span> • </span>
-    <NuxtLinkLocale :to="{ name: 'contact' }">contact</NuxtLinkLocale>
+  <AppBoxBase class="component--AppNavLine flex items-center gap-4 pe-2">
+    <NuxtLinkLocale :to="{ name: 'index' }">🏠 Početna</NuxtLinkLocale>
+    <NuxtLinkLocale :to="{ name: 'about' }">📃 O nama</NuxtLinkLocale>
+    <NuxtLinkLocale :to="{ name: 'dashboard' }">👷‍♂️ Usluge</NuxtLinkLocale>
+    <NuxtLinkLocale :to="{ name: 'contact' }">📞 Kontakt</NuxtLinkLocale>
+    <NuxtLinkLocale :to="{ name: 'demo' }" class="opacity-50"
+      >🚧 Demo</NuxtLinkLocale
+    >
   </AppBoxBase>
 </template>
 

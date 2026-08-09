@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{ propsSheet?: any }>(), {
       <VSheet
         tile
         elevation="0"
-        class="app-container-reset"
+        class="app-container-reset position-relative"
         v-bind="props.propsSheet"
       >
         <slot />

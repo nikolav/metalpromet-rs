@@ -792,6 +792,16 @@ const tableItems = [
         </VCard>
       </div>
 
+      <!-- Section: Additional Components -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <VCard
+          variant="outlined"
+          class="p-4 rounded-xl shadow-sm transition-colors duration-300"
+        >
+          <AppDemoIconsVuetifyBuiltins />
+        </VCard>
+      </div>
+
       <!-- Footer -->
       <VDivider class="pt-4" />
       <div class="pt-4 flex flex-wrap justify-between items-center">
