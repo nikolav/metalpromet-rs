@@ -4,9 +4,11 @@ defineOptions({
 });
 
 const props = defineProps<{
-  fillHeight?: boolean;
   provider?: "html5" | "youtube" | "vimeo";
   sources: { src: string; type?: string; size?: number }[];
+
+  fillHeight?: boolean;
+
   propsFrame?: any;
   propsDialog?: any;
   propsWrap?: any;
