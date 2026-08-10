@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useDisplay, useTheme } from "vuetify";
+
+import { isPresent } from "~/utils/is-present";
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 
 // defineOptions({
@@ -16,6 +18,65 @@ const isDark = computed(() => theme.global.current.value.dark);
 
 const query = ref<string>();
 const toggleNavMenu = useToggleFlag();
+
+const navItems = <any[]>[
+  {
+    title: "Početna",
+    icon: "mdi:home",
+    props: {
+      to: localePath({ name: "index" }),
+    },
+  },
+  {
+    title: "O nama",
+    icon: "$info",
+    props: {
+      to: localePath({ name: "about" }),
+    },
+  },
+  {
+    title: "Projekti",
+    icon: "mdi:eiffel-tower",
+    props: {
+      to: localePath({ name: "projects" }),
+    },
+  },
+  {
+    title: "Usluge",
+    icon: "mdi:toolbox",
+    props: {
+      to: localePath({ name: "services" }),
+    },
+  },
+  {
+    title: "Novosti",
+    icon: "ri:newspaper-fill",
+    props: {
+      to: localePath({ name: "news" }),
+    },
+  },
+  {
+    title: "Kontakt",
+    icon: "mdi:forum",
+    props: {
+      to: localePath({ name: "contact" }),
+    },
+  },
+  {
+    type: "divider",
+    props: {
+      inset: true,
+      class: "opacity-20",
+    },
+  },
+  {
+    title: "Demo",
+    props: {
+      to: localePath({ name: "demo" }),
+    },
+  },
+];
+const mergeItemProps = $$.deepmerge();
 
 // @@eos
 </script>
@@ -62,6 +123,7 @@ const toggleNavMenu = useToggleFlag();
 
         <!-- nav:search -->
         <VForm
+          disabled
           id="ID-53dade55-8738-53dd-87a1-4203e9914854"
           :autocomplete="false"
           @submit.prevent
@@ -87,54 +149,37 @@ const toggleNavMenu = useToggleFlag();
 
         <!-- nav:links -->
         <VList
+          tile
+          color="accent"
           bg-color="transparent"
           @click="toggleNavMenu.off"
-          variant="plain"
-          :items="[
-            {
-              title: '🏠 Početna',
-              value: 'QgM0LY9RCZhQ1Mx12r',
-              props: {
-                to: localePath({ name: 'index' }),
-              },
-            },
-            {
-              title: '📃 O nama',
-              value: 'bsLH59aUgV',
-              props: {
-                to: localePath({ name: 'about' }),
-              },
-            },
-            {
-              title: '👷‍♂️ Usluge',
-              value: '5SCvS',
-              props: {
-                to: localePath({ name: 'under-construction' }),
-              },
-            },
-            {
-              title: '📞 Kontakt',
-              value: 'NsJXN',
-              props: {
-                to: localePath({ name: 'contact' }),
-              },
-            },
-            {
-              type: 'divider',
-              props: {
-                inset: true,
-                class: 'opacity-20',
-              },
-            },
-            {
-              title: '🚧 Demo',
-              value: 'XOfxLLYGIJCje4AU8bk8',
-              props: {
-                to: localePath({ name: 'demo' }),
-              },
-            },
-          ]"
-        />
+          variant="text"
+          prepend-gap="1rem"
+          class="space-y-1 mx-1"
+          :items="
+            navItems.map((node) =>
+              isPresent(node.type)
+                ? node
+                : mergeItemProps(node, {
+                    props: {
+                      rounded: 'xl',
+                    },
+                  }),
+            )
+          "
+        >
+          <template #prepend="{ item }">
+            <template v-if="!item.type">
+              <IconX
+                v-if="item.icon"
+                :icon="item.icon"
+                size="1.5rem"
+                class="opacity-20"
+              />
+              <strong class="opacity-20" v-else>🚧</strong>
+            </template>
+          </template>
+        </VList>
       </AppOverlayScreen>
     </template>
     <template v-else>

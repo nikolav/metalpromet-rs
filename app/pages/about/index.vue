@@ -19,6 +19,7 @@ definePageMeta({
 </script>
 <template>
   <AppBoxPageWrap class="page--about">
+    <AppSlidesHero cta="Zatražite ponudu" :height="444" class="mt-0" />
     <h2 class="text-center">strana:o-nama 🚧</h2>
   </AppBoxPageWrap>
 </template>

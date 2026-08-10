@@ -14,6 +14,18 @@
     "/sr-cyrl/o-nama",
     "/en/about-us",
 
+    "/sr/projekti",
+    "/sr-cyrl/projekti",
+    "/en/projects",
+
+    "/sr/delatnosti",
+    "/sr-cyrl/delatnosti",
+    "/en/services",
+
+    "/sr/novosti",
+    "/sr-cyrl/novosti",
+    "/en/news",
+
     "/sr/kontakt",
     "/sr-cyrl/kontakt",
     "/en/contact"

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nama | Metal-Promet - Kvalitetna izrada metalnih konstrukcija od 1988.</title>
+    <meta name="description" content="Porodična firma Metal-Promet iz Mladenovca, sa tradicijom od 1988. godine, specijalizovana za izradu čeličnih i aluminijumskih konstrukcija, ograda i uslužno plastificiranje metala. Upoznajte naš tim i reference.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 50, 50, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+        .hero h1 span {
+            color: #e63946;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: #cccccc;
+            font-weight: 300;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #e63946;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #e63946;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+        .section-subtitle {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* Intro / History */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .intro-text p {
+            margin-bottom: 18px;
+            color: #333;
+        }
+        .intro-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .stat-item:last-child, .stat-item:nth-child(2) {
+            border-bottom: 0;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #e63946;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 40px 0 60px;
+        }
+        .value-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .value-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .value-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Services */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0 50px;
+        }
+        .service-tag {
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 3px solid #e63946;
+        }
+
+        /* Team / CTA */
+        .team-cta {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .team-cta .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .team-cta .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn {
+            background: #e63946;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #c1121f;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .services-list { grid-template-columns: 1fr 1fr; }
+            .team-cta { flex-direction: column; align-items: flex-start; gap: 20px; }
+        }
+        @media (max-width: 480px) {
+            .values-grid { grid-template-columns: 1fr; }
+            .services-list { grid-template-columns: 1fr; }
+            .intro-stats { grid-template-columns: 1fr; }
+            .hero { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">🇷🇸 Tradicija od 1988.</span>
+                <h1>Metal-<span>Promet</span></h1>
+                <p>Izrada čeličnih i aluminijumskih konstrukcija, ograda, plastificiranje metala i inženjering.</p>
+            </div>
+        </section>
+
+        <!-- O nama / Istorija -->
+        <section>
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>O nama</h2>
+                    <p><strong>Metal-Promet</strong> je porodična kompanija iz Mladenovca koja već <strong>od 1988. godine</strong> gradi reputaciju pouzdanog partnera u oblasti metaloprerađivačke industrije [citation:2][citation:3][citation:7].</p>
+                    <p>Ono što je nekada počelo kao mala radionica, danas je savremeni proizvodni pogon opremljen najnovijom tehnologijom za obradu metala, uključujući i <strong>komoru za plastifikaciju dužine 7.8 metara</strong> – jednu od najvećih u regionu.</p>
+                    <p>Kroz decenije rada, izgradili smo poverenje bezbrojnih klijenata u Srbiji i inostranstvu (Austrija, Švajcarska, Nemačka, Engleska), dosledno ispunjavajući i najzahtevnije projekte.</p>
+                </div>
+                <div class="intro-stats">
+                    <div class="stat-item"><span class="stat-number">1988</span><span class="stat-label">Godina osnivanja</span></div>
+                    <div class="stat-item"><span class="stat-number">7.8m</span><span class="stat-label">Dužina peći za plastifikaciju</span></div>
+                    <div class="stat-item"><span class="stat-number">80+</span><span class="stat-label">Uspešnih projekata godišnje</span></div>
+                    <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label">Zemalja u koje izvozimo</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naše vrednosti -->
+        <section>
+            <h2 class="section-title">Naše vrednosti</h2>
+            <p class="section-subtitle">Principi koji nas vode ka vrhunskom kvalitetu.</p>
+            <div class="values-grid">
+                <div class="value-card"><span class="value-icon">⚙️</span><h3>Kvalitet i pouzdanost</h3><p>Posvećeni smo savršenstvu u svakom zavaru i kontroli. Visoki standardi su naš identitet.</p></div>
+                <div class="value-card"><span class="value-icon">🛡️</span><h3>Bezbednost i odgovornost</h3><p>Odgovorno pristupamo svakom zadatku. Bezbednost je uvek na prvom mestu.</p></div>
+                <div class="value-card"><span class="value-icon">🤝</span><h3>Integritet i poverenje</h3><p>Poverenje gradimo otvorenošću i iskrenim odnosom. Posvećenost je ono što nas vodi.</p></div>
+                <div class="value-card"><span class="value-icon">💡</span><h3>Inovacije i rešenja</h3><p>Povezujemo savremenu tehnologiju i praktično znanje. Razvijamo rešenja koja donose vrednost.</p></div>
+            </div>
+        </section>
+
+        <!-- Šta radimo -->
+        <section>
+            <h2 class="section-title">Šta radimo</h2>
+            <p class="section-subtitle">Širok spektar usluga pod jednim krovom.</p>
+            <div class="services-list">
+                <span class="service-tag">Izrada čeličnih konstrukcija</span>
+                <span class="service-tag">Aluminijumske ograde</span>
+                <span class="service-tag">Kapije i gelenderi</span>
+                <span class="service-tag">Nadstrešnice i stepenice</span>
+                <span class="service-tag">Kovano gvožđe</span>
+                <span class="service-tag">Plastifikacija metala</span>
+                <span class="service-tag">CNC obrada</span>
+                <span class="service-tag">3D modelovanje i renderi</span>
+                <span class="service-tag">Panelne ograde (2D/3D)</span>
+                <span class="service-tag">Peskarenje i prajmerovanje</span>
+                <span class="service-tag">Prohromske (inox) ograde</span>
+                <span class="service-tag">Montaže u Srbiji i inostranstvu</span>
+            </div>
+        </section>
+
+        <!-- Tim i kontakt -->
+        <section class="team-cta">
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 8px;">👥 Naš tim</h3>
+                <p style="margin-bottom: 12px; color: #444;">Predvođen iskusnim inženjerima i majstorima zavarivanja.</p>
+                <div class="contact-info">
+                    <span class="contact-item">📞 <strong>Dušan</strong> (dipl. maš. inž.) – 064 417 6546</span>
+                    <span class="contact-item">📞 <strong>Goran</strong> – 063 316 521</span>
+                    <span class="contact-item">📧 office@metalpromet.rs</span>
+                </div>
+            </div>
+            <a href="#" class="btn">Zatražite ponudu</a>
+        </section>
+
+    </div>
+</body>
+</html>

@@ -13,9 +13,11 @@ const props = withDefaults(
   defineProps<{
     interval?: string | number | undefined;
     propsItem?: any;
+    cta?: string;
   }>(),
   {
-    interval: 9012,
+    interval: 8901,
+    cta: "Započnimo saradnju",
   },
 );
 
@@ -152,7 +154,7 @@ watch(ctrl.current, (slide) => {
           :to="localePath({ name: 'contact' })"
         >
           <strong class="text-[122%] me-3">🤝</strong>
-          {{ t("Započnimo saradnju") }}</VBtn
+          {{ t(props.cta) }}</VBtn
         >
         <VSpacer />
       </VCardActions>

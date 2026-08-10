@@ -57,7 +57,7 @@ const localePath = useLocalePath();
                   <IconX
                     icon="mdi:map-marker"
                     size="2rem"
-                    class="text-warning"
+                    class="text-accent"
                   />
                   <p>
                     Beograd · Mladenovac · Niš · Šumadija · Podunavski okrug ·
@@ -65,12 +65,12 @@ const localePath = useLocalePath();
                   </p>
                 </AppBoxBase>
                 <AppBoxBase class="font-bold text-center">
-                  <IconX icon="mdi:medal" size="2rem" class="text-warning" />
+                  <IconX icon="mdi:medal" size="2rem" class="text-accent" />
                   <p>Poslujemo od 1984. godine.</p>
                   <p>{{ new Date().getFullYear() - 1984 }} godine iskustva!</p>
                 </AppBoxBase>
                 <AppBoxBase class="font-bold text-center">
-                  <IconX icon="$ratingFull" size="2rem" class="text-warning" />
+                  <IconX icon="$ratingFull" size="2rem" class="text-accent" />
                   <p>Bonitet: AA+</p>
                 </AppBoxBase>
                 <!-- social -->
