@@ -33,7 +33,7 @@ const { $$ } = useNuxtApp();
     :content-props="{ class: props.fillHeight ? 'h-full' : undefined }"
     v-bind="props.propsDialog"
   >
-    <VCard v-bind="props.propsWrap">
+    <VCard class="app-container-reset" v-bind="props.propsWrap">
       <AppVideoPlayer
         :provider="props.provider"
         :sources="props.sources"
