@@ -44,17 +44,19 @@ const { $$ } = useNuxtApp();
     </VCard>
     <slot name="close" :closePlayer>
       <Teleport to="body">
-        <VBtn
-          @click="closePlayer"
-          icon
-          variant="elevated"
-          rounded="circle"
-          class="!fixed z-[9999] right-1 top-1"
-          color="error-darken-1"
-          v-bind="props.propsClose"
-        >
-          <IconX icon="$close" v-bind="props.propsIconClose" />
-        </VBtn>
+        <Transition appear :name="$$.config('ui.DEFAULT_TRANSITION')!">
+          <VBtn
+            @click="closePlayer"
+            icon
+            variant="elevated"
+            rounded="circle"
+            class="!fixed z-[9999] right-1 top-1"
+            color="error-darken-1"
+            v-bind="props.propsClose"
+          >
+            <IconX icon="$close" v-bind="props.propsIconClose" />
+          </VBtn>
+        </Transition>
       </Teleport>
     </slot>
   </VDialog>
