@@ -11,9 +11,13 @@ const props = defineProps<{
   propsDialog?: any;
   propsWrap?: any;
   propsClose?: any;
+  propsIconClose?: any;
 }>();
 
 const model = defineModel<boolean>();
+const closePlayer = () => {
+  model.value = false;
+};
 
 const { $$ } = useNuxtApp();
 
@@ -36,18 +40,20 @@ const { $$ } = useNuxtApp();
         v-bind="$attrs"
       />
     </VCard>
-    <Teleport to="body">
-      <VBtn
-        @click="model = false"
-        icon
-        variant="elevated"
-        rounded="circle"
-        class="!fixed z-[9999] right-1 top-1"
-        color="error-darken-1"
-        v-bind="props.propsClose"
-      >
-        <IconX icon="$close" />
-      </VBtn>
-    </Teleport>
+    <slot name="close" :closePlayer>
+      <Teleport to="body">
+        <VBtn
+          @click="closePlayer"
+          icon
+          variant="elevated"
+          rounded="circle"
+          class="!fixed z-[9999] right-1 top-1"
+          color="error-darken-1"
+          v-bind="props.propsClose"
+        >
+          <IconX icon="$close" v-bind="props.propsIconClose" />
+        </VBtn>
+      </Teleport>
+    </slot>
   </VDialog>
 </template>

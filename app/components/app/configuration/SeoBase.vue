@@ -13,8 +13,10 @@ const description = computed(() =>
 
 useSeoMeta({
   title,
+  ogTitle: title,
   description,
-  ogImage: useRuntimeConfig().public.siteSeoImage,
+  ogDescription: description,
+  ogImage: $$.config("public.siteSeoImage"),
   twitterCard: "summary_large_image",
 });
 
@@ -27,26 +29,19 @@ useSeoMeta({
     :dir="seoLocaleHead.htmlAttrs.dir"
   />
   <Title>{{ title }}</Title>
-  <template v-for="link in seoLocaleHead.link" :key="link.key">
+  <template v-for="link in seoLocaleHead.link">
     <Link
-      :id="`${link.key ?? ''}`"
+      :id="`${link.id}`"
       :rel="`${link.rel ?? ''}`"
       :href="`${link.href ?? ''}`"
       :hreflang="(<any>link).hreflang"
     />
   </template>
-  <template v-for="meta in seoLocaleHead.meta" :key="meta.key">
+  <template v-for="meta in seoLocaleHead.meta">
     <Meta
-      :id="`${meta.key ?? ''}`"
+      :id="`${meta.id}`"
       :property="`${meta.property ?? ''}`"
       :content="`${meta.content ?? ''}`"
     />
   </template>
 </template>
-
-<!-- scoped component styles, default -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles, rare, prefer styles.scss -->
-<style lang="scss"></style>

@@ -77,7 +77,6 @@ const toggleNavMenu = useToggleFlag();
             single-line
             center-affix
             clearable
-            autofocus
             placeholder="Traži stranu..."
           >
             <template #prepend-inner>

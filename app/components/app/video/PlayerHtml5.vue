@@ -16,6 +16,11 @@ const props = defineProps<{
     crossorigin="anonymous"
     v-bind="props.propsFrame"
   >
-    <source v-for="s in props.sources" :src="s.src" :type="s.type" />
+    <source
+      :key="s.src"
+      v-for="s in props.sources"
+      :src="s.src"
+      :type="s.type"
+    />
   </video>
 </template>
