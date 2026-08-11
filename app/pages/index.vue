@@ -106,7 +106,7 @@ watch(videoCurrent, (vc) => {
     <AppSlidesHero :height="H" class="mt-0" />
 
     <!-- section:about -->
-    <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
+    <AppCardSectionPrimary class="mt-0" :props-actions="{ class: 'pt-5' }">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -114,7 +114,7 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>Ukratko o nama</h2>
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Upoznajte Metal-Promet</h2>
       </template>
 
       <!-- about -->
@@ -379,7 +379,7 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">
           Kompletno rešenje<template v-if="d.smAndUp.value"> za metal</template>
         </h2>
       </template>
@@ -571,7 +571,7 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2.22rem"
         />
-        <h2>Projekti</h2>
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Projekti</h2>
       </template>
       <p>🚧</p>
       <p class="text-disabled">
@@ -591,7 +591,7 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>Licence, sertifikati, priznanja</h2>
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Licence, sertifikati</h2>
       </template>
       <p>🚧</p>
       <p class="text-disabled">
@@ -611,7 +611,7 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="1.75rem"
         />
-        <h2>Novosti</h2>
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Novosti</h2>
       </template>
       <p>🚧</p>
       <p class="text-disabled">

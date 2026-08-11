@@ -94,7 +94,7 @@ const H = computed(() =>
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>O nama &dash; Ko smo</h2>
+        <h2>Ko smo &dash; Šta radimo</h2>
       </template>
       <AppBoxBase>
         <VContainer fluid>
@@ -109,9 +109,7 @@ const H = computed(() =>
                   },
                   {
                     bg: `bg-[url('/images/stock/021.jpg')] bg-[center_top]`,
-                    html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković, naš predstavnik, i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora koji umeju sa svakim metalom. Naši inženjeri <em>3D</em> modele pretvaraju u stvarnost, a mi pazimo na  svaki detalj. Imamo veliku peć za plastifikaciju, radimo <em>CNC</em> obradu, lasersko sečenje, peskarenje, hladno cinkovanje. Ali bez tima &dash; to je samo gvožđe. Zato volimo da čujemo svaku vašu ideju uz kafu i kažemo &dash; možemo.
-
-  `,
+                    html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković, naš predstavnik, i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora koji umeju sa svakim metalom. Naši inženjeri <em>3D</em> modele pretvaraju u stvarnost, a mi pazimo na  svaki detalj. Imamo veliku peć za plastifikaciju, radimo <em>CNC</em> obradu, lasersko sečenje, peskarenje, hladno cinkovanje. Ali bez tima &dash; to je samo gvožđe. Zato volimo da čujemo svaku vašu ideju uz kafu i kažemo &dash; možemo.`,
                   },
                   {
                     bg: `bg-[url('/images/stock/022.jpg')] bg-[center_top]`,
@@ -154,7 +152,7 @@ const H = computed(() =>
                   <IconX
                     icon="local:line-art-01"
                     size="2rem"
-                    class="!text-[rgba(var(--v-theme-ui),.155)]"
+                    class="opacity-[.22]"
                   />
                 </AppBoxCentered>
               </template>
