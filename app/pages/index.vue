@@ -139,15 +139,7 @@ watch(videoCurrent, (vc) => {
                   size: '2.22rem',
                 },
                 text: `<p>Mi smo Metal-Promet iz Mladenovca &dash; porodična firma specijalizovana za <strong>kompletne metaloprerađivačke radove</strong>, od projektovanja i obrade do zaštite i montaže metalnih konstrukcija. </p><p>Poslujemo od 1988. godine i danas smo prepoznatljivi po vrhunskom kvalitetu, inženjerskoj preciznosti i usluzi plastifikacije u sopstvenoj peći. </p><p>Izvodimo projekte u Srbiji i Evropi, sa fokusom na dugovečnost i estetiku svakog proizvoda. Kvalitet koji stvaramo traje &dash; zato nam se mnogi vraćaju.</p>`,
-              },
-
-              {
-                image: '/images/stock/010.jpg',
-                icon: {
-                  name: 'local:shield-improved',
-                  size: '1.92rem',
-                },
-                text: `<p>Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5 metara, uz obavezan hemijski predtretman i opcionu primenu cink prajmera, čime <strong>garantujemo dugotrajnu korozionu postojanost</strong>. Ova tehnologija omogućava obradu i najvećih konstrukcija, dok bogat izbor <em>RAL</em> nijansi i tekstura osigurava da svaki komad bude estetski dovršen. </p><p>Ovakav pristup čini osnovu našeg poslovanja i razlog zbog kog nam klijenti vraćaju poverenje.</p>`,
+                to: 'about',
               },
               {
                 image: '/images/stock/011.jpg',
@@ -156,6 +148,16 @@ watch(videoCurrent, (vc) => {
                   size: '2rem',
                 },
                 text: `<p>Specijalizovani smo za <strong>izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti</strong>, prilagođenih najstrožijim standardima čvrstoće i bezbednosti. Svaki proizvod, pre finalne zaštite, prolazi kroz hemijsko čišćenje i obradu, uz mogućnost nanošenja prajmera, te toplog ili hladnog cinkovanja.</p><p>Na taj način obezbeđujemo vrhunsku otpornost na koroziju i habanje, čineći naše konstrukcije trajnim rešenjem za svaki prostor.</p>`,
+                to: 'services-constructions',
+              },
+              {
+                image: '/images/stock/010.jpg',
+                icon: {
+                  name: 'local:shield-improved',
+                  size: '1.92rem',
+                },
+                text: `<p>Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5 metara, uz obavezan hemijski predtretman i opcionu primenu cink prajmera, čime <strong>garantujemo dugotrajnu korozionu postojanost</strong>. Ova tehnologija omogućava obradu i najvećih konstrukcija, dok bogat izbor <em>RAL</em> nijansi i tekstura osigurava da svaki komad bude estetski dovršen. </p><p>Ovakav pristup čini osnovu našeg poslovanja i razlog zbog kog nam klijenti vraćaju poverenje.</p>`,
+                to: 'services-finish',
               },
               {
                 image: '/images/stock/012.jpg',
@@ -164,6 +166,7 @@ watch(videoCurrent, (vc) => {
                   size: '2rem',
                 },
                 text: `<p>Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi donosimo <strong>vrhunske standarde izrade i zaštite metala</strong> na tržište Srbije. Naši procesi hemijske pripreme, plastifikacije i opcionog cinkovanja garantuju dugotrajnu korozionu postojanost i besprekornu estetsku završnicu, bez obzira na vrstu i veličinu projekta. </p><p>Sa nama, vaša ideja dobija pravu formu i domaću posvećenost &dash; od Mladenovca do svakog kraja Srbije.</p>`,
+                to: 'about',
               },
             ]"
           >
@@ -191,7 +194,7 @@ watch(videoCurrent, (vc) => {
               <VSpacer />
               <VCardActions>
                 <VSpacer />
-                <VBtn tile class="ps-4" :to="$localePath({ name: 'about' })">
+                <VBtn tile class="ps-4" :to="$localePath(node.to)">
                   <template #append>
                     <IconX icon="$next" class="opacity-50" />
                   </template>
@@ -371,9 +374,9 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2 :class="{ 'text-h5': !d.smAndUp.value }">
+        <AppCardSectionPrimaryTitle>
           Kompletno rešenje<template v-if="d.smAndUp.value"> za metal</template>
-        </h2>
+        </AppCardSectionPrimaryTitle>
       </template>
       <VCardText class="text-body-1 py-2 px-2">
         <VContainer fluid>
@@ -459,7 +462,6 @@ watch(videoCurrent, (vc) => {
                 height="100%"
                 class="space-y-2 pb-2"
                 :class="{ 'd-flex flex-col': d.smAndUp.value }"
-                color="surface-bright"
               >
                 <AppBoxBase class="h-[222px] mt-0">
                   <VImg :src="item.image" cover height="100%">
@@ -528,13 +530,7 @@ watch(videoCurrent, (vc) => {
                 <VSpacer v-if="d.smAndUp.value" />
                 <VCardActions>
                   <VSpacer />
-                  <VBtn
-                    tile
-                    elevation="1"
-                    variant="tonal"
-                    class="ps-4"
-                    :to="$localePath({ name: item.to })"
-                  >
+                  <VBtn tile class="ps-4" :to="$localePath({ name: item.to })">
                     Saznajte više
                     <template #append>
                       <IconX icon="$next" class="opacity-50" />

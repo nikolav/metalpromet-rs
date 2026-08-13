@@ -28,7 +28,23 @@
 
     "/sr/kontakt",
     "/sr-cyrl/kontakt",
-    "/en/contact"
+    "/en/contact",
+
+    "/sr/delatnosti/inzenjering",
+    "/sr-cyrl/delatnosti/inzenjering",
+    "/en/services/engineering",
+
+    "/sr/delatnosti/metalne-konstrukcije",
+    "/sr-cyrl/delatnosti/metalne-konstrukcije",
+    "/en/services/constructions",
+
+    "/sr/delatnosti/gotovi-proizvodi",
+    "/sr-cyrl/delatnosti/gotovi-proizvodi",
+    "/en/services/products",
+
+    "/sr/delatnosti/zavrsna-obrada",
+    "/sr-cyrl/delatnosti/zavrsna-obrada",
+    "/en/services/finish"
   ],
   "ignore": []
 }

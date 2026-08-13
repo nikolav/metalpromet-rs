@@ -10,7 +10,7 @@
       "Kolor studije i animacije"
     ],
     "icon": "mdi:ruler",
-    "to": "services"
+    "to": "services-engineering"
   },
   {
     "key": "proizvodnja",
@@ -25,7 +25,7 @@
       "Kovano gvožđe i umetnička bravarija"
     ],
     "icon": "mdi:wrench",
-    "to": "services"
+    "to": "services-constructions"
   },
   {
     "key": "gotovi-proizvodi",
@@ -40,7 +40,7 @@
       "Stambeni i radni kontejneri"
     ],
     "icon": "mdi:screwdriver",
-    "to": "services"
+    "to": "services-products"
   },
   {
     "key": "zavrsna-obrada",
@@ -55,6 +55,6 @@
       "Veliki izbor RAL nijansi, struktura, šljokice, mat"
     ],
     "icon": "mdi:shield",
-    "to": "services"
+    "to": "services-finish"
   }
 ]

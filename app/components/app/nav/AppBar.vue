@@ -28,13 +28,6 @@ const navItems = <any[]>[
     },
   },
   {
-    title: "O nama",
-    icon: "$info",
-    props: {
-      to: localePath({ name: "about" }),
-    },
-  },
-  {
     title: "Projekti",
     icon: "mdi:eiffel-tower",
     props: {
@@ -53,6 +46,13 @@ const navItems = <any[]>[
     icon: "ri:newspaper-fill",
     props: {
       to: localePath({ name: "news" }),
+    },
+  },
+  {
+    title: "O nama",
+    icon: "$info",
+    props: {
+      to: localePath({ name: "about" }),
     },
   },
   {
