@@ -101,7 +101,7 @@ watch(videoCurrent, (vc) => {
 </script>
 
 <template>
-  <AppBoxPageWrap class="page--index space-y-20">
+  <AppBoxPageWrap class="page--index *space-y-20">
     <AppSlidesHero :height="H" class="mt-0" />
 
     <!-- section:about -->
@@ -370,6 +370,7 @@ watch(videoCurrent, (vc) => {
     </AppCardSectionPrimary>
 
     <!-- section:delatnosti -->
+    <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -562,6 +563,7 @@ watch(videoCurrent, (vc) => {
     </AppCardSectionPrimary>
 
     <!-- section:projekti -->
+    <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -582,6 +584,7 @@ watch(videoCurrent, (vc) => {
     </AppCardSectionPrimary>
 
     <!-- section:priznanja -->
+    <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -602,6 +605,7 @@ watch(videoCurrent, (vc) => {
     </AppCardSectionPrimary>
 
     <!-- section:vesti -->
+    <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -622,6 +626,7 @@ watch(videoCurrent, (vc) => {
     </AppCardSectionPrimary>
 
     <!-- @TODOs -->
+    <VSpacer class="mt-12" />
     <AppBoxContainerCentered class="d-flex flex-col items-center">
       <h2 class="text-center">&#64;TODO; sekcije sajta; 🚧</h2>
       <ul>

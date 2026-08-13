@@ -103,106 +103,130 @@ const H = computed(() =>
           Tradicija, znanje &dash; naš put
         </AppCardSectionPrimaryTitle>
       </template>
-      <AppBoxBase>
-        <VContainer fluid>
-          <VRow dense>
-            <VCol md="7">
-              <template
-                :key="node.html"
-                v-for="(node, idx) in [
+      <VContainer fluid>
+        <VRow dense>
+          <VCol md="7">
+            <template
+              :key="node.html"
+              v-for="(node, idx) in [
+                {
+                  bg: `bg-[url('/images/stock/020.jpg')] bg-[right_top]`,
+                  html: `Neki sviraju gitaru, mi <em>&ldquo;sviramo&rdquo;</em> čelik i aluminijum. I to već decenijama. Od <strong>1988.</strong> godine, u srcu Šumadije, u Mladenovcu, mi smo firma koja od hladnog metala pravi tople priče - ograde koje čuvaju, kapije koje dočekuju, stepenice koje vode gore, metalne konstrukcije koje nose, štite i krase. Počeli smo kao mala radionica, a <strong>danas smo prepoznatljiv brend</strong> ne samo u Beogradu i Šumadiji, već širom cele Srbije i Evrope.`,
+                },
+                {
+                  bg: `bg-[url('/images/stock/021.jpg')] bg-[center_top]`,
+                  html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković, naš predstavnik, i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora koji umeju sa svakim metalom. Naši inženjeri <em>3D</em> modele pretvaraju u stvarnost, a mi pazimo na  svaki detalj. Imamo veliku peć za plastifikaciju, radimo <em>CNC</em> obradu, lasersko sečenje, peskarenje, hladno cinkovanje. Ali bez tima &dash; to je samo gvožđe. Zato <strong>volimo da čujemo svaku vašu ideju uz kafu</strong> i kažemo &dash; možemo.`,
+                },
+                {
+                  bg: `bg-[url('/images/stock/022.jpg')] bg-[left_top]`,
+                  html: `Iako radimo sa ozbiljnim mašinama, ne volimo ozbiljne face. Više volimo da popričamo sa vama i da <strong>iz prve ruke čujemo šta vam treba</strong>. Od male žardinjere, preko kapije i <em>RAL</em> karti, do velike industrijske konstrukcije za Beč ili London. Radili smo u Termoelektrani Kostolac, na luksuznim vilama na Kosmaju, u Austriji, Švajcarskoj, Nemačkoj, pa čak i  u Engleskoj. Naši radovi su godinama prepoznatljivi u Srbiji i van nje.`,
+                },
+              ]"
+            >
+              <VCard variant="text" tile>
+                <AppGridTwoCells
+                  :stack="!d.smAndUp.value"
+                  :invert="!(0 < idx % 2)"
+                  :props-text="{
+                    class: d.smAndUp.value ? 'pb-5' : undefined,
+                  }"
+                  :props-media="{
+                    class: [
+                      `bg-cover ${node.bg}`,
+                      { '!min-h-[248px]': !d.smAndUp.value },
+                    ],
+                  }"
+                >
+                  <template #text>
+                    <VCardText
+                      class="indent-4"
+                      :class="{
+                        'px-0 pb-0': !d.smAndUp.value,
+                        'min-h-[248px]': d.smAndUp.value,
+                      }"
+                    >
+                      <p v-html="node.html" />
+                    </VCardText>
+                  </template>
+                </AppGridTwoCells>
+              </VCard>
+              <AppBoxBase
+                class="d-flex"
+                :class="[
+                  d.smAndUp.value
+                    ? idx == 2
+                      ? !d.mdAndUp.value
+                        ? 'mb-16'
+                        : 'mb-2'
+                      : 'mb-16'
+                    : '',
                   {
-                    bg: `bg-[url('/images/stock/020.jpg')] bg-[center_top]`,
-                    html: `Neki sviraju gitaru, mi <em>&ldquo;sviramo&rdquo;</em> čelik i aluminijum. I to već decenijama. Od <strong>1988.</strong> godine, u srcu Šumadije, u Mladenovcu, mi smo firma koja od hladnog metala pravi tople priče - ograde koje čuvaju, kapije koje dočekuju, stepenice koje vode gore, metalne konstrukcije koje nose, štite i krase. Počeli smo kao mala radionica, a danas smo prepoznatljiv brend ne samo u Beogradu i Šumadiji, već širom cele Srbije i Evrope.`,
-                  },
-                  {
-                    bg: `bg-[url('/images/stock/021.jpg')] bg-[center_top]`,
-                    html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković, naš predstavnik, i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora koji umeju sa svakim metalom. Naši inženjeri <em>3D</em> modele pretvaraju u stvarnost, a mi pazimo na  svaki detalj. Imamo veliku peć za plastifikaciju, radimo <em>CNC</em> obradu, lasersko sečenje, peskarenje, hladno cinkovanje. Ali bez tima &dash; to je samo gvožđe. Zato volimo da čujemo svaku vašu ideju uz kafu i kažemo &dash; možemo.`,
-                  },
-                  {
-                    bg: `bg-[url('/images/stock/022.jpg')] bg-[center_top]`,
-                    html: `Iako radimo sa ozbiljnim mašinama, ne volimo ozbiljne face. Više volimo da popričamo sa vama i da iz prve ruke čujemo šta vam treba. Od male žardinjere, preko kapije i <em>RAL</em> karti, do velike industrijske konstrukcije za Beč ili London. Radili smo u Termoelektrani Kostolac, na luksuznim vilama na Kosmaju, u Austriji, Švajcarskoj, Nemačkoj, pa čak i  u Engleskoj. Naši radovi su godinama prepoznatljivi u Srbiji i van nje.`,
+                    'my-16': !d.smAndUp.value,
                   },
                 ]"
               >
-                <VCard variant="text" tile>
-                  <AppGridTwoCells
-                    :stack="!d.smAndUp.value"
-                    :invert="!(0 < idx % 2)"
-                    :props-text="{
-                      class: d.smAndUp.value ? 'pb-5' : undefined,
-                    }"
-                    :props-media="{
-                      class: [
-                        `bg-cover ${node.bg}`,
-                        { '!min-h-[248px]': !d.smAndUp.value },
-                      ],
-                    }"
+                <VSpacer v-if="d.smAndUp.value ? 0 < idx % 2 : true" />
+                <IconX
+                  :icon="
+                    d.smAndUp.value ? 'local:line-art-02' : 'local:line-art-01'
+                  "
+                  :size="d.smAndUp.value ? '3.33rem' : '1.5rem'"
+                  class="opacity-[.122]"
+                  :class="[
+                    d.smAndUp.value
+                      ? 0 < idx % 2
+                        ? 'rotate-180'
+                        : '-rotate-90'
+                      : undefined,
+                  ]"
+                />
+                <VSpacer v-if="!d.smAndUp.value" />
+              </AppBoxBase>
+            </template>
+          </VCol>
+          <VCol md="5">
+            <AppBoxContainerCentered fluid>
+              <VRow dense>
+                <template :key="fact.description" v-for="fact in mp_facts">
+                  <VCol
+                    v-if="!d.sm.value ? true : !fact.optional"
+                    cols="6"
+                    sm="4"
+                    md="6"
+                    align-self="stretch"
                   >
-                    <template #text>
-                      <VCardText
-                        class="indent-4"
-                        :class="{ 'px-0 pb-0': !d.smAndUp.value }"
-                      >
-                        <p v-html="node.html" />
-                      </VCardText>
-                    </template>
-                  </AppGridTwoCells>
-                </VCard>
-                <AppBoxCentered
-                  class="my-12"
-                  v-if="d.mdAndUp.value ? idx < 2 : true"
-                >
-                  <IconX
-                    icon="local:line-art-01"
-                    size="2rem"
-                    class="opacity-[.122]"
-                  />
-                </AppBoxCentered>
-              </template>
-            </VCol>
-            <VCol md="5">
-              <AppBoxContainerCentered fluid>
-                <VRow dense>
-                  <template :key="fact.description" v-for="fact in mp_facts">
-                    <VCol
-                      v-if="!d.sm.value ? true : !fact.optional"
-                      cols="6"
-                      sm="4"
-                      md="6"
-                      align-self="stretch"
+                    <VCard
+                      class="text-center fill-height"
+                      :class="[d.smAndUp.value ? 'py-2' : 'pt-2']"
+                      color="ui"
+                      :rounded="false"
                     >
-                      <VCard
-                        class="text-center fill-height"
-                        :class="[d.smAndUp.value ? 'py-2' : 'pt-2']"
-                        color="ui"
-                        :rounded="false"
+                      <VCardItem>
+                        <IconX
+                          :icon="fact.icon ?? '$info'"
+                          class="text-on-ui opacity-20"
+                          size="3rem"
+                        />
+                      </VCardItem>
+                      <VCardTitle
+                        class="text-accent text-shadow-sm"
+                        :class="d.lgAndUp.value ? 'text-h4' : 'text-h5'"
                       >
-                        <VCardItem>
-                          <IconX
-                            :icon="fact.icon ?? '$info'"
-                            class="text-on-ui opacity-20"
-                            size="3rem"
-                          />
-                        </VCardItem>
-                        <VCardTitle
-                          class="text-accent text-shadow-sm"
-                          :class="d.lgAndUp.value ? 'text-h4' : 'text-h5'"
-                        >
-                          <strong>{{ fact.header }}</strong>
-                        </VCardTitle>
-                        <VCardText>{{ fact.description }}</VCardText>
-                      </VCard>
-                    </VCol>
-                  </template>
-                </VRow>
-              </AppBoxContainerCentered>
-            </VCol>
-          </VRow>
-        </VContainer>
-      </AppBoxBase>
+                        <strong>{{ fact.header }}</strong>
+                      </VCardTitle>
+                      <VCardText>{{ fact.description }}</VCardText>
+                    </VCard>
+                  </VCol>
+                </template>
+              </VRow>
+            </AppBoxContainerCentered>
+          </VCol>
+        </VRow>
+      </VContainer>
     </AppCardSectionPrimary>
 
     <!-- istorijat -->
+    <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -225,17 +249,8 @@ const H = computed(() =>
     </AppCardSectionPrimary>
 
     <!-- vrednosti -->
-    <AppCardSectionPrimary
-      :class="[
-        d.smAndUp.value
-          ? `!bg-[url('/images/stock/024.png')] !bg-cover ${
-              isDark
-                ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
-                : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
-            }`
-          : undefined,
-      ]"
-    >
+    <VSpacer class="mt-12" />
+    <AppCardSectionPrimary>
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -248,10 +263,18 @@ const H = computed(() =>
         </AppCardSectionPrimaryTitle>
       </template>
 
-      <VSpacer class="mt-5" />
       <AppBoxBase
-        class="sm:grid sm:grid-cols-2 lg:grid-cols-3 px-2 sm:gap-12"
-        :class="{ 'space-y-5': !d.smAndUp.value }"
+        class="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 pa-5"
+        :class="[
+          { 'space-y-5': !d.smAndUp.value },
+          d.smAndUp.value
+            ? `!bg-[url('/images/stock/024.png')] !bg-cover ${
+                isDark
+                  ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
+                  : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
+              }`
+            : undefined,
+        ]"
       >
         <AppBoxCentered
           :key="node.title"

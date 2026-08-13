@@ -17,9 +17,8 @@ const localePath = useLocalePath();
     <AppBoxCentered>
       <IconX
         icon="local:line-art-01"
-        size="2rem"
-        class="opacity-[.122]"
-        :class="{ 'my-24': d.smAndUp.value }"
+        size="1.5rem"
+        class="opacity-[.122] my-24"
       />
     </AppBoxCentered>
 
@@ -151,11 +150,11 @@ const localePath = useLocalePath();
                       v-for="item in [
                         {
                           title: 'Projektovanje i inženjering',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: '3D Modelovanje i renderi',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                       ]"
                       :key="item.title"
@@ -173,15 +172,15 @@ const localePath = useLocalePath();
                       v-for="item in [
                         {
                           title: 'Bravarski radovi',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'CNC obrada metala',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Kovano gvožđe',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                       ]"
                       :key="item.title"
@@ -203,23 +202,23 @@ const localePath = useLocalePath();
                       v-for="item in [
                         {
                           title: 'Ograde i kapije',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Stepenice',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Nadstrešnice',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Metalni nameštaj i oprema',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Kontejneri za stanovanje',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                       ]"
                       :key="item.title"
@@ -237,15 +236,15 @@ const localePath = useLocalePath();
                       v-for="item in [
                         {
                           title: 'Elektrostatsko farbanje',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Peskarenje',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                         {
                           title: 'Cinkovanje',
-                          to: 'NA',
+                          to: 'under-construction',
                         },
                       ]"
                       :key="item.title"
@@ -267,23 +266,23 @@ const localePath = useLocalePath();
                   v-for="item in [
                     {
                       title: 'O nama',
-                      to: 'NA',
+                      to: 'under-construction',
                     },
                     {
                       title: 'Projekti',
-                      to: 'NA',
+                      to: 'under-construction',
                     },
                     {
                       title: 'Novosti, Blog',
-                      to: 'NA',
+                      to: 'under-construction',
                     },
                     {
                       title: 'Karijera',
-                      to: 'NA',
+                      to: 'under-construction',
                     },
                     {
                       title: 'Kontakt',
-                      to: 'NA',
+                      to: 'under-construction',
                     },
                   ]"
                   :to="localePath({ name: item.to })"

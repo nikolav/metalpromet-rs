@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useTheme } from "vuetify";
+
 // defineOptions({
 //   name: "COMPONENT_NAME",
 //   inheritAttrs: false,
@@ -8,14 +10,17 @@ const props = defineProps<{
   propsActions?: any;
 }>();
 
+const theme = useTheme();
+const isDark = computed(() => theme.global.current.value.dark);
+
 // @@eos
 </script>
 
 <template>
   <VCard
-  class="component--AppCardSectionPrimary"
+    class="component--AppCardSectionPrimary"
     tile
-    border="t-md primary-darken-1"
+    :border="`t-md ${isDark ? 'primary-darken-1' : 'ui-darken-1'}`"
   >
     <VCardTitle
       class="text-shadow-sm text-center bg-ui bg-[url('/images/stock/004.png')] bg-blend-multiply bg-cover position-relative"
@@ -26,15 +31,8 @@ const props = defineProps<{
 
     <slot />
 
-    <VCardActions v-bind="props.propsActions">
+    <VCardActions v-if="$slots.actions" v-bind="props.propsActions">
       <slot name="actions" />
     </VCardActions>
   </VCard>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>

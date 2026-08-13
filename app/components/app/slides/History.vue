@@ -138,8 +138,8 @@ useImagePrefetch({
       <AppBoxBase
         class="indent-4 !bg-[rgba(var(--v-theme-ui),.75)] text-[rgb(var(--v-theme-on-ui))] backdrop-blur-sm"
       >
-        <VCardText class="text-body-1">
-          <AppBoxContainerCentered fluid>
+        <AppBoxContainerCentered fluid>
+          <VCardText class="text-body-1">
             <div
               class="space-y-2"
               :class="{
@@ -148,8 +148,8 @@ useImagePrefetch({
               }"
               v-html="ctrl.current.value?.body"
             />
-          </AppBoxContainerCentered>
-        </VCardText>
+          </VCardText>
+        </AppBoxContainerCentered>
       </AppBoxBase>
     </template>
     <VCarousel
