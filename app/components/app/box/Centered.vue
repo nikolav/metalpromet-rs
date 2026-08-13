@@ -9,7 +9,7 @@
 
 <template>
   <AppBoxBase
-    class="component--AppBoxCentered d-flex justify-center items-center"
+    class="component--AppBoxCentered flex items-center justify-center"
   >
     <slot />
   </AppBoxBase>

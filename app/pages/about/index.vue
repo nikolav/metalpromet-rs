@@ -123,7 +123,17 @@ const H = computed(() =>
                 },
               ]"
             >
-              <VCard variant="text" tile>
+              <VCard
+                variant="text"
+                :tile="!d.smAndUp.value"
+                :rounded="
+                  d.smAndUp.value
+                    ? 0 < idx % 2
+                      ? '0 ts-xl'
+                      : '0 te-xl'
+                    : undefined
+                "
+              >
                 <AppGridTwoCells
                   :stack="!d.smAndUp.value"
                   :invert="!(0 < idx % 2)"
@@ -273,7 +283,7 @@ const H = computed(() =>
                   ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
                   : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
               }`
-            : undefined,
+            : `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay bg-repeat`,
         ]"
       >
         <AppBoxCentered
@@ -357,6 +367,7 @@ const H = computed(() =>
                 title: 'Šta radimo',
                 image: {
                   src: '/images/stock/023.jpg',
+                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
                   props: {},
                 },
                 items: [
@@ -373,6 +384,7 @@ const H = computed(() =>
                 title: 'Projekti',
                 image: {
                   src: '/images/stock/025.jpg',
+                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
                   props: {
                     position: 'bottom',
                   },
@@ -389,6 +401,7 @@ const H = computed(() =>
                 title: 'Oprema i tehnologije',
                 image: {
                   src: '/images/stock/026.jpg',
+                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
                   props: {},
                 },
                 items: [
@@ -404,6 +417,7 @@ const H = computed(() =>
                 title: 'Zašto Metal-Promet?',
                 image: {
                   src: '/images/stock/013.jpg',
+                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
                   props: {
                     position: 'top',
                   },
@@ -419,7 +433,11 @@ const H = computed(() =>
               },
             ]"
           >
-            <VCard color="surface-bright" class="h-100">
+            <VCard
+              color="surface-bright"
+              class="h-100"
+              :class="{ [`${node.image.bg}`]: !d.smAndUp.value }"
+            >
               <VImg
                 v-if="d.smAndUp.value"
                 :height="192"

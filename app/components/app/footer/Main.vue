@@ -14,11 +14,11 @@ const localePath = useLocalePath();
 
 <template>
   <VThemeProvider theme="dark">
-    <AppBoxCentered>
+    <AppBoxCentered class="!mt-32 !mb-16">
       <IconX
         icon="local:line-art-01"
         size="1.5rem"
-        class="opacity-[.122] my-24"
+        class="opacity-[.122]"
       />
     </AppBoxCentered>
 

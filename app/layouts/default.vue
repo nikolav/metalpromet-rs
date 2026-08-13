@@ -5,11 +5,11 @@ const d = useDisplay();
 // @@eos
 </script>
 <template>
-  <AppBoxLayoutWrap>
+  <AppBoxLayoutWrap class="layout--default">
     <AppNavAppBar :location="d.smAndUp.value ? 'top' : 'bottom'" />
     <VMain>
       <slot />
+      <AppFooterMain />
     </VMain>
-    <AppFooterMain />
   </AppBoxLayoutWrap>
 </template>

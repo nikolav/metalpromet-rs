@@ -136,7 +136,7 @@ watch(videoCurrent, (vc) => {
                   name: 'material-symbols:id-card-outline',
                   size: '2.22rem',
                 },
-                text: `Mi smo Metal-Promet iz Mladenovca, porodična firma specijalizovana za kompletne metaloprerađivačke radove – od projektovanja i obrade do zaštite i montaže metalnih konstrukcija.`,
+                text: `<p>Mi smo Metal-Promet iz Mladenovca &dash; porodična firma specijalizovana za <strong>kompletne metaloprerađivačke radove</strong>, od projektovanja i obrade do zaštite i montaže metalnih konstrukcija. </p><p>Poslujemo od 1988. godine i danas smo prepoznatljivi po vrhunskom kvalitetu, inženjerskoj preciznosti i usluzi plastifikacije u sopstvenoj peći. </p><p>Izvodimo projekte u Srbiji i Evropi, sa fokusom na dugovečnost i estetiku svakog proizvoda. Kvalitet koji stvaramo traje &dash; zato nam se mnogi vraćaju.</p>`,
               },
 
               {
@@ -145,7 +145,7 @@ watch(videoCurrent, (vc) => {
                   name: 'local:shield-improved',
                   size: '1.92rem',
                 },
-                text: `Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5m, uz obavezan hemijski predtretman i cink prajmer koji garantuju dugotrajnu korozionu postojanost.`,
+                text: `<p>Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5 metara, uz obavezan hemijski predtretman i opcionu primenu cink prajmera, čime <strong>garantujemo dugotrajnu korozionu postojanost</strong>. Ova tehnologija omogućava obradu i najvećih konstrukcija, dok bogat izbor <em>RAL</em> nijansi i tekstura osigurava da svaki komad bude estetski dovršen. </p><p>Ovakav pristup čini osnovu našeg poslovanja i razlog zbog kog nam klijenti vraćaju poverenje.</p>`,
               },
               {
                 image: '/images/stock/011.jpg',
@@ -153,7 +153,7 @@ watch(videoCurrent, (vc) => {
                   name: 'mdi:certificate',
                   size: '2rem',
                 },
-                text: `Specijalizovani smo za izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti, sa završnom obradom koja podrazumeva hemijsko čišćenje i nanošenje zaštitnih premaza u peći od 7,8m, te toplo i hladno cinkovanje.`,
+                text: `<p>Specijalizovani smo za <strong>izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti</strong>, prilagođenih najstrožijim standardima čvrstoće i bezbednosti. Svaki proizvod, pre finalne zaštite, prolazi kroz hemijsko čišćenje i obradu, uz mogućnost nanošenja prajmera, te toplog ili hladnog cinkovanja.</p><p>Na taj način obezbeđujemo vrhunsku otpornost na koroziju i habanje, čineći naše konstrukcije trajnim rešenjem za svaki prostor.</p>`,
               },
               {
                 image: '/images/stock/012.jpg',
@@ -161,14 +161,14 @@ watch(videoCurrent, (vc) => {
                   name: 'mdi:diamond-stone',
                   size: '2rem',
                 },
-                text: `Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi (Austrija, Švajcarska i Engleska), garantujemo dugotrajnu korozionu postojanost i estetsku završnicu vaših projekata u celoj Srbiji.`,
+                text: `<p>Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi donosimo <strong>vrhunske standarde izrade i zaštite metala</strong> na tržište Srbije. Naši procesi hemijske pripreme, plastifikacije i opcionog cinkovanja garantuju dugotrajnu korozionu postojanost i besprekornu estetsku završnicu, bez obzira na vrstu i veličinu projekta. </p><p>Sa nama, vaša ideja dobija pravu formu i domaću posvećenost &dash; od Mladenovca do svakog kraja Srbije.</p>`,
               },
             ]"
           >
             <VCard
               color="surface-light"
               elevation="1"
-              class="pb-2 d-flex flex-col"
+              class="pb-8 d-flex flex-col"
               :class="{ 'h-full': d.smAndUp.value }"
             >
               <AppBoxBase class="h-[192px]">
@@ -186,11 +186,9 @@ watch(videoCurrent, (vc) => {
                   :class="{ 'w-[4rem]': d.smAndUp.value }"
                 />
               </AppBoxCentered>
-              <VCardText class="indent-4 text-body-1 *pa-2 *ma-2">
-                {{ node.text }}
-              </VCardText>
+              <VCardText class="indent-4 space-y-2" v-html="node.text" />
               <VSpacer />
-              <VCardActions>
+              <VCardActions v-if="false">
                 <VSpacer />
                 <VBtn
                   elevation="1"
@@ -299,11 +297,7 @@ watch(videoCurrent, (vc) => {
             >
               <AppBoxBase>
                 <AppBoxCentered>
-                  <IconX
-                    icon="mdi:puzzle-check"
-                    size="2rem"
-                    class="opacity-20"
-                  />
+                  <IconX icon="mdi:puzzle" size="2rem" class="opacity-20" />
                 </AppBoxCentered>
                 <VCardText class="text-body-1">
                   <em
@@ -392,19 +386,23 @@ watch(videoCurrent, (vc) => {
                 v-for="node in [
                   {
                     icon: { name: 'local:conveyor-belt-box', size: '2rem' },
-                    text: `Zatvoreni tehnološki krug - od inženjerske ideje, kroz preciznu proizvodnju i estetsku zaštitu, do profesionalne montaže - bez outsourcinga, sve pod jednim krovom.`,
+                    text: `<strong>Zatvoreni tehnološki krug</strong> &dash; od inženjerske ideje, kroz preciznu proizvodnju i zaštitu, do profesionalne montaže &dash; bez outsourcinga, sve pod jednim krovom. To znači da svaki projekat, od skice do monaže, prolazi kroz ruke stručnjaka, bez posrednika i bez kompromisa u kvalitetu.`,
                   },
                   {
                     icon: { name: 'local:brain-outline', size: '2.122rem' },
-                    text: `Proizvodna baza u Mladenovcu je tačka sa koje se upravlja brzom i efikasnom realizacijom projekata u Šumadiji, beogradskom okruženju i svim opštinama centralne Srbije.`,
+                    text: `Proizvodna baza u Mladenovcu, sa svojim integrisanim pristupom, predstavlja središte sa kojeg upravljamo efikasnom realizacijom projekata u Šumadiji i okruženju. Ovakav organizacioni model čini nas <strong>pouzdanim partnerom za kompletnu izradu i montažu metalnih konstrukcija</strong> u opštinama centralne Srbije.`,
                   },
                   {
                     icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
-                    text: `Naši montažni timovi su dostupni u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota.`,
+                    text: `Naši montažni timovi dostupni su u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota, čime <strong>osiguravamo da kvalitetna izrada bude praćena i profesionalnom ugradnjom</strong> &dash; gde god da se vaš objekat nalazi.`,
+                  },
+                  {
+                    icon: { name: 'mdi:diamond-stone', size: '2.5rem' },
+                    text: `Kvalitet izrade je garantovan jer svaka faza projekta prolazi kroz strogu kontrolu pre nego što napusti naš pogon. Verujemo da je najbolja garancija <strong>dugovečnost naših proizvoda</strong> i zato sa ponosom stojimo iza svakog komada koji izađe iz naše radionice.`,
                   },
                 ]"
-                sm="4"
-                class="d-flex flex-col items-center space-y-2"
+                sm="6"
+                class="d-flex flex-col items-center"
               >
                 <VBadge
                   color="success"
@@ -427,14 +425,16 @@ watch(videoCurrent, (vc) => {
                   </VAvatar>
                 </VBadge>
 
-                <p class="mt-4 text-body-2">
-                  {{ node.text }}
-                </p>
+                <p
+                  class="mt-5"
+                  :class="[d.smAndUp.value ? 'text-body-1' : 'text-body-2']"
+                  v-html="node.text"
+                />
               </VCol>
             </VRow>
           </AppBoxContainerCentered>
           <AppGridRowsAutoAuto
-            class="mt-10 *mb-2"
+            class="mt-12 *mb-2"
             :props-top="{ class: 'd-flex justify-center' }"
           >
             <template #top>

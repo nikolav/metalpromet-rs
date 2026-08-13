@@ -104,6 +104,19 @@ useImagePrefetch({
           </template>
           <VSpacer />
           <VBtn
+            @click="ctrl.active('80-te')"
+            icon
+            rounded="circle"
+            color="on-ui"
+            :disabled="ctrl.isFirst.value"
+          >
+            <IconX
+              icon="$first"
+              size="2rem"
+              :class="{ 'filter-shadow-sm': !ctrl.isFirst.value }"
+            />
+          </VBtn>
+          <VBtn
             @click="ctrl.prev"
             icon
             rounded="circle"
@@ -116,9 +129,9 @@ useImagePrefetch({
               :class="{ 'filter-shadow-sm': !ctrl.isFirst.value }"
             />
           </VBtn>
-          <small class="app-container-reset--inline opacity-50"
-            >{{ ctrl.index.value + 1 }} / {{ ctrl.items.length }}</small
-          >
+          <small class="app-container-reset--inline opacity-50">
+            {{ ctrl.index.value + 1 }} &#47; {{ ctrl.items.length }}
+          </small>
           <VBtn
             @click="ctrl.next"
             icon
