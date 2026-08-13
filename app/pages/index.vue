@@ -113,7 +113,9 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Upoznajte Metal-Promet</h2>
+        <AppCardSectionPrimaryTitle>
+          Upoznajte Metal-Promet
+        </AppCardSectionPrimaryTitle>
       </template>
 
       <!-- about -->
@@ -166,9 +168,8 @@ watch(videoCurrent, (vc) => {
             ]"
           >
             <VCard
-              color="surface-light"
               elevation="1"
-              class="pb-8 d-flex flex-col"
+              class="pb-2 d-flex flex-col"
               :class="{ 'h-full': d.smAndUp.value }"
             >
               <AppBoxBase class="h-[192px]">
@@ -188,16 +189,9 @@ watch(videoCurrent, (vc) => {
               </AppBoxCentered>
               <VCardText class="indent-4 space-y-2" v-html="node.text" />
               <VSpacer />
-              <VCardActions v-if="false">
+              <VCardActions>
                 <VSpacer />
-                <VBtn
-                  elevation="1"
-                  color="current"
-                  variant="tonal"
-                  tile
-                  class="!ps-4"
-                  :to="$localePath({ name: 'about' })"
-                >
+                <VBtn tile class="ps-4" :to="$localePath({ name: 'about' })">
                   <template #append>
                     <IconX icon="$next" class="opacity-50" />
                   </template>
@@ -215,7 +209,6 @@ watch(videoCurrent, (vc) => {
       <AppBoxContainerCentered fluid>
         <VCard
           :rounded="d.mdAndUp.value ? 's-0 e-md' : undefined"
-          elevation="2"
           :class="{
             '!border-s-4 !border-s-[rgba(var(--v-theme-primary-variant),.5)]':
               d.mdAndUp.value,
@@ -223,8 +216,12 @@ watch(videoCurrent, (vc) => {
         >
           <VRow no-gutters>
             <VCol md="7" class="app-container-reset">
-              <VContainer fluid class="h-100 pa-0 ma-0">
-                <VRow no-gutters class="h-100">
+              <AppBoxContainerCentered
+                fluid
+                :max-width="undefined"
+                class="fill-height"
+              >
+                <VRow no-gutters class="fill-height">
                   <VCol
                     sm="6"
                     class="!bg-cover bg-[rgba(var(--v-theme-surface-light),.66)] bg-blend-multiply"
@@ -272,10 +269,14 @@ watch(videoCurrent, (vc) => {
                       },
                     ]"
                   >
-                    <AppBoxCentered class="h-100 text-body-2">
-                      <AppBoxBase class="space-y-2 text-center">
+                    <AppBoxCentered class="fill-height text-body-2">
+                      <AppBoxBase class="space-y-4 text-center">
                         <AppBoxCentered>
-                          <IconX v-bind="node.icon" class="!opacity-[.33]" />
+                          <IconX
+                            v-bind="node.icon"
+                            size="3rem"
+                            class="!opacity-[.22]"
+                          />
                         </AppBoxCentered>
                         <p class="text-center text-body-1">
                           {{ node.title }}
@@ -287,7 +288,7 @@ watch(videoCurrent, (vc) => {
                     </AppBoxCentered>
                   </VCol>
                 </VRow>
-              </VContainer>
+              </AppBoxContainerCentered>
             </VCol>
 
             <VCol
@@ -347,12 +348,9 @@ watch(videoCurrent, (vc) => {
       <template #actions>
         <VSpacer />
         <VBtn
-          elevation="1"
           tile
           class="ps-4"
-          variant="tonal"
           size="large"
-          color="primary"
           :to="$localePath({ name: 'about' })"
           >Saznajte više
           <template #append>
