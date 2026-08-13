@@ -14,11 +14,19 @@ const localePath = useLocalePath();
 
 <template>
   <VThemeProvider theme="dark">
+    <AppBoxCentered>
+      <IconX
+        icon="local:line-art-01"
+        size="2rem"
+        class="opacity-[.122]"
+        :class="{ 'my-24': d.smAndUp.value }"
+      />
+    </AppBoxCentered>
+
     <VFooter
       tile
       elevation="0"
       class="pt-5 !border-t-4 !border-t-v-primary-variant"
-      :class="{ 'mt-40': d.smAndUp.value }"
       v-bind="$attrs"
     >
       <VCardText class="opacity-50">

@@ -37,7 +37,3 @@ const props = defineProps<{
   grid-area: stack;
 }
 </style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>

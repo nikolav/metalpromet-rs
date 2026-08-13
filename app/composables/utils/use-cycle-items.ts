@@ -36,6 +36,12 @@ export const useCycleItems = <TNode = TRecordJson>(
     () => isPresent(current.value) && current.value === ll.last(),
   );
 
+  const size = computed(() => ll.size());
+
+  const index = computed(() =>
+    ll.findIndex((node) => currentKey.value === options.key(node)),
+  );
+
   const next = () => {
     if (ll.isEmpty()) return;
     current.value = isPresent(current.value)
@@ -88,6 +94,8 @@ export const useCycleItems = <TNode = TRecordJson>(
     currentKey,
     isFirst,
     isLast,
+    size,
+    index,
     items: [...items],
 
     // setters

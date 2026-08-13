@@ -44,7 +44,7 @@ watch(ctrl.current, (slide) => {
 
 <template>
   <AppGridStacked
-    class="component-AppSlidesHero"
+    class="component--AppSlidesHero"
     :props-stack="{
       class: 'flex flex-col *justify-between',
     }"

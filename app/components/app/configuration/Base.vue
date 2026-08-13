@@ -5,6 +5,7 @@ import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
 
 import PRELOAD_IMAGES from "~/assets/preload-images.json";
 import HERO_SLIDES from "~/assets/hero-slides.json";
+import { useImagePrefetch } from "~/composables/media/use-image-preload";
 
 const { $$ } = useNuxtApp();
 
@@ -22,8 +23,8 @@ useOnceMounted([], () => {
 });
 
 // preloads
-useHead({
-  link: $$.uniq([
+useImagePrefetch({
+  images: $$.uniq([
     // defaults
     "/logo.jpg",
 
@@ -40,12 +41,7 @@ useHead({
       },
       <string[]>[],
     ),
-  ]).map((src) => ({
-    // fetchpriority: "high",
-    href: src,
-    rel: "preload",
-    as: "image",
-  })),
+  ]),
 });
 
 // uid:device init

@@ -1,3 +1,3 @@
-import { Icon } from "#components";
+import { NuxtIcon as Icon } from "#components";
 export const renderIcon = (name: string, config?: any) =>
   h(Icon, { ...Object(config), name });

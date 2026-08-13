@@ -11,6 +11,15 @@ const description = computed(() =>
   t(String($$.get(route.meta, "context.description", "#TBD"))),
 );
 
+useHead(() => ({
+  htmlAttrs: {
+    lang: seoLocaleHead.value.htmlAttrs.lang,
+    dir: seoLocaleHead.value.htmlAttrs.dir,
+  },
+  link: [...(seoLocaleHead.value.link || [])],
+  meta: [...(seoLocaleHead.value.meta || [])],
+}));
+
 useSeoMeta({
   title,
   ogTitle: title,
@@ -24,24 +33,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <Html
-    :lang="seoLocaleHead.htmlAttrs.lang"
-    :dir="seoLocaleHead.htmlAttrs.dir"
-  />
-  <Title>{{ title }}</Title>
-  <template v-for="link in seoLocaleHead.link">
-    <Link
-      :id="`${link.id}`"
-      :rel="`${link.rel ?? ''}`"
-      :href="`${link.href ?? ''}`"
-      :hreflang="(<any>link).hreflang"
-    />
-  </template>
-  <template v-for="meta in seoLocaleHead.meta">
-    <Meta
-      :id="`${meta.id}`"
-      :property="`${meta.property ?? ''}`"
-      :content="`${meta.content ?? ''}`"
-    />
-  </template>
+  <slot />
 </template>

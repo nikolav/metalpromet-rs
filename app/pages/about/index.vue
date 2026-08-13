@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDisplay } from "vuetify";
+import { useDisplay, useTheme } from "vuetify";
 
 definePageMeta({
   layout: "default",
@@ -17,6 +17,7 @@ definePageMeta({
 });
 
 const d = useDisplay();
+const theme = useTheme();
 const { $$ } = useNuxtApp();
 
 const mp_facts = [
@@ -74,6 +75,7 @@ const mp_facts = [
   },
 ];
 
+const isDark = computed(() => theme.global.current.value.dark);
 const H = computed(() =>
   d.smAndUp.value
     ? `calc(100vh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
@@ -86,6 +88,8 @@ const H = computed(() =>
 <template>
   <AppBoxPageWrap class="page--about">
     <AppSlidesHero :height="H" cta="Zatražite ponudu" class="mt-0" />
+
+    <!-- ko smo -->
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -94,7 +98,10 @@ const H = computed(() =>
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2rem"
         />
-        <h2>Ko smo &dash; Šta radimo</h2>
+
+        <AppCardSectionPrimaryTitle>
+          Tradicija, znanje &dash; naš put
+        </AppCardSectionPrimaryTitle>
       </template>
       <AppBoxBase>
         <VContainer fluid>
@@ -114,10 +121,6 @@ const H = computed(() =>
                   {
                     bg: `bg-[url('/images/stock/022.jpg')] bg-[center_top]`,
                     html: `Iako radimo sa ozbiljnim mašinama, ne volimo ozbiljne face. Više volimo da popričamo sa vama i da iz prve ruke čujemo šta vam treba. Od male žardinjere, preko kapije i <em>RAL</em> karti, do velike industrijske konstrukcije za Beč ili London. Radili smo u Termoelektrani Kostolac, na luksuznim vilama na Kosmaju, u Austriji, Švajcarskoj, Nemačkoj, pa čak i  u Engleskoj. Naši radovi su godinama prepoznatljivi u Srbiji i van nje.`,
-                  },
-                  {
-                    bg: `bg-[url('/images/stock/023.jpg')] bg-center`,
-                    html: `Nama je metal u krvi &dash; bukvalno. U radionici, u svakom zavaru, u svakoj ogradi i kapiji koju isporučimo. Zato, ako vam treba nešto od metala &dash; nemojte da se dvoumite. Dođite da zajedno stvorimo nešto što traje. Jer mi stvaramo kvalitet koji traje, a poverenje gradimo otvorenošću i iskrenim odnosom. Posvećenost je ono što nas vodi.`,
                   },
                 ]"
               >
@@ -147,12 +150,12 @@ const H = computed(() =>
                 </VCard>
                 <AppBoxCentered
                   class="my-12"
-                  v-if="d.mdAndUp.value ? idx < 3 : true"
+                  v-if="d.mdAndUp.value ? idx < 2 : true"
                 >
                   <IconX
                     icon="local:line-art-01"
                     size="2rem"
-                    class="opacity-[.22]"
+                    class="opacity-[.122]"
                   />
                 </AppBoxCentered>
               </template>
@@ -198,6 +201,240 @@ const H = computed(() =>
         </VContainer>
       </AppBoxBase>
     </AppCardSectionPrimary>
-    <h2 class="text-center">strana:o-nama 🚧</h2>
+
+    <!-- istorijat -->
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:book-open-outline"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2rem"
+        />
+        <AppCardSectionPrimaryTitle>
+          Od iskre do Evrope
+        </AppCardSectionPrimaryTitle>
+      </template>
+
+      <!-- slides:history -->
+      <AppSlidesHistory
+        :props-carousel="{
+          style: `height: calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - 2.22rem - 64px) !important;`,
+        }"
+      />
+    </AppCardSectionPrimary>
+
+    <!-- vrednosti -->
+    <AppCardSectionPrimary
+      :class="[
+        d.smAndUp.value
+          ? `!bg-[url('/images/stock/024.png')] !bg-cover ${
+              isDark
+                ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
+                : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
+            }`
+          : undefined,
+      ]"
+    >
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:podium-gold"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2rem"
+        />
+        <AppCardSectionPrimaryTitle>
+          Naše vrednosti
+        </AppCardSectionPrimaryTitle>
+      </template>
+
+      <VSpacer class="mt-5" />
+      <AppBoxBase
+        class="sm:grid sm:grid-cols-2 lg:grid-cols-3 px-2 sm:gap-12"
+        :class="{ 'space-y-5': !d.smAndUp.value }"
+      >
+        <AppBoxCentered
+          :key="node.title"
+          v-for="node in [
+            {
+              icon: '$ratingFull',
+              title: 'Kvalitet i pouzdanost',
+              text: 'Posvećeni smo savršenstvu u svakoj fazi projekta.',
+            },
+            {
+              icon: 'local:certificate-trusted',
+              title: 'Integritet i poverenje',
+              text: 'Poverenje gradimo otvorenošću i iskrenim odnosom.',
+            },
+            {
+              icon: 'mdi:security',
+              title: 'Bezbednost i odgovornost',
+              text: 'Bezbednost je uvek na prvom mestu.',
+            },
+            {
+              icon: 'local:tree-of-life',
+              title: 'Tradicija i iskustvo',
+              text: 'Svaki projekat nosi pečat iskustva i posvećenosti zanatu.',
+            },
+            {
+              icon: 'mdi:trophy',
+              title: 'Timski duh i posvećenost',
+              text: 'Verujemo da je dobar tim ključ svakog uspešnog projekta.',
+            },
+            {
+              icon: 'local:robot-cute-head',
+              title: 'Inovacije i rešenja',
+              text: 'Povezujemo savremenu tehnologiju i praktično znanje.',
+            },
+          ]"
+        >
+          <AppBoxBase
+            class="d-flex flex-col items-center justify-center text-center pa-5 gap-1"
+          >
+            <IconX
+              :icon="node.icon"
+              :size="d.smAndUp.value ? '4rem' : '3rem'"
+              class="!opacity-[.33]"
+            />
+            <VCardTitle class="text-h5 text-accent text-shadow-sm">{{
+              node.title
+            }}</VCardTitle>
+            <p class="text-body-1">
+              {{ node.text }}
+            </p>
+          </AppBoxBase>
+        </AppBoxCentered>
+      </AppBoxBase>
+    </AppCardSectionPrimary>
+
+    <!-- jos odlika; more props -->
+    <VSpacer class="mt-12" />
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:package-variant-closed-check"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2rem"
+        />
+        <AppCardSectionPrimaryTitle>
+          Sve na jednom mestu
+        </AppCardSectionPrimaryTitle>
+      </template>
+
+      <VContainer fluid class="pa-2">
+        <VRow dense>
+          <VCol
+            align-self="stretch"
+            sm="6"
+            md="3"
+            :key="node.title"
+            v-for="node in [
+              {
+                title: 'Šta radimo',
+                image: {
+                  src: '/images/stock/023.jpg',
+                  props: {},
+                },
+                items: [
+                  'Izrada čeličnih konstrukcija',
+                  'Metalne ograde, kapije i nadstrešnice',
+                  'Uslužno plastificiranje metala',
+                  'Kovano gvožđe, stepenice, nameštaj',
+                  'CNC obrada metala i peskarenje',
+                  '3D modelovanje, renderi i projektovanje',
+                  'Montaže u Srbiji i inostranstvu',
+                ],
+              },
+              {
+                title: 'Projekti',
+                image: {
+                  src: '/images/stock/025.jpg',
+                  props: {
+                    position: 'bottom',
+                  },
+                },
+                items: [
+                  'Termoelektrana Kostolac',
+                  'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
+                  'Brojni projekti u Beču, Austrija, Švajcarskoj, Engleskoj',
+                  'Luksuzne kuće i vile na Kosmaju i Avali',
+                  'Plastifikacija felni za automobile',
+                ],
+              },
+              {
+                title: 'Oprema i tehnologije',
+                image: {
+                  src: '/images/stock/026.jpg',
+                  props: {},
+                },
+                items: [
+                  'Komora za plastifikaciju',
+                  'Peć za polimerizaciju',
+                  'Linija za hemijsku pripremu i cink prajmer',
+                  'CNC mašine za obradu metala',
+                  'Oprema za peskarenje',
+                  'Lasersko sečenje panela',
+                ],
+              },
+              {
+                title: 'Zašto Metal-Promet?',
+                image: {
+                  src: '/images/stock/013.jpg',
+                  props: {
+                    position: 'top',
+                  },
+                },
+                items: [
+                  'Tradicija i pouzdanost',
+                  'Kvalitet izrade',
+                  'Sopstvena proizvodnja',
+                  'Moćan pogon',
+                  'Izvozno iskustvo',
+                  'Tim stručnjaka',
+                ],
+              },
+            ]"
+          >
+            <VCard color="surface-bright" class="h-100">
+              <VImg
+                v-if="d.smAndUp.value"
+                :height="192"
+                cover
+                :src="node.image.src"
+                v-bind="node.image.props"
+              >
+                <AppBoxBase class="opacity-[.5] h-full bg-ui" />
+              </VImg>
+              <VCardTitle class="text-center pt-4">{{ node.title }}</VCardTitle>
+              <VCardText class="!ps-[1em]">
+                <VList
+                  :items="node.items"
+                  bg-color="transparent"
+                  variant="text"
+                >
+                  <VListItem
+                    prepend-gap="1em"
+                    :key="item"
+                    v-for="item in node.items"
+                    slim
+                    class="ps-0"
+                  >
+                    <template #prepend>
+                      <IconX
+                        icon="$complete"
+                        size="1.22rem"
+                        class="text-success"
+                      />
+                    </template>
+                    <span class="text-body-2">{{ item }}</span>
+                  </VListItem>
+                </VList>
+              </VCardText>
+            </VCard>
+          </VCol>
+        </VRow>
+      </VContainer>
+    </AppCardSectionPrimary>
   </AppBoxPageWrap>
 </template>

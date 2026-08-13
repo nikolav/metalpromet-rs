@@ -25,7 +25,6 @@ definePageMeta({
   },
 });
 
-const localePath = useLocalePath();
 const d = useDisplay();
 const { $$, $lightbox } = useNuxtApp();
 const H = computed(() =>
@@ -199,7 +198,7 @@ watch(videoCurrent, (vc) => {
                   variant="tonal"
                   tile
                   class="!ps-4"
-                  :to="localePath({ name: 'about' })"
+                  :to="$localePath({ name: 'about' })"
                 >
                   <template #append>
                     <IconX icon="$next" class="opacity-50" />
@@ -360,7 +359,7 @@ watch(videoCurrent, (vc) => {
           variant="tonal"
           size="large"
           color="primary"
-          :to="localePath({ name: 'about' })"
+          :to="$localePath({ name: 'about' })"
           >Saznajte više
           <template #append>
             <IconX icon="$next" class="opacity-50" size="1.5rem" />
@@ -535,7 +534,7 @@ watch(videoCurrent, (vc) => {
                     elevation="1"
                     variant="tonal"
                     class="ps-4"
-                    :to="localePath({ name: item.to })"
+                    :to="$localePath({ name: item.to })"
                   >
                     Saznajte više
                     <template #append>
@@ -635,6 +634,7 @@ watch(videoCurrent, (vc) => {
         <li>✔ kontakt</li>
         <li>✔ SEO footer</li>
         <li>- chat</li>
+        <li>✔ strana: o nama</li>
       </ul>
     </AppBoxContainerCentered>
   </AppBoxPageWrap>

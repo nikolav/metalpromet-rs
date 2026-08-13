@@ -11,26 +11,22 @@
 
 // /* Reset Plyr's aspect ratio padding */
 .plyr--video .plyr__video-wrapper {
+  position: relative;
   padding: 0 !important;
   height: var(--plyr-x-video-height, auto) !important;
   aspect-ratio: var(--plyr-x-video-aspect, auto);
   background: #000;
-  position: relative;
 }
 
 .plyr__video-embed {
   position: relative;
 
-  // width: min(892px, 100%);
   width: 100%;
+  height: var(--plyr-x-video-height, auto) !important;
   margin: 0 auto;
+  padding: 0 !important;
 
   aspect-ratio: var(--plyr-x-video-aspect, 16/9);
-
-  // shuts off legacy padding technique if plyr adds it
-  padding: 0 !important;
-  // height: auto !important;
-  height: var(--plyr-x-video-height, auto) !important;
 
   overflow: hidden;
   background: #000;

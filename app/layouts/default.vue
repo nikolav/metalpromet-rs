@@ -13,6 +13,3 @@ const d = useDisplay();
     <AppFooterMain />
   </AppBoxLayoutWrap>
 </template>
-<style lang="scss" scoped></style>
-<style module></style>
-<style lang="scss"></style>

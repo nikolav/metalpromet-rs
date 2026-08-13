@@ -494,6 +494,7 @@ export default defineNuxtConfig({
       xl: 1920,
       "2xl": 2560,
     },
+    dir: "assets/media",
     providers: {},
     presets: {},
   },
@@ -544,11 +545,12 @@ export default defineNuxtConfig({
   icon: {
     // # 'auto':default | 'local' | 'remote'
     // serverBundle: 'auto',
+    // # disable runtime fetching; only use icons from the client bundle
     // provider: "none",
     componentName: "NuxtIcon",
-    size: "1.22rem",
-    class: "icon inline-block align-middle",
-    cssLayer: "base",
+    // size: "1.22rem",
+    // class: "icon inline-block align-middle",
+    // cssLayer: "base",
 
     customCollections: [
       {
@@ -559,10 +561,12 @@ export default defineNuxtConfig({
     ],
 
     clientBundle: {
+      // explicitly pre-bundle icons
+      icons: iconsClientBundle,
+      // keep disabled to only use explicit entries (false)
       scan: true,
       includeCustomCollections: true,
       sizeLimitKb: 256,
-      icons: iconsClientBundle,
     },
   },
 
@@ -645,7 +649,7 @@ export default defineNuxtConfig({
       weights: [400, 500, 600, 700],
       subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
       styles: ["normal", "italic"],
-      preload: true,
+      // preload: true,
     },
     processCSSVariables: "font-prefixed-only",
     priority: ["local", "google"],
