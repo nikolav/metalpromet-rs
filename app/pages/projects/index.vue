@@ -1327,7 +1327,7 @@ const toggleTabsMachines = useToggleFlag();
                           title: 'Reparacije i rekonstrukcije',
                           props: {
                             subtitle:
-                              'Sanacija, popravka i rekonstrukcija postojeće industrijske opreme, mašina i postrojenja. Produženje veka trajanja uz zadržavanje visokog nivoa sigurnosti i performansi.',
+                              'Sanacija, popravka, rekonstrukcija, i produženje veka trajanja industrijske opreme, mašina i postrojenja.',
                           },
                         },
                       ]"
