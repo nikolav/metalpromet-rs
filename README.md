@@ -114,6 +114,91 @@
 |  +-----------------------------------------------------------------------+
 ```
 
+## strana - 🗼projekti
+```
++======================================================================+
+|                                                                      |
+|  METAL-PROMET                         Tel: 064 417 6546              |
+|  Izrada i montaža metalnih konstrukcija i plastifikacija od 1988.    |
+|                                                                      |
++======================================================================+
+|  NASLOV: NAŠI PROJEKTI                                               |
+|  Opis: Pregled naših radova na teritoriji Mladenovca, Beograda,     |
+|  Šumadije, centralne Srbije i inostranstva.                         |
++======================================================================+
+|                                                                      |
+|  +----------------------------------------------------------------+  |
+|  |  OGRADE, KAPIJE I OGRADNI SISTEMI                               |  |
+|  |  Za kuće i luksuzne vile u regionu Šumadije i centralne Srbije  |  |
+|  |----------------------------------------------------------------|  |
+|  |  • Aluminijumske ograde (razni modeli, sa "S" odliscima)       |  |
+|  |  • Čelične ograde (2D i 3D panelne, kovane, prohromske)       |  |
+|  |  • Dvorišne kapije (velikih dimenzija, npr. 7.5x2.2m)         |  |
+|  |  • Panelne ograde (laserski sečeni paneli)                    |  |
+|  |  • Prohromske ograde i stepenice                              |  |
+|  |----------------------------------------------------------------|  |
+|  |  > Izrada i montaža za Mladenovac, Beograd, Šumadiju i        |  |
+|  |    celu centralnu Srbiju.                                     |  |
+|  +----------------------------------------------------------------+  |
+|                                                                      |
+|  +----------------------------------------------------------------+  |
+|  |  KONSTRUKCIJE I NOSAČI (ARHITEKTONSKI ELEMENTI)                 |  |
+|  |  Za industrijske i stambene objekte na teritoriji Srbije       |  |
+|  |----------------------------------------------------------------|  |
+|  |  • Nadstrešnice (za kuće, za đakuzi)                          |  |
+|  |  • Čelični krovovi                                            |  |
+|  |  • Metalne stepenice (gelenderi)                              |  |
+|  |----------------------------------------------------------------|  |
+|  |  > Projekti "ključ u ruke" uz inženjering i montažu za       |  |
+|  |    klijente iz cele Srbije.                                   |  |
+|  +----------------------------------------------------------------+  |
+|                                                                      |
+|  +----------------------------------------------------------------+  |
+|  |  USLUGE ZAVRŠNE OBRADE METALA (PLASTIFIKACIJA)                 |  |
+|  |  Vrhunska zaštita i estetika za klijente iz cele Srbije       |  |
+|  |----------------------------------------------------------------|  |
+|  |  • Plastifikacija ograda, kapija, stepeništa i konstrukcija   |  |
+|  |  • Plastifikacija nameštaja (školske klupe, baštenski set)   |  |
+|  |  • Plastifikacija felni i mašinskih delova                   |  |
+|  |  • Cink prajmer za zaštitu od korozije                        |  |
+|  |----------------------------------------------------------------|  |
+|  |  > Peć 7.8m, RAL boje po želji. Usluga za celu Srbiju.       |  |
+|  +----------------------------------------------------------------+  |
+|                                                                      |
+|  +----------------------------------------------------------------+  |
+|  |  INDUSTRIJSKA OPREMA I MAŠINSTVO                                |  |
+|  |  Za potrebe industrije u Srbiji i inostranstvu                |  |
+|  |----------------------------------------------------------------|  |
+|  |  • Izrada reaktora i rezervoara (npr. za vodu)                |  |
+|  |  • Radovi na termoelektrani (Kapitalni remont TE Kostolac)    |  |
+|  |----------------------------------------------------------------|  |
+|  |  > Projekti koji zahtevaju vrhunsko inženjersko znanje i      |  |
+|  |    preciznost.                                                |  |
+|  +----------------------------------------------------------------+  |
+|                                                                      |
+|  +----------------------------------------------------------------+  |
+|  |  PROIZVODI PO MERI (METALNA GALANTERIJA)                       |  |
+|  |  Izrada i montaža metalnih delova za celu Srbiju              |  |
+|  |----------------------------------------------------------------|  |
+|  |  • Kovano gvožđe (ukrasni elementi, ograde)                   |  |
+|  |  • Žardinjere, metalni nameštaj                               |  |
+|  |  • Razni delovi i konstrukcije prema specifikaciji kupca      |  |
+|  |----------------------------------------------------------------|  |
+|  |  > Izrada od čelika, aluminijuma i inoxa za klijente iz      |  |
+|  |    Mladenovca, Beograda, Šumadije i cele Srbije.             |  |
+|  +----------------------------------------------------------------+  |
+|                                                                      |
++======================================================================+
+|  KONTAKTIRAJTE NAS:                                                 |
+|  📞 064 417 6546 (Dušan, mast.inž.maš.)                           |
+|  📧 office@metalpromet.rs                                          |
+|  📍 Palanački put 15, Mladenovac Grad 11400                       |
+|  🌍 Radovi u Srbiji i inostranstvu                                 |
++======================================================================+
+|  © 2026 Metal-Promet | Sva prava zadržana.                         |
++======================================================================+
+```
+
 ### Frontend
 
 -   Nuxt 4.2 (SSR)

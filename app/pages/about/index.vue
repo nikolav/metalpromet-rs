@@ -434,8 +434,7 @@ const H = computed(() =>
             ]"
           >
             <VCard
-              color="surface-bright"
-              class="h-100"
+              class="fill-height"
               :class="{ [`${node.image.bg}`]: !d.smAndUp.value }"
             >
               <VImg
