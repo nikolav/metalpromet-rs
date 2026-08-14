@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { IconX } from "#components";
 import { useDisplay } from "vuetify";
 
 import { useCycleItems } from "~/composables/utils/use-cycle-items";
@@ -176,10 +175,6 @@ const ctrlFinish = useCycleItems(
     {
       key: "rqQtubK2OhPmcw6",
       image: "/images/hero/4-zastita-i-obrada-povrsina/cinkovanje.01.jpg",
-    },
-    {
-      key: "ofEByV99NKn796b61B",
-      image: "/images/hero/4-zastita-i-obrada-povrsina/protection.02.jpg",
     },
     {
       key: "hlwdDgN1HI",
