@@ -44,7 +44,11 @@
 
     "/sr/delatnosti/zavrsna-obrada",
     "/sr-cyrl/delatnosti/zavrsna-obrada",
-    "/en/services/finish"
+    "/en/services/finish",
+
+    "/sr/katalog",
+    "/sr-cyrl/katalog",
+    "/en/catalogue"
   ],
   "ignore": []
 }

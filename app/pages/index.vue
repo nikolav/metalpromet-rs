@@ -166,7 +166,7 @@ watch(videoCurrent, (vc) => {
                   size: '2rem',
                 },
                 text: `<p>Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi donosimo <strong>vrhunske standarde izrade i zaštite metala</strong> na tržište Srbije. Naši procesi hemijske pripreme, plastifikacije i opcionog cinkovanja garantuju dugotrajnu korozionu postojanost i besprekornu estetsku završnicu, bez obzira na vrstu i veličinu projekta. </p><p>Sa nama, vaša ideja dobija pravu formu i domaću posvećenost &dash; od Mladenovca do svakog kraja Srbije.</p>`,
-                to: 'about',
+                to: 'catalogue',
               },
             ]"
           >
