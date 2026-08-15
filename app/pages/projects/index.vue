@@ -400,7 +400,7 @@ const toggleTabsMachines = useToggleFlag();
 <template>
   <AppBoxPageWrap class="page--projects">
     <AppGridStacked
-      class="!bg-sky-200"
+      class="*!bg-sky-200"
       :props-stack="{
         class: 'position-relative',
       }"
