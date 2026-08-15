@@ -11,6 +11,6 @@ definePageMeta({
 
 <template>
   <AppBoxPageWrap class="page--under-construction">
-    <h2>🚧 under-construction 🚧</h2>
+    <h2>under-construction 🚧</h2>
   </AppBoxPageWrap>
 </template>

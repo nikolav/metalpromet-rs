@@ -1,15 +1,23 @@
 <script setup lang="ts">
 import { COLOR_PRIMARY } from "~/assets/themes/colors";
+import { TOKEN_VAPP } from "~/keys";
 
 const { analyticsEnabled, gtmId: GTMID } = useRuntimeConfig().public;
 
 const { finalizePendingLocaleChange } = useI18n();
 
+const refVApp = useTemplateRef("ref-cbb3f345-9f59-53aa-89ef-9a31c2c7e600");
+
+provide(TOKEN_VAPP, refVApp);
+
 // @@eos
 </script>
 
 <template>
-  <VApp class="*app-container-reset app--root">
+  <VApp
+    class="*app-container-reset app--root"
+    ref="ref-cbb3f345-9f59-53aa-89ef-9a31c2c7e600"
+  >
     <template v-if="analyticsEnabled">
       <noscript
         ><iframe
