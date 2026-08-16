@@ -45,12 +45,13 @@ export default defineNuxtPlugin({
             "primary-variant",
             "accent",
             "secondary",
-            "success",
-            "info",
-            "error",
-            "warning",
-
             "ui",
+
+            "success",
+            "warning",
+            "error",
+            "info",
+
             "surface",
             "surface-bright",
             "surface-light",

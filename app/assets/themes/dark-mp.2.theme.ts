@@ -1,15 +1,15 @@
 import type { ThemeDefinition } from "vuetify";
 
 import {
-  COLOR_ACCENT_DARK,
-  COLOR_ERROR_DARK,
-  COLOR_INFO_DARK,
   COLOR_PRIMARY_DARK,
   COLOR_PRIMARY_VARIANT_DARK,
+  COLOR_ACCENT_DARK,
   COLOR_SECONDARY_DARK,
+  COLOR_UI_DARK,
   COLOR_SUCCESS_DARK,
-  COLOR_UI,
   COLOR_WARNING_DARK,
+  COLOR_ERROR_DARK,
+  COLOR_INFO_DARK,
   SURFACE_DARK,
   TEXT_DARK,
 } from "./colors";
@@ -25,18 +25,18 @@ export const dark: ThemeDefinition = {
     "surface-light": SURFACE_DARK["surface-light"],
     "surface-variant": SURFACE_DARK["surface-variant"],
 
-    // ===== BASE COLORS =====
+    // ===== ACCENT =====
     primary: COLOR_PRIMARY_DARK,
+    "primary-variant": COLOR_PRIMARY_VARIANT_DARK,
+    accent: COLOR_ACCENT_DARK,
+    ui: COLOR_UI_DARK,
     secondary: COLOR_SECONDARY_DARK,
+
+    // ===== STATUS =====
     success: COLOR_SUCCESS_DARK,
     warning: COLOR_WARNING_DARK,
     error: COLOR_ERROR_DARK,
     info: COLOR_INFO_DARK,
-
-    // ===== ACCENT, VARIANT, OTHER =====
-    "primary-variant": COLOR_PRIMARY_VARIANT_DARK,
-    accent: COLOR_ACCENT_DARK,
-    ui: COLOR_UI,
 
     // ===== ON COLORS =====
     "on-background": TEXT_DARK.primary,

@@ -1,15 +1,15 @@
 import type { ThemeDefinition } from "vuetify";
 
 import {
-  COLOR_ACCENT,
-  COLOR_ERROR,
-  COLOR_INFO,
   COLOR_PRIMARY,
   COLOR_PRIMARY_VARIANT,
+  COLOR_ACCENT,
   COLOR_SECONDARY,
-  COLOR_SUCCESS,
   COLOR_UI,
+  COLOR_SUCCESS,
   COLOR_WARNING,
+  COLOR_ERROR,
+  COLOR_INFO,
   SURFACE_LIGHT,
   TEXT_LIGHT,
 } from "./colors";
@@ -25,18 +25,18 @@ export const light: ThemeDefinition = {
     "surface-light": SURFACE_LIGHT["surface-light"],
     "surface-variant": SURFACE_LIGHT["surface-variant"],
 
-    // ===== BASE =====
+    // ===== ACCENT =====
     primary: COLOR_PRIMARY,
+    "primary-variant": COLOR_PRIMARY_VARIANT,
+    accent: COLOR_ACCENT,
+    ui: COLOR_UI,
     secondary: COLOR_SECONDARY,
+
+    // ===== STATUS =====
     success: COLOR_SUCCESS,
     warning: COLOR_WARNING,
     error: COLOR_ERROR,
     info: COLOR_INFO,
-
-    // ===== ACCENT, VARIANT, OTHER =====
-    "primary-variant": COLOR_PRIMARY_VARIANT,
-    accent: COLOR_ACCENT,
-    ui: COLOR_UI,
 
     // ===== ON COLORS =====
     "on-background": TEXT_LIGHT.primary,
