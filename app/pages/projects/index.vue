@@ -664,7 +664,7 @@ const toggleTabsMachines = useToggleFlag();
                     class="-translate-y-[2px] opacity-[.33]"
                   />
                 </template>
-                Zakažite ugradnju</VBtn
+                Naručite ugradnju</VBtn
               >
               <VSpacer />
             </VCardActions>
