@@ -48,6 +48,7 @@ export default defineAppConfig({
   },
 
   events: {
+    EVENT_RESIZE: "b9078cb6-4229-5be3-8958-8fe9bf17f6e6",
     EVENT_COLOR_MODE: "001904e0-b43c-50f4-8edc-bb2a4b47e751",
     EVENT_LOCALE_CHANGE:
       "EVENT_LOCALE_CHANGE:4886a0a7-6261-580c-b17d-99ba5908389b",

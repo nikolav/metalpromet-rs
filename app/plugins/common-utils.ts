@@ -24,6 +24,7 @@ import trimEnd from "lodash/trimEnd";
 import uniq from "lodash/uniq";
 import unset from "lodash/unset";
 import values from "lodash/values";
+import clamp from "lodash/clamp";
 
 import { v4 as uuid } from "uuid";
 import parseBoolean from "@eturino/ts-parse-boolean";
@@ -41,6 +42,8 @@ import { parseShell } from "~/utils/parse-shell";
 import { configItem } from "~/utils/config-item";
 import { normalizedIndex } from "~/utils/normalized-index";
 import { isNumeric } from "~/utils/is-numeric";
+import { isPresent } from "~/utils/is-present";
+
 //
 export default defineNuxtPlugin({
   name: "utils",
@@ -52,6 +55,7 @@ export default defineNuxtPlugin({
         //   foo => $foo
         $: {
           // lodash
+          clamp,
           each,
           every,
           find,
@@ -79,6 +83,7 @@ export default defineNuxtPlugin({
           unset,
           values,
           // local
+          isPresent,
           isNumeric,
           normalizedIndex,
           config: configItem,

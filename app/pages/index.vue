@@ -27,10 +27,11 @@ definePageMeta({
 
 const d = useDisplay();
 const { $$, $lightbox } = useNuxtApp();
+const appNavHeight = computed(() =>
+  $$.config("layout.component.AppNavAppBar.height"),
+);
 const H = computed(() =>
-  d.smAndUp.value
-    ? `calc(100vh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
-    : 422,
+  d.smAndUp.value ? `calc(100vh - ${appNavHeight.value}px)` : 422,
 );
 
 const slideshow = <any>{
@@ -364,6 +365,34 @@ watch(videoCurrent, (vc) => {
       </template>
     </AppCardSectionPrimary>
 
+    <!-- section:projekti -->
+    <VSpacer class="mt-12" />
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:eiffel-tower"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2.22rem"
+        />
+        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Projekti</h2>
+      </template>
+      <VSlideGroup show-arrows>
+        <VSlideGroupItem :key="i" v-for="i in 12">
+          <VCard
+            tile
+            variant="text"
+            width="155"
+            :style="{
+              height: `calc(100vh - ${appNavHeight}px - 122px - 1rem)`,
+            }"
+          >
+            {{ i }}
+          </VCard>
+        </VSlideGroupItem>
+      </VSlideGroup>
+    </AppCardSectionPrimary>
+
     <!-- section:delatnosti -->
     <VSpacer class="mt-12" />
     <AppCardSectionPrimary>
@@ -554,27 +583,6 @@ watch(videoCurrent, (vc) => {
           </VRow>
         </VContainer>
       </VCardText>
-    </AppCardSectionPrimary>
-
-    <!-- section:projekti -->
-    <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
-      <template #title>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:eiffel-tower"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2.22rem"
-        />
-        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Projekti</h2>
-      </template>
-      <p>🚧</p>
-      <p class="text-disabled">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-        praesentium incidunt vero quas animi officia vitae nam molestiae.
-        Perspiciatis, est! Ea inventore, perferendis iste reiciendis ducimus
-        nihil itaque corporis fugiat.
-      </p>
     </AppCardSectionPrimary>
 
     <!-- section:priznanja -->

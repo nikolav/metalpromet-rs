@@ -30,6 +30,6 @@ const cw = computed(() =>
 
 <style lang="scss" scoped>
 .app-grid-auto-cells-cols {
-  grid-template-columns: repeat(auto-fill, minmax(v-bind(cw), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(v-bind(cw), 1fr));
 }
 </style>

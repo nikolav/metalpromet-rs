@@ -22,6 +22,13 @@ watchEffect(() => {
   });
 });
 
+useEventListener("resize", () => {
+  emitter$?.next(<IEventApp<string>>{
+    type: <string>(<any>e).EVENT_RESIZE,
+    payload: `resize-${Math.random()}`,
+  });
+});
+
 // @@eos
 </script>
 
