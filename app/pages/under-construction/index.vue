@@ -10,6 +10,5 @@ definePageMeta({
 </script>
 
 <template>
-  <AppBoxPageWrap class="page--under-construction">
-  </AppBoxPageWrap>
+  <AppBoxPageWrap class="page--under-construction"> 🚧 </AppBoxPageWrap>
 </template>

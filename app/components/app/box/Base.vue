@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// defineOptions({
-//   name: "COMPONENT_NAME",
-//   inheritAttrs: false,
-// });
-
 // @@eos
 </script>
 

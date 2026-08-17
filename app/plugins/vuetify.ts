@@ -1,4 +1,4 @@
-import { createVuetify } from "vuetify";
+import { createVuetify, useLocale as useLocaleVuetify } from "vuetify";
 import { md2 } from "vuetify/blueprints";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 import { srLatn, en, srCyrl } from "vuetify/locale";
@@ -142,16 +142,16 @@ export default defineNuxtPlugin({
 
     nuxtApp.vueApp.use(vuetify);
 
-    const emitter$ = inject(TOKEN_appEmitter$)!;
-    emitter$
+    inject(TOKEN_appEmitter$)!
       .pipe(
         filter(
           (e) => e.type === (<any>useAppConfig().events).EVENT_LOCALE_CHANGE,
         ),
-        map((e) => <string>e.payload),
+        map((e) => `${e.payload ?? ""}`),
       )
       .subscribe((locale) => {
-        vuetify.locale.current.value = locale || defaultLocale;
+        useLocaleVuetify().current.value = locale || defaultLocale;
+        // vuetify.locale.current.value = locale || defaultLocale;
       });
   },
 });
@@ -163,40 +163,67 @@ declare module "vuetify" {
 }
 
 // interface IconAliases {
-//   [name: string]: IconValue;
-//   calendar: IconValue;
-//   cancel: IconValue;
-//   checkboxIndeterminate: IconValue;
-//   checkboxOff: IconValue;
-//   checkboxOn: IconValue;
-//   clear: IconValue;
-//   close: IconValue;
-//   complete: IconValue;
-//   delete: IconValue;
-//   delimiter: IconValue;
-//   dropdown: IconValue;
-//   edit: IconValue;
-//   error: IconValue;
-//   expand: IconValue;
-//   file: IconValue;
-//   first: IconValue;
-//   info: IconValue;
-//   last: IconValue;
-//   loading: IconValue;
-//   menu: IconValue;
-//   minus: IconValue;
-//   next: IconValue;
-//   plus: IconValue;
-//   prev: IconValue;
-//   radioOff: IconValue;
-//   radioOn: IconValue;
-//   ratingEmpty: IconValue;
-//   ratingFull: IconValue;
-//   ratingHalf: IconValue;
-//   sortAsc: IconValue;
-//   sortDesc: IconValue;
-//   subgroup: IconValue;
-//   success: IconValue;
-//   unfold: IconValue;
-//   warning: IconValue;
+// alt: "$alt",
+// arrowdown: "$arrowdown",
+// arrowleft: "$arrowleft",
+// arrowright: "$arrowright",
+// arrowup: "$arrowup",
+// backspace: "$backspace",
+// calendar: "$calendar",
+// cancel: "$cancel",
+// checkboxIndeterminate: "$checkboxIndeterminate",
+// checkboxOff: "$checkboxOff",
+// checkboxOn: "$checkboxOn",
+// clear: "$clear",
+// close: "$close",
+// collapse: "$collapse",
+// color: "$color",
+// command: "$command",
+// complete: "$complete",
+// ctrl: "$ctrl",
+// delete: "$delete",
+// delimiter: "$delimiter",
+// dropdown: "$dropdown",
+// edit: "$edit",
+// enter: "$enter",
+// error: "$error",
+// expand: "$expand",
+// eyeDropper: "$eyeDropper",
+// file: "$file",
+// first: "$first",
+// fullscreen: "$fullscreen",
+// fullscreenExit: "$fullscreenExit",
+// info: "$info",
+// last: "$last",
+// loading: "$loading",
+// menu: "$menu",
+// minus: "$minus",
+// next: "$next",
+// pause: "$pause",
+// play: "$play",
+// plus: "$plus",
+// prev: "$prev",
+// radioOff: "$radioOff",
+// radioOn: "$radioOn",
+// ratingEmpty: "$ratingEmpty",
+// ratingFull: "$ratingFull",
+// ratingHalf: "$ratingHalf",
+// search: "$search",
+// shift: "$shift",
+// sortAsc: "$sortAsc",
+// sortDesc: "$sortDesc",
+// space: "$space",
+// subgroup: "$subgroup",
+// success: "$success",
+// tableGroupCollapse: "$tableGroupCollapse",
+// tableGroupExpand: "$tableGroupExpand",
+// treeviewCollapse: "$treeviewCollapse",
+// treeviewExpand: "$treeviewExpand",
+// unfold: "$unfold",
+// upload: "$upload",
+// volumeHigh: "$volumeHigh",
+// volumeLow: "$volumeLow",
+// volumeMedium: "$volumeMedium",
+// volumeOff: "$volumeOff",
+// warning: "$warning",
 // }

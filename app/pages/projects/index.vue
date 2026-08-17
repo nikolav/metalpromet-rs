@@ -449,7 +449,10 @@ const toggleTabsMachines = useToggleFlag();
           Ograde, kapije i ogradni sistemi
         </AppCardSectionPrimaryTitle>
         <VCardSubtitle class="opacity-80">
-          <h4>Kuće i luksuzne vile u regionu Šumadije i centralne Srbije</h4>
+          <h4>
+            Kuće i luksuzne vile u regionu <br v-if="d.mobile.value" />Šumadije
+            i centralne Srbije
+          </h4>
         </VCardSubtitle>
       </template>
 
@@ -534,28 +537,30 @@ const toggleTabsMachines = useToggleFlag();
               'd-flex flex-col fill-height': d.smAndUp.value,
             }"
           >
-            <AppBoxBase>
-              <!-- Tab Headers -->
-              <VTabs
-                stacked
-                grow
-                density="comfortable"
-                :model-value="toggleTabs.isActive.value"
-                @update:model-value="
-                  (v) => (v ? toggleTabs.on() : toggleTabs.off())
-                "
-              >
-                <VTab :value="false" text="Ograde">
-                  <template #prepend>
-                    <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-                <VTab :value="true" text="Tipovi ograda">
-                  <template #prepend>
-                    <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-              </VTabs>
+            <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
+              <template #footer>
+                <!-- Tab Headers -->
+                <VTabs
+                  stacked
+                  grow
+                  density="comfortable"
+                  :model-value="toggleTabs.isActive.value"
+                  @update:model-value="
+                    (v) => (v ? toggleTabs.on() : toggleTabs.off())
+                  "
+                >
+                  <VTab :value="false" text="Ograde">
+                    <template #prepend>
+                      <IconX icon="$info" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                  <VTab :value="true" text="Modeli">
+                    <template #prepend>
+                      <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                </VTabs>
+              </template>
 
               <!-- Tab Content -->
               <VTabsWindow :model-value="toggleTabs.isActive.value" crossfade>
@@ -582,7 +587,7 @@ const toggleTabsMachines = useToggleFlag();
                         željama</strong
                       >, uz širok dijapazon RAL boja i različitih modela.
                     </p>
-                    <p v-if="!d.sm.value">
+                    <p>
                       Montaže vršimo širom Mladenovca, Beograda, cele Šumadije i
                       centralne Srbije, ali i van granica naše zemlje, što
                       svedoči o poverenju koje nam klijenti ukazuju. Naš tim
@@ -597,7 +602,7 @@ const toggleTabsMachines = useToggleFlag();
                 <VTabsWindowItem :value="true">
                   <VCardText class="text-body-1 py-0">
                     <VList
-                      lines="two"
+                      lines="three"
                       :items="[
                         {
                           title: 'ALU ograde',
@@ -639,7 +644,7 @@ const toggleTabsMachines = useToggleFlag();
                   </VCardText>
                 </VTabsWindowItem>
               </VTabsWindow>
-            </AppBoxBase>
+            </AppBoxTwoRowsAutoMain>
             <VSpacer />
             <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
               <VSpacer />
@@ -683,7 +688,8 @@ const toggleTabsMachines = useToggleFlag();
         </AppCardSectionPrimaryTitle>
         <VCardSubtitle class="opacity-80">
           <h4>
-            Metalne konstrukcije za industrijske i stambene objekte u Srbiji
+            Metalne konstrukcije za industrijske <br v-if="d.mobile.value" />i
+            stambene objekte u Srbiji
           </h4>
         </VCardSubtitle>
       </template>
@@ -768,29 +774,30 @@ const toggleTabsMachines = useToggleFlag();
               'd-flex flex-col fill-height': d.smAndUp.value,
             }"
           >
-            <AppBoxBase>
-              <!-- Tab Headers -->
-              <VTabs
-                stacked
-                grow
-                density="comfortable"
-                :model-value="toggleTabsFrames.isActive.value"
-                @update:model-value="
-                  (v) => (v ? toggleTabsFrames.on() : toggleTabsFrames.off())
-                "
-              >
-                <VTab :value="false" text="Nosači">
-                  <template #prepend>
-                    <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-                <VTab :value="true" text="Tipovi konstrukcija">
-                  <template #prepend>
-                    <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-              </VTabs>
-
+            <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
+              <template #footer>
+                <!-- Tab Headers -->
+                <VTabs
+                  stacked
+                  grow
+                  density="comfortable"
+                  :model-value="toggleTabsFrames.isActive.value"
+                  @update:model-value="
+                    (v) => (v ? toggleTabsFrames.on() : toggleTabsFrames.off())
+                  "
+                >
+                  <VTab :value="false" text="Nosači">
+                    <template #prepend>
+                      <IconX icon="$info" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                  <VTab :value="true" text="Tipovi">
+                    <template #prepend>
+                      <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                </VTabs>
+              </template>
               <!-- Tab Content -->
               <VTabsWindow
                 :model-value="toggleTabsFrames.isActive.value"
@@ -819,7 +826,7 @@ const toggleTabsMachines = useToggleFlag();
                       Svi elementi se mogu dodatno plastificirati, uz opciju
                       cink prajmera za vrhunsku zaštitu od korozije.
                     </p>
-                    <p v-if="!d.sm.value">
+                    <p>
                       Naš tim majstora pristupa svakom projektu pažljivo &dash;
                       od ideje i izrade, do montaže na vašoj lokaciji. Radovi se
                       izvode po sistemu
@@ -859,7 +866,7 @@ const toggleTabsMachines = useToggleFlag();
                   </VCardText>
                 </VTabsWindowItem>
               </VTabsWindow>
-            </AppBoxBase>
+            </AppBoxTwoRowsAutoMain>
             <VSpacer />
             <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
               <VSpacer />
@@ -888,7 +895,7 @@ const toggleTabsMachines = useToggleFlag();
       </AppGridTwoCells>
     </AppCardSectionPrimary>
 
-    <!-- section: fihis, plastifikacija -->
+    <!-- section: finis, plastifikacija -->
     <VSpacer class="mt-12" />
     <AppCardSectionPrimary :props-title="{ class: 'pb-4' }">
       <template #title>
@@ -902,7 +909,10 @@ const toggleTabsMachines = useToggleFlag();
           Završna obrada, plastifikacija
         </AppCardSectionPrimaryTitle>
         <VCardSubtitle class="opacity-80">
-          <h4>Vrhunska zaštita i estetika za klijente iz cele Srbije</h4>
+          <h4>
+            Vrhunska zaštita i estetika za <br v-if="d.mobile.value" />klijente
+            iz cele Srbije
+          </h4>
         </VCardSubtitle>
       </template>
 
@@ -987,28 +997,30 @@ const toggleTabsMachines = useToggleFlag();
               'd-flex flex-col fill-height': d.smAndUp.value,
             }"
           >
-            <AppBoxBase>
-              <!-- Tab Headers -->
-              <VTabs
-                stacked
-                grow
-                density="comfortable"
-                :model-value="toggleTabsFinish.isActive.value"
-                @update:model-value="
-                  (v) => (v ? toggleTabsFinish.on() : toggleTabsFinish.off())
-                "
-              >
-                <VTab :value="false" text="Finiš">
-                  <template #prepend>
-                    <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-                <VTab :value="true" text="Vrste usluga">
-                  <template #prepend>
-                    <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-              </VTabs>
+            <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
+              <template #footer>
+                <!-- Tab Headers -->
+                <VTabs
+                  stacked
+                  grow
+                  density="comfortable"
+                  :model-value="toggleTabsFinish.isActive.value"
+                  @update:model-value="
+                    (v) => (v ? toggleTabsFinish.on() : toggleTabsFinish.off())
+                  "
+                >
+                  <VTab :value="false" text="Finiš">
+                    <template #prepend>
+                      <IconX icon="$info" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                  <VTab :value="true" text="Usluge">
+                    <template #prepend>
+                      <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                </VTabs>
+              </template>
 
               <!-- Tab Content -->
               <VTabsWindow
@@ -1039,7 +1051,7 @@ const toggleTabsMachines = useToggleFlag();
                       Uslugu plastifikacije pružamo kako za naše proizvode, tako
                       i za kompletno uslužno farbanje vaših delova.
                     </p>
-                    <p v-if="!d.sm.value">
+                    <p>
                       Naša industrijska peć
                       <strong>omogućava obradu i najvećih konstrukcija</strong>,
                       dok visina komore pruža fleksibilnost za različite
@@ -1052,7 +1064,7 @@ const toggleTabsMachines = useToggleFlag();
                 <VTabsWindowItem :value="true">
                   <VCardText class="text-body-1 py-0">
                     <VList
-                      lines="two"
+                      lines="three"
                       :items="[
                         {
                           title: 'Ograde i konstrukcije',
@@ -1094,7 +1106,7 @@ const toggleTabsMachines = useToggleFlag();
                   </VCardText>
                 </VTabsWindowItem>
               </VTabsWindow>
-            </AppBoxBase>
+            </AppBoxTwoRowsAutoMain>
             <VSpacer />
             <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
               <VSpacer />
@@ -1137,7 +1149,10 @@ const toggleTabsMachines = useToggleFlag();
           Industrijska oprema i mašinstvo
         </AppCardSectionPrimaryTitle>
         <VCardSubtitle class="opacity-80">
-          <h4>Za potrebe industrije u Srbiji i inostranstvu</h4>
+          <h4>
+            Za potrebe industrije u <br v-if="d.mobile.value" />
+            Srbiji i inostranstvu
+          </h4>
         </VCardSubtitle>
       </template>
 
@@ -1221,29 +1236,31 @@ const toggleTabsMachines = useToggleFlag();
               'd-flex flex-col fill-height': d.smAndUp.value,
             }"
           >
-            <AppBoxBase>
-              <!-- Tab Headers -->
-              <VTabs
-                stacked
-                grow
-                density="comfortable"
-                :model-value="toggleTabsMachines.isActive.value"
-                @update:model-value="
-                  (v) =>
-                    v ? toggleTabsMachines.on() : toggleTabsMachines.off()
-                "
-              >
-                <VTab :value="false" text="Industrija">
-                  <template #prepend>
-                    <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-                <VTab :value="true" text="Vrste projekata">
-                  <template #prepend>
-                    <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
-                  </template>
-                </VTab>
-              </VTabs>
+            <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
+              <template #footer>
+                <!-- Tab Headers -->
+                <VTabs
+                  stacked
+                  grow
+                  density="comfortable"
+                  :model-value="toggleTabsMachines.isActive.value"
+                  @update:model-value="
+                    (v) =>
+                      v ? toggleTabsMachines.on() : toggleTabsMachines.off()
+                  "
+                >
+                  <VTab :value="false" text="Industrija">
+                    <template #prepend>
+                      <IconX icon="$info" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                  <VTab :value="true" text="Usluge">
+                    <template #prepend>
+                      <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
+                    </template>
+                  </VTab>
+                </VTabs>
+              </template>
 
               <!-- Tab Content -->
               <VTabsWindow
@@ -1272,7 +1289,7 @@ const toggleTabsMachines = useToggleFlag();
                       mašinskog sektora u Srbiji i inostranstvu ukazali
                       poverenje koje decenijama opravdavamo.
                     </p>
-                    <p v-if="!d.sm.value">
+                    <p>
                       Naš tim inženjera mašinstva i zavarivača radi po najvišim
                       standardima, koristeći savremenu opremu i proverene
                       materijale. Posebnu pažnju posvećujemo zavarivanju pod
@@ -1287,7 +1304,6 @@ const toggleTabsMachines = useToggleFlag();
                 <VTabsWindowItem :value="true">
                   <VCardText class="text-body-1 py-0">
                     <VList
-                      density="compact"
                       lines="three"
                       :items="[
                         {
@@ -1330,7 +1346,7 @@ const toggleTabsMachines = useToggleFlag();
                   </VCardText>
                 </VTabsWindowItem>
               </VTabsWindow>
-            </AppBoxBase>
+            </AppBoxTwoRowsAutoMain>
             <VSpacer />
             <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
               <VSpacer />

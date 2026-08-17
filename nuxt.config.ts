@@ -1,7 +1,8 @@
 // import { resolve } from "node:path";
-
-import vitePluginVuetify from "vite-plugin-vuetify";
-import { transformAssetUrls } from "vite-plugin-vuetify";
+import {
+  default as vitePluginVuetify,
+  transformAssetUrls,
+} from "vite-plugin-vuetify";
 
 import trimEnd from "lodash/trimEnd";
 
