@@ -653,8 +653,8 @@ const toggleTabsMachines = useToggleFlag();
                 variant="tonal"
                 elevation="1"
                 class="*text-shadow-sm px-4"
+                :size="d.sm.value ? undefined : 'large'"
                 :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                size="large"
                 :to="$localePath({ name: 'contact' })"
               >
                 <template #prepend>
@@ -876,7 +876,7 @@ const toggleTabsMachines = useToggleFlag();
                 elevation="1"
                 class="*text-shadow-sm px-4"
                 :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                size="large"
+                :size="d.sm.value ? undefined : 'large'"
                 :to="$localePath({ name: 'contact' })"
               >
                 <template #prepend>
@@ -1116,7 +1116,7 @@ const toggleTabsMachines = useToggleFlag();
                 elevation="1"
                 class="*text-shadow-sm px-4"
                 :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                size="large"
+                :size="d.sm.value ? undefined : 'large'"
                 :to="$localePath({ name: 'contact' })"
               >
                 <template #prepend>
@@ -1356,7 +1356,7 @@ const toggleTabsMachines = useToggleFlag();
                 elevation="1"
                 class="*text-shadow-sm px-4"
                 :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                size="large"
+                :size="d.sm.value ? undefined : 'large'"
                 :to="$localePath({ name: 'contact' })"
               >
                 <template #prepend>
