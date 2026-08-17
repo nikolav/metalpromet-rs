@@ -143,6 +143,8 @@ export type { MaybeRefOrGetter as TMaybeRefOrGetter };
 
 export * from "./charts.types";
 
+export * from "./components.types";
+
 /* =============================================================================
  * External libs / dynamic imports
  * ========================================================================== */
