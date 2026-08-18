@@ -98,8 +98,6 @@ watch(videoCurrent, (vc) => {
   toggleVideoPopup.on();
 });
 
-const refProjectsGrid = useTemplateRef("ref-AppGridAutoCellsHorizontal");
-
 // @@eos
 </script>
 
@@ -379,56 +377,11 @@ const refProjectsGrid = useTemplateRef("ref-AppGridAutoCellsHorizontal");
         />
         <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
       </template>
-      <AppGridStackedFrames>
-        <AppGridStackedFramesItem>
-          <AppGridAutoCellsHorizontal
-            ref="ref-AppGridAutoCellsHorizontal"
-            :cell-min-height="255"
-            :style="{
-              height: `calc(100vh - ${appNavHeight}px - 122px - 1rem)`,
-            }"
-            class="gap-1 pa-1"
-          >
-            <VCard link v-for="i in 99" :key="i" @click.stop>p.{{ i }}</VCard>
-          </AppGridAutoCellsHorizontal>
-        </AppGridStackedFramesItem>
-        <AppGridStackedFramesItem
-          class="pointer-events-none d-flex items-center justify-between px-2"
-        >
-          <VBtn
-            icon
-            @click.stop="refProjectsGrid?.scroll.rewind()"
-            class="!pointer-events-auto"
-            variant="tonal"
-            size="large"
-            rounded="circle"
-            color="ui"
-            :disabled="refProjectsGrid?.isHead"
-          >
-            <IconX
-              icon="$prev"
-              size="2.22rem"
-              class="filter-shadow-sm text-v-on-ui"
-            />
-          </VBtn>
-          <VBtn
-            icon
-            @click.stop="refProjectsGrid?.scroll.forward()"
-            class="!pointer-events-auto"
-            variant="tonal"
-            size="large"
-            rounded="circle"
-            :disabled="refProjectsGrid?.isTail"
-            color="ui"
-          >
-            <IconX
-              icon="$next"
-              size="2.22rem"
-              class="filter-shadow-sm text-v-on-ui"
-            />
-          </VBtn>
-        </AppGridStackedFramesItem>
-      </AppGridStackedFrames>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at
+        veritatis consequatur provident nostrum? Laudantium facilis dolor,
+        magnam repellendus dolores similique sunt?
+      </p>
     </AppCardSectionPrimary>
 
     <!-- section:delatnosti -->

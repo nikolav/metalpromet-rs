@@ -99,7 +99,6 @@ defineExpose({
   xMax,
   isHead,
   isTail,
-  isSwiping: sw.isSwiping,
   scroll: {
     head: scrollHead,
     tail: scrollTail,
