@@ -4,6 +4,7 @@ const props = withDefaults(
     auto?: boolean;
     cellMinHeight?: any;
     cellWidth?: any;
+    scroll?: number;
   }>(),
   {
     auto: true,
@@ -71,9 +72,11 @@ const isTail = computed(() =>
 
 // scroll:small for small distance, x3 for large;
 const calcScrollLength = (diff: number) =>
-  props.cellWidth < Math.abs(diff) * 7.85
-    ? 3 * props.cellWidth
-    : props.cellWidth;
+  0 < (props?.scroll ?? 0)
+    ? props.scroll
+    : props.cellWidth < Math.abs(diff) * 10
+      ? 3 * props.cellWidth
+      : props.cellWidth;
 // @swipe scroll:simple
 watch(sw.direction, (dir) => {
   if (!el_.value) return;
@@ -96,6 +99,7 @@ defineExpose({
   xMax,
   isHead,
   isTail,
+  isSwiping: sw.isSwiping,
   scroll: {
     head: scrollHead,
     tail: scrollTail,

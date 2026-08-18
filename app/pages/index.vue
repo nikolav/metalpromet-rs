@@ -389,7 +389,7 @@ const refProjectsGrid = useTemplateRef("ref-AppGridAutoCellsHorizontal");
             }"
             class="gap-1 pa-1"
           >
-            <VCard link v-for="i in 99" :key="i">p.{{ i }}</VCard>
+            <VCard link v-for="i in 99" :key="i" @click.stop>p.{{ i }}</VCard>
           </AppGridAutoCellsHorizontal>
         </AppGridStackedFramesItem>
         <AppGridStackedFramesItem
@@ -429,7 +429,6 @@ const refProjectsGrid = useTemplateRef("ref-AppGridAutoCellsHorizontal");
           </VBtn>
         </AppGridStackedFramesItem>
       </AppGridStackedFrames>
-      <AppGridAutoCellsHorizontal></AppGridAutoCellsHorizontal>
     </AppCardSectionPrimary>
 
     <!-- section:delatnosti -->
