@@ -98,6 +98,8 @@ watch(videoCurrent, (vc) => {
   toggleVideoPopup.on();
 });
 
+const refProjectsGrid = useTemplateRef("ref-AppGridAutoCellsHorizontal");
+
 // @@eos
 </script>
 
@@ -375,22 +377,59 @@ watch(videoCurrent, (vc) => {
           class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
           size="2.22rem"
         />
-        <h2 :class="{ 'text-h5': !d.smAndUp.value }">Projekti</h2>
+        <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
       </template>
-      <VSlideGroup show-arrows>
-        <VSlideGroupItem :key="i" v-for="i in 12">
-          <VCard
-            tile
-            variant="text"
-            width="155"
+      <AppGridStackedFrames>
+        <AppGridStackedFramesItem>
+          <AppGridAutoCellsHorizontal
+            ref="ref-AppGridAutoCellsHorizontal"
+            :cell-min-height="255"
             :style="{
               height: `calc(100vh - ${appNavHeight}px - 122px - 1rem)`,
             }"
+            class="gap-1 pa-1"
           >
-            {{ i }}
-          </VCard>
-        </VSlideGroupItem>
-      </VSlideGroup>
+            <VCard link v-for="i in 99" :key="i">p.{{ i }}</VCard>
+          </AppGridAutoCellsHorizontal>
+        </AppGridStackedFramesItem>
+        <AppGridStackedFramesItem
+          class="pointer-events-none d-flex items-center justify-between px-2"
+        >
+          <VBtn
+            icon
+            @click.stop="refProjectsGrid?.scroll.rewind()"
+            class="!pointer-events-auto"
+            variant="tonal"
+            size="large"
+            rounded="circle"
+            color="ui"
+            :disabled="refProjectsGrid?.isHead"
+          >
+            <IconX
+              icon="$prev"
+              size="2.22rem"
+              class="filter-shadow-sm text-v-on-ui"
+            />
+          </VBtn>
+          <VBtn
+            icon
+            @click.stop="refProjectsGrid?.scroll.forward()"
+            class="!pointer-events-auto"
+            variant="tonal"
+            size="large"
+            rounded="circle"
+            :disabled="refProjectsGrid?.isTail"
+            color="ui"
+          >
+            <IconX
+              icon="$next"
+              size="2.22rem"
+              class="filter-shadow-sm text-v-on-ui"
+            />
+          </VBtn>
+        </AppGridStackedFramesItem>
+      </AppGridStackedFrames>
+      <AppGridAutoCellsHorizontal></AppGridAutoCellsHorizontal>
     </AppCardSectionPrimary>
 
     <!-- section:delatnosti -->

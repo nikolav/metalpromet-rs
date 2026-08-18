@@ -4,13 +4,11 @@ const props = withDefaults(
     auto?: boolean;
     cellMinHeight?: any;
     cellWidth?: any;
-    scroll?: any;
   }>(),
   {
     auto: true,
-    cellMinHeight: 100,
-    cellWidth: 100,
-    scroll: 100,
+    cellMinHeight: 240,
+    cellWidth: 320,
   },
 );
 
@@ -19,6 +17,7 @@ const { $$ } = useNuxtApp();
 const refAppGridAutoCellsHorizontal = useTemplateRef(
   "ref-AppGridAutoCellsHorizontal",
 );
+
 const el_ = computed(() => refAppGridAutoCellsHorizontal.value?.$el);
 const { x: scrollX } = useScroll(el_, {
   behavior: "smooth",
@@ -47,21 +46,58 @@ const scrollTail = () => {
   if (!$$.isPresent(xMax.value)) return;
   x.value = xMax.value;
 };
-const scrollForward = () => {
+const scrollForward = (value?: number) => {
   if (!$$.isPresent(xMax.value)) return;
-  x.value = Math.min(xMax.value, x.value + props.scroll);
+  x.value = Math.min(xMax.value, x.value + (value ?? props.cellWidth));
 };
-const scrollRewind = () => {
-  x.value = Math.max(0, x.value - props.scroll);
+const scrollRewind = (value?: number) => {
+  x.value = Math.max(0, x.value - (value ?? props.cellWidth));
 };
 watchEffect(() => {
   scrollX.value = x.value;
+});
+
+const isHead = computed(() => ($$.isNumeric(x.value) ? 0 == x.value : false));
+const isTail = computed(() =>
+  $$.every([x.value, xMax.value], $$.isNumeric)
+    ? Number(xMax.value) <= x.value
+    : false,
+);
+
+// simple swipe scroll;
+//  default scroll for small distance, x3 for large;
+const sw = usePointerSwipe(el_, {
+  threshold: 30,
+  disableTextSelect: true,
+});
+const calcScrollLength = (diff: number) =>
+  props.cellWidth < Math.abs(diff) * 7.85
+    ? 3 * props.cellWidth
+    : props.cellWidth;
+// @swipe scroll
+watch(sw.direction, (dir) => {
+  if (!el_.value) return;
+  switch (true) {
+    case "left" === dir:
+      console.log(sw.distanceX.value);
+      scrollForward(calcScrollLength(sw.distanceX.value));
+      break;
+    case "right" === dir:
+      console.log(sw.distanceX.value);
+      scrollRewind(calcScrollLength(sw.distanceX.value));
+      break;
+
+    default:
+      break;
+  }
 });
 
 onMounted(scrollHead);
 
 defineExpose({
   xMax,
+  isHead,
+  isTail,
   scroll: {
     head: scrollHead,
     tail: scrollTail,
@@ -76,7 +112,10 @@ defineExpose({
   <AppBoxBase
     ref="ref-AppGridAutoCellsHorizontal"
     class="component--AppGridAutoCellsHorizontal"
-    :class="{ 'grid app-grid-auto-cells-h overflow-x-hidden': props.auto }"
+    :class="{
+      'grid app-grid-auto-cells-h overflow-x-hidden overflow-y-hidden scroll-smooth scrollbar-hidden touch-pan-y [-webkit-overflow-scrolling:touch]':
+        props.auto,
+    }"
   >
     <slot />
   </AppBoxBase>

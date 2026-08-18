@@ -10,6 +10,15 @@
 }
 
 @layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
   .app-container-reset {
     /* layout sanity */
     @apply box-border min-w-0 min-h-0 max-w-full;

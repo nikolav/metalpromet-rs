@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { filter } from "rxjs";
+import { useSubscription } from "@vueuse/rxjs";
+
 import { TOKEN_appEmitter$ } from "~/keys";
 
 const key = shallowRef("");
