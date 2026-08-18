@@ -23,6 +23,11 @@ const { x: scrollX } = useScroll(el_, {
   behavior: "smooth",
 });
 
+const sw = usePointerSwipe(el_, {
+  threshold: 30,
+  disableTextSelect: true,
+});
+
 const xMax = computed(() =>
   $$.isPresent(el_.value)
     ? Math.max(0, el_.value.scrollWidth - el_.value.clientWidth)
@@ -64,26 +69,19 @@ const isTail = computed(() =>
     : false,
 );
 
-// simple swipe scroll;
-//  default scroll for small distance, x3 for large;
-const sw = usePointerSwipe(el_, {
-  threshold: 30,
-  disableTextSelect: true,
-});
+// scroll:small for small distance, x3 for large;
 const calcScrollLength = (diff: number) =>
   props.cellWidth < Math.abs(diff) * 7.85
     ? 3 * props.cellWidth
     : props.cellWidth;
-// @swipe scroll
+// @swipe scroll:simple
 watch(sw.direction, (dir) => {
   if (!el_.value) return;
   switch (true) {
     case "left" === dir:
-      console.log(sw.distanceX.value);
       scrollForward(calcScrollLength(sw.distanceX.value));
       break;
     case "right" === dir:
-      console.log(sw.distanceX.value);
       scrollRewind(calcScrollLength(sw.distanceX.value));
       break;
 
