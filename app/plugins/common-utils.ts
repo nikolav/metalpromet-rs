@@ -25,6 +25,7 @@ import uniq from "lodash/uniq";
 import unset from "lodash/unset";
 import values from "lodash/values";
 import clamp from "lodash/clamp";
+import chunk from "lodash/chunk";
 
 import { v4 as uuid } from "uuid";
 import parseBoolean from "@eturino/ts-parse-boolean";
@@ -55,6 +56,7 @@ export default defineNuxtPlugin({
         //   foo => $foo
         $: {
           // lodash
+          chunk,
           clamp,
           each,
           every,

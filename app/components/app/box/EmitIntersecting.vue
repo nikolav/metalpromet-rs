@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { TOrNoValue, TVueInstance } from "~/types";
 import type { default as AppBoxBase } from "~/components/app/box/Base.vue";
-import type { TOrNoValue } from "~/types";
 
 // defineOptions({
 //   name: "COMPONENT_NAME",
@@ -15,7 +15,7 @@ const target =
   useTemplateRef<TOrNoValue<InstanceType<typeof AppBoxBase>>>(
     "ref_9d9M4QKQfdrAzX",
   );
-const node = computed(() => target.value?.$el);
+const node = useCurrentElement((<unknown>target) as TVueInstance);
 const ctrl = useIntersectionObserver(node, ([entry], observerElement) => {
   if (!entry?.isIntersecting) return;
   emit("intersecting");

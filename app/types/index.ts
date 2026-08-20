@@ -10,6 +10,7 @@ import type {
   TJsonLiteral,
 } from "../schemas/json.schema";
 import type {
+  ComponentPublicInstance as TVueComponentInstance,
   Component as TVueComponent,
   FunctionalComponent as TVueFunctionalComponent,
   MaybeRefOrGetter,
@@ -133,12 +134,14 @@ export type TManageSubscriptionsCache = Record<
  * Re-exports (types/services)
  * ========================================================================== */
 
+export type { VueInstance as TVueInstance } from "@vueuse/core";
+
 // service type alias (value export -> aliased as a type)
 export { AuthService as TAuthService } from "~/services/auth/base";
 
 // json schema types
 export type { TRecordJson, TJson, TJsonLiteral };
-export type { TVueComponent, TVueFunctionalComponent };
+export type { TVueComponent, TVueFunctionalComponent, TVueComponentInstance };
 export type { MaybeRefOrGetter as TMaybeRefOrGetter };
 
 export * from "./charts.types";
