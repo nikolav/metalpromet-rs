@@ -6,6 +6,8 @@ import SLIDES_PRIPREMA from "~/assets/slides-priprema.json";
 import SLIDES_PROIZVODNJA from "~/assets/slides-proizvodnja.json";
 import SLIDES_GOTOVI_PROIZVODI from "~/assets/slides-gotovi-proizvodi.json";
 import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
+import PROJECTS from "~/assets/projects.proto.json";
+import SERVICE_CATEGORIES from "~/assets/service-categories.json";
 
 import type { TOrNoValue } from "~/types";
 import type { default as TAppSlideItemsStacked } from "~/components/app/slide/ItemsStacked.vue";
@@ -373,7 +375,7 @@ const targetSlider = useTemplateRef<
 
     <!-- section:projekti -->
     <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
+    <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -383,6 +385,20 @@ const targetSlider = useTemplateRef<
         />
         <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
       </template>
+      <template #actions>
+        <VSpacer />
+        <VBtn
+          tile
+          class="ps-4"
+          size="large"
+          :to="$localePath({ name: 'projects' })"
+          >Saznajte više
+          <template #append>
+            <IconX icon="$next" class="opacity-50" size="1.5rem" />
+          </template>
+        </VBtn>
+        <VSpacer v-if="d.mobile.value" />
+      </template>
       <template #default="ctx">
         <AppGridStackedFrames>
           <AppGridStackedFramesItem>
@@ -391,16 +407,57 @@ const targetSlider = useTemplateRef<
               show-arrows="never"
               :cell-min-height="240"
               :cell-width="320"
-              :items="Array.from({ length: 122 }, (_, i) => ({ i }))"
+              :items="$$.shuffle(PROJECTS)"
               :props-container="{
                 style: {
                   height: `calc(100vh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
                 },
               }"
-              gap=".33rem"
+              gap="1"
             >
-              <template #item="ctx">
-                <VCard link class="fill-height">p:{{ ctx.item.i }}</VCard>
+              <template #item="cx">
+                <VCard
+                  flat
+                  link
+                  tile
+                  class="fill-height !bg-no-repeat !bg-cover !bg-bottom"
+                  :to="$localePath({ name: 'projects' })"
+                  :style="{
+                    'background-image': `url(${cx.item.image ?? '/images/stock/010.jpg'}) !important`,
+                  }"
+                >
+                  <AppBoxFlex
+                    col
+                    class="!text-white text-shadow-sm fill-height !cursor-pointer"
+                  >
+                    <AppBoxFlex class="items-center pa-5">
+                      <IconX
+                        size="1.5rem"
+                        :icon="
+                          $$.get(SERVICE_CATEGORIES, `${cx.item.category}.icon`)
+                        "
+                        class="opacity-50"
+                      />
+                      <VSpacer />
+                      <AppBoxFlex class="items-center gap-1">
+                        <IconX
+                          icon="mdi:map-marker"
+                          size="1.66rem"
+                          class="opacity-50"
+                        />
+                        <small class="text-body-2 font-italic">
+                          {{ cx.item.location }}
+                        </small>
+                      </AppBoxFlex>
+                    </AppBoxFlex>
+                    <VSpacer />
+                    <h2
+                      class="text-body-1 !min-h-[25%] pa-2 !bg-[rgba(var(--v-theme-ui),.5)] backdrop-blur-sm"
+                    >
+                      {{ cx.item.title }}
+                    </h2>
+                  </AppBoxFlex>
+                </VCard>
               </template>
             </AppSlideItemsStacked>
           </AppGridStackedFramesItem>
@@ -410,11 +467,21 @@ const targetSlider = useTemplateRef<
             <AppBtnPager
               prev
               @click.stop="targetSlider?.slider?.scrollTo('prev')"
+              variant="elevated"
+              color="ui"
               :disabled="!targetSlider?.slider?.hasPrev"
+              :props-icon="{
+                size: '2rem',
+              }"
             />
             <AppBtnPager
               @click.stop="targetSlider?.slider?.scrollTo('next')"
+              variant="elevated"
+              color="ui"
               :disabled="!targetSlider?.slider?.hasNext"
+              :props-icon="{
+                size: '2rem',
+              }"
             />
           </AppGridStackedFramesItem>
         </AppGridStackedFrames>
@@ -663,12 +730,13 @@ const targetSlider = useTemplateRef<
         <li>✔ HERO</li>
         <li>✔ kratko o nama</li>
         <li>- radovi, projekti, (galerija)</li>
+        <li>✔ delatnosti</li>
         <li>- zašto baš mi? (trust seo)</li>
         <li>- licence, priznanja (trust seo)</li>
-        <li>✔ delatnoasti</li>
-        <li>✔ kontakt</li>
+        <li>- novosti</li>
         <li>✔ SEO footer</li>
         <li>- chat</li>
+        <li>✔ strana: kontakt</li>
         <li>✔ strana: o nama</li>
       </ul>
     </AppBoxContainerCentered>

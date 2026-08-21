@@ -1,0 +1,631 @@
+[
+  {
+    "title": "Automatizovana pokretna kapija za pogon u Sopotu",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/gates.01.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Luksuzna aluminijumska ograda sa 'S' odlivcima",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/051.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada i montaža čeličnog krova za luksuznu kuću",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/slides/gotovi-proizvodi/002.jpg",
+    "location": "Beograd"
+  },
+  {
+    "title": "Dve nadstrešnice za luksuzne kuće",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/slides/proizvodnja/002.jpg",
+    "location": "Avala"
+  },
+  {
+    "title": "Nadstrešnica preko džakuzija sa pogledom na Kosmaj",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/slides/proizvodnja/004.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Velika dvokrilna kapija",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/slides/gotovi-proizvodi/003.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Elegantna ograda po 'Bečkoj školi'",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/064.jpg",
+    "location": "Beč"
+  },
+  {
+    "title": "Izrada žardinjera za verne kupce",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/065.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Montaža 2D i 3D panelnih ograda",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/2-bravarija-konstrukcije/montaza.02.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Kapija sa CNC laserom sečenim panelima",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/066.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Izrada i plastifikacija kovanih ograda",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/4-zastita-i-obrada-povrsina/protection.01.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Montaža čeličnih konstrukcija u Beču (Austrija)",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/067.jpg",
+    "location": "Beč"
+  },
+  {
+    "title": "Kapitalni remont u Termoelektrani Kostolac",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/059.jpg",
+    "location": "Kostolac"
+  },
+  {
+    "title": "Izrada i montaža gelendera (stepeništa)",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/035.jpg",
+    "location": "Novi Beograd"
+  },
+  {
+    "title": "Plastifikacija felni za auto (Mečka)",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/003.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Uslužna plastifikacija rolo vrata i okapnica",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/001.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Plastifikacija postolja za mašine",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/008.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Plastifikacija školskih klupa i stolica",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/hero/4-zastita-i-obrada-povrsina/paint.02.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Plastifikacija stolova i stolica (serijska)",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/006.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Prajmerovanje i plastifikacija kovanog gvožđa",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/068.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Cink prajmer za zaštitu od korozije",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/069.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Antracit struktura (RAL 7016) za ograde",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/070.jpg",
+    "location": "Šabac"
+  },
+  {
+    "title": "Crvena strukturna boja sa šljokicama",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/071.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Zlatna boja (pvc) za segment ograde",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/072.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada reaktora za vodu po zahtevima investitora",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/056.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Izrada rezervoara za otpadne vode",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/slides/proizvodnja/001.jpg",
+    "location": "Pančevo"
+  },
+  {
+    "title": "Izrada čeličnih cevovoda",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/073.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "Montaža ograda za vrtić 'Oblak sreće'",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/slides/gotovi-proizvodi/009.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Aluminijumska ograda za kuću na Avali",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/074.jpg",
+    "location": "Avala"
+  },
+  {
+    "title": "Montaža ograda u Londonu (Ujedinjeno Kraljevstvo)",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/075.jpg",
+    "location": "London"
+  },
+  {
+    "title": "Izrada terasa i nadstrešnica za kuće",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/028.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Izrada prohromskih ograda",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/076.jpg",
+    "location": "Čačak"
+  },
+  {
+    "title": "Izrada prohromskih stepenica",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/077.jpg",
+    "location": "Kraljevo"
+  },
+  {
+    "title": "Izrada stepeništa sa kovanim detaljima",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/078.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Izrada metalnog nameštaja po narudžbini",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/furniture.01.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada kovanih prozorskih mreža",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/079.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Izrada unikatnih kovanih vrata",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/080.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Izrada metalnih nastrešnica za automobile",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/032.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "3D modelovanje i renderi za kupce",
+    "category": "Projektovanje i inženjering",
+    "image": "/images/hero/1-projektovanje/3d-modelovanje.01.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "CNC obrada metalnih delova",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/hero/2-bravarija-konstrukcije/cnc.01.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Elektrostatsko farbanje (prašno farbanje)",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/hero/4-zastita-i-obrada-povrsina/elektrostatic-pain.01.jpg",
+    "location": "Šabac"
+  },
+  {
+    "title": "Peskarenje metala pre obrade",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/hero/4-zastita-i-obrada-povrsina/peskarenje.01.jpg",
+    "location": "Pančevo"
+  },
+  {
+    "title": "Izrada kontejnera za stanovanje",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/hero/3-stolarija-ograde-oprema/equipment.02.jpg",
+    "location": "Subotica"
+  },
+  {
+    "title": "Izrada metalnih konstrukcija za hale",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/hero/3-stolarija-ograde-oprema/stairs.02.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Zavarivanje i montaža čeličnih konstrukcija",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/011.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Švajsovanje metala (zavarivanje)",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/006.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Uslužna plastifikacija ALU profila",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/009.jpg",
+    "location": "Čačak"
+  },
+  {
+    "title": "Plastifikacija klupskog nameštaja",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/006.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Plastifikacija metalnih ramova",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/002.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Plastifikacija u RAL 9005 (crna struktura)",
+    "category": "Zaštita i obrada površina",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Plastifikacija u RAL 9016 (bela)",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/012.jpg",
+    "location": "Novi Beograd"
+  },
+  {
+    "title": "Montaža ograda u Švajcarskoj",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/027.jpg",
+    "location": "Švajcarska"
+  },
+  {
+    "title": "Radovi na terenu u Aranđelovcu",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/030.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Izrada 'ključ u ruke' projekata",
+    "category": "Projektovanje i inženjering",
+    "image": "/images/hero/3-stolarija-ograde-oprema/alu-fences.01.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Projekat za nemačko tržište",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/081.jpg",
+    "location": "Nemačka"
+  },
+  {
+    "title": "Izrada ograda sa drvenim detaljima",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/082.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Izrada i montaža kapija za vinariju",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/083.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Kapije sa automatskom dizalicom",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/084.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Izrada metalnih postolja za opremu",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/085.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Izrada krovnih konstrukcija",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/034.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Izrada konstrukcija za solarne panele",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/086.jpg",
+    "location": "Šabac"
+  },
+  {
+    "title": "Aluminijumske ograde za terase",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/087.jpg",
+    "location": "Avala"
+  },
+  {
+    "title": "Plastifikacija auto-delova",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/003.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Tretman cink prajmerom pre farbanja",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/088.jpg",
+    "location": "Pančevo"
+  },
+  {
+    "title": "Radovi na mostovskim konstrukcijama",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/089.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "Izrada stepeništa za poslovne objekte",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/090.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Montaža opreme za farme",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/091.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Izrada industrijskih ograda",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/fence.02.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Paneli sa PVC prevlakom",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/092.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada elemenata za hale (silosi, rezervoari)",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/093.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Izrada aluminijumske stolarije",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/094.jpg",
+    "location": "Subotica"
+  },
+  {
+    "title": "Izrada portuna i kapija",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/gates.02.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Fotorealistični 3D renderi projekata",
+    "category": "Projektovanje i inženjering",
+    "image": "/images/hero/1-projektovanje/photorealistic-render.01.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "Izrada kovanih svetiljki i galanterije",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/095.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Zaštita od korozije za vanjske objekte",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/hero/4-zastita-i-obrada-povrsina/cinkovanje.01.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Montaža u Srbiji i inostranstvu",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/hero/2-bravarija-konstrukcije/constructions.04.jpg",
+    "location": "Kraljevo"
+  },
+  {
+    "title": "Izrada serijskih delova za auto-industriju",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/096.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Ograde za sportski teren",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/097.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Izrada zaštitnih ograda (barijera)",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/panel.01.jpg",
+    "location": "Novi Beograd"
+  },
+  {
+    "title": "Izrada rezervoara pod pritiskom",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/098.jpg",
+    "location": "Pančevo"
+  },
+  {
+    "title": "Plastifikacija komunalne opreme (kante, klupe)",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/stock/099.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Izrada scenskih konstrukcija",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/100.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "Izrada metalnih radijatora i panela",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/101.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Projekti za industrijski sektor",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/102.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Izrada i montaža gelendera od inoxa",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/103.jpg",
+    "location": "Zemun"
+  },
+  {
+    "title": "Izrada zaštitnih mreža",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/104.jpg",
+    "location": "Čačak"
+  },
+  {
+    "title": "Zamena i reparacija starih konstrukcija",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/slides/proizvodnja/008.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada metalnih balkonskih ograda",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/slides/gotovi-proizvodi/010.jpg",
+    "location": "Avala"
+  },
+  {
+    "title": "Uslužno farbanje u komori, 7.8m",
+    "category": "Zaštita i obrada površina",
+    "image": "/images/slides/zavrsna-obrada/007.jpg",
+    "location": "Šabac"
+  },
+  {
+    "title": "Izrada konstrukcija za pokretne trake",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/105.jpg",
+    "location": "Niš"
+  },
+  {
+    "title": "Izrada arhitektonskih metalnih detalja",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/106.jpg",
+    "location": "Subotica"
+  },
+  {
+    "title": "Saradnja sa arhitektama na unikatnim projektima",
+    "category": "Projektovanje i inženjering",
+    "image": "/images/stock/107.jpg",
+    "location": "Kraljevo"
+  },
+  {
+    "title": "Izrada metalnih ograda za pse",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/108.jpg",
+    "location": "Kosmaj"
+  },
+  {
+    "title": "Savremene kapije sa automatizacijom",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/gates.03.jpg",
+    "location": "Šabac"
+  },
+  {
+    "title": "Izrada nosača za klima uređaje",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/109.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Izrada ramova za velike staklene površine",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/110.jpg",
+    "location": "Kragujevac"
+  },
+  {
+    "title": "Kompletna obrada: sečenje, savijanje, zavarivanje",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/009.jpg",
+    "location": "Čačak"
+  },
+  {
+    "title": "Izrada konzola i nosača",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/111.jpg",
+    "location": "Pančevo"
+  },
+  {
+    "title": "Izrada ukrasnih rešetki",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/112.jpg",
+    "location": "Aranđelovac"
+  },
+  {
+    "title": "Renoviranje metalnih konstrukcija",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/040.jpg",
+    "location": "Novi Sad"
+  },
+  {
+    "title": "Izrada delova za mašinsku obradu",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/113.jpg",
+    "location": "Mladenovac"
+  },
+  {
+    "title": "Unutrašnje i spoljašnje metalne stepenice",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/hero/3-stolarija-ograde-oprema/stairs.03.jpg",
+    "location": "Kraljevo"
+  },
+  {
+    "title": "Pocinkovane ograde",
+    "category": "Stolarija, ograde i oprema",
+    "image": "/images/stock/114.jpg",
+    "location": "Sopot"
+  },
+  {
+    "title": "Montaža metalnih konstrukcija u inostranstvu",
+    "category": "Bravarija i izrada konstrukcija",
+    "image": "/images/stock/011.jpg",
+    "location": "Beč"
+  },
+  {
+    "title": "Kvalitet izrade po evropskim standardima",
+    "category": "Projektovanje i inženjering",
+    "image": "/images/stock/013.jpg",
+    "location": "Srbija"
+  }
+]

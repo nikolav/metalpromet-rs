@@ -2,9 +2,6 @@
 import { mergeProps } from "vue";
 import { useTheme } from "vuetify";
 
-import { isPresent } from "~/utils/is-present";
-import { onDebug } from "~/utils/on-debug";
-
 defineOptions({
   inheritAttrs: false,
 });
@@ -34,11 +31,11 @@ const language = computed(
 
 // @ready add marker
 const onMapReady = ({ map, mapsApi }: any) => {
-  if ([map, mapsApi].every(isPresent)) {
+  if ([map, mapsApi].every($$.isPresent)) {
     try {
       const { Marker } = toValue(mapsApi);
       const map_ = toValue(map);
-      onDebug({
+      $$.onDebug({
         "GoogleMaps:Map": {
           marker: new Marker({
             position: props.markerLocation,
@@ -49,7 +46,7 @@ const onMapReady = ({ map, mapsApi }: any) => {
         },
       });
     } catch (error) {
-      onDebug({ "maps:error": error });
+      $$.onDebug({ "maps:error": error });
     }
   }
 };
@@ -71,17 +68,10 @@ const onMapReady = ({ map, mapsApi }: any) => {
           props.mapOptions,
         )
       "
-      class="w-100 h-100"
+      class="w-100 fill-height"
       @ready="onMapReady"
       trigger="visible"
       v-bind="$attrs"
     />
   </AppBoxBase>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>

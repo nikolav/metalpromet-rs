@@ -1,0 +1,14 @@
+{
+  "Projektovanje i inženjering": {
+    "icon": "mdi:ruler"
+  },
+  "Bravarija i izrada konstrukcija": {
+    "icon": "mdi:wrench"
+  },
+  "Stolarija, ograde i oprema": {
+    "icon": "mdi:screwdriver"
+  },
+  "Zaštita i obrada površina": {
+    "icon": "mdi:shield"
+  }
+}
