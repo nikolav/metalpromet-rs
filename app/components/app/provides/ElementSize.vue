@@ -21,6 +21,6 @@ defineExpose(exposed);
     class="component--AppProvidesElementSize"
     ref="target-712765a8-b19c-5d43-aaa5-6f7292ec13a0"
   >
-    <slot />
+    <slot v-bind="s" />
   </AppBoxBase>
 </template>

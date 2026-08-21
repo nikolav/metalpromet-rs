@@ -7,6 +7,8 @@ import SLIDES_PROIZVODNJA from "~/assets/slides-proizvodnja.json";
 import SLIDES_GOTOVI_PROIZVODI from "~/assets/slides-gotovi-proizvodi.json";
 import SLIDES_ZAVRSNA_OBRADA from "~/assets/slides-zavrsna-obrada.json";
 
+import type { TOrNoValue } from "~/types";
+import type { default as TAppSlideItemsStacked } from "~/components/app/slide/ItemsStacked.vue";
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 import { useKeyValue } from "~/composables/state/use-key-value";
 
@@ -97,6 +99,10 @@ watch(videoCurrent, (vc) => {
   vids.use(vc.key);
   toggleVideoPopup.on();
 });
+
+const targetSlider = useTemplateRef<
+  TOrNoValue<InstanceType<typeof TAppSlideItemsStacked>>
+>("target:e08fd902-882e-5071-a8bb-2a3770776090");
 
 // @@eos
 </script>
@@ -377,11 +383,42 @@ watch(videoCurrent, (vc) => {
         />
         <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
       </template>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at
-        veritatis consequatur provident nostrum? Laudantium facilis dolor,
-        magnam repellendus dolores similique sunt?
-      </p>
+      <template #default="ctx">
+        <AppGridStackedFrames>
+          <AppGridStackedFramesItem>
+            <AppSlideItemsStacked
+              ref="target:e08fd902-882e-5071-a8bb-2a3770776090"
+              show-arrows="never"
+              :cell-min-height="240"
+              :cell-width="320"
+              :items="Array.from({ length: 122 }, (_, i) => ({ i }))"
+              :props-container="{
+                style: {
+                  height: `calc(100vh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
+                },
+              }"
+              gap=".33rem"
+            >
+              <template #item="ctx">
+                <VCard link class="fill-height">p:{{ ctx.item.i }}</VCard>
+              </template>
+            </AppSlideItemsStacked>
+          </AppGridStackedFramesItem>
+          <AppGridStackedFramesItem
+            class="pointer-events-none d-flex items-center justify-between px-2"
+          >
+            <AppBtnPager
+              prev
+              @click.stop="targetSlider?.slider?.scrollTo('prev')"
+              :disabled="!targetSlider?.slider?.hasPrev"
+            />
+            <AppBtnPager
+              @click.stop="targetSlider?.slider?.scrollTo('next')"
+              :disabled="!targetSlider?.slider?.hasNext"
+            />
+          </AppGridStackedFramesItem>
+        </AppGridStackedFrames>
+      </template>
     </AppCardSectionPrimary>
 
     <!-- section:delatnosti -->

@@ -250,12 +250,14 @@ const H = computed(() =>
         </AppCardSectionPrimaryTitle>
       </template>
 
-      <!-- slides:history -->
-      <AppSlidesHistory
-        :props-carousel="{
-          style: `height: calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - 2.22rem - 64px) !important;`,
-        }"
-      />
+      <template #default="ctx">
+        <!-- slides:history -->
+        <AppSlidesHistory
+          :props-carousel="{
+            style: `height: calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem) !important;`,
+          }"
+        />
+      </template>
     </AppCardSectionPrimary>
 
     <!-- vrednosti -->

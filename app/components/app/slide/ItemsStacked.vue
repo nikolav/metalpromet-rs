@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { VSlideGroup as TVSlideGroup } from "vuetify/components/VSlideGroup";
+
 import type { TOrNoValue } from "~/types";
 import { default as TElementSize } from "~/components/app/provides/ElementSize.vue";
 
@@ -44,6 +46,21 @@ const _gap_ = computed(() =>
   $$.isNumeric(props.gap) ? `${props.gap}px` : props.gap,
 );
 
+const exposed = {
+  slider: shallowRef<TOrNoValue<InstanceType<typeof TVSlideGroup>>>(null),
+};
+
+const targetSlider = useTemplateRef<
+  TOrNoValue<InstanceType<typeof TVSlideGroup>>
+>("target:93d05055-4175-5220-9e4b-945263ad9e54");
+
+watchEffect(() => {
+  exposed.slider.value = targetSlider.value;
+});
+
+// publish v-slide-group ui
+defineExpose(exposed);
+
 // @@eos
 </script>
 
@@ -53,7 +70,11 @@ const _gap_ = computed(() =>
     ref="target:82e89875-def6-58f8-b206-903539f581d1"
     v-bind="props.propsContainer"
   >
-    <VSlideGroup class="fill-height" v-bind="$attrs">
+    <VSlideGroup
+      ref="target:93d05055-4175-5220-9e4b-945263ad9e54"
+      class="fill-height"
+      v-bind="$attrs"
+    >
       <VSlideGroupItem v-for="(cell, itemIndex) in cells">
         <AppBoxBase
           :style="[
