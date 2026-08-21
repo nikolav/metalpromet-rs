@@ -16,7 +16,6 @@ const localePath = useLocalePath();
 const theme = useTheme();
 const isDark = computed(() => theme.global.current.value.dark);
 
-const query = ref<string>();
 const toggleNavMenu = useToggleFlag();
 
 const navItems = <any[]>[
@@ -35,17 +34,10 @@ const navItems = <any[]>[
     },
   },
   {
-    title: "Usluge",
+    title: "Delatnosti",
     icon: "mdi:toolbox",
     props: {
       to: localePath({ name: "services" }),
-    },
-  },
-  {
-    title: "Novosti",
-    icon: "ri:newspaper-fill",
-    props: {
-      to: localePath({ name: "news" }),
     },
   },
   {
@@ -62,19 +54,6 @@ const navItems = <any[]>[
       to: localePath({ name: "contact" }),
     },
   },
-  {
-    type: "divider",
-    props: {
-      inset: true,
-      class: "opacity-20",
-    },
-  },
-  {
-    title: "Demo",
-    props: {
-      to: localePath({ name: "demo" }),
-    },
-  },
 ];
 const mergeItemProps = $$.deepmerge();
 
@@ -88,7 +67,7 @@ const mergeItemProps = $$.deepmerge();
     tile
     :height="$$.config('layout.component.AppNavAppBar.height')!"
   >
-    <template v-if="!d.smAndUp.value">
+    <template v-if="d.mobile.value">
       <VAppBarNavIcon variant="plain" @click="toggleNavMenu" />
       <AppOverlayScreen
         v-model="toggleNavMenu.isActive.value"
@@ -120,32 +99,6 @@ const mergeItemProps = $$.deepmerge();
           <VListItemTitle>Metal-Promet</VListItemTitle>
           <VListItemSubtitle class="opacity-50">Mladenovac</VListItemSubtitle>
         </VListItem>
-
-        <!-- nav:search -->
-        <VForm
-          disabled
-          id="ID-53dade55-8738-53dd-87a1-4203e9914854"
-          :autocomplete="false"
-          @submit.prevent
-        >
-          <VTextField
-            v-model="query"
-            type="text"
-            class="px-2"
-            density="comfortable"
-            hide-details
-            variant="solo-inverted"
-            rounded="pill"
-            single-line
-            center-affix
-            clearable
-            placeholder="Traži stranu..."
-          >
-            <template #prepend-inner>
-              <IconX icon="mdi:magnify" size="1.5rem" class="opacity-20" />
-            </template>
-          </VTextField>
-        </VForm>
 
         <!-- nav:links -->
         <VList
@@ -201,10 +154,6 @@ const mergeItemProps = $$.deepmerge();
   </VAppBar>
 </template>
 
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
 <!-- global styles -->
 <style lang="scss">
 #ID-53dade55-8738-53dd-87a1-4203e9914854 .v-field__field {

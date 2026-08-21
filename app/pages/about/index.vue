@@ -392,11 +392,11 @@ const H = computed(() =>
                   },
                 },
                 items: [
-                  'Termoelektrana Kostolac',
-                  'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
+                  'Luksuzne kuće i vile, centralna Srbija',
                   'Brojni projekti u Beču, Austrija, Švajcarskoj, Engleskoj',
-                  'Luksuzne kuće i vile na Kosmaju i Avali',
-                  'Plastifikacija felni za automobile',
+                  'Plastifikacija auto delova',
+                  'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
+                  'Termoelektrana Kostolac',
                 ],
               },
               {
