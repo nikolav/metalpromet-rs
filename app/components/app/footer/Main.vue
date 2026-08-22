@@ -273,10 +273,6 @@ const localePath = useLocalePath();
                       to: 'under-construction',
                     },
                     {
-                      title: 'Novosti, Blog',
-                      to: 'under-construction',
-                    },
-                    {
                       title: 'Karijera',
                       to: 'under-construction',
                     },

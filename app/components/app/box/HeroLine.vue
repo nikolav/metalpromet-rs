@@ -37,7 +37,7 @@ const props = withDefaults(
     <VCard
       tile
       elevation="1"
-      class="*text-center !text-v-on-ui backdrop-blur-sm"
+      class="!text-v-on-ui backdrop-blur-sm"
       color="rgba(var(--v-theme-ui), .66)"
     >
       <VCardItem class="ps-2 text-center">

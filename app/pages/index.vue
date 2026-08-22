@@ -35,7 +35,7 @@ const appNavHeight = computed(() =>
   $$.config("layout.component.AppNavAppBar.height"),
 );
 const H = computed(() =>
-  d.smAndUp.value ? `calc(100vh - ${appNavHeight.value}px)` : 422,
+  d.smAndUp.value ? `calc(100svh - ${appNavHeight.value}px)` : 422,
 );
 
 const slideshow = <any>{
@@ -410,7 +410,7 @@ const targetSlider = useTemplateRef<
               :items="$$.shuffle(PROJECTS)"
               :props-container="{
                 style: {
-                  height: `calc(100vh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
+                  height: `calc(100svh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
                 },
               }"
               gap="1"

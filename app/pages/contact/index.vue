@@ -57,7 +57,7 @@ const toggleOverlayForm = useToggleFlag();
         <AppGridStackedFrames>
           <AppGridStackedFramesItem>
             <AppMapsLocationSingle
-              :style="`height: calc(100vh - ${cx.titleSize.height}px - ${$$.config('layout.component.AppNavAppBar.height', 0)}px) !important;`"
+              :style="`height: calc(100svh - ${cx.titleSize.height}px - ${$$.config('layout.component.AppNavAppBar.height', 0)}px) !important;`"
             />
           </AppGridStackedFramesItem>
           <AppGridStackedFramesItem

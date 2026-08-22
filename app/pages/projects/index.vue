@@ -405,7 +405,7 @@ const toggleTabsMachines = useToggleFlag();
         class: 'position-relative',
       }"
       :style="{
-        height: `calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px)`,
+        height: `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px)`,
       }"
     >
       <template #stack>
@@ -464,7 +464,7 @@ const toggleTabsMachines = useToggleFlag();
           cols-class="grid-cols-[1fr_1.33fr]"
           :style="{
             height: d.smAndUp.value
-              ? `calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
+              ? `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
               : undefined,
           }"
         >
@@ -708,7 +708,7 @@ const toggleTabsMachines = useToggleFlag();
           cols-class="grid-cols-[1.33fr_1fr]"
           :style="{
             height: d.smAndUp.value
-              ? `calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
+              ? `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
               : undefined,
           }"
         >
@@ -939,7 +939,7 @@ const toggleTabsMachines = useToggleFlag();
           cols-class="grid-cols-[1fr_1.33fr]"
           :style="{
             height: d.smAndUp.value
-              ? `calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
+              ? `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
               : undefined,
           }"
         >
@@ -1187,7 +1187,7 @@ const toggleTabsMachines = useToggleFlag();
           cols-class="grid-cols-[1.33fr_1fr]"
           :style="{
             height: d.smAndUp.value
-              ? `calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
+              ? `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
               : undefined,
           }"
         >

@@ -78,7 +78,7 @@ const mp_facts = [
 const isDark = computed(() => theme.global.current.value.dark);
 const H = computed(() =>
   d.smAndUp.value
-    ? `calc(100vh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
+    ? `calc(100svh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
     : 422,
 );
 
@@ -254,7 +254,7 @@ const H = computed(() =>
         <!-- slides:history -->
         <AppSlidesHistory
           :props-carousel="{
-            style: `height: calc(100vh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem) !important;`,
+            style: `height: calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem) !important;`,
           }"
         />
       </template>
