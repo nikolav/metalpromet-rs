@@ -8,12 +8,6 @@ definePageMeta({
 
 <template>
   <AppBoxPageWrap class="page--under-construction">
-    <AppBoxContainerCentered fluid>
-      <AppGridAutoCells :cell-width="100">
-        <VCard height="100" v-for="i in 122">
-          {{ i }}
-        </VCard>
-      </AppGridAutoCells>
-    </AppBoxContainerCentered>
+    <AppBoxRoot width="333" height="333" elevation="1"> 1 </AppBoxRoot>
   </AppBoxPageWrap>
 </template>

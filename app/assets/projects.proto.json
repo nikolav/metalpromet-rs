@@ -72,12 +72,6 @@
     "location": "Novi Beograd"
   },
   {
-    "title": "Plastifikacija felni za auto (Mečka)",
-    "category": "Zaštita i obrada površina",
-    "image": "/images/slides/zavrsna-obrada/003.jpg",
-    "location": "Mladenovac"
-  },
-  {
     "title": "Uslužna plastifikacija rolo vrata i okapnica",
     "category": "Zaštita i obrada površina",
     "image": "/images/slides/zavrsna-obrada/001.jpg",
@@ -561,11 +555,5 @@
     "category": "Bravarija i izrada konstrukcija",
     "image": "/images/stock/011.jpg",
     "location": "Beč"
-  },
-  {
-    "title": "Kvalitet izrade po evropskim standardima",
-    "category": "Projektovanje i inženjering",
-    "image": "/images/stock/013.jpg",
-    "location": "Srbija"
   }
 ]
