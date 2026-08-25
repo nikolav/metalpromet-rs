@@ -20,8 +20,7 @@ const props = withDefaults(
 
 <template>
   <AppBoxBase class="component--AppBoxHeroLine">
-    <VCard
-      variant="flat"
+    <VSheet
       tile
       color="rgba(var(--v-theme-ui), .88)"
       class="!text-v-on-ui backdrop-blur-sm"
@@ -32,9 +31,9 @@ const props = withDefaults(
           {{ props.h2 }}
         </h2>
       </VCardText>
-    </VCard>
+    </VSheet>
 
-    <VCard
+    <VSheet
       tile
       elevation="1"
       class="!text-v-on-ui backdrop-blur-sm"
@@ -47,6 +46,6 @@ const props = withDefaults(
         <VCardTitle class="text-shadow-sm"> {{ props.title }}</VCardTitle>
         <VCardSubtitle>{{ props.subtitle }}</VCardSubtitle>
       </VCardItem>
-    </VCard>
+    </VSheet>
   </AppBoxBase>
 </template>

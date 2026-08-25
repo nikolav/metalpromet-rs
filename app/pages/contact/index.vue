@@ -68,7 +68,7 @@ const toggleOverlayForm = useToggleFlag();
               color="rgb(var(--v-theme-ui))"
               variant="tonal"
               tile
-              class="pointer-events-none position-absolute backdrop-blur-md"
+              class="pt-2 pointer-events-none position-absolute backdrop-blur-md"
               :class="{
                 'fill-height w-[max(320px,33vw)] inset-y-0 right-0':
                   !d.mobile.value,
@@ -147,11 +147,7 @@ const toggleOverlayForm = useToggleFlag();
                 <!-- buttons -->
                 <VSpacer v-if="!d.mobile.value" />
                 <AppBoxFlex class="items-center justify-evenly w-full">
-                  <AppBoxFlex
-                    col
-                    class="items-center gap-2"
-                    :class="{ 'order-2': d.mobile.value }"
-                  >
+                  <AppBoxFlex col class="order-2 items-center gap-2">
                     <VBtn
                       @click.stop
                       icon
@@ -164,18 +160,8 @@ const toggleOverlayForm = useToggleFlag();
                     >
                       <IconX icon="mdi:phone" size="1.75rem" />
                     </VBtn>
-                    <p
-                      v-if="!d.mobile.value"
-                      class="text-v-on-surface text-body-1"
-                    >
-                      Pozovite nas!
-                    </p>
                   </AppBoxFlex>
-                  <AppBoxFlex
-                    col
-                    class="items-center gap-2"
-                    :class="{ 'order-1': d.mobile.value }"
-                  >
+                  <AppBoxFlex col class="order-1 items-center gap-2">
                     <VBtn
                       variant="elevated"
                       color="primary"
@@ -205,19 +191,8 @@ const toggleOverlayForm = useToggleFlag();
                         <h2>overlay:contact-form 🚧</h2>
                       </AppBoxBase>
                     </AppOverlayScreen>
-                    <p
-                      v-if="!d.mobile.value"
-                      class="text-v-on-surface text-body-1"
-                    >
-                      Pošaljite upit
-                    </p>
                   </AppBoxFlex>
-                  <AppBoxFlex
-                    v-if="d.mobile.value"
-                    col
-                    class="items-center gap-2"
-                    :class="{ 'order-3': d.mobile.value }"
-                  >
+                  <AppBoxFlex col class="order-3 items-center gap-2">
                     <VBtn
                       variant="elevated"
                       color="primary-variant"
@@ -230,12 +205,6 @@ const toggleOverlayForm = useToggleFlag();
                     >
                       <IconX icon="mdi:at" size="2rem" />
                     </VBtn>
-                    <p
-                      v-if="!d.mobile.value"
-                      class="text-v-on-surface text-body-1"
-                    >
-                      Pošaljite poruku
-                    </p>
                   </AppBoxFlex>
                 </AppBoxFlex>
                 <VSpacer v-if="!d.mobile.value" />

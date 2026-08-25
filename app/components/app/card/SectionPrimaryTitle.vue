@@ -9,7 +9,7 @@ const d = useDisplay();
 <template>
   <h2
     class="component--AppCardSectionPrimaryTitle"
-    :class="{ 'text-h5': !d.smAndUp.value }"
+    :class="[d.mobile.value ? 'text-h5' : 'text-h4']"
   >
     <slot />
   </h2>

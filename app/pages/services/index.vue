@@ -32,7 +32,7 @@ definePageMeta({
         <AppBoxHeroLine
           h2="Kompletno rešenje za metal"
           title="Naše delatnosti i usluge"
-          subtitle="Sve na jednom mestu: od kapije do elektrane!"
+          subtitle="Radimo sve od kapije do elektrane!"
         >
           <template #icon>
             <IconX icon="mdi:toolbox" size="2.22rem" class="opacity-[.33]" />
@@ -50,5 +50,7 @@ definePageMeta({
         class="w-100 fill-height object-cover object-right"
       />
     </AppGridStacked>
+
+    <AppSectionServicesIntro />
   </AppBoxPageWrap>
 </template>
