@@ -15,11 +15,7 @@ const localePath = useLocalePath();
 <template>
   <VThemeProvider theme="dark">
     <AppBoxCentered class="!mt-32 !mb-16">
-      <IconX
-        icon="local:line-art-01"
-        size="1.5rem"
-        class="opacity-[.122]"
-      />
+      <IconX icon="local:line-art-01" size="1.5rem" class="opacity-[.122]" />
     </AppBoxCentered>
 
     <VFooter
@@ -322,8 +318,8 @@ const localePath = useLocalePath();
                     Telefon
                   </VListItemTitle>
                   <VListItemSubtitle
-                    ><a href="tel:+38163316521"
-                      >(+381) 63 316 521</a
+                    ><a href="tel:+381644176546"
+                      >(+381) 64 417 65 46</a
                     ></VListItemSubtitle
                   >
                 </VListItem>

@@ -119,9 +119,9 @@ const toggleOverlayForm = useToggleFlag();
                     <VCardText class="text-body-1"
                       ><a
                         class="text-xl pointer-events-auto"
-                        href="tel:+38163316521"
+                        href="tel:+381644176546"
                         @click.stop
-                        >(+381) 63 316 521</a
+                        >(+381) 64 417 65 46</a
                       >
                     </VCardText>
                   </AppBoxBase>
@@ -157,7 +157,7 @@ const toggleOverlayForm = useToggleFlag();
                       rounded="circle"
                       color="success-lighten-1"
                       class="pointer-events-auto"
-                      href="tel:+38163316521"
+                      href="tel:+381644176546"
                     >
                       <IconX icon="mdi:phone" size="1.75rem" />
                     </VBtn>
