@@ -1,14 +1,10 @@
 <script setup lang="ts">
-// defineOptions({
-//   name: "COMPONENT_NAME",
-//   inheritAttrs: false,
-// });
-
 const props = withDefaults(
   defineProps<{
     stack?: boolean;
     invert?: boolean;
     colsClass?: string;
+
     propsMedia?: any;
     propsText?: any;
   }>(),

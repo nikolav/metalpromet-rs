@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDisplay } from "vuetify";
+
 definePageMeta({
   context: {
     title: "pages.services.title",
@@ -14,6 +16,13 @@ definePageMeta({
   },
 });
 
+const d = useDisplay();
+const { $$ } = useNuxtApp();
+
+const heightAppNavAppBar = computed(() =>
+  $$.config("layout.component.AppNavAppBar.height", 0),
+);
+
 // @@eos
 </script>
 
@@ -25,7 +34,7 @@ definePageMeta({
         class: 'position-relative',
       }"
       :style="{
-        height: `calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px)`,
+        height: `calc(100svh - ${heightAppNavAppBar}px)`,
       }"
     >
       <template #stack>
@@ -51,6 +60,58 @@ definePageMeta({
       />
     </AppGridStacked>
 
-    <AppSectionServicesIntro />
+    <AppSectionServicesIntro
+      :style="[
+        !d.mobile.value
+          ? {
+              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+            }
+          : undefined,
+      ]"
+    />
+
+    <VSpacer class="mt-12" />
+    <AppSectionServicesModeling
+      :style="[
+        !d.mobile.value
+          ? {
+              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+            }
+          : undefined,
+      ]"
+    />
+
+    <VSpacer class="mt-12" />
+    <AppSectionServicesConstruction
+      :style="[
+        !d.mobile.value
+          ? {
+              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+            }
+          : undefined,
+      ]"
+    />
+
+    <VSpacer class="mt-12" />
+    <AppSectionServicesCarpentry
+      :style="[
+        !d.mobile.value
+          ? {
+              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+            }
+          : undefined,
+      ]"
+    />
+
+    <VSpacer class="mt-12" />
+    <AppSectionServicesFinish
+      :style="[
+        !d.mobile.value
+          ? {
+              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+            }
+          : undefined,
+      ]"
+    />
   </AppBoxPageWrap>
 </template>

@@ -496,8 +496,8 @@ export default defineNuxtConfig({
       "2xl": 2560,
     },
     dir: "assets/media",
-    providers: {},
-    presets: {},
+    // providers: {},
+    // presets: {},
   },
 
   // @nuxtjs/tailwindcss

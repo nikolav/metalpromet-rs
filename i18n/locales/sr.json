@@ -1,4 +1,5 @@
 {
+  "foo": { "data": "foo:bar --sr" },
   "message": {
     "welcome": "Dobrodošli",
     "hello": "Zdravo"

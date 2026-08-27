@@ -102,7 +102,8 @@ const toggleOverlayForm = useToggleFlag();
                         target="_blank"
                         class="pointer-events-auto"
                         @click.stop
-                        >Dositejeva 2, Mladenovac 11400, Srbija</NuxtLink
+                        >Dositejeva 2, <br />Mladenovac 11400,
+                        <br />Srbija</NuxtLink
                       >
                     </VCardText>
                   </AppBoxBase>

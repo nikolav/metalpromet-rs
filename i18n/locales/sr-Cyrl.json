@@ -1,4 +1,5 @@
 {
+  "foo": { "data": "foo:bar --sr-cyrl" },
   "message": {
     "welcome": "Добродошли",
     "hello": "Здраво"

@@ -782,7 +782,7 @@ const toggleTabsMachines = useToggleFlag();
                 'd-flex flex-col fill-height': d.smAndUp.value,
               }"
             >
-              <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
+              <AppBoxTwoRowsAutoMain footer-first>
                 <template #footer>
                   <!-- Tab Headers -->
                   <VTabs
