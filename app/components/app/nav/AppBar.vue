@@ -42,7 +42,7 @@ const navItems = <any[]>[
   },
   {
     title: "O nama",
-    icon: "$info",
+    icon: "material-symbols:id-card-outline",
     props: {
       to: localePath({ name: "about" }),
     },
@@ -63,7 +63,7 @@ const mergeItemProps = $$.deepmerge();
 <template>
   <VAppBar
     class="component--AppNavAppBar pe-2"
-    :elevation="d.smAndUp.value ? 1 : 3"
+    :elevation="d.mobile.value ? 3 : 1"
     tile
     :height="$$.config('layout.component.AppNavAppBar.height')!"
   >
