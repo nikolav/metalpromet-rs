@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 import tailwindcssPlugin from "tailwindcss/plugin";
+import { default as pluginContainerQueries } from "@tailwindcss/container-queries";
+
 import reduce from "lodash/reduce";
 
 import { darkRootClass } from "./app/config/vars.env.public";
@@ -59,6 +61,8 @@ export default {
             "rgb(var(--v-theme-primary-variant), <alpha-value>)",
           "on-primary-variant":
             "rgb(var(--v-theme-on-primary-variant), <alpha-value>)",
+          ui: "rgb(var(--v-theme-ui), <alpha-value>)",
+          "on-ui": "rgb(var(--v-theme-on-ui), <alpha-value>)",
 
           success: "rgb(var(--v-theme-success), <alpha-value>)",
           warning: "rgb(var(--v-theme-warning), <alpha-value>)",
@@ -76,9 +80,6 @@ export default {
           "on-surface": "rgb(var(--v-theme-on-surface), <alpha-value>)",
 
           outline: "rgb(var(--v-theme-outline), <alpha-value>)",
-
-          ui: "rgb(var(--v-theme-ui), <alpha-value>)",
-          "on-ui": "rgb(var(--v-theme-on-ui), <alpha-value>)",
         },
       },
 
@@ -157,7 +158,7 @@ export default {
    */
   plugins: [
     // require("@tailwindcss/typography"),
-    // require("@tailwindcss/container-queries"),
+    pluginContainerQueries,
 
     // text-shadow
     tailwindcssPlugin((_) => {
