@@ -8,22 +8,6 @@
     "show": true
   },
   {
-    "src": "/images/hero/1-projektovanje/3d-modelovanje.02.jpg",
-    "icon": "mdi:ruler",
-    "group": "Projektovanje i inženjering",
-    "title": "3D Modelovanje",
-    "description": "Izrada 3D modela objekata i konstrukcija",
-    "show": true
-  },
-  {
-    "src": "/images/hero/1-projektovanje/photorealistic-render.01.jpg",
-    "icon": "mdi:ruler",
-    "group": "Projektovanje i inženjering",
-    "title": "Fotorealistični renderi",
-    "description": "Prikaz projekta u realnom okruženju",
-    "show": true
-  },
-  {
     "src": "/images/hero/1-projektovanje/photorealistic-render.02.jpg",
     "icon": "mdi:ruler",
     "group": "Projektovanje i inženjering",
@@ -32,27 +16,11 @@
     "show": true
   },
   {
-    "src": "/images/hero/1-projektovanje/animation.01.jpg",
-    "icon": "mdi:ruler",
-    "group": "Projektovanje i inženjering",
-    "title": "Animacija i studija boje",
-    "description": "Vizuelizacija boja i kretanja",
-    "show": true
-  },
-  {
     "src": "/images/hero/1-projektovanje/color-study.01.jpg",
     "icon": "mdi:ruler",
     "group": "Projektovanje i inženjering",
     "title": "Animacija i studija boje",
     "description": "Vizuelizacija boja i kretanja",
-    "show": true
-  },
-  {
-    "src": "/images/hero/1-projektovanje/tehnicka-dokumentacija.01.jpg",
-    "icon": "mdi:ruler",
-    "group": "Projektovanje i inženjering",
-    "title": "Tehnička dokumentacija",
-    "description": "Izrada nacrta i proračuna za gradnju",
     "show": true
   },
   {
@@ -73,39 +41,7 @@
     "show": true
   },
   {
-    "src": "/images/hero/2-bravarija-konstrukcije/zavarivanje.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Zavarivanje",
-    "description": "Spajanje čeličnih i aluminijumskih elemenata",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/zavarivanje.03.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Zavarivanje",
-    "description": "Spajanje čeličnih i aluminijumskih elemenata",
-    "show": true
-  },
-  {
     "src": "/images/hero/2-bravarija-konstrukcije/cnc.01.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "CNC obrada metala",
-    "description": "Precizno sečenje, bušenje i glodanje",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/cnc.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "CNC obrada metala",
-    "description": "Precizno sečenje, bušenje i glodanje",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/cnc.03.jpg",
     "icon": "mdi:wrench",
     "group": "Bravarija i izrada konstrukcija",
     "title": "CNC obrada metala",
@@ -121,43 +57,11 @@
     "show": true
   },
   {
-    "src": "/images/hero/2-bravarija-konstrukcije/montaza.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Montaža čeličnih konstrukcija",
-    "description": "Postavljanje nosivih metalnih okvira",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/montaza.03.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Montaža čeličnih konstrukcija",
-    "description": "Postavljanje nosivih metalnih okvira",
-    "show": true
-  },
-  {
     "src": "/images/hero/2-bravarija-konstrukcije/montaza.04.jpg",
     "icon": "mdi:wrench",
     "group": "Bravarija i izrada konstrukcija",
     "title": "Montaža čeličnih konstrukcija",
     "description": "Postavljanje nosivih metalnih okvira",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/alu.01.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Aluminijumske konstrukcije",
-    "description": "Izrada lakih i izdržljivih aluminijumskih profila",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/alu.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Aluminijumske konstrukcije",
-    "description": "Izrada lakih i izdržljivih aluminijumskih profila",
     "show": true
   },
   {
@@ -169,43 +73,11 @@
     "show": true
   },
   {
-    "src": "/images/hero/2-bravarija-konstrukcije/smith.01.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Kovano gvožđe",
-    "description": "Ručno i mašinski kovani unikatni komadi",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/smith.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Kovano gvožđe",
-    "description": "Ručno i mašinski kovani unikatni komadi",
-    "show": true
-  },
-  {
     "src": "/images/hero/2-bravarija-konstrukcije/smith.03.jpg",
     "icon": "mdi:wrench",
     "group": "Bravarija i izrada konstrukcija",
     "title": "Kovano gvožđe",
     "description": "Ručno i mašinski kovani unikatni komadi",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/art.01.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Umetnička bravarija",
-    "description": "Metalna galanterija i dekorativni elementi",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/art.02.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Umetnička bravarija",
-    "description": "Metalna galanterija i dekorativni elementi",
     "show": true
   },
   {
@@ -226,51 +98,11 @@
     "show": true
   },
   {
-    "src": "/images/hero/3-stolarija-ograde-oprema/fence.02.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalne ograde",
-    "description": "Standardne, dekorativne i sigurnosne ograde",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/fence.03.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalne ograde",
-    "description": "Standardne, dekorativne i sigurnosne ograde",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/panel.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Panelne ograde",
-    "description": "Moderne ograde od panela",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/panel.02.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Panelne ograde",
-    "description": "Moderne ograde od panela",
-    "show": true
-  },
-  {
     "src": "/images/hero/3-stolarija-ograde-oprema/panel.03.jpg",
     "icon": "mdi:screwdriver",
     "group": "Stolarija, ograde i oprema",
     "title": "Panelne ograde",
     "description": "Moderne ograde od panela",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/stainless.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Prohromske ograde",
-    "description": "Ograde od nerđajućeg čelika",
     "show": true
   },
   {
@@ -282,35 +114,11 @@
     "show": true
   },
   {
-    "src": "/images/hero/3-stolarija-ograde-oprema/alu-fences.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "ALU ograde",
-    "description": "Lagane i moderne aluminijumske ograde",
-    "show": true
-  },
-  {
     "src": "/images/hero/3-stolarija-ograde-oprema/alu-fences.02.jpg",
     "icon": "mdi:screwdriver",
     "group": "Stolarija, ograde i oprema",
     "title": "ALU ograde",
     "description": "Lagane i moderne aluminijumske ograde",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/gates.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Dvorišne kapije",
-    "description": "Klizne, dvokrilne i automatske kapije",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/gates.02.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Dvorišne kapije",
-    "description": "Klizne, dvokrilne i automatske kapije",
     "show": true
   },
   {
@@ -330,39 +138,7 @@
     "show": true
   },
   {
-    "src": "/images/hero/3-stolarija-ograde-oprema/stairs.02.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalne stepenice",
-    "description": "Spoljašnje i unutrašnje stepenišne konstrukcije",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/stairs.03.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalne stepenice",
-    "description": "Spoljašnje i unutrašnje stepenišne konstrukcije",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/alu-stairs.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Prohromske stepenice",
-    "description": "Luksuzne stepenice od nerđajućeg čelika",
-    "show": true
-  },
-  {
     "src": "/images/hero/3-stolarija-ograde-oprema/canopy.01.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalne nadstrešnice",
-    "description": "Zaštitne konstrukcije za automobile, terase i ulaze",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/canopy.02.jpg",
     "icon": "mdi:screwdriver",
     "group": "Stolarija, ograde i oprema",
     "title": "Metalne nadstrešnice",
@@ -383,39 +159,6 @@
     "group": "Stolarija, ograde i oprema",
     "title": "Metalni nameštaj i oprema",
     "description": "Regali, police, radni stolovi, klupe, stolice",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/furniture.02.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalni nameštaj i oprema",
-    "description": "Regali, police, radni stolovi, klupe, stolice",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/furniture.03.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalni nameštaj i oprema",
-    "description": "Regali, police, radni stolovi, klupe, stolice",
-    "show": true
-  },
-  {
-    "src": "/images/hero/3-stolarija-ograde-oprema/furniture.04.jpg",
-    "icon": "mdi:screwdriver",
-    "group": "Stolarija, ograde i oprema",
-    "title": "Metalni nameštaj i oprema",
-    "description": "Regali, police, radni stolovi, klupe, stolice",
-    "show": false
-  },
-
-  {
-    "src": "/images/hero/4-zastita-i-obrada-povrsina/elektrostatic-pain.01.jpg",
-    "icon": "mdi:shield",
-    "group": "Zaštita i obrada površina",
-    "title": "Elektrostatsko farbanje",
-    "description": "Nanošenje boje u prahu, plastifikacija, prašno farbanje",
     "show": true
   },
   {
@@ -444,14 +187,6 @@
   },
   {
     "src": "/images/hero/4-zastita-i-obrada-povrsina/paint.02.jpg",
-    "icon": "mdi:shield",
-    "group": "Zaštita i obrada površina",
-    "title": "Farbanje",
-    "description": "Završni izgled, zaštita od korozije i vremenskih uticaja",
-    "show": true
-  },
-  {
-    "src": "/images/hero/4-zastita-i-obrada-povrsina/paint.03.jpg",
     "icon": "mdi:shield",
     "group": "Zaštita i obrada površina",
     "title": "Farbanje",

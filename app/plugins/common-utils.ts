@@ -1,3 +1,4 @@
+import filter from "lodash/filter";
 import each from "lodash/each";
 import every from "lodash/every";
 import find from "lodash/find";
@@ -56,6 +57,7 @@ export default defineNuxtPlugin({
         //   foo => $foo
         $: {
           // lodash
+          filter,
           chunk,
           clamp,
           each,

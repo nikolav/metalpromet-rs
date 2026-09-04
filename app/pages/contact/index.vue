@@ -181,16 +181,7 @@ const toggleOverlayForm = useToggleFlag();
                     <AppOverlayScreen
                       v-model="toggleOverlayForm.isActive.value"
                     >
-                      <AppBoxBase class="text-center">
-                        <AppVBtn
-                          rounded="full"
-                          icon
-                          @click.stop="toggleOverlayForm.off"
-                        >
-                          <IconX icon="$close" />
-                        </AppVBtn>
-                        <h2>overlay:contact-form 🚧</h2>
-                      </AppBoxBase>
+                      <AppFormContact @close="toggleOverlayForm.off" />
                     </AppOverlayScreen>
                   </AppBoxFlex>
                   <AppBoxFlex col class="order-3 items-center gap-2">
