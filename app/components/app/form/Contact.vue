@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { useDocs } from "~/composables/docs/use-docs";
 import { useForm } from "~/composables/forms/use-form";
+import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 
 defineEmits<{
   close: [];
@@ -25,6 +26,7 @@ const compact = (data: any) =>
     <any>{},
   );
 
+const toggleSnackbar = useToggleFlag();
 const form = useForm(
   "FORM:602904dc-da98-532f-866b-e1b37290c5ea",
   {
@@ -37,8 +39,16 @@ const form = useForm(
     onSubmit: async (data) => {
       const dd = compact(data);
       $$.onDebug({ "form:data": dd });
-      if ($$.isEmpty(dd)) return;
-      await ddInquiries.commit(dd);
+      try {
+        if ($$.isEmpty(dd)) throw "data:empty";
+        await ddInquiries.commit(dd);
+      } catch (error) {
+        $$.onDebug({ "form:submit:error": error });
+      } finally {
+        if (!ddInquiries.ps.success.value) return;
+        toggleSnackbar.on();
+        form.clear();
+      }
     },
   },
 );
@@ -55,6 +65,35 @@ const form = useForm(
     variant="text"
     :icon="{ icon: 'mdi:feather' }"
   >
+    <VSnackbar
+      v-model="toggleSnackbar.isActive.value"
+      location="top"
+      color="success"
+      attach="body"
+      rounded="lg"
+      timeout="8901"
+    >
+      <AppBoxFlex class="items-center gap-4">
+        <IconX icon="$complete" size="1.75rem" />
+        <AppBoxBase class="text-body-1 max-w-[44ch] text-center">
+          <p><strong>Vaša poruka je uspešno poslata.</strong></p>
+          <p>Očekujte odgovor od našeg tima uskoro.</p>
+        </AppBoxBase>
+      </AppBoxFlex>
+      <VSpacer />
+      <template #actions>
+        <VBtn
+          size="large"
+          variant="tonal"
+          class="px-4"
+          color="on-success"
+          @click="toggleSnackbar.off"
+        >
+          ok
+        </VBtn>
+      </template>
+    </VSnackbar>
+
     <AppBoxContainerCentered fluid>
       <VCardItem class="*pa-0">
         <template #prepend>
@@ -65,7 +104,6 @@ const form = useForm(
             :props-icon="{
               size: '2rem',
             }"
-            class="ma-2"
           />
         </template>
         <template #append v-if="!d.mobile.value">
