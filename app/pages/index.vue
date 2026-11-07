@@ -27,6 +27,7 @@ definePageMeta({
   },
 });
 
+const localePath = useLocalePath();
 const d = useDisplay();
 const { $$, $lightbox } = useNuxtApp();
 const appNavHeight = computed(() =>
@@ -55,6 +56,7 @@ const targetSlider = useTemplateRef<
 
 <template>
   <AppBoxPageWrap class="page--index *space-y-20">
+    <!-- sectin:hero -->
     <AppGridStackedFrames>
       <AppGridStackedFramesItem>
         <AppVideoPlayer
@@ -74,8 +76,58 @@ const targetSlider = useTemplateRef<
           }"
         />
       </AppGridStackedFramesItem>
-      <AppGridStackedFramesItem class="!bg-black/25">
-        <h1 class="text-h4">Metal-Promet</h1>
+      <AppGridStackedFramesItem
+        class="!bg-[rgba(var(--v-theme-ui),.22)] position-relative"
+      >
+        <VCard
+          class="!text-[rgb(var(--v-theme-on-ui))] ms-12 mt-12"
+          variant="text"
+          tile
+        >
+          <VCardTitle class="space-y-5">
+            <h1 class="text-shadow-md text-h2 font-weight-bold">
+              Metal-Promet Mladenovac
+            </h1>
+          </VCardTitle>
+          <VCardSubtitle class="mt-20 space-y-6 ps-10">
+            <p class="text-shadow-md text-h4 font-weight-bold">
+              <IconX
+                icon="mdi:wrench-outline"
+                class="opacity-50"
+                size="3.5rem"
+              />
+              <span class="ms-6">Kompletne metaloprerađivače usluge</span>
+            </p>
+            <p class="text-shadow-md text-h4 font-weight-bold">
+              <IconX icon="mdi:sync" class="opacity-50" size="3.5rem" />
+              <span class="ms-6">Od ideje do realizacije</span>
+            </p>
+            <p class="text-shadow-md text-h4 font-weight-bold">
+              <IconX
+                icon="mdi:package-variant-closed-check"
+                class="opacity-50"
+                size="3.5rem"
+              />
+              <span class="ms-6">Sve na jednom mestu</span>
+            </p>
+          </VCardSubtitle>
+        </VCard>
+        <VCardActions class="position-absolute bottom-32 w-full">
+          <VSpacer />
+          <VBtn
+            variant="elevated"
+            tile
+            class="text-shadow-sm !text-v-on-ui px-4"
+            :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
+            size="x-large"
+            color="ui"
+            :to="localePath({ name: 'contact' })"
+          >
+            <strong class="text-[122%] me-3">🤝</strong>
+            Započnimo saradnju</VBtn
+          >
+          <VSpacer />
+        </VCardActions>
       </AppGridStackedFramesItem>
     </AppGridStackedFrames>
 
