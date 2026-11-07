@@ -8,14 +8,6 @@
     "show": true
   },
   {
-    "src": "/images/hero/1-projektovanje/photorealistic-render.02.jpg",
-    "icon": "mdi:ruler",
-    "group": "Projektovanje i inženjering",
-    "title": "Fotorealistični renderi",
-    "description": "Prikaz projekta u realnom okruženju",
-    "show": true
-  },
-  {
     "src": "/images/hero/1-projektovanje/color-study.01.jpg",
     "icon": "mdi:ruler",
     "group": "Projektovanje i inženjering",
@@ -70,14 +62,6 @@
     "group": "Bravarija i izrada konstrukcija",
     "title": "Aluminijumske konstrukcije",
     "description": "Izrada lakih i izdržljivih aluminijumskih profila",
-    "show": true
-  },
-  {
-    "src": "/images/hero/2-bravarija-konstrukcije/smith.03.jpg",
-    "icon": "mdi:wrench",
-    "group": "Bravarija i izrada konstrukcija",
-    "title": "Kovano gvožđe",
-    "description": "Ručno i mašinski kovani unikatni komadi",
     "show": true
   },
   {
@@ -167,14 +151,6 @@
     "group": "Zaštita i obrada površina",
     "title": "Peskarenje",
     "description": "Čišćenje metala finim abrazivnim peskom",
-    "show": true
-  },
-  {
-    "src": "/images/hero/4-zastita-i-obrada-povrsina/cinkovanje.01.jpg",
-    "icon": "mdi:shield",
-    "group": "Zaštita i obrada površina",
-    "title": "Vruće cinkovanje",
-    "description": "Potapanje metala u rastopljeni cink, najjača zaštita od korozije",
     "show": true
   },
   {

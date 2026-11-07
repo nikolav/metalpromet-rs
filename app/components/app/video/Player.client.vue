@@ -14,9 +14,15 @@ import { usePlayer } from "~/composables/media/use-player";
 const props = withDefaults(
   defineProps<{
     id?: string;
+
     provider?: "html5" | "youtube" | "vimeo";
     sources: { src: string; type?: string; size?: number }[];
+
+    // props-element
     propsFrame?: any;
+
+    // player-config
+    config?: Partial<TPlayerOptions>;
   }>(),
   {
     provider: "html5",
@@ -75,6 +81,8 @@ const DEFAULTS_PLYR_OPTIONS: TPlayerOptions = {
   },
 };
 
+const mergeDeep = $$.deepmerge();
+
 const ID = computed(() => props.id ?? `PLAYER-${$$.uuid()}`);
 
 const COMP = {
@@ -92,7 +100,14 @@ useOnceMounted([], async () => {
   usePlayer()
     .pipe(take(1))
     .subscribe(({ Plyr }) => {
-      exposed.player.value = new Plyr(`#${ID.value}`, DEFAULTS_PLYR_OPTIONS);
+      exposed.player.value = new Plyr(
+        `#${ID.value}`,
+        mergeDeep(
+          <any>{},
+          <any>DEFAULTS_PLYR_OPTIONS,
+          <any>(props.config ?? {}),
+        ),
+      );
     });
 });
 

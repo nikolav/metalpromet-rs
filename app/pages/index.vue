@@ -11,8 +11,6 @@ import SERVICE_CATEGORIES from "~/assets/service-categories.json";
 
 import type { TOrNoValue } from "~/types";
 import type { default as TAppSlideItemsStacked } from "~/components/app/slide/ItemsStacked.vue";
-import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
-import { useKeyValue } from "~/composables/state/use-key-value";
 
 definePageMeta({
   layout: "default",
@@ -34,10 +32,6 @@ const { $$, $lightbox } = useNuxtApp();
 const appNavHeight = computed(() =>
   $$.config("layout.component.AppNavAppBar.height"),
 );
-const H = computed(() =>
-  d.smAndUp.value ? `calc(100svh - ${appNavHeight.value}px)` : 422,
-);
-
 const slideshow = <any>{
   priprema: () => {
     $lightbox({ slides: $$.shuffle(SLIDES_PRIPREMA) }).open();
@@ -52,56 +46,6 @@ const slideshow = <any>{
     $lightbox({ slides: $$.shuffle(SLIDES_ZAVRSNA_OBRADA) }).open();
   },
 };
-
-const toggleVideoPopup = useToggleFlag();
-const vids = useKeyValue<{
-  fillHeight?: boolean;
-  aspect?: any;
-  provider: "html5" | "youtube" | "vimeo";
-  src: string;
-  "props-frame": any;
-}>({
-  priprema: {
-    aspect: "335/596",
-    provider: "youtube",
-    src: "YOM-jmaBUBQ",
-    "props-frame": {
-      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
-    },
-  },
-  proizvodnja: {
-    aspect: "335/596",
-    provider: "youtube",
-    src: "YOM-jmaBUBQ",
-    "props-frame": {
-      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
-    },
-  },
-  "gotovi-proizvodi": {
-    aspect: "335/596",
-    provider: "youtube",
-    src: "YOM-jmaBUBQ",
-    "props-frame": {
-      title: "Stolarija, ograde i oprema • Metal-Promet Mladenovac",
-    },
-  },
-  "zavrsna-obrada": {
-    aspect: "335/596",
-    provider: "youtube",
-    src: "idxkQgb5KNA",
-    "props-frame": {
-      title:
-        "Zaštita metalnih konstrukcija i proizvoda • Metal-Promet Mladenovac",
-    },
-  },
-});
-const videoCurrent = shallowRef<{ key: string }>();
-watch(videoCurrent, (vc) => {
-  if (!vc?.key) return;
-  vids.use(vc.key);
-  toggleVideoPopup.on();
-});
-
 const targetSlider = useTemplateRef<
   TOrNoValue<InstanceType<typeof TAppSlideItemsStacked>>
 >("target:e08fd902-882e-5071-a8bb-2a3770776090");
@@ -111,7 +55,29 @@ const targetSlider = useTemplateRef<
 
 <template>
   <AppBoxPageWrap class="page--index *space-y-20">
-    <AppSlidesHero :height="H" class="mt-0" />
+    <AppGridStackedFrames>
+      <AppGridStackedFramesItem>
+        <AppVideoPlayer
+          class="!object-cover"
+          :style="{
+            height: `calc(100dvh - ${appNavHeight ?? 0}px)`,
+          }"
+          :sources="[{ src: '/vid-promo-01.mp4', type: 'video/mp4' }]"
+          :props-frame="{
+            autoplay: true,
+            loop: true,
+          }"
+          :config="{
+            muted: true,
+            controls: [],
+            clickToPlay: false,
+          }"
+        />
+      </AppGridStackedFramesItem>
+      <AppGridStackedFramesItem class="!bg-black/25">
+        <h1 class="text-h4">Metal-Promet</h1>
+      </AppGridStackedFramesItem>
+    </AppGridStackedFrames>
 
     <!-- section:about -->
     <AppCardSectionPrimary class="mt-0" :props-actions="{ class: 'pt-5' }">
@@ -612,17 +578,6 @@ const targetSlider = useTemplateRef<
                         >
                           <IconX icon="mdi:animation-play" size="1.5rem" />
                         </VBtn>
-                        <VBtn
-                          icon
-                          color="current"
-                          rounded="circle"
-                          variant="text"
-                          class="*:filter-shadow-sm"
-                          title="Video"
-                          @click="videoCurrent = { key: item.key }"
-                        >
-                          <IconX icon="mdi:play" size="2rem" />
-                        </VBtn>
                       </VCardActions>
                     </AppBoxBase>
                   </VImg>
@@ -662,69 +617,12 @@ const targetSlider = useTemplateRef<
                   </VBtn>
                   <VSpacer />
                 </VCardActions>
-                <AppVideoPlayerPopup
-                  v-model="toggleVideoPopup.isActive.value"
-                  :fill-height="vids.current.value?.fillHeight"
-                  :provider="vids.current.value?.provider"
-                  :sources="[{ src: vids.current.value?.src ?? '' }]"
-                  :props-frame="vids.current.value?.['props-frame']"
-                  :style="{
-                    '--plyr-x-video-aspect':
-                      vids.current.value?.aspect ?? 'auto',
-                  }"
-                />
               </VCard>
             </VCol>
           </VRow>
         </VContainer>
       </VCardText>
     </AppCardSectionPrimary>
-
-    <template v-if="false">
-      <!-- section:priznanja -->
-      <VSpacer class="mt-12" />
-      <AppCardSectionPrimary>
-        <template #title>
-          <IconX
-            v-if="d.smAndUp.value"
-            icon="mdi:certificate"
-            class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-            size="2rem"
-          />
-          <h2 :class="{ 'text-h5': !d.smAndUp.value }">Licence, sertifikati</h2>
-        </template>
-        <p>🚧</p>
-        <p class="text-disabled">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus
-          officiis quod recusandae porro minima ut, consectetur eligendi
-          explicabo maxime ab unde, blanditiis, ea nam numquam impedit molestias
-          aliquam veritatis reprehenderit.
-        </p>
-      </AppCardSectionPrimary>
-    </template>
-
-    <template v-if="false">
-      <!-- section:vesti -->
-      <VSpacer class="mt-12" />
-      <AppCardSectionPrimary>
-        <template #title>
-          <IconX
-            v-if="d.smAndUp.value"
-            icon="ri:newspaper-fill"
-            class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-            size="1.75rem"
-          />
-          <h2 :class="{ 'text-h5': !d.smAndUp.value }">Novosti</h2>
-        </template>
-        <p>🚧</p>
-        <p class="text-disabled">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus
-          officiis quod recusandae porro minima ut, consectetur eligendi
-          explicabo maxime ab unde, blanditiis, ea nam numquam impedit molestias
-          aliquam veritatis reprehenderit.
-        </p>
-      </AppCardSectionPrimary>
-    </template>
 
     <template v-if="false">
       <!-- @TODOs -->
