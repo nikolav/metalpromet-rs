@@ -89,7 +89,7 @@ const targetSlider = useTemplateRef<
               Metal-Promet Mladenovac
             </h1>
           </VCardTitle>
-          <VCardSubtitle class="mt-20 space-y-6 ps-10">
+          <VCardSubtitle class="mt-12 space-y-6 ps-10">
             <p class="text-shadow-md text-h4 font-weight-bold">
               <IconX
                 icon="mdi:wrench-outline"
