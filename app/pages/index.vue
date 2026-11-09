@@ -124,7 +124,7 @@ const appNavHeight = computed(() =>
                   },
                   {
                     icon: 'mdi:sync',
-                    text: 'Od ideje do realizacije',
+                    text: 'Od ideje do montaže',
                   },
                   {
                     icon: 'mdi:package-variant-closed-check',
