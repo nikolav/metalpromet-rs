@@ -96,7 +96,7 @@ const exposed = {
   id: ID,
 };
 
-useOnceMounted([], async () => {
+useOnceMounted([], () => {
   usePlayer()
     .pipe(take(1))
     .subscribe(({ Plyr }) => {

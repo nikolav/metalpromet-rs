@@ -30,9 +30,11 @@ definePageMeta({
 const localePath = useLocalePath();
 const d = useDisplay();
 const { $$, $lightbox } = useNuxtApp();
-const appNavHeight = computed(() =>
-  $$.config("layout.component.AppNavAppBar.height"),
-);
+
+const targetSlider = useTemplateRef<
+  TOrNoValue<InstanceType<typeof TAppSlideItemsStacked>>
+>("target:e08fd902-882e-5071-a8bb-2a3770776090");
+
 const slideshow = <any>{
   priprema: () => {
     $lightbox({ slides: $$.shuffle(SLIDES_PRIPREMA) }).open();
@@ -47,16 +49,17 @@ const slideshow = <any>{
     $lightbox({ slides: $$.shuffle(SLIDES_ZAVRSNA_OBRADA) }).open();
   },
 };
-const targetSlider = useTemplateRef<
-  TOrNoValue<InstanceType<typeof TAppSlideItemsStacked>>
->("target:e08fd902-882e-5071-a8bb-2a3770776090");
+
+const appNavHeight = computed(() =>
+  $$.config("layout.component.AppNavAppBar.height"),
+);
 
 // @@eos
 </script>
 
 <template>
   <AppBoxPageWrap class="page--index *space-y-20">
-    <!-- sectin:hero -->
+    <!-- section: hero -->
     <AppGridStackedFrames>
       <AppGridStackedFramesItem>
         <AppVideoPlayer
@@ -76,60 +79,291 @@ const targetSlider = useTemplateRef<
           }"
         />
       </AppGridStackedFramesItem>
-      <AppGridStackedFramesItem
-        class="!bg-[rgba(var(--v-theme-ui),.22)] position-relative"
-      >
+      <AppGridStackedFramesItem class="!bg-[rgba(var(--v-theme-ui),.22)]">
         <VCard
-          class="!text-[rgb(var(--v-theme-on-ui))] ms-12 mt-12"
+          class="!text-[rgb(var(--v-theme-on-ui))] h-full d-flex flex-col"
           variant="text"
           tile
         >
-          <VCardTitle class="space-y-5">
-            <h1 class="text-shadow-md text-h2 font-weight-bold">
-              Metal-Promet Mladenovac
-            </h1>
-          </VCardTitle>
-          <VCardSubtitle class="mt-12 space-y-6 ps-10">
-            <p class="text-shadow-md text-h4 font-weight-bold">
-              <IconX
-                icon="mdi:wrench-outline"
-                class="opacity-50"
-                size="3.5rem"
-              />
-              <span class="ms-6">Kompletne metaloprerađivače usluge</span>
-            </p>
-            <p class="text-shadow-md text-h4 font-weight-bold">
-              <IconX icon="mdi:sync" class="opacity-50" size="3.5rem" />
-              <span class="ms-6">Od ideje do realizacije</span>
-            </p>
-            <p class="text-shadow-md text-h4 font-weight-bold">
-              <IconX
-                icon="mdi:package-variant-closed-check"
-                class="opacity-50"
-                size="3.5rem"
-              />
-              <span class="ms-6">Sve na jednom mestu</span>
-            </p>
-          </VCardSubtitle>
+          <AppBoxBase class="pa-0 ma-0">
+            <VCardTitle
+              class="bg-[rgba(var(--v-theme-ui),.5)] backdrop-blur-sm py-5 shadow px-0"
+              :class="{
+                'ps-12': d.mdAndUp.value,
+                'text-center': !d.mdAndUp.value,
+              }"
+            >
+              <h1
+                class="text-shadow-md font-weight-bold"
+                :class="[
+                  d.smAndUp.value
+                    ? d.mdAndUp.value
+                      ? 'text-h2'
+                      : 'text-h3'
+                    : 'text-h4',
+                ]"
+              >
+                <span>Metal-Promet</span
+                ><span v-if="!d.mobile.value"> Mladenovac</span>
+              </h1>
+            </VCardTitle>
+            <VCardSubtitle
+              class="mt-10 space-y-5"
+              :class="{
+                'ps-12': d.smAndUp.value,
+                'px-1 text-center': !d.smAndUp.value,
+              }"
+            >
+              <p
+                v-for="item in [
+                  {
+                    icon: 'mdi:wrench-outline',
+                    text: d.mdAndUp.value
+                      ? 'Kompletne metaloprerađivačke usluge'
+                      : 'Metaloprerađivačke usluge',
+                  },
+                  {
+                    icon: 'mdi:sync',
+                    text: 'Od ideje do realizacije',
+                  },
+                  {
+                    icon: 'mdi:package-variant-closed-check',
+                    text: 'Sve na jednom mestu',
+                  },
+                ]"
+                class="text-shadow-md font-weight-bold"
+                :class="[d.smAndUp.value ? 'text-h4' : 'text-h5']"
+              >
+                <IconX
+                  v-if="d.smAndUp.value"
+                  :icon="item.icon"
+                  class="opacity-50"
+                  size="3.33rem"
+                />
+                <span :class="[{ 'ms-6': d.smAndUp.value }]">{{
+                  item.text
+                }}</span>
+              </p>
+            </VCardSubtitle>
+          </AppBoxBase>
+          <VSpacer />
+          <VCardActions
+            :class="{ 'mb-12': !d.mobile.value, 'mb-5': d.mobile.value }"
+          >
+            <VSpacer />
+            <VBtn
+              tile
+              size="x-large"
+              color="ui"
+              variant="elevated"
+              class="text-shadow-sm !text-v-on-ui px-4"
+              :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
+              :to="localePath({ name: 'contact' })"
+            >
+              <strong class="text-[122%] me-3">🤝</strong>
+              Započnimo saradnju</VBtn
+            >
+            <VSpacer />
+          </VCardActions>
         </VCard>
-        <VCardActions class="position-absolute bottom-32 w-full">
-          <VSpacer />
-          <VBtn
-            variant="elevated"
-            tile
-            class="text-shadow-sm !text-v-on-ui px-4"
-            :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-            size="x-large"
-            color="ui"
-            :to="localePath({ name: 'contact' })"
-          >
-            <strong class="text-[122%] me-3">🤝</strong>
-            Započnimo saradnju</VBtn
-          >
-          <VSpacer />
-        </VCardActions>
       </AppGridStackedFramesItem>
     </AppGridStackedFrames>
+
+    <!-- trust ceo -->
+    <AppBoxBase class="text-[rgb(var(--v-theme-on-ui))] text-shadow-sm">
+      <VRow no-gutters>
+        <VCol
+          sm="6"
+          md="3"
+          class="!bg-cover bg-[rgb(var(--v-theme-ui))] *bg-blend-multiply pt-12 !pb-24 px-4"
+          :class="{
+            [`${node.bgImage}`]: true,
+          }"
+          :key="node.title"
+          v-for="node in [
+            {
+              title: 'Kvalitet i pouzdanost',
+              text: 'Posvećeni smo savršenstvu od sirovine do gotovog proizvoda. Visoki standardi definišu naš radni vek.',
+              bgImage: `bg-[url('/images/stock/015.png')]`,
+              icon: {
+                icon: '$ratingFull',
+                size: '2.5rem',
+              },
+            },
+            {
+              title: 'Bezbednost i odgovornost',
+              text: 'Odgovorno planiramo, izrađujemo i montiramo. Bezbednost korisnika nam je uvek prioritet.',
+              bgImage: `bg-[url('/images/stock/016.png')]`,
+              icon: {
+                icon: 'mdi:security',
+                size: '2.22rem',
+              },
+            },
+            {
+              title: 'Integritet i poverenje',
+              text: 'Poverenje gradimo kroz godine i završene projekte. Posvećenost kvalitetu je ono što nas definiše.',
+              bgImage: `bg-[url('/images/stock/017.png')]`,
+              icon: {
+                icon: 'local:certificate-trusted',
+                size: '2.5rem',
+              },
+            },
+            {
+              title: 'Inovacije i rešenja',
+              text: 'Povezujemo nove tehnologije i provereno znanje. Razvijamo rešenja koja odgovaraju izazovima.',
+              bgImage: `bg-[url('/images/stock/018.png')]`,
+              icon: {
+                icon: 'local:robot-cute-head',
+                size: '2.22rem',
+              },
+            },
+          ]"
+        >
+          <AppBoxBase class="space-y-4 text-center">
+            <AppBoxCentered>
+              <IconX v-bind="node.icon" size="4rem" class="!opacity-[.88]" />
+            </AppBoxCentered>
+            <p class="font-weight-bold !text-[133%]">
+              {{ node.title }}
+            </p>
+            <p class="text-body-1">
+              {{ node.text }}
+            </p>
+          </AppBoxBase>
+        </VCol>
+      </VRow>
+    </AppBoxBase>
+
+    <!-- section: novosti, trendovi -->
+    <VSpacer class="mt-12" />
+    <AppCardSectionPrimary>
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:bullhorn"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20 -rotate-2"
+          size="2.22rem"
+        />
+        <AppCardSectionPrimaryTitle>
+          Novosti, Trendovi
+        </AppCardSectionPrimaryTitle></template
+      >
+    </AppCardSectionPrimary>
+
+    <!-- section:projekti -->
+    <VSpacer class="mt-12" />
+    <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
+      <template #title>
+        <IconX
+          v-if="d.smAndUp.value"
+          icon="mdi:eiffel-tower"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          size="2.22rem"
+        />
+        <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
+      </template>
+      <template #actions>
+        <VSpacer />
+        <VBtn
+          tile
+          class="ps-4"
+          size="large"
+          :to="$localePath({ name: 'projects' })"
+          >Saznajte više
+          <template #append>
+            <IconX icon="$next" class="opacity-50" size="1.5rem" />
+          </template>
+        </VBtn>
+        <VSpacer v-if="d.mobile.value" />
+      </template>
+      <template #default="ctx">
+        <AppGridStackedFrames>
+          <AppGridStackedFramesItem>
+            <AppSlideItemsStacked
+              ref="target:e08fd902-882e-5071-a8bb-2a3770776090"
+              show-arrows="never"
+              :cell-min-height="240"
+              :cell-width="320"
+              :items="$$.shuffle(PROJECTS)"
+              :props-container="{
+                style: {
+                  height: `calc(100svh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
+                },
+              }"
+              gap="1"
+            >
+              <template #item="cx">
+                <VCard
+                  flat
+                  link
+                  tile
+                  class="fill-height !bg-no-repeat !bg-cover !bg-bottom"
+                  :to="$localePath({ name: 'projects' })"
+                  :style="{
+                    'background-image': `url(${cx.item.image ?? '/images/stock/010.jpg'}) !important`,
+                  }"
+                >
+                  <AppBoxFlex
+                    col
+                    class="!text-white text-shadow-sm fill-height !cursor-pointer"
+                  >
+                    <AppBoxFlex class="items-center pa-5">
+                      <IconX
+                        size="1.5rem"
+                        :icon="
+                          $$.get(SERVICE_CATEGORIES, `${cx.item.category}.icon`)
+                        "
+                        class="opacity-50"
+                      />
+                      <VSpacer />
+                      <AppBoxFlex class="items-center gap-1">
+                        <IconX
+                          icon="mdi:map-marker"
+                          size="1.66rem"
+                          class="opacity-50"
+                        />
+                        <small class="text-body-2 font-italic">
+                          {{ cx.item.location }}
+                        </small>
+                      </AppBoxFlex>
+                    </AppBoxFlex>
+                    <VSpacer />
+                    <h2
+                      class="text-body-1 !min-h-[25%] pa-2 !bg-[rgba(var(--v-theme-ui),.5)] backdrop-blur-sm"
+                    >
+                      {{ cx.item.title }}
+                    </h2>
+                  </AppBoxFlex>
+                </VCard>
+              </template>
+            </AppSlideItemsStacked>
+          </AppGridStackedFramesItem>
+          <AppGridStackedFramesItem
+            class="pointer-events-none d-flex items-center justify-between px-2"
+          >
+            <AppBtnPager
+              prev
+              @click.stop="targetSlider?.slider?.scrollTo('prev')"
+              variant="elevated"
+              color="ui"
+              :disabled="!targetSlider?.slider?.hasPrev"
+              :props-icon="{
+                size: '2rem',
+              }"
+            />
+            <AppBtnPager
+              @click.stop="targetSlider?.slider?.scrollTo('next')"
+              variant="elevated"
+              color="ui"
+              :disabled="!targetSlider?.slider?.hasNext"
+              :props-icon="{
+                size: '2rem',
+              }"
+            />
+          </AppGridStackedFramesItem>
+        </AppGridStackedFrames>
+      </template>
+    </AppCardSectionPrimary>
 
     <!-- section:about -->
     <AppCardSectionPrimary class="mt-0" :props-actions="{ class: 'pt-5' }">
@@ -388,121 +622,6 @@ const targetSlider = useTemplateRef<
           </template>
         </VBtn>
         <VSpacer v-if="!d.smAndUp.value" />
-      </template>
-    </AppCardSectionPrimary>
-
-    <!-- section:projekti -->
-    <VSpacer class="mt-12" />
-    <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
-      <template #title>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:eiffel-tower"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2.22rem"
-        />
-        <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
-      </template>
-      <template #actions>
-        <VSpacer />
-        <VBtn
-          tile
-          class="ps-4"
-          size="large"
-          :to="$localePath({ name: 'projects' })"
-          >Saznajte više
-          <template #append>
-            <IconX icon="$next" class="opacity-50" size="1.5rem" />
-          </template>
-        </VBtn>
-        <VSpacer v-if="d.mobile.value" />
-      </template>
-      <template #default="ctx">
-        <AppGridStackedFrames>
-          <AppGridStackedFramesItem>
-            <AppSlideItemsStacked
-              ref="target:e08fd902-882e-5071-a8bb-2a3770776090"
-              show-arrows="never"
-              :cell-min-height="240"
-              :cell-width="320"
-              :items="$$.shuffle(PROJECTS)"
-              :props-container="{
-                style: {
-                  height: `calc(100svh - ${ctx.titleSize.height ?? 0}px - ${$$.config('layout.component.AppNavAppBar.height') ?? 0}px - 2rem)`,
-                },
-              }"
-              gap="1"
-            >
-              <template #item="cx">
-                <VCard
-                  flat
-                  link
-                  tile
-                  class="fill-height !bg-no-repeat !bg-cover !bg-bottom"
-                  :to="$localePath({ name: 'projects' })"
-                  :style="{
-                    'background-image': `url(${cx.item.image ?? '/images/stock/010.jpg'}) !important`,
-                  }"
-                >
-                  <AppBoxFlex
-                    col
-                    class="!text-white text-shadow-sm fill-height !cursor-pointer"
-                  >
-                    <AppBoxFlex class="items-center pa-5">
-                      <IconX
-                        size="1.5rem"
-                        :icon="
-                          $$.get(SERVICE_CATEGORIES, `${cx.item.category}.icon`)
-                        "
-                        class="opacity-50"
-                      />
-                      <VSpacer />
-                      <AppBoxFlex class="items-center gap-1">
-                        <IconX
-                          icon="mdi:map-marker"
-                          size="1.66rem"
-                          class="opacity-50"
-                        />
-                        <small class="text-body-2 font-italic">
-                          {{ cx.item.location }}
-                        </small>
-                      </AppBoxFlex>
-                    </AppBoxFlex>
-                    <VSpacer />
-                    <h2
-                      class="text-body-1 !min-h-[25%] pa-2 !bg-[rgba(var(--v-theme-ui),.5)] backdrop-blur-sm"
-                    >
-                      {{ cx.item.title }}
-                    </h2>
-                  </AppBoxFlex>
-                </VCard>
-              </template>
-            </AppSlideItemsStacked>
-          </AppGridStackedFramesItem>
-          <AppGridStackedFramesItem
-            class="pointer-events-none d-flex items-center justify-between px-2"
-          >
-            <AppBtnPager
-              prev
-              @click.stop="targetSlider?.slider?.scrollTo('prev')"
-              variant="elevated"
-              color="ui"
-              :disabled="!targetSlider?.slider?.hasPrev"
-              :props-icon="{
-                size: '2rem',
-              }"
-            />
-            <AppBtnPager
-              @click.stop="targetSlider?.slider?.scrollTo('next')"
-              variant="elevated"
-              color="ui"
-              :disabled="!targetSlider?.slider?.hasNext"
-              :props-icon="{
-                size: '2rem',
-              }"
-            />
-          </AppGridStackedFramesItem>
-        </AppGridStackedFrames>
       </template>
     </AppCardSectionPrimary>
 
