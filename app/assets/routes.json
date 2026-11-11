@@ -44,7 +44,11 @@
 
     "/sr/katalog",
     "/sr-cyrl/katalog",
-    "/en/catalogue"
+    "/en/catalogue",
+
+    "/sr/projekti/industrija/krusevac/reaktor-otpadnih-voda",
+    "/sr-cyrl/projekti/industrija/krusevac/reaktor-otpadnih-voda",
+    "/en/projects/industry/krusevac/water-cleaning-reactor"
   ],
   "ignore": []
 }
