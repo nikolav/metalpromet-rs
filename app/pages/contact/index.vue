@@ -97,12 +97,12 @@ const toggleOverlayForm = useToggleFlag();
                     </VCardTitle>
                     <VCardText class="text-body-1"
                       ><NuxtLink
-                        href="https://maps.app.goo.gl/RKmTxP7zQXRBTM6M7"
+                        href="https://maps.app.goo.gl/fuGJnobWPHawt2ur5"
                         external
                         target="_blank"
                         class="pointer-events-auto"
                         @click.stop
-                        >Dositejeva 2, <br />Mladenovac 11400,
+                        >Palanački put bb, <br />Kovačevac 11400,
                         <br />Srbija</NuxtLink
                       >
                     </VCardText>

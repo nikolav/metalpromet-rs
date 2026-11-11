@@ -2,8 +2,8 @@
   {
     "key": "priprema",
     "image": "/images/stock/005.jpg",
-    "title": "Priprema",
-    "description": "Vidite projekat pre gradnje, imate tačne crteže i animirani pregled – što znači brži početak, manje prepravki i potpuna kontrola od prve faze.",
+    "title": "Projektovanje",
+    "description": "Vidite projekat pre montaže, imate tačne crteže i animirani pregled &dash; što znači brži početak, manje prepravki i potpuna kontrola od prve faze.",
     "services": [
       "Modelovanje i renderi",
       "Tehnička dokumentacija",
@@ -16,12 +16,12 @@
     "key": "proizvodnja",
     "image": "/images/stock/006.jpg",
     "title": "Proizvodnja",
-    "description": "Izrada čeličnih i aluminijumskih konstrukcija, ograda, kapija i nadstrešnica, uz uslužno plastificiranje metala, zavarivanje, CNC obradu i montaže u Srbiji i Evropi.",
+    "description": "Izrada industrijske opreme po zahtevima klijenata, metalnih konstrukcija i stolarije, uz uslužno plastificiranje metala, zavarivanje, CNC obradu i montaže u Srbiji i Evropi.",
     "services": [
-      "Zavarivanje (MAG/MIG/TIG) i švajsovanje metala",
-      "CNC obrada i lasersko sečenje",
-      "Izrada čeličnih, aluminijumskih i inox konstrukcija",
+      "Izrada komponenti i opreme za industrisjki sektor",
+      "Zavarivanje i švajsovanje metala",
       "Montaža nosivih okvira i krovnih sistema",
+      "CNC obrada i lasersko sečenje",
       "Kovano gvožđe i umetnička bravarija"
     ],
     "icon": "mdi:wrench",
@@ -49,9 +49,8 @@
     "description": "Površinska obrada metala, sa dugotrajnom zaštitom od korozije i estetskim završetkom, prilagođena individualnim zahtevima svakog proizvoda.",
     "services": [
       "Uslužna plastifikacija",
-      "Hemijska predobrada i cink prajmer",
+      "Hemijska predobrada",
       "Peskarenje finim abrazivom",
-      "Vruće i hladno cinkovanje",
       "Veliki izbor RAL nijansi, struktura, šljokice, mat"
     ],
     "icon": "mdi:shield",

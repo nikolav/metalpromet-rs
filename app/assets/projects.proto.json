@@ -1,5 +1,11 @@
 [
   {
+    "title": "Reaktor otpadnih voda",
+    "category": "Industrija",
+    "image": "/images/stock/card/93.jpg",
+    "location": "Kruševac"
+  },
+  {
     "title": "Automatizovana pokretna kapija za pogon u Sopotu",
     "category": "Stolarija, ograde i oprema",
     "image": "/images/stock/card/01.jpg",
@@ -100,12 +106,6 @@
     "category": "Zaštita i obrada površina",
     "image": "/images/stock/card/17.jpg",
     "location": "Aranđelovac"
-  },
-  {
-    "title": "Cink prajmer za zaštitu od korozije",
-    "category": "Zaštita i obrada površina",
-    "image": "/images/stock/card/18.jpg",
-    "location": "Zemun"
   },
   {
     "title": "Antracit struktura (RAL 7016) za ograde",
@@ -335,12 +335,6 @@
     "location": "Mladenovac"
   },
   {
-    "title": "Tretman cink prajmerom pre farbanja",
-    "category": "Zaštita i obrada površina",
-    "image": "/images/stock/card/56.jpg",
-    "location": "Pančevo"
-  },
-  {
     "title": "Izrada stepeništa za poslovne objekte",
     "category": "Stolarija, ograde i oprema",
     "image": "/images/stock/card/57.jpg",
@@ -393,12 +387,6 @@
     "category": "Stolarija, ograde i oprema",
     "image": "/images/stock/card/65.jpg",
     "location": "Kragujevac"
-  },
-  {
-    "title": "Zaštita od korozije za vanjske objekte",
-    "category": "Zaštita i obrada površina",
-    "image": "/images/stock/card/66.jpg",
-    "location": "Kosmaj"
   },
   {
     "title": "Montaža u Srbiji i inostranstvu",
@@ -543,12 +531,6 @@
     "category": "Stolarija, ograde i oprema",
     "image": "/images/stock/card/90.jpg",
     "location": "Kraljevo"
-  },
-  {
-    "title": "Pocinkovane ograde",
-    "category": "Stolarija, ograde i oprema",
-    "image": "/images/stock/card/91.jpg",
-    "location": "Sopot"
   },
   {
     "title": "Montaža metalnih konstrukcija u inostranstvu",

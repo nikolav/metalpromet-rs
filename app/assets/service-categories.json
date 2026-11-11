@@ -1,4 +1,7 @@
 {
+  "Industrija": {
+    "icon": "mdi:engine"
+  },
   "Projektovanje i inženjering": {
     "icon": "mdi:ruler"
   },

@@ -69,8 +69,8 @@ const localePath = useLocalePath();
                 </AppBoxBase>
                 <AppBoxBase class="font-bold text-center">
                   <IconX icon="mdi:medal" size="2rem" class="text-accent" />
-                  <p>Poslujemo od 1984. godine.</p>
-                  <p>{{ new Date().getFullYear() - 1984 }} godine iskustva!</p>
+                  <p>Poslujemo od 1988. godine.</p>
+                  <p>{{ new Date().getFullYear() - 1988 }} godine iskustva!</p>
                 </AppBoxBase>
                 <AppBoxBase class="font-bold text-center">
                   <IconX icon="$ratingFull" size="2rem" class="text-accent" />
@@ -238,10 +238,6 @@ const localePath = useLocalePath();
                           title: 'Peskarenje',
                           to: 'under-construction',
                         },
-                        {
-                          title: 'Cinkovanje',
-                          to: 'under-construction',
-                        },
                       ]"
                       :key="item.title"
                       :to="localePath({ name: item.to })"
@@ -301,10 +297,10 @@ const localePath = useLocalePath();
                   </VListItemTitle>
                   <VListItemSubtitle
                     ><NuxtLink
-                      href="https://maps.app.goo.gl/RKmTxP7zQXRBTM6M7"
+                      href="https://maps.app.goo.gl/fuGJnobWPHawt2ur5"
                       external
                       target="_blank"
-                      >Dositejeva 2, Mladenovac 11400, Srbija</NuxtLink
+                      >Palanački put bb, Kovačevac 11400, Srbija</NuxtLink
                     ></VListItemSubtitle
                   >
                 </VListItem>

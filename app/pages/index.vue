@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
+import { UseElementBounding } from "@vueuse/components";
 
 import DELATNOSTI from "~/assets/sve-delatnosti.json";
 import SLIDES_PRIPREMA from "~/assets/slides-priprema.json";
@@ -27,7 +28,6 @@ definePageMeta({
   },
 });
 
-const localePath = useLocalePath();
 const d = useDisplay();
 const { $$, $lightbox } = useNuxtApp();
 
@@ -158,7 +158,7 @@ const appNavHeight = computed(() =>
               variant="elevated"
               class="text-shadow-sm !text-v-on-ui px-4"
               :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-              :to="localePath({ name: 'contact' })"
+              :to="$localePath({ name: 'contact' })"
             >
               <strong class="text-[122%] me-3">🤝</strong>
               Započnimo saradnju</VBtn
@@ -170,7 +170,7 @@ const appNavHeight = computed(() =>
     </AppGridStackedFrames>
 
     <!-- trust ceo -->
-    <AppBoxBase class="text-[rgb(var(--v-theme-on-ui))] text-shadow-sm">
+    <VCard tile class="!text-[rgb(var(--v-theme-on-ui))] text-shadow-sm">
       <VRow no-gutters>
         <VCol
           sm="6"
@@ -232,26 +232,121 @@ const appNavHeight = computed(() =>
           </AppBoxBase>
         </VCol>
       </VRow>
-    </AppBoxBase>
+    </VCard>
 
     <!-- section: novosti, trendovi -->
     <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
+    <AppCardSectionPrimary variant="text">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:bullhorn"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20 -rotate-2"
+          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20 -rotate-12"
           size="2.22rem"
         />
         <AppCardSectionPrimaryTitle>
           Novosti, Trendovi
         </AppCardSectionPrimaryTitle></template
       >
+      <template #default="cx">
+        <VContainer fluid>
+          <VRow dense>
+            <VCol sm="6" md="4">
+              <VCard
+                link
+                height="712"
+                :to="$localePath({ name: 'projects' })"
+                class="d-flex flex-col"
+              >
+                <NuxtImg
+                  src="/images/stock/010.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+                <VCardTitle
+                  class="font-weight-bold text-center"
+                  :class="[d.smAndUp.value ? 'pt-5' : 'pt-10']"
+                >
+                  Reaktor otpadnih voda
+                </VCardTitle>
+                <VCardText class="space-y-4 indent-4 text-body-1">
+                  <p>
+                    Kruševac je dobio reaktor otpadnih voda, a Metal-Promet
+                    dokaz da <strong>ambicije nisu prazna priča</strong>. Tri
+                    meseca rada, zahtevni kriterijumi i standard koji ne trpi
+                    <em>&quot;dovoljno dobro&quot;</em>.
+                  </p>
+                  <p>
+                    Metal-Promet još jednom potvrđuje da ume da odgovori na
+                    složene zahteve industrijskog sektora.
+                  </p>
+                </VCardText>
+                <VSpacer />
+                <VCardActions>
+                  <VSpacer />
+                  <VBtn
+                    tile
+                    class="ps-4"
+                    size="large"
+                    :to="$localePath({ name: 'projects' })"
+                    >Saznajte više
+                    <template #append>
+                      <IconX icon="$next" class="opacity-50" size="1.5rem" />
+                    </template>
+                  </VBtn>
+                  <VSpacer />
+                </VCardActions>
+              </VCard>
+            </VCol>
+            <VCol sm="6" md="4">
+              <VCard height="712">
+                <NuxtImg src="/logo.2.jpg" class="object-cover w-full h-1/2" />
+                <VCardTitle
+                  class="font-weight-bold text-center"
+                  :class="{ 'pt-8': !d.smAndUp.value }"
+                >
+                  Zaštitni znak
+                </VCardTitle>
+                <VCardText class="space-y-4 indent-4 text-body-1">
+                  <p>
+                    Znak Metal-Prometa od sada nosi novi prepoznatljiv logo, u
+                    skladu sa onim što radimo: čelične konstrukcije, teška
+                    industrija, aluminijumske ograde i vrhunsku plastifikaciju
+                    metala. To je <strong>simbol kontinuiteta</strong> i
+                    spremnosti za nove industrijske izazove, u Srbiji i
+                    inostranstvu.
+                  </p>
+                </VCardText>
+              </VCard>
+            </VCol>
+            <VCol sm="6" md="4">
+              <VCard height="712">
+                <NuxtImg
+                  src="/images/stock/012.jpg"
+                  class="object-cover w-full h-1/2"
+                />
+                <VCardTitle
+                  class="font-weight-bold text-center"
+                  :class="{ 'pt-8': !d.smAndUp.value }"
+                >
+                  Web sajt Metal-Prometa
+                </VCardTitle>
+                <VCardText class="space-y-4 indent-4 text-body-1">
+                  <p>
+                    Zvanični sajt Metal-Prometa mesto je gde se na jednom mestu
+                    predstavljaju naše usluge i stečeno iskustvo. Informišite se
+                    o ponudi, pogledajte primere radova i
+                    <strong>kontaktirajte nas</strong>.
+                  </p>
+                  <p>Tu smo za svaku ideju, od skice do realizacije.</p>
+                </VCardText>
+              </VCard>
+            </VCol>
+          </VRow>
+        </VContainer>
+      </template>
     </AppCardSectionPrimary>
 
     <!-- section:projekti -->
-    <VSpacer class="mt-12" />
     <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
       <template #title>
         <IconX
@@ -365,269 +460,9 @@ const appNavHeight = computed(() =>
       </template>
     </AppCardSectionPrimary>
 
-    <!-- section:about -->
-    <AppCardSectionPrimary class="mt-0" :props-actions="{ class: 'pt-5' }">
-      <template #title>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="$info"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2rem"
-        />
-        <AppCardSectionPrimaryTitle>
-          Upoznajte Metal-Promet
-        </AppCardSectionPrimaryTitle>
-      </template>
-
-      <!-- about -->
-      <VSpacer class="mt-2" />
-      <AppBoxContainerCentered
-        fluid
-        :max-width="undefined"
-        :class="{ 'px-2': d.smAndUp.value }"
-      >
-        <VRow dense>
-          <VCol
-            :align-self="d.smAndUp.value ? 'stretch' : undefined"
-            md="3"
-            sm="6"
-            :key="node.text"
-            v-for="node in [
-              {
-                image: '/images/stock/009.jpg',
-                icon: {
-                  name: 'material-symbols:id-card-outline',
-                  size: '2.22rem',
-                },
-                text: `<p>Mi smo Metal-Promet iz Mladenovca &dash; porodična firma specijalizovana za <strong>kompletne metaloprerađivačke radove</strong>, od projektovanja i obrade do zaštite i montaže metalnih konstrukcija. </p><p>Poslujemo od 1988. godine i danas smo prepoznatljivi po vrhunskom kvalitetu, inženjerskoj preciznosti i usluzi plastifikacije u sopstvenoj peći. </p><p>Izvodimo projekte u Srbiji i Evropi, sa fokusom na dugovečnost i estetiku svakog proizvoda. Kvalitet koji stvaramo traje &dash; zato nam se mnogi vraćaju.</p>`,
-                to: 'about',
-              },
-              {
-                image: '/images/stock/011.jpg',
-                icon: {
-                  name: 'mdi:certificate',
-                  size: '2rem',
-                },
-                text: `<p>Specijalizovani smo za <strong>izradu čeličnih i aluminijumskih konstrukcija visoke nosivosti</strong>, prilagođenih najstrožijim standardima čvrstoće i bezbednosti. Svaki proizvod, pre finalne zaštite, prolazi kroz hemijsko čišćenje i obradu, uz mogućnost nanošenja prajmera, te toplog ili hladnog cinkovanja.</p><p>Na taj način obezbeđujemo vrhunsku otpornost na koroziju i habanje, čineći naše konstrukcije trajnim rešenjem za svaki prostor.</p>`,
-                to: 'services-constructions',
-              },
-              {
-                image: '/images/stock/010.jpg',
-                icon: {
-                  name: 'local:shield-improved',
-                  size: '1.92rem',
-                },
-                text: `<p>Raspolažemo industrijskom komorom za plastifikaciju dužine 7,8 metara i visine rama do 2,5 metara, uz obavezan hemijski predtretman i opcionu primenu cink prajmera, čime <strong>garantujemo dugotrajnu korozionu postojanost</strong>. Ova tehnologija omogućava obradu i najvećih konstrukcija, dok bogat izbor <em>RAL</em> nijansi i tekstura osigurava da svaki komad bude estetski dovršen. </p><p>Ovakav pristup čini osnovu našeg poslovanja i razlog zbog kog nam klijenti vraćaju poverenje.</p>`,
-                to: 'services-finish',
-              },
-              {
-                image: '/images/stock/012.jpg',
-                icon: {
-                  name: 'mdi:diamond-stone',
-                  size: '2rem',
-                },
-                text: `<p>Sa sertifikatom bonitetne izvrsnosti i dokazanim izvoznim iskustvom u Evropi donosimo <strong>vrhunske standarde izrade i zaštite metala</strong> na tržište Srbije. Naši procesi hemijske pripreme, plastifikacije i opcionog cinkovanja garantuju dugotrajnu korozionu postojanost i besprekornu estetsku završnicu, bez obzira na vrstu i veličinu projekta. </p><p>Sa nama, vaša ideja dobija pravu formu i domaću posvećenost &dash; od Mladenovca do svakog kraja Srbije.</p>`,
-                to: 'catalogue',
-              },
-            ]"
-          >
-            <VCard
-              elevation="1"
-              class="pb-2 d-flex flex-col"
-              :class="{ 'h-full': d.smAndUp.value }"
-            >
-              <AppBoxBase class="h-[192px]">
-                <VImg :src="node.image" cover height="100%">
-                  <div
-                    class="position-relative !w-full !h-full !bg-[rgba(var(--v-theme-ui),.5)]"
-                  />
-                </VImg>
-              </AppBoxBase>
-              <AppBoxCentered class="pt-5">
-                <IconX
-                  :icon="node.icon.name"
-                  :size="node.icon.size"
-                  class="opacity-20"
-                  :class="{ 'w-[4rem]': d.smAndUp.value }"
-                />
-              </AppBoxCentered>
-              <VCardText class="indent-4 space-y-2" v-html="node.text" />
-              <VSpacer />
-              <VCardActions>
-                <VSpacer />
-                <VBtn tile class="ps-4" :to="$localePath(node.to)">
-                  <template #append>
-                    <IconX icon="$next" class="opacity-50" />
-                  </template>
-                  Saznajte više
-                </VBtn>
-                <VSpacer />
-              </VCardActions>
-            </VCard>
-          </VCol>
-        </VRow>
-      </AppBoxContainerCentered>
-
-      <!-- ceo:trust -->
-      <VSpacer class="mt-2" />
-      <AppBoxContainerCentered fluid>
-        <VCard
-          :rounded="d.mdAndUp.value ? 's-0 e-md' : undefined"
-          :class="{
-            '!border-s-4 !border-s-[rgba(var(--v-theme-primary-variant),.5)]':
-              d.mdAndUp.value,
-          }"
-        >
-          <VRow no-gutters>
-            <VCol md="7" class="app-container-reset">
-              <AppBoxContainerCentered
-                fluid
-                :max-width="undefined"
-                class="fill-height"
-              >
-                <VRow no-gutters class="fill-height">
-                  <VCol
-                    sm="6"
-                    class="!bg-cover bg-[rgba(var(--v-theme-surface-light),.66)] bg-blend-multiply"
-                    :class="{
-                      [`${node.bgImage}`]: true,
-                      'py-12': !d.mdAndUp.value,
-                    }"
-                    :key="node.title"
-                    v-for="node in [
-                      {
-                        title: 'Kvalitet i pouzdanost',
-                        text: 'Posvećeni smo savršenstvu od sirovine do gotovog proizvoda. Visoki standardi definišu naš radni vek.',
-                        bgImage: `bg-[url('/images/stock/015.png')]`,
-                        icon: {
-                          icon: '$ratingFull',
-                          size: '2.5rem',
-                        },
-                      },
-                      {
-                        title: 'Bezbednost i odgovornost',
-                        text: 'Odgovorno planiramo, izrađujemo i montiramo. Bezbednost korisnika nam je uvek prioritet.',
-                        bgImage: `bg-[url('/images/stock/016.png')]`,
-                        icon: {
-                          icon: 'mdi:security',
-                          size: '2.22rem',
-                        },
-                      },
-                      {
-                        title: 'Integritet i poverenje',
-                        text: 'Poverenje gradimo kroz godine i završene projekte. Posvećenost kvalitetu je ono što nas definiše.',
-                        bgImage: `bg-[url('/images/stock/017.png')]`,
-                        icon: {
-                          icon: 'local:certificate-trusted',
-                          size: '2.5rem',
-                        },
-                      },
-                      {
-                        title: 'Inovacije i rešenja',
-                        text: 'Povezujemo nove tehnologije i provereno znanje. Razvijamo rešenja koja odgovaraju izazovima.',
-                        bgImage: `bg-[url('/images/stock/018.png')]`,
-                        icon: {
-                          icon: 'local:robot-cute-head',
-                          size: '2.22rem',
-                        },
-                      },
-                    ]"
-                  >
-                    <AppBoxCentered class="fill-height text-body-2">
-                      <AppBoxBase class="space-y-4 text-center">
-                        <AppBoxCentered>
-                          <IconX
-                            v-bind="node.icon"
-                            size="3rem"
-                            class="!opacity-[.22]"
-                          />
-                        </AppBoxCentered>
-                        <p class="text-center text-body-1">
-                          {{ node.title }}
-                        </p>
-                        <p class="pa-1">
-                          {{ node.text }}
-                        </p>
-                      </AppBoxBase>
-                    </AppBoxCentered>
-                  </VCol>
-                </VRow>
-              </AppBoxContainerCentered>
-            </VCol>
-
-            <VCol
-              md="5"
-              class="app-container-reset py-5 space-y-2 bg-[url('/images/stock/014.png')] !bg-[rgba(var(--v-theme-surface-light),.85)] bg-blend-overlay !bg-cover !bg-no-repeat"
-              :order="!d.mdAndUp.value ? undefined : 'last'"
-            >
-              <AppBoxBase>
-                <AppBoxCentered>
-                  <IconX icon="mdi:puzzle" size="2rem" class="opacity-20" />
-                </AppBoxCentered>
-                <VCardText class="text-body-1">
-                  <em
-                    >&quot;Ko dugo gleda u vetar, taj zna kad će kiša.&quot;</em
-                  >
-                  U Metal-Prometu, decenijama gledamo u vetar promena na
-                  tržištu, ali ostajemo čvrsto ukorenjeni u onome što znamo
-                  najbolje &dash; inženjering i obradu metala. Od 1988. godine
-                  gradimo poverenje ne rečima, već delima.</VCardText
-                >
-              </AppBoxBase>
-              <AppBoxBase>
-                <AppBoxCentered>
-                  <IconX
-                    icon="mdi:diamond-stone"
-                    size="2rem"
-                    class="opacity-20"
-                  />
-                </AppBoxCentered>
-                <VCardText class="text-body-1">
-                  Naša proizvodnja u Mladenovcu, svedoči o tome da smo spremni
-                  za najzahtevnije projekte. Jer, kako izreka kaže:
-                  <em>&quot;Bez muke nema nauke.&quot;</em> &dash; svaki naš
-                  zavar, svaka konstrukcija i svaka montaža rezultat su predanog
-                  rada i vrhunskog znanja koje ne prepuštamo slučaju.
-                </VCardText>
-              </AppBoxBase>
-            </VCol>
-          </VRow>
-        </VCard>
-      </AppBoxContainerCentered>
-
-      <!-- video -->
-      <VSpacer class="mt-2" />
-      <AppBoxContainerCentered fluid>
-        <VCard variant="text" elevation="1">
-          <AppVideoPlayer
-            :sources="[{ src: 'ni1k-4yGADw' }]"
-            provider="youtube"
-            :props-frame="{
-              title: 'Metal-Promet Mladenovac',
-            }"
-          />
-        </VCard>
-      </AppBoxContainerCentered>
-
-      <template #actions>
-        <VSpacer />
-        <VBtn
-          tile
-          class="ps-4"
-          size="large"
-          :to="$localePath({ name: 'about' })"
-          >Saznajte više
-          <template #append>
-            <IconX icon="$next" class="opacity-50" size="1.5rem" />
-          </template>
-        </VBtn>
-        <VSpacer v-if="!d.smAndUp.value" />
-      </template>
-    </AppCardSectionPrimary>
-
-    <!-- section:delatnosti -->
+    <!-- section: delatnosti -->
     <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
+    <AppCardSectionPrimary variant="text" class="pb-2">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -639,64 +474,196 @@ const appNavHeight = computed(() =>
           Kompletno rešenje<template v-if="d.smAndUp.value"> za metal</template>
         </AppCardSectionPrimaryTitle>
       </template>
-      <VCardText class="text-body-1 py-2 px-2">
-        <VContainer fluid>
-          <AppBoxContainerCentered fluid>
-            <VRow>
-              <VCol
-                :key="node.text"
-                v-for="node in [
-                  {
-                    icon: { name: 'local:conveyor-belt-box', size: '2rem' },
-                    text: `<strong>Zatvoreni tehnološki krug</strong> &dash; od inženjerske ideje, kroz preciznu proizvodnju i zaštitu, do profesionalne montaže &dash; bez outsourcinga, sve pod jednim krovom. To znači da svaki projekat, od skice do monaže, prolazi kroz ruke stručnjaka, bez posrednika i bez kompromisa u kvalitetu.`,
-                  },
-                  {
-                    icon: { name: 'local:brain-outline', size: '2.122rem' },
-                    text: `Proizvodna baza u Mladenovcu, sa svojim integrisanim pristupom, predstavlja središte sa kojeg upravljamo efikasnom realizacijom projekata u Šumadiji i okruženju. Ovakav organizacioni model čini nas <strong>pouzdanim partnerom za kompletnu izradu i montažu metalnih konstrukcija</strong> u opštinama centralne Srbije.`,
-                  },
-                  {
-                    icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
-                    text: `Naši montažni timovi dostupni su u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota, čime <strong>osiguravamo da kvalitetna izrada bude praćena i profesionalnom ugradnjom</strong> &dash; gde god da se vaš objekat nalazi.`,
-                  },
-                  {
-                    icon: { name: 'mdi:diamond-stone', size: '2.5rem' },
-                    text: `Kvalitet izrade je garantovan jer svaka faza projekta prolazi kroz strogu kontrolu pre nego što napusti naš pogon. Verujemo da je najbolja garancija <strong>dugovečnost naših proizvoda</strong> i zato sa ponosom stojimo iza svakog komada koji izađe iz naše radionice.`,
-                  },
-                ]"
-                sm="6"
-                class="d-flex flex-col items-center"
-              >
-                <VBadge
-                  color="success"
-                  location="bottom end"
-                  offset-x="10"
-                  offset-y="10"
-                >
-                  <template #badge>
-                    <IconX icon="$complete" />
-                  </template>
-                  <VAvatar
-                    color="rgba(var(--v-theme-primary-variant), .122)"
-                    size="4.22rem"
-                  >
-                    <IconX
-                      :icon="node.icon.name"
-                      :size="node.icon.size"
-                      class="opacity-20"
-                    />
-                  </VAvatar>
-                </VBadge>
+      <template #default="cx">
+        <AppBoxContainerCentered :max-width="undefined" fluid>
+          <tempalte
+            :key="item.title"
+            v-for="(item, i) in [
+              {
+                icon: {
+                  name: 'material-symbols:id-card-outline',
+                  size: '2.5rem',
+                },
+                title: 'Upoznajte Metal-Promet',
+                image: {
+                  src: '/images/stock/013.jpg',
+                  classes: 'object-[44%_top]',
+                },
+                link: {
+                  to: 'about',
+                  text: 'Saznajte više',
+                },
+                text: `Mi smo <strong>Metal-Promet iz Mladenovca</strong> &dash; porodična firma specijalizovana za kompletne metaloprerađivačke radove, od projektovanja i obrade do zaštite i montaže industrijskih komponenti i metalnih konstrukcija. Poslujemo nekoliko decenija i danas smo prepoznatljivi po vrhunskom kvalitetu, inženjerskoj preciznosti i usluzi plastifikacije u sopstvenoj peći. Izvodimo projekte u Srbiji i Evropi, sa fokusom na dugovečnost i estetiku svakog proizvoda. Kvalitet koji stvaramo traje &dash; zato nam se mnogi vraćaju.`,
+              },
+              {
+                icon: { name: 'local:conveyor-belt-box', size: '2rem' },
+                title: 'Zatvoren tehnološki krug',
+                image: {
+                  src: '/images/stock/015.jpg',
+                  classes: '',
+                },
+                link: {
+                  to: 'services',
+                  text: 'Saznajte više',
+                },
+                text: `Od inženjerske ideje, kroz preciznu proizvodnju i zaštitu, do profesionalne montaže &dash; bez   <span class='italic'>outsourcinga</span>, <strong>nudimo sve usluge prerade metala pod jednim krovom</strong>. To znači da svaki projekat, od skice do monaže, prolazi kroz ruke stručnjaka, bez posrednika i bez kompromisa u kvalitetu.`,
+              },
+              {
+                icon: { name: 'mdi:toolbox', size: '2.5rem' },
+                title: 'Rešenje za svaki zahtev',
+                image: {
+                  src: '/images/stock/016.jpg',
+                  classes: 'object-top',
+                },
+                link: {
+                  to: 'projects',
+                  text: 'Saznajte više',
+                },
+                text: `Specijalizovani smo za izradu komponenti i jedinica za industrijski sektor i metalnih konstrukcija visoke nosivosti prilagođenih najstrožim standardima čvrstoće i bezbednosti. Svaki proizvod prolazi hemijsko čišćenje i obradu, uz mogućnost nanošenja prajmera, čime obezbeđujemo vrhunsku otpornost na koroziju i habanje. Od kapija i ograda do reaktora i rezervoara procesne opreme &dash; <strong>nudimo kompletna rešenja od ideje do montaže</strong>, u zemlji i inostranstvu.`,
+              },
+              {
+                icon: { name: 'local:certificate-trusted', size: '2.5rem' },
+                title: 'Partner za Vaš projekat',
+                image: {
+                  src: '/images/stock/018.jpg',
+                  classes: 'object-[right_top]',
+                },
+                link: {
+                  to: 'contact',
+                  text: 'Zatražite ponudu',
+                },
+                text: `Proizvodna baza u Mladenovcu, sa svojim integrisanim pristupom, predstavlja središte sa kojeg upravljamo efikasnom realizacijom projekata u Šumadiji i okruženju. Ovakav organizacioni model čini nas <strong>pouzdanim partnerom za kompletnu izradu i montažu industrijske opreme i metalnih konstrukcija</strong> u opštinama centralne Srbije.`,
+              },
+              {
+                icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
+                title: `Vaša ideja &dash; naša briga`,
+                image: {
+                  src: '/images/stock/019.jpg',
+                  classes: 'object-[45%_center]',
+                },
+                link: {
+                  to: 'contact',
+                  text: 'Zakažite montažu',
+                },
+                text: `Naši montažni timovi dostupni su u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota, čime <strong>osiguravamo da kvalitetna izrada bude praćena i profesionalnom montažom</strong> &dash; gde god da se vaš objekat nalazi.`,
+              },
 
-                <p
-                  class="mt-5"
-                  :class="[d.smAndUp.value ? 'text-body-1' : 'text-body-2']"
-                  v-html="node.text"
-                />
-              </VCol>
-            </VRow>
-          </AppBoxContainerCentered>
+              {
+                icon: { name: 'mdi:diamond-stone', size: '2.5rem' },
+                title: 'Kvalitet zagarantovan',
+                image: {
+                  src: '/images/stock/017.jpg',
+                  classes: '',
+                },
+                link: {
+                  to: 'about',
+                  text: 'Saznajte više',
+                },
+                text: `Donosimo vrhunske standarde izrade i zaštite metala na tržište Srbije. Kontrola izrade, procesi  hemijske pripreme i plastifikacije garantuju dugovečnost, dugotrajnu korozionu postojanost i besprekornu estetsku završnicu, bez obzira na vrstu i veličinu projekta. <strong>Sa nama, vaša ideja dobija pravu formu i domaću posvećenost</strong> &dash; od Mladenovca do svakog kraja Srbije.`,
+              },
+              //
+            ]"
+          >
+            <VCard
+              :style="[
+                d.mdAndUp.value
+                  ? {
+                      height: `calc(99dvh - ${appNavHeight ?? 0}px - ${cx.titleSize.height ?? 0}px - 2rem)`,
+                    }
+                  : undefined,
+              ]"
+              :class="{
+                'pb-16': !d.mdAndUp.value,
+              }"
+              tile
+              variant="flat"
+              :color="0 != i % 2 ? 'surface-variant' : undefined"
+            >
+              <AppGridTwoCells
+                :invert="0 == i % 2"
+                class="h-full"
+                :stack="!d.mdAndUp.value"
+              >
+                <template #media>
+                  <NuxtImg
+                    :src="item?.image?.src ?? '/logo.jpg'"
+                    :class="[
+                      'w-full',
+                      'object-cover',
+                      item.image.classes,
+                      d.mdAndUp.value ? 'h-full' : 'h-[33dvh]',
+                    ]"
+                  />
+                </template>
+                <template #text>
+                  <AppBoxBase class="space-y-5 pt-8 h-full d-flex flex-col">
+                    <AppBoxCentered>
+                      <VAvatar
+                        color="rgba(var(--v-theme-primary-variant), .122)"
+                        size="4.22rem"
+                      >
+                        <IconX
+                          :icon="item.icon.name"
+                          :size="item.icon.size"
+                          class="opacity-20"
+                        />
+                      </VAvatar>
+                    </AppBoxCentered>
+                    <VCardTitle
+                      class="text-center text-shadow-sm position-relative"
+                      :class="[d.mdAndUp.value ? 'text-h4' : undefined]"
+                    >
+                      <span v-if="!d.mdAndUp.value"> {{ item.title }} </span>
+                      <UseElementBounding
+                        v-else
+                        class="d-inline-block px-0 mx-0"
+                        v-slot="cx"
+                      >
+                        <span> {{ item.title }} </span>
+                        <AppShapeLineH
+                          :width="
+                            0 == i % 2 ? cx.right : d.width.value - cx.left - 16
+                          "
+                          :height="1"
+                          :props-canvas="{
+                            class: `text-v-on-surface/[.5] position-absolute bottom-3 ${0 == i % 2 ? 'start-0' : 'end-0'}`,
+                          }"
+                        />
+                      </UseElementBounding>
+                    </VCardTitle>
+                    <VCardText
+                      :class="[
+                        'indent-5',
+                        d.smAndUp.value ? 'px-10' : undefined,
+                        d.mdAndUp.value ? 'text-h6' : 'text-body-1',
+                      ]"
+                    >
+                      <p v-html="item.text" />
+                    </VCardText>
+                    <VSpacer />
+                    <VCardActions class="pb-5">
+                      <VSpacer />
+                      <VBtn
+                        :size="d.mdAndUp.value ? 'x-large' : 'large'"
+                        tile
+                        class="ps-4"
+                        :to="$localePath({ name: item.link.to })"
+                      >
+                        <template #append>
+                          <IconX icon="$next" class="opacity-50" />
+                        </template>
+                        {{ item.link.text }}
+                      </VBtn>
+                      <VSpacer />
+                    </VCardActions>
+                  </AppBoxBase>
+                </template>
+              </AppGridTwoCells>
+            </VCard>
+          </tempalte>
+          <!-- delatnosti:pregled -->
           <AppGridRowsAutoAuto
-            class="mt-12 *mb-2"
+            class="mt-16"
             :props-top="{ class: 'd-flex justify-center' }"
           >
             <template #top>
@@ -707,11 +674,12 @@ const appNavHeight = computed(() =>
                 <IconX icon="mdi:toolbox" size="2.5rem" class="opacity-20" />
               </VAvatar>
             </template>
-            <VCardTitle class="text-h4 text-center">
+            <VCardTitle class="text-h4 text-center text-shadow-sm">
               Naše delatnosti
             </VCardTitle>
           </AppGridRowsAutoAuto>
-          <VRow dense>
+          <VSpacer class="mt-10" />
+          <VRow dense class="px-2">
             <VCol
               sm="6"
               md="3"
@@ -753,14 +721,12 @@ const appNavHeight = computed(() =>
                     </AppBoxBase>
                   </VImg>
                 </AppBoxBase>
-                <VCardTitle class="*!text-sm text-center">
+                <VCardTitle class="text-center font-weight-bold">
                   {{ item.title }}
                 </VCardTitle>
-                <VCardText>
-                  <p>
-                    {{ item.description }}
-                  </p>
-                  <VList slim bg-color="transparent">
+                <VCardText class="text-body-1">
+                  <p v-html="item.description" />
+                  <VList slim bg-color="transparent" class="mt-5">
                     <VListItem
                       :key="service"
                       v-for="service in item.services"
@@ -791,8 +757,8 @@ const appNavHeight = computed(() =>
               </VCard>
             </VCol>
           </VRow>
-        </VContainer>
-      </VCardText>
+        </AppBoxContainerCentered>
+      </template>
     </AppCardSectionPrimary>
 
     <template v-if="false">

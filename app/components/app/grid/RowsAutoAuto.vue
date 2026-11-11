@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
   <AppBoxBase
-    class="component--AppGridRowsAutoAuto grid grid-cols-1 rows-auto-auto gap-0"
+    class="component--AppGridRowsAutoAuto grid grid-cols-1 grid-rows-[auto_auto] gap-0"
   >
     <AppBoxBase v-bind="props.propsTop">
       <slot name="top" />
@@ -19,14 +19,3 @@ const props = defineProps<{
     </AppBoxBase>
   </AppBoxBase>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped>
-.rows-auto-auto {
-  grid-template-rows: auto auto;
-}
-</style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>
