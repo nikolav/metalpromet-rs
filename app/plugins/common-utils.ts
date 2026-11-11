@@ -45,6 +45,7 @@ import { configItem } from "~/utils/config-item";
 import { normalizedIndex } from "~/utils/normalized-index";
 import { isNumeric } from "~/utils/is-numeric";
 import { isPresent } from "~/utils/is-present";
+import { isOdd } from "~/utils/is-odd";
 
 //
 export default defineNuxtPlugin({
@@ -87,6 +88,7 @@ export default defineNuxtPlugin({
           unset,
           values,
           // local
+          isOdd,
           isPresent,
           isNumeric,
           normalizedIndex,

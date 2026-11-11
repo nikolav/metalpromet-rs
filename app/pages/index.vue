@@ -255,7 +255,11 @@ const appNavHeight = computed(() =>
               <VCard
                 link
                 height="712"
-                :to="$localePath({ name: 'projects' })"
+                :to="
+                  $localePath({
+                    name: 'projects-industry-krusevac-water-cleaning-reactor',
+                  })
+                "
                 class="d-flex flex-col"
               >
                 <NuxtImg
@@ -287,7 +291,11 @@ const appNavHeight = computed(() =>
                     tile
                     class="ps-4"
                     size="large"
-                    :to="$localePath({ name: 'projects' })"
+                    :to="
+                      $localePath({
+                        name: 'projects-industry-krusevac-water-cleaning-reactor',
+                      })
+                    "
                     >Saznajte više
                     <template #append>
                       <IconX icon="$next" class="opacity-50" size="1.5rem" />
