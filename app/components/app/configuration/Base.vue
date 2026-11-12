@@ -4,7 +4,7 @@ import { useIO } from "~/composables/io/use-io";
 import { useOnceMounted } from "~/composables/utils/use-once-mounted-on";
 
 import PRELOAD_IMAGES from "~/assets/preload-images.json";
-import HERO_SLIDES from "~/assets/hero-slides.json";
+// import HERO_SLIDES from "~/assets/hero-slides.json";
 import { useImagePrefetch } from "~/composables/media/use-image-preload";
 
 const { $$ } = useNuxtApp();
@@ -32,15 +32,15 @@ useImagePrefetch({
     ...PRELOAD_IMAGES,
 
     // hero section images
-    ...HERO_SLIDES.reduce(
-      (res, node) => {
-        if (true === node.show) {
-          res.push(node.src);
-        }
-        return res;
-      },
-      <string[]>[],
-    ),
+    // ...HERO_SLIDES.reduce(
+    //   (res, node) => {
+    //     if (true === node.show) {
+    //       res.push(node.src);
+    //     }
+    //     return res;
+    //   },
+    //   <string[]>[],
+    // ),
   ]),
 });
 

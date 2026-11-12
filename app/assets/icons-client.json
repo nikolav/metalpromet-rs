@@ -2,6 +2,7 @@
   "clientBundle": [
     "local:logo-nikolav",
     "local:logo-mp",
+    "local:logo-mp-title",
     "local:ironman-mask",
     "local:brain-outline",
     "local:conveyor-belt-box",

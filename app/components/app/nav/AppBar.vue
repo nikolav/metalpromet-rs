@@ -143,7 +143,7 @@ const mergeItemProps = $$.deepmerge();
           title="Metal-Promet Mladenovac"
         >
           <IconX
-            icon="local:logo-mp"
+            icon="local:logo-mp-title"
             size="2rem"
             class="text-[rgba(var(--v-theme-ui),1)]"
           />

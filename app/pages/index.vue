@@ -61,9 +61,11 @@ const appNavHeight = computed(() =>
   <AppBoxPageWrap class="page--index *space-y-20">
     <!-- section: hero -->
     <AppGridStackedFrames>
-      <AppGridStackedFramesItem>
+      <AppGridStackedFramesItem
+        class="!bg-[url('/images/etc/poster.vid-promo-01.jpg')] bg-cover bg-center"
+      >
         <AppVideoPlayer
-          class="!object-cover"
+          class="!object-cover !object-center"
           :style="{
             height: `calc(100dvh - ${appNavHeight ?? 0}px)`,
           }"
@@ -71,6 +73,7 @@ const appNavHeight = computed(() =>
           :props-frame="{
             autoplay: true,
             loop: true,
+            poster: '/images/etc/poster.vid-promo-01.jpg',
           }"
           :config="{
             muted: true,

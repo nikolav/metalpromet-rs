@@ -8,7 +8,7 @@ export const useImagePreload = (options: {
       rel: "preload",
       as: "image",
       href,
-      fetchpriority: options.fetchpriority,
+      fetchpriority: options.fetchpriority ?? "auto",
     })),
   });
 
