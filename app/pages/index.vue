@@ -173,7 +173,11 @@ const appNavHeight = computed(() =>
     </AppGridStackedFrames>
 
     <!-- trust ceo -->
-    <VCard tile class="!text-[rgb(var(--v-theme-on-ui))] text-shadow-sm">
+    <VCard
+      variant="flat"
+      tile
+      class="!text-[rgb(var(--v-theme-on-ui))] text-shadow-sm"
+    >
       <VRow no-gutters>
         <VCol
           sm="6"
@@ -238,7 +242,7 @@ const appNavHeight = computed(() =>
     </VCard>
 
     <!-- section: novosti, trendovi -->
-    <VSpacer class="mt-12" />
+    <VSpacer class="mt-px" />
     <AppCardSectionPrimary variant="text">
       <template #title>
         <IconX
@@ -358,7 +362,7 @@ const appNavHeight = computed(() =>
     </AppCardSectionPrimary>
 
     <!-- section:projekti -->
-    <AppCardSectionPrimary :props-actions="{ class: 'pt-5' }">
+    <AppCardSectionPrimary variant="flat" :props-actions="{ class: 'pt-5' }">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -472,7 +476,7 @@ const appNavHeight = computed(() =>
     </AppCardSectionPrimary>
 
     <!-- section: delatnosti -->
-    <VSpacer class="mt-12" />
+    <VSpacer class="mt-px" />
     <AppCardSectionPrimary variant="text" class="pb-2">
       <template #title>
         <IconX
