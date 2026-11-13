@@ -27,10 +27,10 @@ export * from "./vuetify-styles";
 
 export type ElementOf<T extends readonly unknown[]> = T[number];
 
-export type TFunctionVoid = (...args: unknown[]) => void;
-
 /** Generic function type (variadic args). */
 export type TFunction<TRes = void, TArg = unknown> = (...args: TArg[]) => TRes;
+
+export type TFunctionVoid = TFunction<void, unknown>;
 
 export type THasId<T = unknown> = T & { id: unknown };
 
