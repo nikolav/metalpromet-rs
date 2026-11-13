@@ -5,6 +5,10 @@
     "hello": "Zdravo"
   },
   "pages": {
+    "projects": {
+      "title": "Projekti • Metal-Promet Mladenovac • Industrijska oprema, metalne konstrukcije, stolarija, plastifikacija metala",
+      "description": "Metal-Promet Mladenovac specijalizovan je za izradu opreme i jedinica za industrijski sektor, čeličnih konstrukcija, ograda i kapija, uz peskarenje i elektrostatsko farbanje. Zatražite ponudu!"
+    },
     "contact": {
       "title": "Kontakt • Metal-Promet Mladenovac",
       "description": "Metal-Promet Mladenovac :opis"

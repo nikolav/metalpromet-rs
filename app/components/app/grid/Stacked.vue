@@ -1,20 +1,34 @@
 <script setup lang="ts">
-const props = defineProps<{
-  propsContent?: any;
-  propsStack?: any;
-}>();
+const props = withDefaults(
+  defineProps<{
+    stack?: boolean;
+
+    propsContent?: any;
+    propsStack?: any;
+  }>(),
+  {
+    stack: false,
+  },
+);
 
 // @@eos
 </script>
 
 <template>
   <AppBoxBase
-    class="component--AppGridStacked app-grid-area-stack-container grid"
+    class="component--AppGridStacked"
+    :class="[props.stack ? undefined : 'app-grid-area-stack-container grid']"
   >
-    <AppBoxBase class="app-grid-area-stack-cell" v-bind="props.propsContent">
+    <AppBoxBase
+      :class="{ 'app-grid-area-stack-cell': !props.stack }"
+      v-bind="props.propsContent"
+    >
       <slot />
     </AppBoxBase>
-    <AppBoxBase class="app-grid-area-stack-cell" v-bind="props.propsStack">
+    <AppBoxBase
+      :class="{ 'app-grid-area-stack-cell': !props.stack }"
+      v-bind="props.propsStack"
+    >
       <slot name="stack" />
     </AppBoxBase>
   </AppBoxBase>

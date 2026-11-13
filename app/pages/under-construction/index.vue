@@ -3,23 +3,24 @@ definePageMeta({
   layout: "default",
 });
 
-const tagret = useTemplateRef("targetAppBoxRoot");
-watchEffect(() => {
-  console.log([
-    tagret.value?.size.width.value,
-    tagret.value?.size.height.value,
-  ]);
-});
 // @@eos
 </script>
 
 <template>
   <AppBoxPageWrap class="page--under-construction">
-    <AppBoxRoot ref="targetAppBoxRoot" width="320" height="240" elevation="1" rounded>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        ducimus vitae vero.
-      </p>
-    </AppBoxRoot>
+    <VSpacer class="mt-1" />
+    <AppSheetSectionRoot
+      title="Lorem"
+      subtitle="lorem ipsum"
+      :props-item="{
+        class: 'pb-2',
+      }"
+    >
+      <template #icon> 🚧 </template>
+      <AppGridTwoCells>
+        <template #text>-text-</template>
+        <template #media>-media-</template>
+      </AppGridTwoCells>
+    </AppSheetSectionRoot>
   </AppBoxPageWrap>
 </template>

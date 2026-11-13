@@ -16,11 +16,11 @@ definePageMeta({
   },
 });
 
-const d = useDisplay();
 const { $$ } = useNuxtApp();
+const d = useDisplay();
 
-const heightAppNavAppBar = computed(() =>
-  $$.config("layout.component.AppNavAppBar.height", 0),
+const heightAppNavBar = computed(
+  () => $$.config("layout.component.AppNavAppBar.height") ?? 0,
 );
 
 // @@eos
@@ -34,7 +34,7 @@ const heightAppNavAppBar = computed(() =>
         class: 'position-relative',
       }"
       :style="{
-        height: `calc(100svh - ${heightAppNavAppBar}px)`,
+        height: `calc(100dvh - ${heightAppNavBar}px)`,
       }"
     >
       <template #stack>
@@ -64,7 +64,7 @@ const heightAppNavAppBar = computed(() =>
       :style="[
         !d.mobile.value
           ? {
-              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
             }
           : undefined,
       ]"
@@ -75,7 +75,7 @@ const heightAppNavAppBar = computed(() =>
       :style="[
         !d.mobile.value
           ? {
-              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
             }
           : undefined,
       ]"
@@ -86,7 +86,7 @@ const heightAppNavAppBar = computed(() =>
       :style="[
         !d.mobile.value
           ? {
-              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
             }
           : undefined,
       ]"
@@ -97,7 +97,7 @@ const heightAppNavAppBar = computed(() =>
       :style="[
         !d.mobile.value
           ? {
-              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
             }
           : undefined,
       ]"
@@ -108,7 +108,7 @@ const heightAppNavAppBar = computed(() =>
       :style="[
         !d.mobile.value
           ? {
-              height: `calc(100svh - ${heightAppNavAppBar}px - 2rem)`,
+              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
             }
           : undefined,
       ]"
