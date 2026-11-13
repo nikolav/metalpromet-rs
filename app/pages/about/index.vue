@@ -16,11 +16,11 @@ definePageMeta({
   },
 });
 
+const { $$ } = useNuxtApp();
 const d = useDisplay();
 const theme = useTheme();
-const { $$ } = useNuxtApp();
 
-const mp_facts = [
+const MP_FACTS = [
   {
     icon: "local:tree-of-life",
     header: "1988.",
@@ -65,7 +65,6 @@ const mp_facts = [
     icon: "mdi:chart-line",
     header: "+71%",
     description: "Stabilan trend poslovanja",
-    optional: undefined,
   },
   {
     icon: "mdi:shield-check",
@@ -74,12 +73,16 @@ const mp_facts = [
     optional: true,
   },
 ];
+const mp_facts = computed(() =>
+  MP_FACTS.filter((node) => (d.sm.value ? true !== node.optional : true)),
+);
 
+const appNavHeight = computed(() =>
+  $$.config("layout.component.AppNavAppBar.height"),
+);
 const isDark = computed(() => theme.global.current.value.dark);
 const H = computed(() =>
-  d.smAndUp.value
-    ? `calc(100svh - ${$$.config("layout.component.AppNavAppBar.height")!}px)`
-    : 422,
+  d.smAndUp.value ? `calc(100dvh - ${appNavHeight.value ?? 0}px)` : 422,
 );
 
 // yt-id: idxkQgb5KNA; provider="youtube"
@@ -87,10 +90,51 @@ const H = computed(() =>
 </script>
 <template>
   <AppBoxPageWrap class="page--about">
-    <AppSlidesHero :height="H" cta="Zatražite ponudu" class="mt-0" />
+    <AppSlidesHero
+      :height="H"
+      cta="Zatražite ponudu"
+      class="mt-0"
+      :props-action="{
+        tile: true,
+      }"
+    />
+    <!-- mp-facts -->
+    <AppGridAutoCells
+      :cell-width="
+        d.mdAndUp.value
+          ? $$.Math.floor((d.width.value - 16 - 3) / 5)
+          : d.smAndUp.value
+            ? $$.Math.floor((d.width.value - 16 - 2) / 3)
+            : $$.Math.floor((d.width.value - 16 - 1) / 2)
+      "
+      class="gap-px !py-px"
+    >
+      <VCard
+        v-for="(fact, idx) in mp_facts"
+        tile
+        variant="flat"
+        color="ui"
+        class="text-center fill-height py-4"
+      >
+        <VCardItem>
+          <IconX
+            :icon="fact.icon ?? '$info'"
+            class="text-on-ui opacity-20"
+            size="3rem"
+          />
+        </VCardItem>
+        <VCardTitle
+          class="text-accent text-shadow-sm"
+          :class="d.lgAndUp.value ? 'text-h4' : 'text-h5'"
+        >
+          <strong>{{ fact.header }}</strong>
+        </VCardTitle>
+        <VCardText>{{ fact.description }}</VCardText>
+      </VCard>
+    </AppGridAutoCells>
 
-    <!-- ko smo -->
-    <AppCardSectionPrimary>
+    <!-- about -->
+    <AppCardSectionPrimary variant="flat">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -103,141 +147,80 @@ const H = computed(() =>
           Tradicija, znanje &dash; naš put
         </AppCardSectionPrimaryTitle>
       </template>
-      <VContainer fluid>
-        <VRow dense>
-          <VCol md="7">
-            <template
-              :key="node.html"
-              v-for="(node, idx) in [
-                {
-                  bg: `bg-[url('/images/stock/020.jpg')] bg-[right_top]`,
-                  html: `Neki sviraju gitaru, mi <em>&ldquo;sviramo&rdquo;</em> čelik i aluminijum. I to već decenijama. Od <strong>1988.</strong> godine, u srcu Šumadije, u Mladenovcu, mi smo firma koja od hladnog metala pravi tople priče - ograde koje čuvaju, kapije koje dočekuju, stepenice koje vode gore, metalne konstrukcije koje nose, štite i krase. Počeli smo kao mala radionica, a <strong>danas smo prepoznatljiv brend</strong> ne samo u Beogradu i Šumadiji, već širom cele Srbije i Evrope.`,
-                },
-                {
-                  bg: `bg-[url('/images/stock/021.jpg')] bg-[center_top]`,
-                  html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković, naš predstavnik, i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora koji umeju sa svakim metalom. Naši inženjeri <em>3D</em> modele pretvaraju u stvarnost, a mi pazimo na  svaki detalj. Imamo veliku peć za plastifikaciju, radimo <em>CNC</em> obradu, lasersko sečenje, peskarenje, hladno cinkovanje. Ali bez tima &dash; to je samo gvožđe. Zato <strong>volimo da čujemo svaku vašu ideju uz kafu</strong> i kažemo &dash; možemo.`,
-                },
-                {
-                  bg: `bg-[url('/images/stock/022.jpg')] bg-[left_top]`,
-                  html: `Iako radimo sa ozbiljnim mašinama, ne volimo ozbiljne face. Više volimo da popričamo sa vama i da <strong>iz prve ruke čujemo šta vam treba</strong>. Od male žardinjere, preko kapije i <em>RAL</em> karti, do velike industrijske konstrukcije za Beč ili London. Radili smo u Termoelektrani Kostolac, na luksuznim vilama na Kosmaju, u Austriji, Švajcarskoj, Nemačkoj, pa čak i  u Engleskoj. Naši radovi su godinama prepoznatljivi u Srbiji i van nje.`,
-                },
-              ]"
+
+      <!-- intro -->
+      <AppBoxContainerCentered fluid :max-width="undefined">
+        <template
+          :key="item.html"
+          v-for="(item, idx) in [
+            {
+              image: '/images/stock/013.jpg',
+              html: `<p>Neki sviraju gitaru, mi <em>&quot;sviramo&quot;</em> čelik i aluminijum. I to već decenijama. Od 1988. godine, u srcu Šumadije, u Mladenovcu, mi smo <strong>firma koja od metala pravi pouzdana rešenja</strong> &dash; specijalizovani smo za izradu industrijske opreme, metalnih konstrukcija i stolarije po merilima klijenata.</p><p> Počeli smo kao mala radionica, a danas smo prepoznatljiv brend ne samo u Beogradu i Šumadiji, već širom cele Srbije i Evrope &dash; partner na kog se industrija oslanja kada je u pitanju oprema i konstrukcije izrađeni po meri.</p>`,
+            },
+            {
+              image: '/images/stock/023.jpg',
+              html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora. Izrađujemo industrijsku opremu i metalne konstrukcije po meri &dash; <strong>naši inženjeri modele pretvaraju u stvarnost</strong>, uz CNC obradu, lasersko sečenje, peskarenje i plastifikaciju.</p><p> Ali bez našeg jakog tima &dash; to je samo gomila hladnog gvožđa. Zato volimo da čujemo svaku vašu ideju uz kafu i kažemo &dash; možemo.</p>`,
+            },
+            {
+              image: '/images/stock/025.jpg',
+              html: `<p>Iako radimo sa ozbiljnom opremom, negujemo otvoren i direktan pristup &dash; slušamo šta vam  treba i odgovaramo konkretno, bilo da je reč o maloj žardinjeri ili zahtevnom komadu industrijske opreme. Iza nas su projekti u termoelektrani Kostolac, reaktoru vode u Kruševcu, i na brojnim luksuznim objektima kod nas i preko.</p><p><strong>Metal-Promet je pouzdan partner za izradu industrijske opreme i metalnih konstrukcija</strong>, i zato obratite nam se za rešenje koje je po vašim merilima i potrebama.</p>`,
+            },
+            //
+          ]"
+        >
+          <VCard
+            variant="text"
+            tile
+            :style="[
+              d.mdAndUp.value
+                ? {
+                    height: `calc(81dvh - ${appNavHeight ?? 0}px - 2rem)`,
+                  }
+                : undefined,
+            ]"
+            :class="{
+              '!bg-[rgb(var(--v-theme-surface-variant))]': $$.isOdd(idx),
+            }"
+          >
+            <AppGridTwoCells
+              :stack="!d.mdAndUp.value"
+              class="h-full"
+              :invert="!$$.isOdd(idx)"
             >
-              <VCard
-                variant="text"
-                :tile="!d.smAndUp.value"
-                :rounded="
-                  d.smAndUp.value
-                    ? 0 < idx % 2
-                      ? '0 ts-xl'
-                      : '0 te-xl'
-                    : undefined
-                "
-              >
-                <AppGridTwoCells
-                  :stack="!d.smAndUp.value"
-                  :invert="!(0 < idx % 2)"
-                  :props-text="{
-                    class: d.smAndUp.value ? 'pb-5' : undefined,
-                  }"
-                  :props-media="{
-                    class: [
-                      `bg-cover ${node.bg}`,
-                      { '!min-h-[248px]': !d.smAndUp.value },
-                    ],
-                  }"
-                >
-                  <template #text>
-                    <VCardText
-                      class="indent-4"
-                      :class="{
-                        'px-0 pb-0': !d.smAndUp.value,
-                        'min-h-[248px]': d.smAndUp.value,
-                      }"
-                    >
-                      <p v-html="node.html" />
-                    </VCardText>
-                  </template>
-                </AppGridTwoCells>
-              </VCard>
-              <AppBoxBase
-                class="d-flex"
-                :class="[
-                  d.smAndUp.value
-                    ? idx == 2
-                      ? !d.mdAndUp.value
-                        ? 'mb-16'
-                        : 'mb-2'
-                      : 'mb-16'
-                    : '',
-                  {
-                    'my-16': !d.smAndUp.value,
-                  },
-                ]"
-              >
-                <VSpacer v-if="d.smAndUp.value ? 0 < idx % 2 : true" />
-                <IconX
-                  :icon="
-                    d.smAndUp.value ? 'local:line-art-02' : 'local:line-art-01'
-                  "
-                  :size="d.smAndUp.value ? '3.33rem' : '1.5rem'"
-                  class="opacity-[.122]"
+              <template #media>
+                <NuxtImg
+                  :src="item.image"
                   :class="[
-                    d.smAndUp.value
-                      ? 0 < idx % 2
-                        ? 'rotate-180'
-                        : '-rotate-90'
-                      : undefined,
+                    'w-full object-cover object-top',
+                    d.mdAndUp.value ? 'h-full' : 'h-[44dvh]',
                   ]"
                 />
-                <VSpacer v-if="!d.smAndUp.value" />
-              </AppBoxBase>
-            </template>
-          </VCol>
-          <VCol md="5">
-            <AppBoxContainerCentered fluid>
-              <VRow dense>
-                <template :key="fact.description" v-for="fact in mp_facts">
-                  <VCol
-                    v-if="!d.sm.value ? true : !fact.optional"
-                    cols="6"
-                    sm="4"
-                    md="6"
-                    align-self="stretch"
-                  >
-                    <VCard
-                      class="text-center fill-height"
-                      :class="[d.smAndUp.value ? 'py-2' : 'pt-2']"
-                      color="ui"
-                      :rounded="false"
-                    >
-                      <VCardItem>
-                        <IconX
-                          :icon="fact.icon ?? '$info'"
-                          class="text-on-ui opacity-20"
-                          size="3rem"
-                        />
-                      </VCardItem>
-                      <VCardTitle
-                        class="text-accent text-shadow-sm"
-                        :class="d.lgAndUp.value ? 'text-h4' : 'text-h5'"
-                      >
-                        <strong>{{ fact.header }}</strong>
-                      </VCardTitle>
-                      <VCardText>{{ fact.description }}</VCardText>
-                    </VCard>
-                  </VCol>
-                </template>
-              </VRow>
-            </AppBoxContainerCentered>
-          </VCol>
-        </VRow>
-      </VContainer>
+              </template>
+              <template #text>
+                <VCardText
+                  class="indent-4"
+                  :class="[
+                    d.smAndUp.value ? 'pa-12 text-h6' : 'pa-4 text-body-1',
+                  ]"
+                >
+                  <AppBoxBase
+                    v-html="item.html"
+                    :class="[
+                      'space-y-4',
+                      !d.mdAndUp.value ? 'pb-10' : undefined,
+                    ]"
+                  />
+                </VCardText>
+              </template>
+            </AppGridTwoCells>
+          </VCard>
+        </template>
+      </AppBoxContainerCentered>
     </AppCardSectionPrimary>
 
     <!-- istorijat -->
-    <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
+    <VSpacer class="mt-px" />
+    <AppCardSectionPrimary variant="flat">
       <template #title>
         <IconX
           v-if="d.smAndUp.value"
@@ -257,93 +240,78 @@ const H = computed(() =>
             style: `height: calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem) !important;`,
           }"
         />
-      </template>
-    </AppCardSectionPrimary>
 
-    <!-- vrednosti -->
-    <VSpacer class="mt-12" />
-    <AppCardSectionPrimary>
-      <template #title>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:podium-gold"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2rem"
-        />
-        <AppCardSectionPrimaryTitle>
-          Naše vrednosti
-        </AppCardSectionPrimaryTitle>
-      </template>
-
-      <AppBoxBase
-        class="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 pa-5"
-        :class="[
-          { 'space-y-5': !d.smAndUp.value },
-          d.smAndUp.value
-            ? `!bg-[url('/images/stock/024.png')] !bg-cover ${
-                isDark
-                  ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
-                  : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
-              }`
-            : `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay bg-repeat`,
-        ]"
-      >
-        <AppBoxCentered
-          :key="node.title"
-          v-for="node in [
-            {
-              icon: '$ratingFull',
-              title: 'Kvalitet i pouzdanost',
-              text: 'Posvećeni smo savršenstvu u svakoj fazi projekta.',
-            },
-            {
-              icon: 'local:certificate-trusted',
-              title: 'Integritet i poverenje',
-              text: 'Poverenje gradimo otvorenošću i iskrenim odnosom.',
-            },
-            {
-              icon: 'mdi:security',
-              title: 'Bezbednost i odgovornost',
-              text: 'Bezbednost je uvek na prvom mestu.',
-            },
-            {
-              icon: 'local:tree-of-life',
-              title: 'Tradicija i iskustvo',
-              text: 'Svaki projekat nosi pečat iskustva i posvećenosti zanatu.',
-            },
-            {
-              icon: 'mdi:trophy',
-              title: 'Timski duh i posvećenost',
-              text: 'Verujemo da je dobar tim ključ svakog uspešnog projekta.',
-            },
-            {
-              icon: 'local:robot-cute-head',
-              title: 'Inovacije i rešenja',
-              text: 'Povezujemo savremenu tehnologiju i praktično znanje.',
-            },
+        <!-- vrednosti -->
+        <AppBoxBase
+          class="sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-12 px-5 py-10"
+          :class="[
+            { 'space-y-10': !d.smAndUp.value },
+            d.smAndUp.value
+              ? `!bg-[url('/images/stock/024.png')] !bg-cover ${
+                  isDark
+                    ? '!bg-[rgba(var(--v-theme-ui),.122)] !bg-blend-color-dodge'
+                    : '!bg-[rgba(var(--v-theme-surface-light),.122)] !bg-blend-overlay'
+                }`
+              : `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay bg-repeat`,
           ]"
         >
-          <AppBoxBase
-            class="d-flex flex-col items-center justify-center text-center pa-5 gap-1"
+          <AppBoxCentered
+            :key="node.title"
+            v-for="node in [
+              {
+                icon: '$ratingFull',
+                title: 'Kvalitet i pouzdanost',
+                text: 'Posvećeni smo savršenstvu u svakoj fazi projekta.',
+              },
+              {
+                icon: 'local:certificate-trusted',
+                title: 'Integritet i poverenje',
+                text: 'Poverenje gradimo otvorenošću i iskrenim odnosom.',
+              },
+              {
+                icon: 'mdi:security',
+                title: 'Bezbednost i odgovornost',
+                text: 'Bezbednost je uvek na prvom mestu.',
+              },
+              {
+                icon: 'local:tree-of-life',
+                title: 'Tradicija i iskustvo',
+                text: 'Svaki projekat nosi pečat iskustva i posvećenosti zanatu.',
+              },
+              {
+                icon: 'mdi:trophy',
+                title: 'Timski duh i posvećenost',
+                text: 'Verujemo da je dobar tim ključ svakog uspešnog projekta.',
+              },
+              {
+                icon: 'local:robot-cute-head',
+                title: 'Inovacije i rešenja',
+                text: 'Povezujemo savremenu tehnologiju i praktično znanje.',
+              },
+            ]"
           >
-            <IconX
-              :icon="node.icon"
-              :size="d.smAndUp.value ? '4rem' : '3rem'"
-              class="!opacity-[.33]"
-            />
-            <VCardTitle class="text-h5 text-accent text-shadow-sm">{{
-              node.title
-            }}</VCardTitle>
-            <p class="text-body-1">
-              {{ node.text }}
-            </p>
-          </AppBoxBase>
-        </AppBoxCentered>
-      </AppBoxBase>
+            <AppBoxBase
+              class="d-flex flex-col items-center justify-center text-center pa-5 gap-1"
+            >
+              <IconX
+                :icon="node.icon"
+                :size="d.smAndUp.value ? '4rem' : '3rem'"
+                class="!opacity-[.33]"
+              />
+              <VCardTitle class="text-h5 text-accent text-shadow-sm">{{
+                node.title
+              }}</VCardTitle>
+              <p class="text-body-1">
+                {{ node.text }}
+              </p>
+            </AppBoxBase>
+          </AppBoxCentered>
+        </AppBoxBase>
+      </template>
     </AppCardSectionPrimary>
 
     <!-- jos odlika; more props -->
-    <VSpacer class="mt-12" />
+    <VSpacer class="mt-px" />
     <AppCardSectionPrimary>
       <template #title>
         <IconX
@@ -373,11 +341,11 @@ const H = computed(() =>
                   props: {},
                 },
                 items: [
-                  'Izrada čeličnih konstrukcija',
-                  'Metalne ograde, kapije i nadstrešnice',
+                  'Proizvodnja industrijske opreme po meri',
+                  'Izrada čeličnih konstrukcija i nadstrešnica',
+                  'Metalna stolarija, kovano gvožđe',
                   'Uslužno plastificiranje metala',
-                  'Kovano gvožđe, stepenice, nameštaj',
-                  'CNC obrada metala i peskarenje',
+                  'CNC obrada metala',
                   '3D modelovanje, renderi i projektovanje',
                   'Montaže u Srbiji i inostranstvu',
                 ],
@@ -392,11 +360,12 @@ const H = computed(() =>
                   },
                 },
                 items: [
-                  'Luksuzne kuće i vile, centralna Srbija',
+                  'Reaktor otpadnih voda, Kruševac',
+                  'Remont u termoelektrana Kostolac',
                   'Brojni projekti u Beču, Austrija, Švajcarskoj, Engleskoj',
-                  'Plastifikacija auto delova',
+                  'Luksuzne kuće i vile, centralna Srbija',
                   'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
-                  'Termoelektrana Kostolac',
+                  'Plastifikacija auto delova',
                 ],
               },
               {
@@ -409,7 +378,7 @@ const H = computed(() =>
                 items: [
                   'Komora za plastifikaciju',
                   'Peć za polimerizaciju',
-                  'Linija za hemijsku pripremu i cink prajmer',
+                  'Linija za hemijsku pripremu',
                   'CNC mašine za obradu metala',
                   'Oprema za peskarenje',
                   'Lasersko sečenje panela',
@@ -441,7 +410,7 @@ const H = computed(() =>
             >
               <VImg
                 v-if="d.smAndUp.value"
-                :height="192"
+                :height="211"
                 cover
                 :src="node.image.src"
                 v-bind="node.image.props"
@@ -450,22 +419,18 @@ const H = computed(() =>
               </VImg>
               <VCardTitle class="text-center pt-4">{{ node.title }}</VCardTitle>
               <VCardText class="!ps-[1em]">
-                <VList
-                  :items="node.items"
-                  bg-color="transparent"
-                  variant="text"
-                >
+                <VList bg-color="transparent" variant="text">
                   <VListItem
                     prepend-gap="1em"
                     :key="item"
                     v-for="item in node.items"
                     slim
-                    class="ps-0"
+                    class="ps-0 text-body-1"
                   >
                     <template #prepend>
                       <IconX
                         icon="$complete"
-                        size="1.22rem"
+                        size="1.5rem"
                         class="text-success"
                       />
                     </template>

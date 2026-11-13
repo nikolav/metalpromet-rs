@@ -12,8 +12,9 @@ defineOptions({
 const props = withDefaults(
   defineProps<{
     interval?: string | number | undefined;
-    propsItem?: any;
     cta?: string;
+    propsItem?: any;
+    propsAction?: any;
   }>(),
   {
     interval: 8901,
@@ -57,8 +58,8 @@ watch(ctrl.current, (slide) => {
       continuous
       crossfade
       :model-value="ctrl.currentKey.value"
-      v-bind="$attrs"
       @update:model-value="ctrl.active"
+      v-bind="$attrs"
     >
       <VCarouselItem
         v-for="slide in ctrl.items"
@@ -152,6 +153,7 @@ watch(ctrl.current, (slide) => {
           size="x-large"
           color="ui"
           :to="localePath({ name: 'contact' })"
+          v-bind="props.propsAction"
         >
           <strong class="text-[122%] me-3">🤝</strong>
           {{ t(props.cta) }}</VBtn
