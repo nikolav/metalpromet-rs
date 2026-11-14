@@ -40,78 +40,33 @@ const heightAppNavBar = computed(
       <template #stack>
         <AppBoxHeroLine
           h2="Kompletno rešenje za metal"
-          title="Naše delatnosti i usluge"
+          title="Delatnosti, usluge"
           subtitle="Od kapije do elektrane!"
         >
           <template #icon>
-            <IconX icon="mdi:toolbox" size="2.22rem" class="opacity-[.33]" />
+            <IconX icon="mdi:toolbox" size="2rem" class="opacity-[.33]" />
           </template>
         </AppBoxHeroLine>
-        <VCardTitle
-          class="font-weight-semibold text-end text-v-on-ui text-shadow-sm position-absolute inset-x-0 bottom-0 z-[1] !bg-gradient-to-t !from-v-ui/75 !to-v-ui/0"
-        >
-          <em>&ldquo;Ko dobro traži, dobro i nađe.&ldquo;</em>
-        </VCardTitle>
       </template>
       <NuxtImg
-        src="/images/stock/004a.jpg"
-        sizes="100vw sm:720px lg:1024px"
-        class="w-100 fill-height object-cover object-right"
+        src="/images/stock/114.jpg"
+        sizes="100vw sm:822px lg:1024px"
+        class="w-100 fill-height object-[82%_top] object-cover"
       />
     </AppGridStacked>
 
-    <AppSectionServicesIntro
-      :style="[
-        !d.mobile.value
-          ? {
-              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
-            }
-          : undefined,
-      ]"
-    />
+    <AppSectionServicesIntro />
 
-    <VSpacer class="mt-12" />
-    <AppSectionServicesModeling
-      :style="[
-        !d.mobile.value
-          ? {
-              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
-            }
-          : undefined,
-      ]"
-    />
+    <VSpacer class="mt-px" />
+    <AppSectionServicesIndustryComponents />
 
-    <VSpacer class="mt-12" />
-    <AppSectionServicesConstruction
-      :style="[
-        !d.mobile.value
-          ? {
-              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
-            }
-          : undefined,
-      ]"
-    />
+    <VSpacer class="mt-px" />
+    <AppSectionServicesConstruction />
 
-    <VSpacer class="mt-12" />
-    <AppSectionServicesCarpentry
-      :style="[
-        !d.mobile.value
-          ? {
-              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
-            }
-          : undefined,
-      ]"
-    />
+    <VSpacer class="mt-px" />
+    <AppSectionServicesCarpentry />
 
-    <VSpacer class="mt-12" />
-    <AppSectionServicesFinish
-      :style="[
-        !d.mobile.value
-          ? {
-              height: `calc(100dvh - ${heightAppNavBar}px - 2rem)`,
-            }
-          : undefined,
-      ]"
-    />
+    <VSpacer class="mt-px" />
+    <AppSectionServicesFinish />
   </AppBoxPageWrap>
 </template>

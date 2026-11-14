@@ -1,191 +1,133 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
 
-import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
-
+const { $$ } = useNuxtApp();
 const d = useDisplay();
-const toggleTabs = useToggleFlag();
+
+const appNavBarHeight = computed(
+  () => $$.config("layout.component.AppNavAppBar.height") ?? 0,
+);
+
 // @@eos
 </script>
 
 <template>
-  <AppCardSectionPrimary
+  <AppSheetSectionRoot
     class="component--AppSectionServicesFinish"
-    :class="{ 'd-flex flex-col': !d.mobile.value }"
     title="Plastifikacija • Finiš"
-    sub-title="Čuvamo ono što stvaramo"
-    :icon="{ icon: 'mdi:security' }"
+    subtitle="Čuvamo ono što stvaramo"
+    :props-title="{
+      class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
+    }"
+    :props-subtitle="{
+      class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
+    }"
+    :props-item="{
+      class: 'pb-2',
+    }"
   >
-    <AppGridTwoCells
-      cols-class="grid-cols-[1fr_55%]"
-      :stack="d.mobile.value"
-      :class="{ 'flex-1': !d.mobile.value }"
-      :props-media="{
-        class: d.mobile.value ? 'h-[412px]' : undefined,
-      }"
-    >
-      <template #media>
-        <NuxtImg
-          src="/images/stock/009a.jpg"
-          width="378"
-          height="672"
-          sizes="100vw sm:550px"
-          class="w-100 fill-height object-cover object-[left_top]"
-        />
-      </template>
-      <template #text>
-        <AppBoxTwoRowsAutoMain
-          footer-first
-          :class="{ 'fill-height': !d.mobile.value }"
-        >
-          <template #footer>
-            <VTabs
-              stacked
-              grow
-              density="comfortable"
-              :model-value="toggleTabs.isActive.value"
-              @update:model-value="
-                (v) => {
-                  v ? toggleTabs.on() : toggleTabs.off();
-                }
-              "
-            >
-              <VTab :value="false" text="Zaštita">
-                <template #prepend>
-                  <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                </template>
-              </VTab>
-              <VTab :value="true" text="Usluge">
-                <template #prepend>
-                  <IconX icon="mdi:tag" size="1.5rem" class="opacity-20" />
-                </template>
-              </VTab>
-            </VTabs>
-          </template>
-          <VTabsWindow :model-value="toggleTabs.isActive.value" crossfade>
-            <VTabsWindowItem :value="false">
-              <VCardText class="space-y-5 indent-4">
-                <AppBoxCentered class="pa-2">
-                  <AppAvatarIcon
-                    :icon="{
-                      icon: 'local:ironman-mask',
-                      props: { size: '2.33rem' },
-                    }"
-                  />
-                </AppBoxCentered>
-                <p>
-                  Rđa, korozija, bledenje boje su neprijatelji metala koji ne
-                  praštaju, i
-                  <strong
-                    >zato je zaštita površina ključni korak u našem
-                    procesu</strong
-                  >. To je &ldquo;tajni sastojak&rdquo; koji čini da naši
-                  proizvodi traju decenijama, a ne samo godinama.
-                </p>
-                <p>
-                  Pre farbanja ili cinkovanja,
-                  <strong>metal mora biti besprekorno čist</strong>. Peskarenje
-                  finim abrazivnim peskom uklanja rđu, stare boje, masnoće i sve
-                  nečistoće. Metal posle ovog tretmana izgleda kao nov i spreman
-                  za dalju obradu.
-                </p>
-                <p>
-                  Zatim, na metalne delove nanosimo boju u prahu i pečemo u
-                  našoj peći dužine 7,8 metara. Rezultat? Savršeno glatka,
-                  otporna i sjajna površina koja ne bledi, ne ljušti se i ne
-                  korodira. Nudimo <strong>200+ RAL nijansi</strong> &dash; od
-                  klasičnog antracita do sjajnih metalik i strukturnih boja.
-                  Želite crvenu sa šljokicama? Može. Mat crna? Može. Zlatna?
-                  Ima! Svaki projekat zaslužuje pravu boju.
-                </p>
-                <p>
-                  Plastificiramo ne samo naše proizvode, već i uslužno &dash; za
-                  vas, vaše projekte, vaše klijente. Sa konkurentnim cenama i
-                  brzim rokovima,
-                  <strong>tu smo da pomognemo i drugima</strong> da njihovi
-                  proizvodi dobiju isti kvalitet.
-                </p>
-                <AppBoxBase class="space-y-2">
-                  <p class="text-body-1 text-center">Zašto baš kod nas?</p>
-                  <p>
-                    Pre svega, imamo najveću peć u okolini &dash; tako da
-                    <strong>veliki komadi nisu problem</strong>. Svaki komad
-                    metala pre farbanja prolazi obaveznu hemijsku pripremu, što
-                    nije samo <em>&ldquo;operi pa farbaj&rdquo;</em> &dash; to
-                    je garancija da boja zaista prijanja. Preporučujemo
-                    <strong>dva sloja zaštite za duplo trajniji proizvod</strong
-                    >.
-                  </p>
-                  <p>
-                    Sve to <strong>radimo i uslužno</strong>, za vaše projekte,
-                    po pristupačnim cenama i brzim rokovima.
-                  </p>
-                </AppBoxBase>
-              </VCardText>
-            </VTabsWindowItem>
-            <VTabsWindowItem :value="true">
-              <VCardText class="pa-5">
-                <VList
-                  class="space-y-5"
-                  lines="three"
-                  :item-props="true"
-                  :items="[
-                    {
-                      title: 'Plastifikacija',
-                      description:
-                        'Nanošenje boje u prahu koja se potom peče u peći',
-                    },
-                    {
-                      title: 'Peskarenje',
-                      description:
-                        'Čišćenje metala finim abrazivnim peskom. Metal postaje kao nov &dash; bez rđe, bez mrlja',
-                    },
-                    {
-                      title: 'Vruće cinkovanje',
-                      description:
-                        'Potapanje metala u rastopljeni cink. Najjača moguća zaštita od korozije. Ovo je pancer za metal',
-                    },
-                    {
-                      title: 'Hladno cinkovanje',
-                      description:
-                        'Za manje zahteve ili popravke, bez toplote, praktično i efikasno',
-                    },
-                  ]"
-                >
-                  <template #item="cx">
-                    <AppBoxBase>
-                      <VListItemTitle class="indent-2"
-                        ><IconX icon="$complete" class="text-v-success" />
-                        <span class="ps-2 text-body-1" v-html="cx.props.title"
-                      /></VListItemTitle>
-                      <VListItemSubtitle
-                        ><p v-html="cx.props.description"
-                      /></VListItemSubtitle>
-                    </AppBoxBase>
-                  </template>
-                </VList>
-              </VCardText>
-            </VTabsWindowItem>
-          </VTabsWindow>
-        </AppBoxTwoRowsAutoMain>
-      </template>
-    </AppGridTwoCells>
-
-    <VCardActions class="justify-center pa-5">
-      <VBtn
-        tile
-        variant="tonal"
-        elevation="1"
-        class="px-4"
-        :class="[!d.mobile.value ? 'scale-[111%]' : undefined]"
-        size="large"
-        :to="$localePath({ name: 'contact' })"
+    <template v-if="d.smAndUp.value" #icon>
+      <IconX icon="mdi:security" size="2rem" class="opacity-[.2]" />
+    </template>
+    <template #default="cx">
+      <AppGridTwoCells
+        :stack="d.mobile.value"
+        :props-text="{
+          class: !d.mobile.value ? 'overflow-y-auto' : undefined,
+        }"
+        :props-media="{
+          class: d.mobile.value ? 'h-[255px]' : undefined,
+        }"
+        :style="{
+          height: d.smAndUp.value
+            ? `calc(100svh - ${appNavBarHeight}px - ${cx.titleSize.height ?? 0}px - 2rem)`
+            : undefined,
+        }"
       >
-        <template #prepend>
-          <IconX icon="mdi:shield-check" size="1.5rem" class="opacity-[.33]" />
+        <template #media>
+          <NuxtImg
+            src="/images/stock/009a.jpg"
+            class="w-100 fill-height object-cover object-[right_bottom]"
+            sizes="100vw sm:822px md:1024px"
+          />
         </template>
-        Zakažite uslugu</VBtn
-      >
-    </VCardActions>
-  </AppCardSectionPrimary>
+        <template #text>
+          <VCardText
+            class="indent-4 space-y-4 pb-5"
+            :class="[
+              d.mdAndUp.value
+                ? 'text-body-1 ps-10 pt-8'
+                : 'text-body-2 ps-4 pt-4',
+            ]"
+          >
+            <AppBoxCentered class="pa-2">
+              <AppAvatarIcon
+                :icon="{
+                  icon: 'local:ironman-mask',
+                }"
+              />
+            </AppBoxCentered>
+            <p>
+              Rđa, korozija i bledenje boje ne praštaju &dash; zato je zaštita
+              površina ključni korak u našem procesu. To je
+              <em>&quot;tajni sastojak&quot;</em>
+              zbog kojeg naši proizvodi traju decenijama, a ne samo godinama.
+            </p>
+            <p>
+              Pre farbanja ili cinkovanja metal mora biti besprekorno čist.
+              Peskarenje finim abrazivnim peskom uklanja rđu, stare boje,
+              masnoće i sve nečistoće &dash; metal izlazi kao nov i spreman za
+              dalju obradu. Zatim na delove nanosimo boju u prahu i pečemo ih u
+              našoj peći. Rezultat je savršeno glatka, otporna i sjajna površina
+              koja ne bledi, ne ljušti se i ne korodira.
+            </p>
+            <p>
+              Plastificiramo i uslužno &dash; za vas, vaše projekte i vaše
+              klijente — uz konkurentne cene i brze rokove, da i njihovi
+              proizvodi dobiju isti kvalitet.
+            </p>
+            <template
+              v-for="item in [
+                {
+                  title: 'Plastifikacija',
+                  text: `Nanošenje boje u prahu koja se potom peče u peći.`,
+                },
+                {
+                  title: 'Peskarenje',
+                  text: `Čišćenje metala finim abrazivnim peskom. Metal postaje kao nov &dash; bez rđe, bez mrlja.`,
+                },
+              ]"
+            >
+              <AppBoxBase>
+                <VCardTitle class="text-h6 text-center text-wrap">
+                  {{ item.title }}
+                </VCardTitle>
+                <p v-html="item.text" />
+              </AppBoxBase>
+            </template>
+          </VCardText>
+        </template>
+      </AppGridTwoCells>
+      <VCardActions class="justify-center pa-5">
+        <VBtn
+          tile
+          variant="tonal"
+          elevation="1"
+          class="px-4"
+          :class="[!d.mobile.value ? 'scale-[111%]' : undefined]"
+          size="large"
+          :to="$localePath({ name: 'contact' })"
+        >
+          <template #prepend>
+            <IconX
+              icon="mdi:pipe-wrench"
+              size="1.5rem"
+              class="-translate-y-[2px] opacity-[.33]"
+            />
+          </template>
+          Zatražite ponudu</VBtn
+        >
+      </VCardActions>
+    </template>
+  </AppSheetSectionRoot>
 </template>

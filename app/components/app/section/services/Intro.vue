@@ -1,105 +1,207 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
 
+const { $$ } = useNuxtApp();
 const d = useDisplay();
+
+const appNavBarHeight = computed(
+  () => $$.config("layout.component.AppNavAppBar.height") ?? 0,
+);
 
 // @@eos
 </script>
 
 <template>
-  <AppCardSectionPrimary
+  <AppSheetSectionRoot
     class="component--AppSectionServicesIntro"
-    :class="{ 'd-flex flex-col': !d.mobile.value }"
     title="Vaš partner u obradi metala"
-    sub-title="Od ideje do gotovog proizvoda"
-    :icon="{ icon: 'local:certificate-trusted' }"
+    subtitle="Od projektovanja do gotovog proizvoda"
+    :props-title="{
+      class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
+    }"
+    :props-subtitle="{
+      class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
+    }"
+    :props-item="{
+      class: 'pb-2',
+    }"
   >
-    <AppGridTwoCells
-      cols-class="grid-cols-[1fr_55%]"
-      :stack="d.mobile.value"
-      :class="{ 'flex-1': !d.mobile.value }"
-      :props-text="{
-        class: !d.mobile.value ? 'overflow-y-auto' : undefined,
-      }"
-      :props-media="{
-        class: d.mobile.value ? 'h-[255px]' : undefined,
-      }"
-    >
-      <template #media>
-        <NuxtImg
-          src="/images/stock/005a.jpg"
-          class="w-100 fill-height object-cover"
-          :class="[
-            d.mobile.value ? 'object-left' : 'object-right',
-            {
-              '-scale-x-100': d.mobile.value,
-            },
-          ]"
-        />
-      </template>
-      <template #text>
-        <VCardText class="space-y-4 indent-4">
-          <AppBoxCentered class="pa-2">
-            <AppAvatarIcon :icon="{ icon: 'local:conveyor-belt-box' }" />
-          </AppBoxCentered>
-          <p>
-            Mi smo Metal-Promet &dash; firma sa više od tri decenije iskustva
-            koja, kao jedan od najkonkurentnijih igrača u oblasti livenja,
-            plastificiranja i izrade metalnih konstrukcija u Srbiji, nudi
-            <strong>kompletne usluge u metaloprerađivačkoj industriji</strong>.
-          </p>
-          <p>
-            Ono što nas izdvaja jeste sposobnost da proces od ideje do
-            realizacije sprovedemo <strong>pod jednim krovom</strong> &dash; od
-            3D modelovanja i projektovanja, preko precizne proizvodnje, do
-            završne obrade i montaže. Naši radovi su prepoznatljivi ne samo u
-            Srbiji, već i širom Evrope, uključujući Austriju, Švajcarsku,
-            Nemačku i Veliku Britaniju.
-          </p>
-          <p>
-            <strong>Proces počinje na papiru</strong>, gde vašu zamisao prvo 3D
-            modelujemo i fotorealistično prikazujemo kako biste tačno znali šta
-            ćete dobiti.
-          </p>
-          <p>
-            Zatim prelazimo u radionicu, gde CNC mašinama precizno obrađujemo
-            metal, a naši majstori ga zavarivanjem spajaju u čvrste konstrukcije
-            &dash; bilo da su u pitanju ograde, kapije, stepenice ili
-            nadstrešnice.
-          </p>
-          <p>
-            Potom naše proizvode hemijski tretiramo i peskarimo kako bismo ih
-            pripremili za završnu obradu, a onda ih plastificiramo u našoj
-            velikoj peći &dash; birajući boju iz preko 200 RAL nijansi, od
-            antracita do sjajnih metalik tonova.
-          </p>
-          <p>
-            Na kraju, naš
-            <strong>tim montira gotove proizvode na vašoj lokaciji</strong>,
-            bilo u Srbiji ili inostranstvu, i predaje vam ključeve.
-          </p></VCardText
+    <template v-if="d.smAndUp.value" #icon>
+      <IconX
+        icon="local:certificate-trusted"
+        size="2rem"
+        class="opacity-[.2]"
+      />
+    </template>
+    <template #default="cx">
+      <AppGridStackedFrames
+        :style="{
+          height: `calc(100svh - ${appNavBarHeight}px)`,
+        }"
+      >
+        <AppGridStackedFramesItem
+          class="z-[1] bg-gradient-to-t !from-[rgb(var(--v-theme-ui))] !to-transparent d-flex flex-col"
         >
-      </template>
-    </AppGridTwoCells>
-    <VCardActions class="justify-center pa-5">
-      <VBtn
-        tile
-        variant="tonal"
-        elevation="1"
-        class="px-4"
-        :class="[!d.mobile.value ? 'scale-[111%]' : undefined]"
-        size="large"
-        :to="$localePath({ name: 'contact' })"
-      >
-        <template #prepend>
-          <IconX
-            icon="mdi:pipe-wrench"
-            size="1.5rem"
-            class="-translate-y-[2px] opacity-[.33]"
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <AppBoxContainerCentered
+            class="text-v-on-ui text-shadow-md space-y-5"
+            :class="{ 'pb-2': d.mobile.value }"
+          >
+            <VCardTitle
+              class="text-h3 text-wrap"
+              :class="{
+                'text-h5 text-center': !d.smAndUp.value,
+              }"
+              >Od ideje do montaže</VCardTitle
+            >
+            <VCardText
+              class="text-h4 indent-4"
+              :class="{ 'text-h6': !d.smAndUp.value }"
+            >
+              Sa više od tri decenije iskustva u obradi metala i
+              plastificiranju, nudimo kompletne usluge u metaloprerađivačkoj
+              industriji &dash; sve pod jednim krovom.
+            </VCardText>
+          </AppBoxContainerCentered>
+          <VSpacer v-if="!d.mobile.value" />
+        </AppGridStackedFramesItem>
+        <AppGridStackedFramesItem>
+          <NuxtImg
+            src="/images/stock/115.jpg"
+            class="w-100 fill-height object-cover"
+            sizes="100vw sm:822px md:1024px"
           />
-        </template>
-        Zatražite ponudu</VBtn
+        </AppGridStackedFramesItem>
+      </AppGridStackedFrames>
+      <AppGridStackedFrames
+        :style="{
+          height: `calc(100svh - ${appNavBarHeight}px)`,
+        }"
       >
-    </VCardActions>
-  </AppCardSectionPrimary>
+        <AppGridStackedFramesItem
+          class="z-[1] bg-gradient-to-t !from-[rgb(var(--v-theme-ui))] !to-transparent d-flex flex-col"
+        >
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <AppBoxContainerCentered
+            class="text-v-on-ui text-shadow-md space-y-5"
+            :class="{ 'pb-2': d.mobile.value }"
+          >
+            <VCardTitle
+              class="text-h3 text-wrap"
+              :class="{
+                'text-h5 text-center': !d.smAndUp.value,
+              }"
+              >Precizna proizvodnja</VCardTitle
+            >
+            <VCardText
+              class="text-h4 indent-4"
+              :class="{ 'text-h6': !d.smAndUp.value }"
+            >
+              U radionici CNC mašinama obrađujemo metal, a naši majstori
+              zavarivanjem spajaju industrijsku opremu i konstrukcije.
+            </VCardText>
+          </AppBoxContainerCentered>
+          <VSpacer v-if="!d.mobile.value" />
+        </AppGridStackedFramesItem>
+        <AppGridStackedFramesItem>
+          <NuxtImg
+            src="/images/stock/116.jpg"
+            class="w-100 fill-height object-cover"
+            :class="{ 'object-[66%]': !d.mdAndUp.value }"
+            sizes="100vw sm:822px md:1024px"
+          />
+        </AppGridStackedFramesItem>
+      </AppGridStackedFrames>
+      <AppGridStackedFrames
+        :style="{
+          height: `calc(100svh - ${appNavBarHeight}px)`,
+        }"
+      >
+        <AppGridStackedFramesItem
+          class="z-[1] bg-gradient-to-t !from-[rgb(var(--v-theme-ui))] !to-transparent d-flex flex-col"
+        >
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <AppBoxContainerCentered
+            class="text-v-on-ui text-shadow-md space-y-5"
+            :class="{ 'pb-2': d.mobile.value }"
+          >
+            <VCardTitle
+              class="text-h3 text-wrap"
+              :class="{
+                'text-h5 text-center': !d.smAndUp.value,
+              }"
+              >Priprema i završna obrada</VCardTitle
+            >
+            <VCardText
+              class="text-h4 indent-4"
+              :class="{ 'text-h6': !d.smAndUp.value }"
+            >
+              Proizvode hemijski tretiramo i peskarimo, zatim ih plastificiramo
+              u velikoj peći &dash; birajući boju iz preko 200 RAL nijansi, od
+              antracita do sjajnih metalik tonova.
+            </VCardText>
+          </AppBoxContainerCentered>
+          <VSpacer v-if="!d.mobile.value" />
+        </AppGridStackedFramesItem>
+        <AppGridStackedFramesItem>
+          <NuxtImg
+            src="/images/stock/117.jpg"
+            class="w-100 fill-height object-cover"
+            :class="{ 'object-[40%]': !d.mdAndUp.value }"
+            sizes="100vw sm:822px md:1024px"
+          />
+        </AppGridStackedFramesItem>
+      </AppGridStackedFrames>
+      <AppGridStackedFrames
+        :style="{
+          height: `calc(100svh - ${appNavBarHeight}px)`,
+        }"
+      >
+        <AppGridStackedFramesItem
+          class="z-[1] bg-gradient-to-t !from-[rgb(var(--v-theme-ui))] !to-transparent d-flex flex-col"
+        >
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <VSpacer />
+          <AppBoxContainerCentered
+            class="text-v-on-ui text-shadow-md space-y-5"
+            :class="{ 'pb-2': d.mobile.value }"
+          >
+            <VCardTitle
+              class="text-h3 text-wrap"
+              :class="{
+                'text-h5 text-center': !d.smAndUp.value,
+              }"
+              >Montaža na licu mesta</VCardTitle
+            >
+            <VCardText
+              class="text-h4 indent-4"
+              :class="{ 'text-h6': !d.smAndUp.value }"
+            >
+              Na kraju, naš tim montira gotov proizvod na vašoj lokaciji &dash;
+              u Srbiji ili inostranstvu &dash; i predaje vam ključeve.
+            </VCardText>
+          </AppBoxContainerCentered>
+          <VSpacer v-if="!d.mobile.value" />
+        </AppGridStackedFramesItem>
+        <AppGridStackedFramesItem>
+          <NuxtImg
+            src="/images/stock/118.jpg"
+            class="w-100 fill-height object-cover"
+            sizes="100vw sm:822px md:1024px"
+          />
+        </AppGridStackedFramesItem>
+      </AppGridStackedFrames>
+    </template>
+  </AppSheetSectionRoot>
 </template>
