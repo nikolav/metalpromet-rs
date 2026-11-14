@@ -41,7 +41,7 @@ const heightAppNavBar = computed(
         <AppBoxHeroLine
           h2="Kompletno rešenje za metal"
           title="Naše delatnosti i usluge"
-          subtitle="Radimo sve od kapije do elektrane!"
+          subtitle="Od kapije do elektrane!"
         >
           <template #icon>
             <IconX icon="mdi:toolbox" size="2.22rem" class="opacity-[.33]" />
@@ -54,7 +54,7 @@ const heightAppNavBar = computed(
         </VCardTitle>
       </template>
       <NuxtImg
-        src="/images/stock/004.jpg"
+        src="/images/stock/004a.jpg"
         sizes="100vw sm:720px lg:1024px"
         class="w-100 fill-height object-cover object-right"
       />

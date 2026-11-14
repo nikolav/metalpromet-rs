@@ -26,7 +26,7 @@ const toggleTabs = useToggleFlag();
     >
       <template #media>
         <NuxtImg
-          src="/images/stock/009.jpg"
+          src="/images/stock/009a.jpg"
           width="378"
           height="672"
           sizes="100vw sm:550px"

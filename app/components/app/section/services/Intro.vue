@@ -27,7 +27,7 @@ const d = useDisplay();
     >
       <template #media>
         <NuxtImg
-          src="/images/stock/005.jpg"
+          src="/images/stock/005a.jpg"
           class="w-100 fill-height object-cover"
           :class="[
             d.mobile.value ? 'object-left' : 'object-right',

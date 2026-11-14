@@ -270,7 +270,7 @@ const appNavHeight = computed(() =>
                 class="d-flex flex-col"
               >
                 <NuxtImg
-                  src="/images/stock/010.jpg"
+                  src="/images/stock/010a.jpg"
                   class="object-cover w-full h-1/2"
                 />
                 <VCardTitle
@@ -336,7 +336,7 @@ const appNavHeight = computed(() =>
             <VCol sm="6" md="4">
               <VCard height="712">
                 <NuxtImg
-                  src="/images/stock/012.jpg"
+                  src="/images/stock/012a.jpg"
                   class="object-cover w-full h-1/2"
                 />
                 <VCardTitle
@@ -501,7 +501,7 @@ const appNavHeight = computed(() =>
                 },
                 title: 'Upoznajte Metal-Promet',
                 image: {
-                  src: '/images/stock/013.jpg',
+                  src: '/images/stock/013a.jpg',
                   classes: 'object-[44%_top]',
                 },
                 link: {
@@ -514,7 +514,7 @@ const appNavHeight = computed(() =>
                 icon: { name: 'local:conveyor-belt-box', size: '2rem' },
                 title: 'Zatvoren tehnološki krug',
                 image: {
-                  src: '/images/stock/015.jpg',
+                  src: '/images/stock/015a.jpg',
                   classes: '',
                 },
                 link: {
@@ -527,7 +527,7 @@ const appNavHeight = computed(() =>
                 icon: { name: 'mdi:toolbox', size: '2.5rem' },
                 title: 'Rešenje za svaki zahtev',
                 image: {
-                  src: '/images/stock/016.jpg',
+                  src: '/images/stock/016a.jpg',
                   classes: 'object-top',
                 },
                 link: {
@@ -540,7 +540,7 @@ const appNavHeight = computed(() =>
                 icon: { name: 'local:certificate-trusted', size: '2.5rem' },
                 title: 'Partner za Vaš projekat',
                 image: {
-                  src: '/images/stock/018.jpg',
+                  src: '/images/stock/018a.jpg',
                   classes: 'object-[right_top]',
                 },
                 link: {
@@ -553,7 +553,7 @@ const appNavHeight = computed(() =>
                 icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
                 title: `Vaša ideja &dash; naša briga`,
                 image: {
-                  src: '/images/stock/019.jpg',
+                  src: '/images/stock/019a.jpg',
                   classes: 'object-[45%_center]',
                 },
                 link: {
@@ -567,7 +567,7 @@ const appNavHeight = computed(() =>
                 icon: { name: 'mdi:diamond-stone', size: '2.5rem' },
                 title: 'Kvalitet zagarantovan',
                 image: {
-                  src: '/images/stock/017.jpg',
+                  src: '/images/stock/017a.jpg',
                   classes: '',
                 },
                 link: {

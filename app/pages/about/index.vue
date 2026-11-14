@@ -154,15 +154,15 @@ const H = computed(() =>
           :key="item.html"
           v-for="(item, idx) in [
             {
-              image: '/images/stock/013.jpg',
+              image: '/images/stock/013a.jpg',
               html: `<p>Neki sviraju gitaru, mi <em>&quot;sviramo&quot;</em> čelik i aluminijum. I to već decenijama. Od 1988. godine, u srcu Šumadije, u Mladenovcu, mi smo <strong>firma koja od metala pravi pouzdana rešenja</strong> &dash; specijalizovani smo za izradu industrijske opreme, metalnih konstrukcija i stolarije po merilima klijenata.</p><p> Počeli smo kao mala radionica, a danas smo prepoznatljiv brend ne samo u Beogradu i Šumadiji, već širom cele Srbije i Evrope &dash; partner na kog se industrija oslanja kada je u pitanju oprema i konstrukcije izrađeni po meri.</p>`,
             },
             {
-              image: '/images/stock/023.jpg',
+              image: '/images/stock/023a.jpg',
               html: `Srce naše firme nisu mašine &dash; to su ljudi. Goran Milenković i Dušan Milenković, diplomirani mašinski inženjer i inženjer zavarivanja, predvode tim vrhunskih majstora. Izrađujemo industrijsku opremu i metalne konstrukcije po meri &dash; <strong>naši inženjeri modele pretvaraju u stvarnost</strong>, uz CNC obradu, lasersko sečenje, peskarenje i plastifikaciju.</p><p> Ali bez našeg jakog tima &dash; to je samo gomila hladnog gvožđa. Zato volimo da čujemo svaku vašu ideju uz kafu i kažemo &dash; možemo.</p>`,
             },
             {
-              image: '/images/stock/025.jpg',
+              image: '/images/stock/025a.jpg',
               html: `<p>Iako radimo sa ozbiljnom opremom, negujemo otvoren i direktan pristup &dash; slušamo šta vam  treba i odgovaramo konkretno, bilo da je reč o maloj žardinjeri ili zahtevnom komadu industrijske opreme. Iza nas su projekti u termoelektrani Kostolac, reaktoru vode u Kruševcu, i na brojnim luksuznim objektima kod nas i preko.</p><p><strong>Metal-Promet je pouzdan partner za izradu industrijske opreme i metalnih konstrukcija</strong>, i zato obratite nam se za rešenje koje je po vašim merilima i potrebama.</p>`,
             },
             //

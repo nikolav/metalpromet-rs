@@ -386,7 +386,7 @@ const appNavBarHeight = computed(
         </AppBoxHeroLine>
       </template>
       <NuxtImg
-        src="/images/stock/113.jpg"
+        src="/images/stock/113a.jpg"
         sizes="100vw sm:912px lg:1280px"
         class="w-full fill-height object-cover"
       />
