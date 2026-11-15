@@ -31,7 +31,7 @@ const heightAppNavBar = computed(
     <!-- section: hero -->
     <AppGridStacked
       :props-stack="{
-        class: 'position-relative',
+        class: 'position-relative d-flex flex-col',
       }"
       :style="{
         height: `calc(100dvh - ${heightAppNavBar}px)`,
@@ -47,6 +47,22 @@ const heightAppNavBar = computed(
             <IconX icon="mdi:toolbox" size="2rem" class="opacity-[.33]" />
           </template>
         </AppBoxHeroLine>
+        <VSpacer />
+        <VCardActions
+          class="justify-center"
+          :class="{ 'mb-12': !d.mobile.value, 'mb-5': d.mobile.value }"
+        >
+          <AppBtnCtaContact>
+            <template #prepend>
+              <IconX
+                icon="mdi:pipe-wrench"
+                size="1.5em"
+                class="text-accent-lighten-1"
+              />
+            </template>
+            <span>Zatražite ponudu</span>
+          </AppBtnCtaContact>
+        </VCardActions>
       </template>
       <NuxtImg
         src="/images/stock/114.jpg"

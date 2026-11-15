@@ -50,9 +50,9 @@ const localePath = useLocalePath();
                       <strong>Metal-Promet Mladenovac</strong>
                     </h2>
                     <p class="mt-[2px]">
-                      Izrada čeličnih i aluminijumskih konstrukcija,
-                      inženjering, bravarija, gotovi proizvodi, plastifikacija
-                      metala i završna obrada.
+                      Izrada industrijske opreme i metalnih konstrukcija,
+                      inženjering, bravarija, stolarija, plastifikacija i
+                      završna obrada metala.
                     </p>
                   </VCardText>
                 </AppBoxBase>
