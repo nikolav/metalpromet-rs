@@ -5,6 +5,10 @@
     "hello": "Hello"
   },
   "pages": {
+    "services": {
+      "title": "Services • Metal-Promet Mladenovac • Industrial equipment, metal structures, carpentry, metal plasticization",
+      "description": "Metal-Promet Mladenovac specializes in manufacturing equipment and units for the industrial sector, steel structures, fences and gates, along with sandblasting and electrostatic painting. Request an offer!"
+    },
     "projects": {
       "title": "Projects • Metal-Promet Mladenovac • Industrial equipment, metal structures, carpentry, metal plasticization",
       "description": "Metal-Promet Mladenovac specializes in manufacturing equipment and units for the industrial sector, steel structures, fences and gates, along with sandblasting and electrostatic painting. Request an offer!"
@@ -12,6 +16,10 @@
 
     "index": {
       "title": "Metal-Promet Mladenovac • Industrial equipment, metal constructions, carpentry, metal plasticization",
+      "description": "Metal-Promet Mladenovac specializes in manufacturing equipment and units for the industrial sector, steel structures, fences and gates, along with sandblasting and electrostatic painting. Request a quote!"
+    },
+    "contact": {
+      "title": "Contact • Metal-Promet Mladenovac • Industrial equipment, metal constructions, carpentry, metal plasticization",
       "description": "Metal-Promet Mladenovac specializes in manufacturing equipment and units for the industrial sector, steel structures, fences and gates, along with sandblasting and electrostatic painting. Request a quote!"
     },
     "about": {

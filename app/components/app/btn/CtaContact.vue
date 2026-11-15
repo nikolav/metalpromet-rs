@@ -14,7 +14,7 @@ const d = useDisplay();
     variant="elevated"
     :to="$localePath({ name: 'contact' })"
     class="component--AppBtnCtaContact text-shadow-sm !text-v-on-ui px-4"
-    :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
+    :class="[!d.mobile.value ? 'scale-[111%]' : undefined]"
   >
     <template #prepend>
       <slot name="prepend">
