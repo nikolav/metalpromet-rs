@@ -48,7 +48,7 @@ const appNavBarHeight = computed(
           <VSpacer />
           <AppBoxContainerCentered
             class="text-v-on-ui text-shadow-md space-y-5"
-            :class="{ 'pb-2': d.mobile.value }"
+            :class="{ 'pb-5': d.mobile.value }"
           >
             <VCardTitle
               class="text-h3 text-wrap"
@@ -65,6 +65,13 @@ const appNavBarHeight = computed(
               plastificiranju, nudimo kompletne usluge u metaloprerađivačkoj
               industriji &dash; sve pod jednim krovom.
             </VCardText>
+            <VCardActions class="justify-center">
+              <AppBtnCtaContact color="primary">
+                <template #prepend>
+                  <strong class="text-[150%]">🤝</strong>
+                </template>
+              </AppBtnCtaContact>
+            </VCardActions>
           </AppBoxContainerCentered>
           <VSpacer v-if="!d.mobile.value" />
         </AppGridStackedFramesItem>
@@ -90,7 +97,7 @@ const appNavBarHeight = computed(
           <VSpacer />
           <AppBoxContainerCentered
             class="text-v-on-ui text-shadow-md space-y-5"
-            :class="{ 'pb-2': d.mobile.value }"
+            :class="{ 'pb-5': d.mobile.value }"
           >
             <VCardTitle
               class="text-h3 text-wrap"
@@ -106,6 +113,18 @@ const appNavBarHeight = computed(
               U radionici CNC mašinama obrađujemo metal, a naši majstori
               zavarivanjem spajaju industrijsku opremu i konstrukcije.
             </VCardText>
+            <VCardActions class="justify-center">
+              <AppBtnCtaContact color="primary">
+                <template #prepend>
+                  <IconX
+                    icon="mdi:pipe-wrench"
+                    size="2rem"
+                    class="opacity-[.2]"
+                  />
+                </template>
+                <span>Zatražite ponudu</span>
+              </AppBtnCtaContact>
+            </VCardActions>
           </AppBoxContainerCentered>
           <VSpacer v-if="!d.mobile.value" />
         </AppGridStackedFramesItem>
@@ -132,7 +151,7 @@ const appNavBarHeight = computed(
           <VSpacer />
           <AppBoxContainerCentered
             class="text-v-on-ui text-shadow-md space-y-5"
-            :class="{ 'pb-2': d.mobile.value }"
+            :class="{ 'pb-5': d.mobile.value }"
           >
             <VCardTitle
               class="text-h3 text-wrap"
@@ -149,6 +168,14 @@ const appNavBarHeight = computed(
               u velikoj peći &dash; birajući boju iz preko 200 RAL nijansi, od
               antracita do sjajnih metalik tonova.
             </VCardText>
+            <VCardActions class="justify-center">
+              <AppBtnCtaContact color="primary">
+                <template #prepend>
+                  <IconX icon="mdi:security" size="2rem" class="opacity-[.2]" />
+                </template>
+                <span>Zakažite uslugu</span>
+              </AppBtnCtaContact>
+            </VCardActions>
           </AppBoxContainerCentered>
           <VSpacer v-if="!d.mobile.value" />
         </AppGridStackedFramesItem>
@@ -175,7 +202,7 @@ const appNavBarHeight = computed(
           <VSpacer />
           <AppBoxContainerCentered
             class="text-v-on-ui text-shadow-md space-y-5"
-            :class="{ 'pb-2': d.mobile.value }"
+            :class="{ 'pb-5': d.mobile.value }"
           >
             <VCardTitle
               class="text-h3 text-wrap"
@@ -191,6 +218,14 @@ const appNavBarHeight = computed(
               Na kraju, naš tim montira gotov proizvod na vašoj lokaciji &dash;
               u Srbiji ili inostranstvu &dash; i predaje vam ključeve.
             </VCardText>
+            <VCardActions class="justify-center">
+              <AppBtnCtaContact color="primary">
+                <template #prepend>
+                  <IconX icon="mdi:wrench" size="2rem" class="opacity-[.2]" />
+                </template>
+                <span>Zakažite montažu</span>
+              </AppBtnCtaContact>
+            </VCardActions>
           </AppBoxContainerCentered>
           <VSpacer v-if="!d.mobile.value" />
         </AppGridStackedFramesItem>

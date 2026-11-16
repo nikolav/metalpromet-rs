@@ -9,13 +9,10 @@ definePageMeta({
     description: "pages.engineering.description",
   },
   layout: "default",
-  // middleware: ["auth"],
-  // validate: (route) => {},
   i18n: {
-    // locales: ["sr", "en"],
     paths: {
-      sr: "/delatnosti/inzenjering",
-      "sr-cyrl": "/delatnosti/inzenjering",
+      sr: "/delatnosti/industrijska-oprema",
+      "sr-cyrl": "/delatnosti/industrijska-oprema",
       en: "/services/engineering",
     },
   },
@@ -26,8 +23,6 @@ definePageMeta({
 
 <template>
   <AppBoxPageWrap class="page--engineering">
-    <AppBoxCentered>
-      <h2>📃inzenjering 🚧</h2>
-    </AppBoxCentered>
+    <AppSectionServicesIndustryComponents />
   </AppBoxPageWrap>
 </template>

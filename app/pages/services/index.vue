@@ -29,60 +29,178 @@ const heightAppNavBar = computed(
 <template>
   <AppBoxPageWrap class="page--services">
     <!-- section: hero -->
-    <AppGridStacked
-      :props-stack="{
-        class: 'position-relative d-flex flex-col',
+    <AppSheetSectionRoot
+      title="Metal-Promet"
+      subtitle="Kompletno rešenje za metal"
+      :border="0"
+      :props-item="{
+        class: 'pb-2',
       }"
-      :style="{
-        height: `calc(100dvh - ${heightAppNavBar}px)`,
+      :props-title="{
+        class: d.mobile.value ? 'text-h6' : 'text-h4',
+      }"
+      :props-subtitle="{
+        class: d.mobile.value ? 'text-body-1' : 'text-h6',
       }"
     >
-      <template #stack>
-        <AppBoxHeroLine
-          h2="Kompletno rešenje za metal"
-          title="Delatnosti, usluge"
-          subtitle="Od kapije do elektrane!"
-        >
-          <template #icon>
-            <IconX icon="mdi:toolbox" size="2rem" class="opacity-[.33]" />
-          </template>
-        </AppBoxHeroLine>
-        <VSpacer />
-        <VCardActions
-          class="justify-center"
-          :class="{ 'mb-12': !d.mobile.value, 'mb-5': d.mobile.value }"
-        >
-          <AppBtnCtaContact>
-            <template #prepend>
-              <IconX
-                icon="mdi:pipe-wrench"
-                size="1.5em"
-                class="text-accent-lighten-1"
-              />
-            </template>
-            <span>Zatražite ponudu</span>
-          </AppBtnCtaContact>
-        </VCardActions>
+      <template v-if="d.smAndUp.value" #icon>
+        <IconX
+          icon="mdi:package-variant-closed-check"
+          size="2rem"
+          class="opacity-[.2]"
+        />
       </template>
-      <NuxtImg
-        src="/images/stock/114.jpg"
-        sizes="100vw sm:822px lg:1024px"
-        class="w-100 fill-height object-[82%_top] object-cover"
-      />
-    </AppGridStacked>
+      <template #default="cx">
+        <AppGridCellsTwoByTwo
+          :stack="!d.smAndUp.value"
+          :style="[
+            d.smAndUp.value
+              ? {
+                  height: `calc(100svh - ${heightAppNavBar}px - ${cx.titleSize.height ?? 0}px)`,
+                }
+              : undefined,
+          ]"
+          :props-cells="{
+            class: !d.smAndUp.value ? 'h-[55svh]' : undefined,
+          }"
+        >
+          <template #top-left>
+            <VCard
+              class="fill-height !text-v-on-ui text-shadow-md"
+              tile
+              variant="flat"
+              :to="$localePath({ name: 'services-engineering' })"
+            >
+              <AppGridStackedFrames class="fill-height">
+                <AppGridStackedFramesItem
+                  class="z-[1] bg-gradient-to-t !from-v-ui !to-v-ui/25 d-flex flex-col cursor-pointer pb-16"
+                >
+                  <VSpacer />
+                  <VCardTitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h4' : 'text-h5']"
+                    >Industrijska oprema</VCardTitle
+                  >
+                  <VCardSubtitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h6' : 'text-body-1']"
+                    >Izrada po meri za potrebe proizvodnog
+                    procesa</VCardSubtitle
+                  >
+                </AppGridStackedFramesItem>
+                <AppGridStackedFramesItem>
+                  <NuxtImg
+                    src="/images/stock/119.jpg"
+                    class="w-100 fill-height object-cover"
+                    sizes="100vw sm:480px md:822px"
+                  />
+                </AppGridStackedFramesItem>
+              </AppGridStackedFrames>
+            </VCard>
+          </template>
+          <template #top-right>
+            <VCard
+              class="fill-height !text-v-on-ui text-shadow-md"
+              tile
+              variant="flat"
+              :to="$localePath({ name: 'services-constructions' })"
+            >
+              <AppGridStackedFrames class="fill-height">
+                <AppGridStackedFramesItem
+                  class="z-[1] bg-gradient-to-t !from-v-ui !to-v-ui/25 d-flex flex-col cursor-pointer pb-16"
+                >
+                  <VSpacer />
+                  <VCardTitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h4' : 'text-h5']"
+                    >Metalne konstrukcije</VCardTitle
+                  >
+                  <VCardSubtitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h6' : 'text-body-1']"
+                    >Gde metal dobija oblik</VCardSubtitle
+                  >
+                </AppGridStackedFramesItem>
+                <AppGridStackedFramesItem>
+                  <NuxtImg
+                    src="/images/stock/120.jpg"
+                    class="w-100 fill-height object-cover *object-[left_top] -scale-x-100"
+                    sizes="100vw sm:480px md:822px"
+                  />
+                </AppGridStackedFramesItem>
+              </AppGridStackedFrames>
+            </VCard>
+          </template>
+          <template #bottom-left>
+            <VCard
+              class="fill-height !text-v-on-ui text-shadow-md"
+              tile
+              variant="flat"
+              :to="$localePath({ name: 'services-products' })"
+            >
+              <AppGridStackedFrames class="fill-height">
+                <AppGridStackedFramesItem
+                  class="z-[1] bg-gradient-to-t !from-v-ui !to-v-ui/25 d-flex flex-col cursor-pointer pb-16"
+                >
+                  <VSpacer />
+                  <VCardTitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h4' : 'text-h5']"
+                    >Ogradni sistemi</VCardTitle
+                  >
+                  <VCardSubtitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h6' : 'text-body-1']"
+                    >Vaš prostor, naša briga</VCardSubtitle
+                  >
+                </AppGridStackedFramesItem>
+                <AppGridStackedFramesItem>
+                  <NuxtImg
+                    src="/images/stock/083.jpg"
+                    class="w-100 fill-height object-cover *object-[left_top] -scale-x-100"
+                    sizes="100vw sm:480px md:712px"
+                  />
+                </AppGridStackedFramesItem>
+              </AppGridStackedFrames>
+            </VCard>
+          </template>
+          <template #bottom-right>
+            <VCard
+              class="fill-height !text-v-on-ui text-shadow-md"
+              tile
+              variant="flat"
+              :to="$localePath({ name: 'services-finish' })"
+            >
+              <AppGridStackedFrames class="fill-height">
+                <AppGridStackedFramesItem
+                  class="z-[1] bg-gradient-to-t !from-v-ui !to-v-ui/25 d-flex flex-col cursor-pointer pb-16"
+                >
+                  <VSpacer />
+                  <VCardTitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h4' : 'text-h5']"
+                    >Plastifikacija</VCardTitle
+                  >
+                  <VCardSubtitle
+                    class="text-wrap text-center"
+                    :class="[d.mdAndUp.value ? 'text-h6' : 'text-body-1']"
+                    >Čuvamo ono što stvaramo</VCardSubtitle
+                  >
+                </AppGridStackedFramesItem>
+                <AppGridStackedFramesItem>
+                  <NuxtImg
+                    src="/images/stock/122.jpg"
+                    class="w-100 fill-height object-cover object-[center_25%]"
+                    sizes="100vw sm:480px md:822px"
+                  />
+                </AppGridStackedFramesItem>
+              </AppGridStackedFrames>
+            </VCard>
+          </template>
+        </AppGridCellsTwoByTwo>
+      </template>
+    </AppSheetSectionRoot>
 
     <AppSectionServicesIntro />
-
-    <VSpacer class="mt-px" />
-    <AppSectionServicesIndustryComponents />
-
-    <VSpacer class="mt-px" />
-    <AppSectionServicesConstruction />
-
-    <VSpacer class="mt-px" />
-    <AppSectionServicesCarpentry />
-
-    <VSpacer class="mt-px" />
-    <AppSectionServicesFinish />
   </AppBoxPageWrap>
 </template>
