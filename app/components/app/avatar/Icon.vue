@@ -12,7 +12,7 @@ const props = defineProps<{
   <VAvatar class="component--AppAvatarIcon" variant="tonal" size="4rem">
     <IconX
       :icon="props.icon?.icon"
-      class="opacity-[.33]"
+      class="opacity-[.22]"
       size="2rem"
       v-bind="props.icon?.props"
     />

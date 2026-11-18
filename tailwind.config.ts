@@ -65,9 +65,13 @@ export default {
           "on-ui": "rgb(var(--v-theme-on-ui), <alpha-value>)",
 
           success: "rgb(var(--v-theme-success), <alpha-value>)",
+          "on-success": "rgb(var(--v-theme-on-success), <alpha-value>)",
           warning: "rgb(var(--v-theme-warning), <alpha-value>)",
+          "on-warning": "rgb(var(--v-theme-on-warning), <alpha-value>)",
           error: "rgb(var(--v-theme-error), <alpha-value>)",
+          "on-error": "rgb(var(--v-theme-on-error), <alpha-value>)",
           info: "rgb(var(--v-theme-info), <alpha-value>)",
+          "on-info": "rgb(var(--v-theme-on-info), <alpha-value>)",
 
           background: "rgb(var(--v-theme-background), <alpha-value>)",
           surface: "rgb(var(--v-theme-surface), <alpha-value>)",
@@ -130,11 +134,6 @@ export default {
       },
     },
   },
-
-  // // .grid-rows-auto-fill-auto
-  // gridTemplateRows: {
-  //   "auto-fill-auto": "auto 1fr auto",
-  // },
 
   /**
    * Key Vuetify compatibility:
