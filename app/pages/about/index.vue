@@ -77,12 +77,12 @@ const mp_facts = computed(() =>
   MP_FACTS.filter((node) => (d.sm.value ? true !== node.optional : true)),
 );
 
-const appNavHeight = computed(() =>
-  $$.config("layout.component.AppNavAppBar.height"),
+const appNavHeight = computed(
+  () => $$.config("layout.component.AppNavAppBar.height") ?? 0,
 );
 const isDark = computed(() => theme.global.current.value.dark);
 const H = computed(() =>
-  d.smAndUp.value ? `calc(100dvh - ${appNavHeight.value ?? 0}px)` : 422,
+  d.smAndUp.value ? `calc(100dvh - ${appNavHeight.value}px)` : 422,
 );
 
 // yt-id: idxkQgb5KNA; provider="youtube"
@@ -133,23 +133,25 @@ const H = computed(() =>
       </VCard>
     </AppGridAutoCells>
 
-    <!-- about -->
-    <AppCardSectionPrimary variant="flat">
-      <template #title>
+    <!-- o-nama -->
+    <AppSheetSectionRoot
+      :title="
+        d.smAndUp.value
+          ? 'Tradicija, znanje &dash; naš put'
+          : 'Tradicija, znanje'
+      "
+      :props-item="{ class: 'py-4' }"
+      :props-title="{ class: 'italic text-h4 pb-2 text-wrap' }"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="material-symbols:id-card-outline"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          class="opacity-[.2]"
           size="2rem"
         />
-
-        <AppCardSectionPrimaryTitle>
-          Tradicija, znanje &dash; naš put
-        </AppCardSectionPrimaryTitle>
       </template>
-
-      <!-- intro -->
-      <AppBoxContainerCentered fluid :max-width="undefined">
+      <template #default>
         <template
           :key="item.html"
           v-for="(item, idx) in [
@@ -165,79 +167,78 @@ const H = computed(() =>
               image: '/images/stock/025a.jpg',
               html: `<p>Iako radimo sa ozbiljnom opremom, negujemo otvoren i direktan pristup &dash; slušamo šta vam  treba i odgovaramo konkretno, bilo da je reč o maloj žardinjeri ili zahtevnom komadu industrijske opreme. Iza nas su projekti u termoelektrani Kostolac, reaktoru vode u Kruševcu, i na brojnim luksuznim objektima kod nas i preko.</p><p><strong>Metal-Promet je pouzdan partner za izradu industrijske opreme i metalnih konstrukcija</strong>, i zato obratite nam se za rešenje koje je po vašim merilima i potrebama.</p>`,
             },
-            //
           ]"
         >
-          <VCard
-            variant="text"
-            tile
-            :style="[
-              d.mdAndUp.value
-                ? {
-                    height: `calc(81dvh - ${appNavHeight ?? 0}px - 2rem)`,
-                  }
-                : undefined,
-            ]"
+          <AppGridTwoCellsContentLMediaAuto
+            :stack="!d.smAndUp.value"
+            :invert="!$$.isOdd(idx)"
+            :cols-class="
+              d.smAndUp.value
+                ? $$.isOdd(idx)
+                  ? 'grid-cols-[1fr_minmax(min(40ch,100%),1.5fr)]'
+                  : 'grid-cols-[minmax(min(40ch,100%),1.5fr)_1fr]'
+                : undefined
+            "
             :class="{
-              '!bg-[rgb(var(--v-theme-surface-variant))]': $$.isOdd(idx),
+              'bg-ui text-on-ui': $$.isOdd(idx),
+              'border-v-primary !border-t border-solid border-opacity-[.5]': false,
             }"
           >
-            <AppGridTwoCells
-              :stack="!d.mdAndUp.value"
-              class="h-full"
-              :invert="!$$.isOdd(idx)"
-            >
-              <template #media>
-                <NuxtImg
-                  :src="item.image"
-                  :class="[
-                    'w-full object-cover object-top',
-                    d.mdAndUp.value ? 'h-full' : 'h-[44dvh]',
-                  ]"
-                />
-              </template>
-              <template #text>
-                <VCardText
-                  class="indent-4"
-                  :class="[
-                    d.smAndUp.value ? 'pa-12 text-h6' : 'pa-4 text-body-1',
-                  ]"
+            <template #text>
+              <AppBoxContainerCentered max-width="70ch">
+                <VCard
+                  variant="text"
+                  tile
+                  :min-height="d.smAndUp.value ? '75svh' : undefined"
                 >
-                  <AppBoxBase
+                  <VSpacer :class="d.mdAndUp.value ? 'mt-5' : 'mt-2'" />
+                  <VCardText
                     v-html="item.html"
-                    :class="[
-                      'space-y-4',
-                      !d.mdAndUp.value ? 'pb-10' : undefined,
-                    ]"
+                    class="indent-5 space-y-5 !leading-normal"
+                    :class="{
+                      'text-h6': d.mdAndUp.value,
+                      'text-body-1': !d.mdAndUp.value,
+                    }"
                   />
-                </VCardText>
-              </template>
-            </AppGridTwoCells>
-          </VCard>
+                  <VSpacer v-if="!d.smAndUp.value" class="mt-10" />
+                </VCard>
+              </AppBoxContainerCentered>
+            </template>
+            <template #media>
+              <NuxtImg
+                :src="item.image"
+                class="w-100 object-cover object-top"
+                :class="!d.smAndUp.value ? 'h-[40svh]' : 'fill-height'"
+              />
+            </template>
+          </AppGridTwoCellsContentLMediaAuto>
         </template>
-      </AppBoxContainerCentered>
-    </AppCardSectionPrimary>
+      </template>
+    </AppSheetSectionRoot>
 
     <!-- istorijat -->
     <VSpacer class="mt-px" />
-    <AppCardSectionPrimary variant="flat">
-      <template #title>
+    <AppSheetSectionRoot
+      title="Od iskre do Evrope"
+      :props-icon="{ class: '!left-4' }"
+      :props-item="{ class: 'py-4' }"
+      :props-title="{
+        class: `italic text-wrap ${d.smAndUp.value ? 'pb-2 text-h4' : 'text-h5'}`,
+      }"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:book-open-outline"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          class="opacity-20"
           size="2rem"
         />
-        <AppCardSectionPrimaryTitle>
-          Od iskre do Evrope
-        </AppCardSectionPrimaryTitle>
       </template>
-
       <template #default="ctx">
         <!-- slides:history -->
         <AppSlidesHistory
           :props-carousel="{
-            style: `height: calc(100svh - ${$$.config('layout.component.AppNavAppBar.height')}px - ${ctx.titleSize.height ?? 0}px - 2rem) !important;`,
+            style: `height: calc(100svh - ${appNavHeight}px - ${ctx.titleSize.height}px);`,
           }"
         />
 
@@ -308,140 +309,148 @@ const H = computed(() =>
           </AppBoxCentered>
         </AppBoxBase>
       </template>
-    </AppCardSectionPrimary>
+    </AppSheetSectionRoot>
 
-    <!-- jos odlika; more props -->
+    <!-- usluge -->
     <VSpacer class="mt-px" />
-    <AppCardSectionPrimary>
-      <template #title>
+    <AppSheetSectionRoot
+      title="Sve na jednom mestu"
+      :props-icon="{ class: '!left-4' }"
+      :props-item="{ class: 'py-4' }"
+      :props-title="{
+        class: `italic text-wrap pb-2 ${d.smAndUp.value ? 'text-h4' : 'text-h5'}`,
+      }"
+      class="bg-transparent"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:package-variant-closed-check"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
+          class="opacity-[.2]"
           size="2rem"
         />
-        <AppCardSectionPrimaryTitle>
-          Sve na jednom mestu
-        </AppCardSectionPrimaryTitle>
       </template>
-
-      <VContainer fluid class="pa-2">
-        <VRow dense>
-          <VCol
-            align-self="stretch"
-            sm="6"
-            md="3"
-            :key="node.title"
-            v-for="node in [
-              {
-                title: 'Šta radimo',
-                image: {
-                  src: '/images/stock/023.jpg',
-                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
-                  props: {},
-                },
-                items: [
-                  'Proizvodnja industrijske opreme po meri',
-                  'Izrada čeličnih konstrukcija i nadstrešnica',
-                  'Metalna stolarija, kovano gvožđe',
-                  'Uslužno plastificiranje metala',
-                  'CNC obrada metala',
-                  '3D modelovanje, renderi i projektovanje',
-                  'Montaže u Srbiji i inostranstvu',
-                ],
-              },
-              {
-                title: 'Projekti',
-                image: {
-                  src: '/images/stock/025.jpg',
-                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
-                  props: {
-                    position: 'bottom',
+      <template #default>
+        <VContainer fluid class="pa-2">
+          <VRow dense>
+            <VCol
+              align-self="stretch"
+              sm="6"
+              md="3"
+              :key="node.title"
+              v-for="node in [
+                {
+                  title: 'Šta radimo',
+                  image: {
+                    src: '/images/stock/023.jpg',
+                    bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
+                    props: {},
                   },
+                  items: [
+                    'Proizvodnja industrijske opreme po meri',
+                    'Izrada čeličnih konstrukcija i nadstrešnica',
+                    'Metalna stolarija, kovano gvožđe',
+                    'Uslužno plastificiranje metala',
+                    'CNC obrada metala',
+                    '3D modelovanje, renderi i projektovanje',
+                    'Montaže u Srbiji i inostranstvu',
+                  ],
                 },
-                items: [
-                  'Reaktor otpadnih voda, Kruševac',
-                  'Remont u termoelektrana Kostolac',
-                  'Brojni projekti u Beču, Austrija, Švajcarskoj, Engleskoj',
-                  'Luksuzne kuće i vile, centralna Srbija',
-                  'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
-                  'Plastifikacija auto delova',
-                ],
-              },
-              {
-                title: 'Oprema i tehnologije',
-                image: {
-                  src: '/images/stock/026.jpg',
-                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
-                  props: {},
-                },
-                items: [
-                  'Komora za plastifikaciju',
-                  'Peć za polimerizaciju',
-                  'Linija za hemijsku pripremu',
-                  'CNC mašine za obradu metala',
-                  'Oprema za peskarenje',
-                  'Lasersko sečenje panela',
-                ],
-              },
-              {
-                title: 'Zašto Metal-Promet?',
-                image: {
-                  src: '/images/stock/013.jpg',
-                  bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
-                  props: {
-                    position: 'top',
+                {
+                  title: 'Projekti',
+                  image: {
+                    src: '/images/stock/025.jpg',
+                    bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
+                    props: {
+                      position: 'bottom',
+                    },
                   },
+                  items: [
+                    'Reaktor otpadnih voda, Kruševac',
+                    'Remont u termoelektrana Kostolac',
+                    'Brojni projekti u Beču, Austrija, Švajcarskoj, Engleskoj',
+                    'Luksuzne kuće i vile, centralna Srbija',
+                    'Vrtić &quot;Oblak sreće&quot; - Mladenovac',
+                    'Plastifikacija auto delova',
+                  ],
                 },
-                items: [
-                  'Tradicija i pouzdanost',
-                  'Kvalitet izrade',
-                  'Sopstvena proizvodnja',
-                  'Moćan pogon',
-                  'Izvozno iskustvo',
-                  'Tim stručnjaka',
-                ],
-              },
-            ]"
-          >
-            <VCard
-              class="fill-height"
-              :class="{ [`${node.image.bg}`]: !d.smAndUp.value }"
+                {
+                  title: 'Oprema i tehnologije',
+                  image: {
+                    src: '/images/stock/026.jpg',
+                    bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
+                    props: {},
+                  },
+                  items: [
+                    'Komora za plastifikaciju',
+                    'Peć za polimerizaciju',
+                    'Linija za hemijsku pripremu',
+                    'CNC mašine za obradu metala',
+                    'Oprema za peskarenje',
+                    'Lasersko sečenje panela',
+                  ],
+                },
+                {
+                  title: 'Zašto Metal-Promet?',
+                  image: {
+                    src: '/images/stock/013.jpg',
+                    bg: `!bg-[url('/images/stock/000-1.png')] !bg-[rgba(var(--v-theme-ui),.1)] bg-blend-overlay`,
+                    props: {
+                      position: 'top',
+                    },
+                  },
+                  items: [
+                    'Tradicija i pouzdanost',
+                    'Kvalitet izrade',
+                    'Sopstvena proizvodnja',
+                    'Moćan pogon',
+                    'Izvozno iskustvo',
+                    'Tim stručnjaka',
+                  ],
+                },
+              ]"
             >
-              <VImg
-                v-if="d.smAndUp.value"
-                :height="211"
-                cover
-                :src="node.image.src"
-                v-bind="node.image.props"
+              <VCard
+                class="fill-height"
+                :class="{ [`${node.image.bg}`]: !d.smAndUp.value }"
               >
-                <AppBoxBase class="opacity-[.5] h-full bg-ui" />
-              </VImg>
-              <VCardTitle class="text-center pt-4">{{ node.title }}</VCardTitle>
-              <VCardText class="!ps-[1em]">
-                <VList bg-color="transparent" variant="text">
-                  <VListItem
-                    prepend-gap="1em"
-                    :key="item"
-                    v-for="item in node.items"
-                    slim
-                    class="ps-0 text-body-1"
-                  >
-                    <template #prepend>
-                      <IconX
-                        icon="$complete"
-                        size="1.5rem"
-                        class="text-success"
-                      />
-                    </template>
-                    <span class="text-body-2">{{ item }}</span>
-                  </VListItem>
-                </VList>
-              </VCardText>
-            </VCard>
-          </VCol>
-        </VRow>
-      </VContainer>
-    </AppCardSectionPrimary>
+                <VImg
+                  v-if="d.smAndUp.value"
+                  :height="211"
+                  cover
+                  :src="node.image.src"
+                  v-bind="node.image.props"
+                >
+                  <AppBoxBase class="opacity-[.5] h-full bg-ui" />
+                </VImg>
+                <VCardTitle class="text-center pt-4">{{
+                  node.title
+                }}</VCardTitle>
+                <VCardText class="!ps-[1em]">
+                  <VList bg-color="transparent" variant="text">
+                    <VListItem
+                      prepend-gap="1em"
+                      :key="item"
+                      v-for="item in node.items"
+                      slim
+                      class="ps-0 text-body-1"
+                    >
+                      <template #prepend>
+                        <IconX
+                          icon="$complete"
+                          size="1.5rem"
+                          class="text-success"
+                        />
+                      </template>
+                      <span class="text-body-2">{{ item }}</span>
+                    </VListItem>
+                  </VList>
+                </VCardText>
+              </VCard>
+            </VCol>
+          </VRow>
+        </VContainer>
+      </template>
+    </AppSheetSectionRoot>
   </AppBoxPageWrap>
 </template>

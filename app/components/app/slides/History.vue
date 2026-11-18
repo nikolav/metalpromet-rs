@@ -4,11 +4,6 @@ import { useDisplay } from "vuetify";
 import { useCycleItems } from "~/composables/utils/use-cycle-items";
 import { useImagePrefetch } from "~/composables/media/use-image-preload";
 
-// defineOptions({
-//   name: "COMPONENT_NAME",
-//   inheritAttrs: false,
-// });
-
 const props = defineProps<{
   propsCarousel?: any;
 }>();
@@ -151,17 +146,19 @@ useImagePrefetch({
       <AppBoxBase
         class="indent-4 !bg-[rgba(var(--v-theme-ui),.75)] text-[rgb(var(--v-theme-on-ui))] backdrop-blur-sm"
       >
-        <AppBoxContainerCentered fluid>
-          <VCardText class="text-body-1">
-            <div
-              class="space-y-2"
-              :class="{
-                'text-body-2': !d.smAndUp.value,
-                'text-[122%]': d.mdAndUp.value,
-              }"
-              v-html="ctrl.current.value?.body"
-            />
-          </VCardText>
+        <AppBoxContainerCentered
+          fluid
+          :max-width="d.mdAndUp.value ? '80ch' : undefined"
+        >
+          <VCardText
+            class="space-y-1"
+            :class="{
+              'text-body-2': !d.smAndUp.value,
+              'text-body-1': !d.mdAndUp.value,
+              'text-h6': d.mdAndUp.value,
+            }"
+            v-html="ctrl.current.value?.body"
+          />
         </AppBoxContainerCentered>
       </AppBoxBase>
     </template>
@@ -185,10 +182,3 @@ useImagePrefetch({
     </VCarousel>
   </AppGridStacked>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>
