@@ -2,12 +2,10 @@
 import { useDisplay } from "vuetify";
 
 defineOptions({
-  // name: "COMPONENT_NAME",
   inheritAttrs: false,
 });
 
 const d = useDisplay();
-const localePath = useLocalePath();
 
 // @@eos
 </script>
@@ -31,7 +29,7 @@ const localePath = useLocalePath();
             <VCol sm="6" md="3">
               <!-- logo -->
               <NuxtLinkLocale
-                :to="localePath({ name: 'index' })"
+                :to="$localePath({ name: 'index' })"
                 :class="{ 'd-flex justify-center': !d.smAndUp.value }"
               >
                 <NuxtImg
@@ -154,7 +152,7 @@ const localePath = useLocalePath();
                         },
                       ]"
                       :key="item.title"
-                      :to="localePath({ name: item.to })"
+                      :to="$localePath({ name: item.to })"
                     >
                       <span class="text-body-2">{{ item.title }}</span>
                     </VListItem>
@@ -180,7 +178,7 @@ const localePath = useLocalePath();
                         },
                       ]"
                       :key="item.title"
-                      :to="localePath({ name: item.to })"
+                      :to="$localePath({ name: item.to })"
                     >
                       <span class="text-body-2">{{ item.title }}</span>
                     </VListItem>
@@ -218,7 +216,7 @@ const localePath = useLocalePath();
                         },
                       ]"
                       :key="item.title"
-                      :to="localePath({ name: item.to })"
+                      :to="$localePath({ name: item.to })"
                     >
                       <span class="text-body-2">{{ item.title }}</span>
                     </VListItem>
@@ -240,7 +238,7 @@ const localePath = useLocalePath();
                         },
                       ]"
                       :key="item.title"
-                      :to="localePath({ name: item.to })"
+                      :to="$localePath({ name: item.to })"
                     >
                       <span class="text-body-2">{{ item.title }}</span>
                     </VListItem>
@@ -258,22 +256,22 @@ const localePath = useLocalePath();
                   v-for="item in [
                     {
                       title: 'O nama',
-                      to: 'under-construction',
+                      to: 'about',
+                    },
+                    {
+                      title: 'Delatnosti',
+                      to: 'services',
                     },
                     {
                       title: 'Projekti',
-                      to: 'under-construction',
-                    },
-                    {
-                      title: 'Karijera',
-                      to: 'under-construction',
+                      to: 'projects',
                     },
                     {
                       title: 'Kontakt',
-                      to: 'under-construction',
+                      to: 'contact',
                     },
                   ]"
-                  :to="localePath({ name: item.to })"
+                  :to="$localePath({ name: item.to })"
                 >
                   <VListItemTitle class="text-body-2">{{
                     item.title
