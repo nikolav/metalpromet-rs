@@ -63,8 +63,8 @@ const titleSize = computed(() => ({
           v-if="props.subtitle"
           class="text-center"
           v-bind="props.propsSubtitle"
-          >{{ props.subtitle }}</VCardSubtitle
-        >
+          v-html="props.subtitle"
+        />
       </VSheet>
     </AppProvidesElementSize>
 

@@ -30,28 +30,15 @@ const toggleOverlayForm = useToggleFlag();
 
 <template>
   <AppBoxPageWrap class="page--contact">
-    <AppCardSectionPrimary
-      :props-title="{
-        class: 'pb-3',
-      }"
+    <AppSheetSectionRoot
+      :title="$t('Metal-Promet • Kontakt')"
+      :subtitle="`Oprema za industriju, konstrukcije, ${d.mobile.value ? '<br />' : ''}stolarija i plastifikacija`"
+      :props-item="{ class: 'pt-4 pb-6' }"
+      :props-title="{ class: 'text-h4 text-wrap' }"
+      :props-subtitle="{ class: 'text-wrap' }"
     >
-      <template #title>
-        <IconX
-          v-if="!d.mobile.value"
-          icon="mdi:phone"
-          class="position-absolute start-2 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2rem"
-        />
-
-        <AppCardSectionPrimaryTitle class="font-weight-semibold">
-          {{ t("Metal-Promet • Kontakt") }}
-        </AppCardSectionPrimaryTitle>
-        <VCardSubtitle class="opacity-80">
-          <h4 :class="{ 'text-body-2': d.mobile.value }">
-            Inženjering, metalne konstrukcije,
-            <br v-if="d.mobile.value" />bravarija i farbanje u Mladenovcu
-          </h4>
-        </VCardSubtitle>
+      <template v-if="!d.mobile.value" #icon>
+        <IconX icon="mdi:phone" class="opacity-[.2]" size="2.5rem" />
       </template>
       <template #default="cx">
         <AppGridStackedFrames>
@@ -205,7 +192,7 @@ const toggleOverlayForm = useToggleFlag();
           </AppGridStackedFramesItem>
         </AppGridStackedFrames>
       </template>
-    </AppCardSectionPrimary>
+    </AppSheetSectionRoot>
     <VSpacer class="mt-12" />
   </AppBoxPageWrap>
 </template>
