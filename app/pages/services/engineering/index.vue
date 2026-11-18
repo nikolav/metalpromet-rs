@@ -45,7 +45,7 @@ const heightAppNavBar = computed(
           :max-width="
             d.mdAndUp.value
               ? $$.config('layout.component.AppBoxContainerCentered.maxWidth')!
-              : 740
+              : '82ch'
           "
           class="text-v-on-ui text-shadow-sm space-y-5"
         >
