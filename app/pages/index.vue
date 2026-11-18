@@ -243,18 +243,21 @@ const appNavHeight = computed(() =>
 
     <!-- section: novosti, trendovi -->
     <VSpacer class="mt-px" />
-    <AppCardSectionPrimary variant="text">
-      <template #title>
+    <AppSheetSectionRoot
+      title="Novosti, Trendovi"
+      :props-item="{ class: 'py-4' }"
+      :props-title="{ class: 'text-h4 pb-2' }"
+      class="bg-transparent"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:bullhorn"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20 -rotate-12"
-          size="2.22rem"
+          class="opacity-[.2] -rotate-12"
+          size="2.5rem"
         />
-        <AppCardSectionPrimaryTitle>
-          Novosti, Trendovi
-        </AppCardSectionPrimaryTitle></template
-      >
+      </template>
+
       <template #default="cx">
         <VContainer fluid>
           <VRow dense>
@@ -359,18 +362,21 @@ const appNavHeight = computed(() =>
           </VRow>
         </VContainer>
       </template>
-    </AppCardSectionPrimary>
+    </AppSheetSectionRoot>
 
     <!-- section:projekti -->
-    <AppCardSectionPrimary variant="flat" :props-actions="{ class: 'pt-5' }">
-      <template #title>
+    <AppSheetSectionRoot
+      title="Projekti"
+      :props-item="{ class: 'py-4' }"
+      :props-title="{ class: 'text-h4 pb-2' }"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:eiffel-tower"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2.22rem"
+          class="opacity-[.2]"
+          size="2.5rem"
         />
-        <AppCardSectionPrimaryTitle> Projekti </AppCardSectionPrimaryTitle>
       </template>
       <template #actions>
         <VSpacer />
@@ -473,21 +479,25 @@ const appNavHeight = computed(() =>
           </AppGridStackedFramesItem>
         </AppGridStackedFrames>
       </template>
-    </AppCardSectionPrimary>
+    </AppSheetSectionRoot>
 
     <!-- section: delatnosti -->
     <VSpacer class="mt-px" />
-    <AppCardSectionPrimary variant="text" class="pb-2">
-      <template #title>
+    <AppSheetSectionRoot
+      :title="
+        d.smAndUp.value ? 'Kompletno rešenje za metal' : 'Kompletno rešenje'
+      "
+      :props-item="{ class: 'py-4' }"
+      :props-title="{ class: 'text-h4 pb-2' }"
+      class="bg-transparent"
+    >
+      <template #icon>
         <IconX
           v-if="d.smAndUp.value"
           icon="mdi:package-variant-closed-check"
-          class="position-absolute start-5 z-[1] top-[50%] -translate-y-[50%] opacity-20"
-          size="2rem"
+          class="opacity-[.2]"
+          size="2.5rem"
         />
-        <AppCardSectionPrimaryTitle>
-          Kompletno rešenje<template v-if="d.smAndUp.value"> za metal</template>
-        </AppCardSectionPrimaryTitle>
       </template>
       <template #default="cx">
         <AppBoxContainerCentered :max-width="undefined" fluid>
@@ -779,7 +789,7 @@ const appNavHeight = computed(() =>
           </VRow>
         </AppBoxContainerCentered>
       </template>
-    </AppCardSectionPrimary>
+    </AppSheetSectionRoot>
 
     <template v-if="false">
       <!-- @TODOs -->
