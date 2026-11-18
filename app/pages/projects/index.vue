@@ -144,10 +144,6 @@ const ctrlFinish = useCycleItems(
       image: "/images/hero/4-zastita-i-obrada-povrsina/paint.02.jpg",
     },
     {
-      key: "rqQtubK2OhPmcw6",
-      image: "/images/hero/4-zastita-i-obrada-povrsina/cinkovanje.01.jpg",
-    },
-    {
       key: "hlwdDgN1HI",
       image: "/images/hero/4-zastita-i-obrada-povrsina/peskarenje.01.jpg",
     },
@@ -408,1010 +404,419 @@ const appNavBarHeight = computed(
       />
     </AppGridStacked>
 
-    <!-- section: industrija, masinstvo -->
-    <VSpacer class="mt-px" />
-    <AppSheetSectionRoot
-      title="Oprema, mašinstvo"
-      subtitle="Za potrebe industrije u Srbiji i inostranstvu"
-      :props-title="{
-        class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
-      }"
-      :props-subtitle="{
-        class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
-      }"
-      :props-item="{
-        class: 'pb-2',
-      }"
+    <template
+      v-for="(node, idx) in [
+        {
+          title: 'Oprema, mašinstvo',
+          subtitle: 'Za potrebe industrije u Srbiji i inostranstvu',
+          icon: { icon: 'mdi:engine', props: {} },
+          cta: {
+            text: 'Zatražite ponudu',
+            icon: { icon: 'mdi:pipe-wrench' },
+          },
+          ctrl: ctrlMachines,
+          toggleTabs: toggleTabsMachines,
+          tabs: [
+            {
+              value: false,
+              title: 'Industrija',
+              icon: { icon: '$info' },
+              content: {
+                text: true,
+                content:
+                  '<p> Industrijska oprema i mašinstvo predstavljaju najzahtevniji segment našeg poslovanja &dash; oblast u kojoj se znanje, iskustvo i preciznost spajaju u funkcionalne celine koje pokreću industriju. <strong>U Metal-Prometu ne bežimo od izazova</strong> ; naprotiv, specijalizovani smo za projekte koji zahtevaju pouzdanost, sigurnost i dugotrajan vek trajanja. </p> <p> Bilo da se radi o rezervoarima, reaktorima za vodu, cevovodima ili kapitalnim remontima &dash; naš pristup je uvek isti: <strong> maksimalna odgovornost, vrhunski kvalitet i poštovanje rokova </strong> . Zato su nam klijenti iz energetskog, hemijskog i mašinskog sektora u Srbiji i inostranstvu ukazali poverenje koje decenijama opravdavamo. </p> <p> Naš tim inženjera mašinstva i zavarivača radi po najvišim standardima, koristeći savremenu opremu i proverene materijale. Posebnu pažnju posvećujemo zavarivanju pod nadzorom, ispitivanju bez razaranja i <strong>poštovanju svih tehničkih normi koje propisuje industrija</strong> . </p>',
+              },
+            },
+            {
+              value: true,
+              title: 'Usluge',
+              icon: { icon: 'mdi:tag' },
+              content: {
+                text: false,
+                content: [
+                  {
+                    title: 'Procesna oprema',
+                    subtitle:
+                      'Izrada reaktora za vodu, industrijskih rezervoara, tlačnih posuda, i druge opreme po zahtevima investitora. Projekti koji zahtevaju preciznost, ispitivanje i poštovanje normi.',
+                  },
+                  {
+                    title: 'Energetika',
+                    subtitle:
+                      'Projekti od nacionalnog značaja koji zahtevaju stručnost i odgovornost. Termoelektrane, cevovodi, nosači i elemenati za potrebe energetskih postrojenja.',
+                  },
+                  {
+                    title: 'Industrijske konstrukcije',
+                    subtitle:
+                      'Izrada čeličnih konstrukcija za fabričke hale, postrojenja i industrijske pogone. Noseće konstrukcije za teške mašine, transportne sisteme i opremu.',
+                  },
+                  {
+                    title: 'Cevovodi i instalacije',
+                    subtitle:
+                      'Izrada i montaža cevovoda za industrijske potrebe, uključujući vodovodne, hemijske i energetske instalacije. Zavarivanje pod nadzorom, hidrotestiranje i puštanje u rad.',
+                  },
+                  {
+                    title: 'Reparacije i rekonstrukcije',
+                    subtitle:
+                      'Sanacija, popravka, rekonstrukcija, i produženje veka trajanja industrijske opreme, mašina i postrojenja.',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          title: 'Konstrukcije, nosači',
+          subtitle: 'Za industrijske i stambene objekte u Srbiji',
+          icon: {
+            icon: 'material-symbols:home-outline',
+            props: { size: '2rem' },
+          },
+          cta: {
+            text: 'Zakažite montažu',
+            icon: { icon: 'mdi:wrench' },
+          },
+          ctrl: ctrlFrames,
+          toggleTabs: toggleTabsFrames,
+          tabs: [
+            {
+              value: false,
+              title: 'Nosači',
+              icon: { icon: '$info' },
+              content: {
+                text: true,
+                content:
+                  '<p> Metalne konstrukcije su kičma svakog ozbiljnog objekta &dash; bilo da se radi o stambenom objektu, poslovnom prostoru ili industrijskom pogonu. U Metal-Prometu <strong> gradimo čvrstoću, sigurnost i dugotrajnost u svaki projekat </strong> , koristeći vrhunske materijale i preciznu inženjersku obradu. </p> <p> Bilo da su vam potrebne nadstrešnice za zaštitu vozila ili đakuzija, krovne konstrukcije za luksuzne vile, ili metalne stepenice i gelenderi &dash; <strong>kod nas ćete pronaći rešenje koje će trajati decenijama.</strong> Svi elementi se mogu dodatno plastificirati, uz opciju cink prajmera za vrhunsku zaštitu od korozije. </p> <p> Naš tim majstora pristupa svakom projektu pažljivo &dash; od ideje i izrade, do montaže na vašoj lokaciji. Radovi se izvode po sistemu <em>&quot;ključ u ruke&quot;</em> , što znači da ste oslobođeni bilo kakve brige oko koordinacije izvođača. </p>',
+              },
+            },
+            {
+              value: true,
+              title: 'Tipovi',
+              icon: { icon: 'mdi:tag' },
+              content: {
+                text: false,
+                content: [
+                  {
+                    title: 'Krovne konstrukcije',
+                    subtitle:
+                      'Čelične krovne noseće konstrukcije za stambene, poslovne i industrijske objekte. Precizno projektovane i izrađene da izdrže najveća opterećenja.',
+                  },
+                  {
+                    title: 'Nadstrešnice',
+                    subtitle:
+                      'Za luksuzne kuće, parking mesta, terase i ulaze. Izrađene od čelika ili aluminijuma, sa mogućnošću plastifikacije u željenoj boji.',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          title: 'Ograde, kapije, stolarija',
+          subtitle: 'Za kuće i luksuzne vile u centralnoj Srbiji',
+          icon: { icon: 'mdi:shield-home', props: {} },
+          cta: {
+            text: 'Zakažite ugradnju',
+            icon: { icon: 'mdi:screwdriver' },
+          },
+          ctrl: ctrl,
+          toggleTabs: toggleTabs,
+          tabs: [
+            {
+              value: false,
+              title: 'Ograde',
+              icon: { icon: '$info' },
+              content: {
+                text: true,
+                content:
+                  '<p> U Metal-Prometu smo svesni da ograda nije samo granica vašeg imanja &dash; ona je <strong>vizit-karta, znak dobrodošlice i čuvar vaše privatnosti.</strong> Zato svaku ogradu i kapiju izrađujemo sa podjednakom pažnjom, bilo da se radi o skromnoj gradskoj kući ili luksuznoj vili na obroncima Avale ili Kosmaja. </p> <p> Bilo da želite elegantnu aluminijumsku ogradu koja će se uklopiti u moderan ambijent, kovanu kapiju koja odiše tradicijom, ili panelnu ogradu koja nudi sigurnost i brzu montažu &dash; kod nas ćete pronaći ono što tražite. <strong>Sve naše proizvode možete prilagoditi vašim željama</strong> , uz širok dijapazon RAL boja i različitih modela. </p> <p> Montaže vršimo širom Mladenovca, Beograda, cele Šumadije i centralne Srbije, ali i van granica naše zemlje, što svedoči o poverenju koje nam klijenti ukazuju. Naš tim iskusnih majstora i inženjera <strong> garantuje da će vaša ograda biti postavljena precizno, čvrsto i trajno. </strong> </p>',
+              },
+            },
+            {
+              value: true,
+              title: 'Modeli',
+              icon: { icon: 'mdi:tag' },
+              content: {
+                text: false,
+                content: [
+                  {
+                    title: 'ALU ograde',
+                    subtitle:
+                      'Moderne, lagane, otporne na koroziju. Razni modeli, sa &quot;S&quot; odliscima, RAL boje po želji.',
+                  },
+                  {
+                    title: 'Čelične ograde',
+                    subtitle:
+                      'Čvrste i dugotrajne. 2D/3D panelne, laserski sečene, kovane i prohromske.',
+                  },
+                  {
+                    title: 'Dvorišne kapije',
+                    subtitle:
+                      'Krilne i klizne, velikih dimenzija. Moguća automatizacija.',
+                  },
+                  {
+                    title: 'Panelne ograde',
+                    subtitle:
+                      'Brzomontažni sistemi. 2D i 3D paneli, različiti dezeni i boje.',
+                  },
+                  {
+                    title: 'Ostali tipovi ograda i elemenata',
+                    subtitle:
+                      'Stepenice, gelenderi, zaštitne ograde, ukrasni elementi od kovanog gvožđa.',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          title: 'Završna obrada, plastifikacija',
+          subtitle: 'Vrhunska zaštita i estetika za klijente iz cele Srbije',
+          icon: { icon: 'mdi:security', props: {} },
+          cta: {
+            text: 'Zakažite uslugu',
+            icon: { icon: 'mdi:shield-check' },
+          },
+          ctrl: ctrlFinish,
+          toggleTabs: toggleTabsFinish,
+          tabs: [
+            {
+              value: false,
+              title: 'Finiš',
+              icon: { icon: '$info' },
+              content: {
+                text: true,
+                content:
+                  '<p> Plastifikacija je jedan od najefikasnijih načina za zaštitu metalnih površina, uz istovremeno postizanje izuzetno lepog estetskog izgleda. U Metal-Prometu ovu uslugu podižemo na viši nivo &dash; svaki komad, bilo da je od aluminijuma ili čelika, prethodno hemijski tretiramo, čime <strong> obezbeđujemo savršeno prianjanje boje i dugotrajnost završne obrade. </strong> </p> <p> Bilo da su u pitanju ograde, kapije, nameštaj, mašinski delovi, felne ili industrijske konstrukcije &dash; naš tim <strong> garantuje vrhunski kvalitet, brzu izradu i pristupačne cene. </strong> Uslugu plastifikacije pružamo kako za naše proizvode, tako i za kompletno uslužno farbanje vaših delova. </p> <p> Naša industrijska peć <strong>omogućava obradu i najvećih konstrukcija</strong> , dok visina komore pruža fleksibilnost za različite profile. U ponudi imamo širok dijapazon RAL boja &dash; od klasičnih nijansi do strukturnih i metalik efekata, uz opciju cink prajmera za dodatnu antikorozivnu zaštitu. </p>',
+              },
+            },
+            {
+              value: true,
+              title: 'Usluge',
+              icon: { icon: 'mdi:tag' },
+              content: {
+                text: false,
+                content: [
+                  {
+                    title: 'Ograde i konstrukcije',
+                    subtitle:
+                      'Plastifikacija aluminijumskih i čeličnih ograda, kapija, stepenica, gelendera, i drugih konstruktivnih elemenata.',
+                  },
+                  {
+                    title: 'Nameštaj i predmeti',
+                    subtitle:
+                      'Školske klupe i stolice, baštenski setovi, stolovi, stolice, žardinjere, klupe za parkove i druge metalne predmete.',
+                  },
+                  {
+                    title: 'Industrija i auto',
+                    subtitle:
+                      'Felne, mašinski delovi, postolja za mašine, rolo vrata, okapnice, rezervoari i drugi industrijski elementi.',
+                  },
+                  {
+                    title: 'Kovano gvožđe',
+                    subtitle:
+                      'Zaštita i dekorativna obrada kovanih ograda, kapija, prozorskih rešetki i ukrasnih elemenata.',
+                  },
+                  {
+                    title: 'Specijalni tretmani',
+                    subtitle:
+                      'Hemijska priprema pre farbanja, kombinovanje sa strukturnim i metalik efektima.',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      ]"
     >
-      <template #icon>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:engine"
-          class="opacity-20"
-          size="2.5rem"
-        />
-      </template>
-      <template #default="cx">
-        <AppGridTwoCells
-          invert
-          :stack="!d.smAndUp.value"
-          :style="{
-            height: d.smAndUp.value
-              ? `calc(100svh - ${appNavBarHeight}px - ${cx.titleSize.height ?? 0}px - 5rem)`
-              : undefined,
-          }"
-        >
-          <template #media>
-            <AppGridStacked
-              class="fill-height"
-              :props-stack="{ class: 'd-flex flex-col' }"
-            >
-              <template #stack>
-                <VSpacer />
-                <VCardActions>
-                  <VSpacer />
-                  <AppBoxBase class="d-flex gap-5">
-                    <VBtn
-                      @click="ctrlMachines.prev"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$prev"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                    <VBtn
-                      @click="ctrlMachines.next"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$next"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                  </AppBoxBase>
-                  <VSpacer />
-                </VCardActions>
-              </template>
-              <VCarousel
-                :height="d.smAndUp.value ? '100%' : 333"
-                :show-arrows="false"
-                hide-delimiters
-                crossfade
-                :model-value="ctrlMachines.currentKey.value"
-                @update:model-value="(v) => v && ctrlMachines.active(`${v}`)"
+      <AppSheetSectionRoot
+        :title="node.title"
+        :subtitle="node.subtitle"
+        :props-title="{
+          class: `italic text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
+        }"
+        :props-subtitle="{
+          class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
+        }"
+        :props-item="{
+          class: 'pt-4 pb-5',
+        }"
+      >
+        <template #icon>
+          <IconX
+            v-if="d.smAndUp.value"
+            :icon="node.icon.icon"
+            class="opacity-20"
+            size="2rem"
+            v-bind="node.icon.props"
+          />
+        </template>
+        <template #default>
+          <AppGridTwoCellsContentLMediaAuto
+            :invert="!$$.isOdd(idx)"
+            :stack="!d.smAndUp.value"
+            :cols-class="
+              d.smAndUp.value
+                ? $$.isOdd(idx)
+                  ? 'grid-cols-[1fr_minmax(min(40ch,100%),1.22fr)]'
+                  : 'grid-cols-[minmax(min(40ch,100%),1.22fr)_1fr]'
+                : undefined
+            "
+          >
+            <template #media>
+              <AppGridStacked
+                class="fill-height"
+                :props-stack="{ class: 'd-flex flex-col' }"
               >
-                <VCarouselItem
-                  v-for="slide in ctrlMachines.items"
-                  :key="slide.key"
-                  :src="slide.image"
-                  :value="slide.key"
-                  cover
-                  transition="app-transition-cross-scale"
-                  image-class="*object-bottom"
-                />
-              </VCarousel>
-            </AppGridStacked>
-          </template>
-          <template #text>
-            <VCard
-              variant="text"
-              class="pb-2"
-              :class="{
-                'd-flex flex-col fill-height': d.smAndUp.value,
-              }"
-            >
-              <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
-                <template #footer>
-                  <!-- Tab Headers -->
-                  <VTabs
-                    stacked
-                    grow
-                    density="comfortable"
-                    :model-value="toggleTabsMachines.isActive.value"
-                    @update:model-value="
-                      (v) =>
-                        v ? toggleTabsMachines.on() : toggleTabsMachines.off()
-                    "
-                  >
-                    <VTab :value="false" text="Industrija">
-                      <template #prepend>
-                        <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                      </template>
-                    </VTab>
-                    <VTab :value="true" text="Usluge">
-                      <template #prepend>
+                <template #stack>
+                  <VSpacer />
+                  <VCardActions class="pb-4">
+                    <VSpacer />
+                    <AppBoxBase class="d-flex gap-5">
+                      <VBtn
+                        @click="node.ctrl.prev"
+                        variant="tonal"
+                        elevation="1"
+                        icon
+                        rounded="circle"
+                        color="ui"
+                      >
                         <IconX
-                          icon="mdi:tag"
-                          size="1.5rem"
-                          class="opacity-20"
+                          icon="$prev"
+                          size="2rem"
+                          class="filter-shadow-sm text-v-on-ui"
                         />
-                      </template>
-                    </VTab>
-                  </VTabs>
+                      </VBtn>
+                      <VBtn
+                        @click="node.ctrl.next"
+                        variant="tonal"
+                        elevation="1"
+                        icon
+                        rounded="circle"
+                        color="ui"
+                      >
+                        <IconX
+                          icon="$next"
+                          size="2rem"
+                          class="filter-shadow-sm text-v-on-ui"
+                        />
+                      </VBtn>
+                    </AppBoxBase>
+                    <VSpacer />
+                  </VCardActions>
                 </template>
+                <VCarousel
+                  :height="d.smAndUp.value ? '100%' : '50svh'"
+                  :show-arrows="false"
+                  hide-delimiters
+                  crossfade
+                  :model-value="node.ctrl.currentKey.value"
+                  @update:model-value="(v) => v && node.ctrl.active(`${v}`)"
+                >
+                  <VCarouselItem
+                    v-for="slide in node.ctrl.items"
+                    :key="slide.key"
+                    :src="slide.image"
+                    :value="slide.key"
+                    cover
+                    transition="app-transition-cross-scale"
+                  />
+                </VCarousel>
+              </AppGridStacked>
+            </template>
+            <template #text>
+              <VCard variant="text" tile class="pb-2">
+                <VTabs
+                  stacked
+                  grow
+                  density="comfortable"
+                  :model-value="node.toggleTabs.isActive.value"
+                  @update:model-value="
+                    (v) => (v ? node.toggleTabs.on() : node.toggleTabs.off())
+                  "
+                >
+                  <VTab
+                    :key="tab.title"
+                    v-for="tab in node.tabs"
+                    :value="tab.value"
+                    :text="tab.title"
+                  >
+                    <template #prepend>
+                      <IconX
+                        :icon="tab.icon.icon"
+                        size="1.5rem"
+                        class="opacity-20"
+                      />
+                    </template>
+                  </VTab>
+                </VTabs>
 
                 <!-- Tab Content -->
                 <VTabsWindow
-                  :model-value="toggleTabsMachines.isActive.value"
+                  :model-value="node.toggleTabs.isActive.value"
                   crossfade
                 >
-                  <VTabsWindowItem :value="false">
-                    <VCardText
-                      class="indent-4 space-y-5"
-                      :class="[
-                        d.mdAndUp.value
-                          ? 'text-body-1 ps-10 pt-10'
-                          : 'text-body-2 ps-4 pt-4',
-                      ]"
-                    >
-                      <p>
-                        Industrijska oprema i mašinstvo predstavljaju
-                        najzahtevniji segment našeg poslovanja &dash; oblast u
-                        kojoj se znanje, iskustvo i preciznost spajaju u
-                        funkcionalne celine koje pokreću industriju.
-                        <strong>U Metal-Prometu ne bežimo od izazova</strong>;
-                        naprotiv, specijalizovani smo za projekte koji zahtevaju
-                        pouzdanost, sigurnost i dugotrajan vek trajanja.
-                      </p>
-                      <p>
-                        Bilo da se radi o rezervoarima, reaktorima za vodu,
-                        cevovodima ili kapitalnim remontima &dash; naš pristup
-                        je uvek isti:
-                        <strong
-                          >maksimalna odgovornost, vrhunski kvalitet i
-                          poštovanje rokova</strong
-                        >. Zato su nam klijenti iz energetskog, hemijskog i
-                        mašinskog sektora u Srbiji i inostranstvu ukazali
-                        poverenje koje decenijama opravdavamo.
-                      </p>
-                      <p>
-                        Naš tim inženjera mašinstva i zavarivača radi po
-                        najvišim standardima, koristeći savremenu opremu i
-                        proverene materijale. Posebnu pažnju posvećujemo
-                        zavarivanju pod nadzorom, ispitivanju bez razaranja i
-                        <strong
-                          >poštovanju svih tehničkih normi koje propisuje
-                          industrija</strong
-                        >.
-                      </p>
-                    </VCardText>
-                  </VTabsWindowItem>
-                  <VTabsWindowItem :value="true">
-                    <VSpacer class="mt-2" />
-                    <template
-                      v-for="item in [
-                        {
-                          title: 'Procesna oprema',
-                          subtitle:
-                            'Izrada reaktora za vodu, industrijskih rezervoara, tlačnih posuda, i druge opreme po zahtevima investitora. Projekti koji zahtevaju preciznost, ispitivanje i poštovanje normi.',
-                        },
-                        {
-                          title: 'Energetika',
-                          subtitle:
-                            'Projekti od nacionalnog značaja koji zahtevaju stručnost i odgovornost. Termoelektrane, cevovodi, nosači i elemenati za potrebe energetskih postrojenja.',
-                        },
-                        {
-                          title: 'Industrijske konstrukcije',
-                          subtitle:
-                            'Izrada čeličnih konstrukcija za fabričke hale, postrojenja i industrijske pogone. Noseće konstrukcije za teške mašine, transportne sisteme i opremu.',
-                        },
-                        {
-                          title: 'Cevovodi i instalacije',
-                          subtitle:
-                            'Izrada i montaža cevovoda za industrijske potrebe, uključujući vodovodne, hemijske i energetske instalacije. Zavarivanje pod nadzorom, hidrotestiranje i puštanje u rad.',
-                        },
-                        {
-                          title: 'Reparacije i rekonstrukcije',
-                          subtitle:
-                            'Sanacija, popravka, rekonstrukcija, i produženje veka trajanja industrijske opreme, mašina i postrojenja.',
-                        },
-                      ]"
-                    >
-                      <VCard variant="text" tile class="pb-5">
-                        <VCardTitle class="text-h6">{{
-                          item.title
-                        }}</VCardTitle>
-                        <VCardText
-                          :class="
-                            d.mobile.value ? 'text-body-2' : 'text-body-1'
-                          "
-                        >
-                          {{ item.subtitle }}
-                        </VCardText>
-                      </VCard>
-                    </template>
+                  <VTabsWindowItem
+                    :key="tab.title"
+                    v-for="tab in node.tabs"
+                    :value="tab.value"
+                  >
+                    <AppBoxContainerCentered max-width="70ch">
+                      <VCardText
+                        v-if="tab.content.text"
+                        class="indent-4 space-y-5"
+                        :class="[
+                          d.mdAndUp.value
+                            ? 'text-body-1 ps-10 pt-10'
+                            : 'text-body-2 ps-4 pt-4',
+                        ]"
+                        v-html="tab.content.content"
+                      />
+                      <VCardText v-else>
+                        <template v-for="item in tab.content.content">
+                          <VCard variant="text" tile class="pb-5">
+                            <VCardTitle class="text-h6">{{
+                              item.title
+                            }}</VCardTitle>
+                            <VCardText
+                              :class="
+                                d.mobile.value ? 'text-body-2' : 'text-body-1'
+                              "
+                            >
+                              {{ item.subtitle }}
+                            </VCardText>
+                          </VCard>
+                        </template>
+                      </VCardText>
+                    </AppBoxContainerCentered>
                   </VTabsWindowItem>
                 </VTabsWindow>
-              </AppBoxTwoRowsAutoMain>
-              <VSpacer />
-              <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
-                <VSpacer />
-                <VBtn
-                  tile
-                  variant="tonal"
-                  elevation="1"
-                  class="*text-shadow-sm px-4"
-                  :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                  :size="d.sm.value ? undefined : 'large'"
-                  :to="$localePath({ name: 'contact' })"
-                >
-                  <template #prepend>
-                    <IconX
-                      icon="mdi:pipe-wrench"
-                      size="1.5rem"
-                      class="-translate-y-[2px] opacity-[.33]"
-                    />
-                  </template>
-                  Zatražite ponudu</VBtn
-                >
-                <VSpacer />
-              </VCardActions>
-            </VCard>
-          </template>
-        </AppGridTwoCells>
-      </template>
-    </AppSheetSectionRoot>
-
-    <!-- section: konstrukcije i nosači -->
-    <VSpacer class="mt-px" />
-    <AppSheetSectionRoot
-      title="Konstrukcije, nosači"
-      subtitle="Metalne konstrukcije za industrijske i stambene objekte u Srbiji"
-      :props-title="{
-        class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
-      }"
-      :props-subtitle="{
-        class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
-      }"
-      :props-item="{
-        class: 'pb-2',
-      }"
-    >
-      <template #icon>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="local:iron-bar"
-          class="opacity-20"
-          size="2rem"
-        />
-      </template>
-
-      <template #default="ctx">
-        <!-- grid -->
-        <AppGridTwoCells
-          :stack="!d.smAndUp.value"
-          :style="{
-            height: d.smAndUp.value
-              ? `calc(100svh - ${appNavBarHeight}px - ${ctx.titleSize.height ?? 0}px - 5rem)`
-              : undefined,
-          }"
-        >
-          <template #media>
-            <AppGridStacked
-              class="fill-height"
-              :props-stack="{ class: 'd-flex flex-col' }"
-            >
-              <template #stack>
-                <VSpacer />
-                <VCardActions>
+                <VCardActions class="my-5">
                   <VSpacer />
-                  <AppBoxBase class="d-flex gap-5">
-                    <VBtn
-                      @click="ctrlFrames.prev"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
+                  <VBtn
+                    tile
+                    variant="tonal"
+                    elevation="1"
+                    class="px-4"
+                    :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
+                    :size="d.sm.value ? undefined : 'large'"
+                    :to="$localePath({ name: 'contact' })"
+                  >
+                    <template #prepend>
                       <IconX
-                        icon="$prev"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
+                        :icon="node.cta.icon.icon"
+                        size="1.5rem"
+                        class="-translate-y-[2px] opacity-[.33]"
                       />
-                    </VBtn>
-                    <VBtn
-                      @click="ctrlFrames.next"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$next"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                  </AppBoxBase>
+                    </template>
+                    {{ node.cta.text }}</VBtn
+                  >
                   <VSpacer />
                 </VCardActions>
-              </template>
-              <VCarousel
-                :height="d.smAndUp.value ? '100%' : 333"
-                :show-arrows="false"
-                hide-delimiters
-                crossfade
-                :model-value="ctrlFrames.currentKey.value"
-                @update:model-value="(v) => v && ctrlFrames.active(`${v}`)"
-              >
-                <VCarouselItem
-                  v-for="slide in ctrlFrames.items"
-                  :key="slide.key"
-                  :src="slide.image"
-                  :value="slide.key"
-                  cover
-                  transition="app-transition-cross-scale"
-                  image-class="*object-bottom"
-                />
-              </VCarousel>
-            </AppGridStacked>
-          </template>
-          <template #text>
-            <VCard
-              variant="text"
-              class="pb-2"
-              :class="{
-                'd-flex flex-col fill-height': d.smAndUp.value,
-              }"
-            >
-              <AppBoxTwoRowsAutoMain footer-first>
-                <template #footer>
-                  <!-- Tab Headers -->
-                  <VTabs
-                    stacked
-                    grow
-                    density="comfortable"
-                    :model-value="toggleTabsFrames.isActive.value"
-                    @update:model-value="
-                      (v) =>
-                        v ? toggleTabsFrames.on() : toggleTabsFrames.off()
-                    "
-                  >
-                    <VTab :value="false" text="Nosači">
-                      <template #prepend>
-                        <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                      </template>
-                    </VTab>
-                    <VTab :value="true" text="Tipovi">
-                      <template #prepend>
-                        <IconX
-                          icon="mdi:tag"
-                          size="1.5rem"
-                          class="opacity-20"
-                        />
-                      </template>
-                    </VTab>
-                  </VTabs>
-                </template>
-                <!-- Tab Content -->
-                <VTabsWindow
-                  :model-value="toggleTabsFrames.isActive.value"
-                  crossfade
-                >
-                  <VTabsWindowItem :value="false">
-                    <VCardText
-                      class="indent-4 space-y-5"
-                      :class="[
-                        d.mdAndUp.value
-                          ? 'text-body-1 ps-10 pt-10'
-                          : 'text-body-2 ps-4 pt-4',
-                      ]"
-                    >
-                      <p>
-                        Metalne konstrukcije su kičma svakog ozbiljnog objekta
-                        &dash; bilo da se radi o stambenom objektu, poslovnom
-                        prostoru ili industrijskom pogonu. U Metal-Prometu
-                        <strong
-                          >gradimo čvrstoću, sigurnost i dugotrajnost u svaki
-                          projekat</strong
-                        >, koristeći vrhunske materijale i preciznu inženjersku
-                        obradu.
-                      </p>
-                      <p>
-                        Bilo da su vam potrebne nadstrešnice za zaštitu vozila
-                        ili đakuzija, krovne konstrukcije za luksuzne vile, ili
-                        metalne stepenice i gelenderi &dash;
-                        <strong
-                          >kod nas ćete pronaći rešenje koje će trajati
-                          decenijama.</strong
-                        >
-                        Svi elementi se mogu dodatno plastificirati, uz opciju
-                        cink prajmera za vrhunsku zaštitu od korozije.
-                      </p>
-                      <p>
-                        Naš tim majstora pristupa svakom projektu pažljivo
-                        &dash; od ideje i izrade, do montaže na vašoj lokaciji.
-                        Radovi se izvode po sistemu
-                        <em>&quot;ključ u ruke&quot;</em>, što znači da ste
-                        oslobođeni bilo kakve brige oko koordinacije izvođača.
-                      </p>
-                    </VCardText>
-                  </VTabsWindowItem>
-                  <VTabsWindowItem :value="true">
-                    <VSpacer class="mt-2" />
-                    <template
-                      v-for="item in [
-                        {
-                          title: 'Krovne konstrukcije',
-                          subtitle:
-                            'Čelične krovne noseće konstrukcije za stambene, poslovne i industrijske objekte. Precizno projektovane i izrađene da izdrže najveća opterećenja.',
-                        },
-                        {
-                          title: 'Nadstrešnice',
-                          subtitle:
-                            'Za luksuzne kuće, parking mesta, terase i ulaze. Izrađene od čelika ili aluminijuma, sa mogućnošću plastifikacije u željenoj boji.',
-                        },
-                      ]"
-                    >
-                      <VCard variant="text" tile class="pb-5">
-                        <VCardTitle class="text-h6">{{
-                          item.title
-                        }}</VCardTitle>
-                        <VCardText
-                          :class="
-                            d.mobile.value ? 'text-body-2' : 'text-body-1'
-                          "
-                        >
-                          {{ item.subtitle }}
-                        </VCardText>
-                      </VCard>
-                    </template>
-                  </VTabsWindowItem>
-                </VTabsWindow>
-              </AppBoxTwoRowsAutoMain>
-              <VSpacer />
-              <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
-                <VSpacer />
-                <VBtn
-                  tile
-                  variant="tonal"
-                  elevation="1"
-                  class="*text-shadow-sm px-4"
-                  :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                  :size="d.sm.value ? undefined : 'large'"
-                  :to="$localePath({ name: 'contact' })"
-                >
-                  <template #prepend>
-                    <IconX
-                      icon="mdi:tools"
-                      size="1.5rem"
-                      class="-translate-y-[2px] opacity-[.33]"
-                    />
-                  </template>
-                  Zakažite montažu</VBtn
-                >
-                <VSpacer />
-              </VCardActions>
-            </VCard>
-          </template>
-        </AppGridTwoCells>
-      </template>
-    </AppSheetSectionRoot>
-
-    <!-- section: stolarija -->
-    <VSpacer class="mt-px" />
-    <AppSheetSectionRoot
-      title="Ograde, kapije, stolarija"
-      subtitle="Za kuće i luksuzne vile u centralnoj Srbiji"
-      :props-title="{
-        class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
-      }"
-      :props-subtitle="{
-        class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
-      }"
-      :props-item="{
-        class: 'pb-2',
-      }"
-    >
-      <template #icon>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:shield-home"
-          class="opacity-20"
-          size="2.5rem"
-        />
-      </template>
-
-      <template #default="ctx">
-        <!-- grid -->
-        <AppGridTwoCells
-          invert
-          :stack="!d.smAndUp.value"
-          :style="{
-            height: d.smAndUp.value
-              ? `calc(100svh - ${appNavBarHeight}px - ${ctx.titleSize.height ?? 0}px - 5rem)`
-              : undefined,
-          }"
-        >
-          <template #media>
-            <AppGridStacked
-              class="fill-height"
-              :props-stack="{ class: 'd-flex flex-col' }"
-            >
-              <template #stack>
-                <VSpacer />
-                <VCardActions>
-                  <VSpacer />
-                  <AppBoxBase class="d-flex gap-5">
-                    <VBtn
-                      @click="ctrl.prev"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$prev"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                    <VBtn
-                      @click="ctrl.next"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$next"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                  </AppBoxBase>
-                  <VSpacer />
-                </VCardActions>
-              </template>
-              <VCarousel
-                :height="d.smAndUp.value ? '100%' : 333"
-                :show-arrows="false"
-                hide-delimiters
-                crossfade
-                :model-value="ctrl.currentKey.value"
-                @update:model-value="(v) => v && ctrl.active(`${v}`)"
-              >
-                <VCarouselItem
-                  v-for="slide in ctrl.items"
-                  :key="slide.key"
-                  :src="slide.image"
-                  :value="slide.key"
-                  cover
-                  transition="app-transition-cross-scale"
-                  image-class="*object-bottom"
-                />
-              </VCarousel>
-            </AppGridStacked>
-          </template>
-          <template #text>
-            <VCard
-              variant="text"
-              class="pb-2"
-              :class="{
-                'd-flex flex-col fill-height': d.smAndUp.value,
-              }"
-            >
-              <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
-                <template #footer>
-                  <!-- Tab Headers -->
-                  <VTabs
-                    stacked
-                    grow
-                    density="comfortable"
-                    :model-value="toggleTabs.isActive.value"
-                    @update:model-value="
-                      (v) => (v ? toggleTabs.on() : toggleTabs.off())
-                    "
-                  >
-                    <VTab :value="false" text="Ograde">
-                      <template #prepend>
-                        <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                      </template>
-                    </VTab>
-                    <VTab :value="true" text="Modeli">
-                      <template #prepend>
-                        <IconX
-                          icon="mdi:tag"
-                          size="1.5rem"
-                          class="opacity-20"
-                        />
-                      </template>
-                    </VTab>
-                  </VTabs>
-                </template>
-
-                <!-- Tab Content -->
-                <VTabsWindow :model-value="toggleTabs.isActive.value" crossfade>
-                  <VTabsWindowItem :value="false">
-                    <VCardText
-                      class="indent-4 space-y-5"
-                      :class="[
-                        d.mdAndUp.value
-                          ? 'text-body-1 ps-10 pt-10'
-                          : 'text-body-2 ps-4 pt-4',
-                      ]"
-                    >
-                      <p>
-                        U Metal-Prometu smo svesni da ograda nije samo granica
-                        vašeg imanja &dash; ona je
-                        <strong
-                          >vizit-karta, znak dobrodošlice i čuvar vaše
-                          privatnosti.</strong
-                        >
-                        Zato svaku ogradu i kapiju izrađujemo sa podjednakom
-                        pažnjom, bilo da se radi o skromnoj gradskoj kući ili
-                        luksuznoj vili na obroncima Avale ili Kosmaja.
-                      </p>
-                      <p>
-                        Bilo da želite elegantnu aluminijumsku ogradu koja će se
-                        uklopiti u moderan ambijent, kovanu kapiju koja odiše
-                        tradicijom, ili panelnu ogradu koja nudi sigurnost i
-                        brzu montažu &dash; kod nas ćete pronaći ono što
-                        tražite.
-                        <strong
-                          >Sve naše proizvode možete prilagoditi vašim
-                          željama</strong
-                        >, uz širok dijapazon RAL boja i različitih modela.
-                      </p>
-                      <p>
-                        Montaže vršimo širom Mladenovca, Beograda, cele Šumadije
-                        i centralne Srbije, ali i van granica naše zemlje, što
-                        svedoči o poverenju koje nam klijenti ukazuju. Naš tim
-                        iskusnih majstora i inženjera
-                        <strong
-                          >garantuje da će vaša ograda biti postavljena
-                          precizno, čvrsto i trajno.</strong
-                        >
-                      </p>
-                    </VCardText>
-                  </VTabsWindowItem>
-                  <VTabsWindowItem :value="true">
-                    <VSpacer class="mt-2" />
-                    <template
-                      v-for="item in [
-                        {
-                          title: 'ALU ograde',
-                          subtitle:
-                            'Moderne, lagane, otporne na koroziju. Razni modeli, sa &quot;S&quot; odliscima, RAL boje po želji.',
-                        },
-                        {
-                          title: 'Čelične ograde',
-                          subtitle:
-                            'Čvrste i dugotrajne. 2D/3D panelne, laserski sečene, kovane i prohromske.',
-                        },
-                        {
-                          title: 'Dvorišne kapije',
-                          subtitle:
-                            'Krilne i klizne, velikih dimenzija. Moguća automatizacija.',
-                        },
-                        {
-                          title: 'Panelne ograde',
-                          subtitle:
-                            'Brzomontažni sistemi. 2D i 3D paneli, različiti dezeni i boje.',
-                        },
-                        {
-                          title: 'Ostali tipovi ograda i elemenata',
-                          subtitle:
-                            'Stepenice, gelenderi, zaštitne ograde, ukrasni elementi od kovanog gvožđa.',
-                        },
-                      ]"
-                    >
-                      <VCard variant="text" tile class="pb-5">
-                        <VCardTitle class="text-h6">{{
-                          item.title
-                        }}</VCardTitle>
-                        <VCardText
-                          :class="
-                            d.mobile.value ? 'text-body-2' : 'text-body-1'
-                          "
-                        >
-                          {{ item.subtitle }}
-                        </VCardText>
-                      </VCard>
-                    </template>
-                  </VTabsWindowItem>
-                </VTabsWindow>
-              </AppBoxTwoRowsAutoMain>
-              <VSpacer />
-              <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
-                <VSpacer />
-                <VBtn
-                  tile
-                  variant="tonal"
-                  elevation="1"
-                  class="*text-shadow-sm px-4"
-                  :size="d.sm.value ? undefined : 'large'"
-                  :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                  :to="$localePath({ name: 'contact' })"
-                >
-                  <template #prepend>
-                    <IconX
-                      icon="mdi:fence"
-                      size="1.5rem"
-                      class="-translate-y-[2px] opacity-[.33]"
-                    />
-                  </template>
-                  Naručite ugradnju</VBtn
-                >
-                <VSpacer />
-              </VCardActions>
-            </VCard>
-          </template>
-        </AppGridTwoCells>
-      </template>
-    </AppSheetSectionRoot>
-
-    <!-- section: finis, plastifikacija -->
-    <VSpacer class="mt-px" />
-    <AppSheetSectionRoot
-      title="Završna obrada, plastifikacija"
-      subtitle="Vrhunska zaštita i estetika za klijente iz cele Srbije"
-      :props-title="{
-        class: `text-wrap ${d.mobile.value ? 'text-h5' : 'text-h4'}`,
-      }"
-      :props-subtitle="{
-        class: `text-wrap ${d.mobile.value ? '' : 'text-h6'}`,
-      }"
-      :props-item="{
-        class: 'pb-2',
-      }"
-    >
-      <template #icon>
-        <IconX
-          v-if="d.smAndUp.value"
-          icon="mdi:security"
-          class="opacity-20"
-          size="2.5rem"
-        />
-      </template>
-
-      <template #default="ctx">
-        <!-- grid -->
-        <AppGridTwoCells
-          :stack="!d.smAndUp.value"
-          :style="{
-            height: d.smAndUp.value
-              ? `calc(100svh - ${appNavBarHeight}px - ${ctx.titleSize.height ?? 0}px - 2rem)`
-              : undefined,
-          }"
-        >
-          <template #media>
-            <AppGridStacked
-              class="fill-height"
-              :props-stack="{ class: 'd-flex flex-col' }"
-            >
-              <template #stack>
-                <VSpacer />
-                <VCardActions>
-                  <VSpacer />
-                  <AppBoxBase class="d-flex gap-5">
-                    <VBtn
-                      @click="ctrlFinish.prev"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$prev"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                    <VBtn
-                      @click="ctrlFinish.next"
-                      variant="tonal"
-                      elevation="1"
-                      icon
-                      rounded="circle"
-                      color="ui"
-                    >
-                      <IconX
-                        icon="$next"
-                        size="2rem"
-                        class="filter-shadow-sm text-v-on-ui"
-                      />
-                    </VBtn>
-                  </AppBoxBase>
-                  <VSpacer />
-                </VCardActions>
-              </template>
-              <VCarousel
-                :height="d.smAndUp.value ? '100%' : 333"
-                :show-arrows="false"
-                hide-delimiters
-                crossfade
-                :model-value="ctrlFinish.currentKey.value"
-                @update:model-value="(v) => v && ctrlFinish.active(`${v}`)"
-              >
-                <VCarouselItem
-                  v-for="slide in ctrlFinish.items"
-                  :key="slide.key"
-                  :src="slide.image"
-                  :value="slide.key"
-                  cover
-                  transition="app-transition-cross-scale"
-                  image-class="*object-bottom"
-                />
-              </VCarousel>
-            </AppGridStacked>
-          </template>
-          <template #text>
-            <VCard
-              variant="text"
-              class="pb-2"
-              :class="{
-                'd-flex flex-col fill-height': d.smAndUp.value,
-              }"
-            >
-              <AppBoxTwoRowsAutoMain footer-first class="*fill-height">
-                <template #footer>
-                  <!-- Tab Headers -->
-                  <VTabs
-                    stacked
-                    grow
-                    density="comfortable"
-                    :model-value="toggleTabsFinish.isActive.value"
-                    @update:model-value="
-                      (v) =>
-                        v ? toggleTabsFinish.on() : toggleTabsFinish.off()
-                    "
-                  >
-                    <VTab :value="false" text="Finiš">
-                      <template #prepend>
-                        <IconX icon="$info" size="1.5rem" class="opacity-20" />
-                      </template>
-                    </VTab>
-                    <VTab :value="true" text="Usluge">
-                      <template #prepend>
-                        <IconX
-                          icon="mdi:tag"
-                          size="1.5rem"
-                          class="opacity-20"
-                        />
-                      </template>
-                    </VTab>
-                  </VTabs>
-                </template>
-
-                <!-- Tab Content -->
-                <VTabsWindow
-                  :model-value="toggleTabsFinish.isActive.value"
-                  crossfade
-                >
-                  <VTabsWindowItem :value="false">
-                    <VCardText
-                      class="indent-4 space-y-5"
-                      :class="[
-                        d.mdAndUp.value
-                          ? 'text-body-1 ps-10 pt-10'
-                          : 'text-body-2 ps-4 pt-4',
-                      ]"
-                    >
-                      <p>
-                        Plastifikacija je jedan od najefikasnijih načina za
-                        zaštitu metalnih površina, uz istovremeno postizanje
-                        izuzetno lepog estetskog izgleda. U Metal-Prometu ovu
-                        uslugu podižemo na viši nivo &dash; svaki komad, bilo da
-                        je od aluminijuma ili čelika, prethodno hemijski
-                        tretiramo, čime
-                        <strong
-                          >obezbeđujemo savršeno prianjanje boje i dugotrajnost
-                          završne obrade.</strong
-                        >
-                      </p>
-                      <p>
-                        Bilo da su u pitanju ograde, kapije, nameštaj, mašinski
-                        delovi, felne ili industrijske konstrukcije &dash; naš
-                        tim
-                        <strong
-                          >garantuje vrhunski kvalitet, brzu izradu i
-                          pristupačne cene.</strong
-                        >
-                        Uslugu plastifikacije pružamo kako za naše proizvode,
-                        tako i za kompletno uslužno farbanje vaših delova.
-                      </p>
-                      <p>
-                        Naša industrijska peć
-                        <strong>omogućava obradu i najvećih konstrukcija</strong
-                        >, dok visina komore pruža fleksibilnost za različite
-                        profile. U ponudi imamo širok dijapazon RAL boja &dash;
-                        od klasičnih nijansi do strukturnih i metalik efekata,
-                        uz opciju cink prajmera za dodatnu antikorozivnu
-                        zaštitu.
-                      </p>
-                    </VCardText>
-                  </VTabsWindowItem>
-                  <VTabsWindowItem :value="true">
-                    <VSpacer class="mt-2" />
-                    <template
-                      v-for="item in [
-                        {
-                          title: 'Ograde i konstrukcije',
-                          subtitle:
-                            'Plastifikacija aluminijumskih i čeličnih ograda, kapija, stepenica, gelendera, i drugih konstruktivnih elemenata.',
-                        },
-                        {
-                          title: 'Nameštaj i predmeti',
-                          subtitle:
-                            'Školske klupe i stolice, baštenski setovi, stolovi, stolice, žardinjere, klupe za parkove i druge metalne predmete.',
-                        },
-                        {
-                          title: 'Industrija i auto',
-                          subtitle:
-                            'Felne, mašinski delovi, postolja za mašine, rolo vrata, okapnice, rezervoari i drugi industrijski elementi.',
-                        },
-                        {
-                          title: 'Kovano gvožđe',
-                          subtitle:
-                            'Zaštita i dekorativna obrada kovanih ograda, kapija, prozorskih rešetki i ukrasnih elemenata.',
-                        },
-                        {
-                          title: 'Specijalni tretmani',
-                          subtitle:
-                            'Hemijska priprema pre farbanja, kombinovanje sa strukturnim i metalik efektima.',
-                        },
-                      ]"
-                    >
-                      <VCard variant="text" tile class="pb-5">
-                        <VCardTitle class="text-h6">{{
-                          item.title
-                        }}</VCardTitle>
-                        <VCardText
-                          :class="
-                            d.mobile.value ? 'text-body-2' : 'text-body-1'
-                          "
-                        >
-                          {{ item.subtitle }}
-                        </VCardText>
-                      </VCard>
-                    </template>
-                  </VTabsWindowItem>
-                </VTabsWindow>
-              </AppBoxTwoRowsAutoMain>
-              <VSpacer />
-              <VCardActions :class="{ 'mt-5': !d.smAndUp.value }">
-                <VSpacer />
-                <VBtn
-                  tile
-                  variant="tonal"
-                  elevation="1"
-                  class="*text-shadow-sm px-4"
-                  :class="[d.smAndUp.value ? 'scale-[111%]' : undefined]"
-                  :size="d.sm.value ? undefined : 'large'"
-                  :to="$localePath({ name: 'contact' })"
-                >
-                  <template #prepend>
-                    <IconX
-                      icon="mdi:shield-check"
-                      size="1.5rem"
-                      class="opacity-[.33]"
-                    />
-                  </template>
-                  Zakažite uslugu</VBtn
-                >
-                <VSpacer />
-              </VCardActions>
-            </VCard>
-          </template>
-        </AppGridTwoCells>
-      </template>
-    </AppSheetSectionRoot>
+              </VCard>
+            </template>
+          </AppGridTwoCellsContentLMediaAuto>
+        </template>
+      </AppSheetSectionRoot>
+    </template>
   </AppBoxPageWrap>
 </template>
