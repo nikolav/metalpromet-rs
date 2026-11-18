@@ -583,7 +583,7 @@ const appNavHeight = computed(() =>
               :style="[
                 d.mdAndUp.value
                   ? {
-                      height: `calc(99dvh - ${appNavHeight ?? 0}px - ${cx.titleSize.height ?? 0}px - 2rem)`,
+                      height: `calc(100svh - ${appNavHeight ?? 0}px - ${cx.titleSize.height ?? 0}px - 2rem)`,
                     }
                   : undefined,
               ]"
@@ -592,10 +592,10 @@ const appNavHeight = computed(() =>
               }"
               tile
               variant="flat"
-              :color="0 != i % 2 ? 'surface-variant' : undefined"
+              :color="0 != i % 2 ? 'ui' : undefined"
             >
               <AppGridTwoCells
-                :invert="0 == i % 2"
+                :invert="!$$.isOdd(i)"
                 class="h-full"
                 :stack="!d.mdAndUp.value"
               >
@@ -606,7 +606,7 @@ const appNavHeight = computed(() =>
                       'w-full',
                       'object-cover',
                       item.image.classes,
-                      d.mdAndUp.value ? 'h-full' : 'h-[33dvh]',
+                      d.mdAndUp.value ? 'h-full' : 'h-[55svh]',
                     ]"
                   />
                 </template>
@@ -614,7 +614,8 @@ const appNavHeight = computed(() =>
                   <AppBoxBase class="space-y-5 pt-8 h-full d-flex flex-col">
                     <AppBoxCentered>
                       <VAvatar
-                        color="rgba(var(--v-theme-primary-variant), .122)"
+                        :theme="$$.isOdd(i) ? 'dark' : undefined"
+                        color="rgba(var(--v-theme-primary-variant),.066)"
                         size="4.22rem"
                       >
                         <IconX
@@ -637,28 +638,32 @@ const appNavHeight = computed(() =>
                         <span> {{ item.title }} </span>
                         <AppShapeLineH
                           :width="
-                            0 == i % 2 ? cx.right : d.width.value - cx.left - 16
+                            !$$.isOdd(i)
+                              ? cx.right
+                              : d.width.value - cx.left - 16
                           "
                           :height="1"
                           :props-canvas="{
-                            class: `text-v-on-surface/[.5] position-absolute bottom-3 ${0 == i % 2 ? 'start-0' : 'end-0'}`,
+                            class: `position-absolute bottom-3 ${!$$.isOdd(i) ? 'start-0' : 'end-0'} opacity-[.5]`,
                           }"
                         />
                       </UseElementBounding>
                     </VCardTitle>
-                    <VCardText
-                      :class="[
-                        'indent-5',
-                        d.smAndUp.value ? 'px-10' : undefined,
-                        d.mdAndUp.value ? 'text-h6' : 'text-body-1',
-                      ]"
-                    >
-                      <p v-html="item.text" />
-                    </VCardText>
+                    <AppBoxContainerCentered max-width="80ch">
+                      <VCardText
+                        :class="[
+                          'indent-5',
+                          d.smAndUp.value ? 'px-10' : undefined,
+                          d.mdAndUp.value ? 'text-h6' : 'text-body-1',
+                        ]"
+                        v-html="item.text"
+                      />
+                    </AppBoxContainerCentered>
                     <VSpacer />
                     <VCardActions class="pb-5">
                       <VSpacer />
                       <VBtn
+                        :theme="$$.isOdd(i) ? 'dark' : undefined"
                         :size="d.mdAndUp.value ? 'x-large' : 'large'"
                         tile
                         class="ps-4"

@@ -28,213 +28,106 @@ const d = useDisplay();
             <!-- MP -->
             <VCol sm="6" md="3">
               <!-- logo -->
-              <NuxtLinkLocale
-                :to="$localePath({ name: 'index' })"
-                :class="{ 'd-flex justify-center': !d.smAndUp.value }"
-              >
-                <NuxtImg
-                  src="/logo.jpg"
-                  alt="Metal-Promet logo"
-                  :width="92"
-                  :height="92"
-                  sizes="92px"
-                  class="rounded-full"
-                />
-              </NuxtLinkLocale>
-              <AppBoxBase class="space-y-10 mt-4">
-                <AppBoxBase>
-                  <VCardText>
-                    <h2 class="text-body-1 text-shadow-sm">
-                      <strong>Metal-Promet Mladenovac</strong>
-                    </h2>
-                    <p class="mt-[2px]">
-                      Izrada industrijske opreme i metalnih konstrukcija,
-                      inženjering, bravarija, stolarija, plastifikacija i
-                      završna obrada metala.
-                    </p>
-                  </VCardText>
-                </AppBoxBase>
-                <AppBoxBase class="text-center">
-                  <IconX
-                    icon="mdi:map-marker"
-                    size="2rem"
-                    class="text-accent"
+              <AppBoxCentered>
+                <NuxtLinkLocale
+                  :to="$localePath({ name: 'index' })"
+                  :class="{ 'd-flex justify-center': !d.smAndUp.value }"
+                >
+                  <NuxtImg
+                    src="/logo.jpg"
+                    alt="Metal-Promet logo"
+                    :width="122"
+                    :height="122"
+                    sizes="122px"
+                    class="rounded-full"
                   />
-                  <p>
-                    Beograd · Mladenovac · Niš · Šumadija · Podunavski okrug ·
-                    Inostranstvo
+                </NuxtLinkLocale>
+              </AppBoxCentered>
+
+              <!-- social -->
+              <AppBoxFlex center class="gap-x-5 my-4">
+                <template
+                  v-for="node in [
+                    {
+                      to: 'https://www.instagram.com/metal_promet',
+                      icon: { icon: 'mdi:instagram', props: {} },
+                      disabled: false,
+                    },
+                    {
+                      to: 'https://www.facebook.com/pages/Metal-Promet/111890567394829',
+                      icon: { icon: 'mdi:facebook', props: {} },
+                      disabled: false,
+                    },
+                    {
+                      to: 'https://www.youtube.com/playlist?list=PLNHRaUC54g2Q',
+                      icon: { icon: 'mdi:youtube', props: {} },
+                      disabled: false,
+                    },
+                  ]"
+                >
+                  <NuxtLink
+                    :aria-disabled="node.disabled"
+                    external
+                    target="_blank"
+                    :to="node.disabled ? undefined : node.to"
+                  >
+                    <AppVBtn
+                      :disabled="node.disabled"
+                      icon
+                      rounded="circle"
+                      variant="plain"
+                    >
+                      <IconX
+                        class="bg-v-on-background"
+                        :class="{ 'opacity-[.33]': node.disabled }"
+                        :icon="node.icon.icon"
+                        size="2rem"
+                        v-bind="node.icon.props"
+                      />
+                    </AppVBtn>
+                  </NuxtLink>
+                </template>
+              </AppBoxFlex>
+
+              <!-- info -->
+              <AppBoxBase class="*space-y-10 mt-4 *text-center">
+                <VCardText>
+                  <h2 class="text-body-1 text-shadow-sm pb-2">
+                    <strong>Metal-Promet Mladenovac</strong>
+                  </h2>
+                  <p class="mt-[2px]">
+                    Izrada industrijske opreme i metalnih konstrukcija,
+                    inženjering, bravarija, stolarija, plastifikacija i završna
+                    obrada metala.
                   </p>
-                </AppBoxBase>
-                <AppBoxBase class="font-bold text-center">
-                  <IconX icon="mdi:medal" size="2rem" class="text-accent" />
-                  <p>Poslujemo od 1988. godine.</p>
-                  <p>{{ new Date().getFullYear() - 1988 }} godine iskustva!</p>
-                </AppBoxBase>
-                <AppBoxBase class="font-bold text-center">
-                  <IconX icon="$ratingFull" size="2rem" class="text-accent" />
-                  <p>Bonitet: AA+</p>
-                </AppBoxBase>
-                <!-- social -->
-                <AppBoxBase class="d-flex justify-evenly">
-                  <NuxtLink
-                    external
-                    target="_blank"
-                    to="https://www.instagram.com/metal_promet"
-                  >
-                    <AppVBtn icon rounded="circle" variant="plain">
-                      <IconX
-                        class="bg-v-on-background"
-                        icon="mdi:instagram"
-                        size="2rem"
-                      />
-                    </AppVBtn>
-                  </NuxtLink>
-                  <NuxtLink
-                    external
-                    target="_blank"
-                    to="https://www.instagram.com/metal_promet"
-                  >
-                    <AppVBtn icon rounded="circle" variant="plain">
-                      <IconX
-                        class="bg-v-on-background"
-                        icon="mdi:facebook"
-                        size="2rem"
-                      />
-                    </AppVBtn>
-                  </NuxtLink>
-                  <NuxtLink
-                    external
-                    target="_blank"
-                    to="https://www.instagram.com/metal_promet"
-                  >
-                    <AppVBtn icon rounded="circle" variant="plain">
-                      <IconX
-                        class="bg-v-on-background"
-                        icon="ri:twitter-x-fill"
-                        size="2rem"
-                      />
-                    </AppVBtn>
-                  </NuxtLink>
-                  <NuxtLink
-                    external
-                    target="_blank"
-                    to="https://www.instagram.com/metal_promet"
-                  >
-                    <AppVBtn icon rounded="circle" variant="plain">
-                      <IconX
-                        class="bg-v-on-background"
-                        icon="mdi:youtube"
-                        size="2rem"
-                      />
-                    </AppVBtn>
-                  </NuxtLink>
-                </AppBoxBase>
+                </VCardText>
               </AppBoxBase>
             </VCol>
 
             <!-- usluge -->
             <VCol sm="6" md="3" class="text-center">
               <h3>Naše usluge:</h3>
-              <AppBoxBase class="mt-10 space-y-5">
+              <AppBoxBase class="mt-5 space-y-5">
                 <AppBoxBase>
-                  <IconX icon="mdi:ruler" size="1.75rem" class="opacity-50" />
                   <VList>
                     <VListItem
                       link
                       v-for="item in [
                         {
-                          title: 'Projektovanje i inženjering',
-                          to: 'under-construction',
+                          title: 'Izrada industrijske opreme',
+                          to: 'services-engineering',
                         },
                         {
-                          title: '3D Modelovanje i renderi',
-                          to: 'under-construction',
-                        },
-                      ]"
-                      :key="item.title"
-                      :to="$localePath({ name: item.to })"
-                    >
-                      <span class="text-body-2">{{ item.title }}</span>
-                    </VListItem>
-                  </VList>
-                </AppBoxBase>
-                <AppBoxBase>
-                  <IconX icon="mdi:wrench" size="1.75rem" class="opacity-50" />
-                  <VList>
-                    <VListItem
-                      link
-                      v-for="item in [
-                        {
-                          title: 'Bravarski radovi',
-                          to: 'under-construction',
+                          title: 'Metalne konstrukcije',
+                          to: 'services-constructions',
                         },
                         {
-                          title: 'CNC obrada metala',
-                          to: 'under-construction',
+                          title: 'Ogradni sistemi, stolarija',
+                          to: 'services-products',
                         },
                         {
-                          title: 'Kovano gvožđe',
-                          to: 'under-construction',
-                        },
-                      ]"
-                      :key="item.title"
-                      :to="$localePath({ name: item.to })"
-                    >
-                      <span class="text-body-2">{{ item.title }}</span>
-                    </VListItem>
-                  </VList>
-                </AppBoxBase>
-                <AppBoxBase>
-                  <IconX
-                    icon="mdi:screwdriver"
-                    size="1.75rem"
-                    class="opacity-50"
-                  />
-                  <VList>
-                    <VListItem
-                      link
-                      v-for="item in [
-                        {
-                          title: 'Ograde i kapije',
-                          to: 'under-construction',
-                        },
-                        {
-                          title: 'Stepenice',
-                          to: 'under-construction',
-                        },
-                        {
-                          title: 'Nadstrešnice',
-                          to: 'under-construction',
-                        },
-                        {
-                          title: 'Metalni nameštaj i oprema',
-                          to: 'under-construction',
-                        },
-                        {
-                          title: 'Kontejneri za stanovanje',
-                          to: 'under-construction',
-                        },
-                      ]"
-                      :key="item.title"
-                      :to="$localePath({ name: item.to })"
-                    >
-                      <span class="text-body-2">{{ item.title }}</span>
-                    </VListItem>
-                  </VList>
-                </AppBoxBase>
-                <AppBoxBase>
-                  <IconX icon="mdi:shield" size="1.75rem" class="opacity-50" />
-                  <VList>
-                    <VListItem
-                      link
-                      v-for="item in [
-                        {
-                          title: 'Elektrostatsko farbanje',
-                          to: 'under-construction',
-                        },
-                        {
-                          title: 'Peskarenje',
-                          to: 'under-construction',
+                          title: 'Plastifikacija metala',
+                          to: 'services-finish',
                         },
                       ]"
                       :key="item.title"
@@ -283,9 +176,9 @@ const d = useDisplay();
             <!-- kontakt -->
             <VCol sm="6" md="3" class="text-center">
               <h3>Kontakt:</h3>
-              <VList class="space-y-10 mt-5">
+              <VList class="space-y-5 mt-5">
                 <VListItem>
-                  <VListItemTitle>
+                  <VListItemTitle class="italic pb-1">
                     <IconX
                       icon="mdi:map-marker"
                       size="1.5rem"
@@ -298,12 +191,12 @@ const d = useDisplay();
                       href="https://maps.app.goo.gl/fuGJnobWPHawt2ur5"
                       external
                       target="_blank"
-                      >Palanački put bb, Kovačevac 11400, Srbija</NuxtLink
+                      >Palanački put bb, Kovačevac</NuxtLink
                     ></VListItemSubtitle
                   >
                 </VListItem>
                 <VListItem>
-                  <VListItemTitle>
+                  <VListItemTitle class="italic pb-1">
                     <IconX
                       icon="mdi:phone"
                       size="1.5rem"
@@ -318,7 +211,7 @@ const d = useDisplay();
                   >
                 </VListItem>
                 <VListItem>
-                  <VListItemTitle>
+                  <VListItemTitle class="italic pb-1">
                     <IconX
                       icon="mdi:at"
                       size="1.5rem"
@@ -333,7 +226,7 @@ const d = useDisplay();
                   </VListItemSubtitle>
                 </VListItem>
                 <VListItem>
-                  <VListItemTitle>
+                  <VListItemTitle class="italic pb-1">
                     <IconX
                       icon="mdi:alarm"
                       size="1.5rem"
