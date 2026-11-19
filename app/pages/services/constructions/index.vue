@@ -115,7 +115,7 @@ const heightAppNavBar = computed(
       v-for="(node, idx) in [
         {
           title: 'Čelične konstrukcije',
-          title_sm: 'Čelične konstrukcije',
+          title_sm: 'Konstrukcije',
           icon: {
             icon: 'mdi:gantry-crane',
             props: {},
@@ -151,7 +151,7 @@ const heightAppNavBar = computed(
         },
         {
           title: 'ALU konstrukcije',
-          title_sm: 'ALU konstrukcije',
+          title_sm: 'Al konstrukcije',
           icon: {
             icon: 'material-symbols:home-outline',
             props: {},
