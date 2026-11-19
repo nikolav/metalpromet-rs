@@ -29,7 +29,6 @@ import clamp from "lodash/clamp";
 import chunk from "lodash/chunk";
 
 import { v4 as uuid } from "uuid";
-import parseBoolean from "@eturino/ts-parse-boolean";
 import { nanoid } from "nanoid";
 
 import { onDebug } from "~/utils/on-debug";
@@ -46,6 +45,7 @@ import { normalizedIndex } from "~/utils/normalized-index";
 import { isNumeric } from "~/utils/is-numeric";
 import { isPresent } from "~/utils/is-present";
 import { isOdd } from "~/utils/is-odd";
+import { parseBoolean } from "~/utils/parse-boolean";
 
 //
 export default defineNuxtPlugin({

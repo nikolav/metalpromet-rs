@@ -6,7 +6,7 @@ import {
 
 import trimEnd from "lodash/trimEnd";
 
-import parseBoolean from "@eturino/ts-parse-boolean";
+import { parseBoolean } from "./app/utils/parse-boolean";
 
 import {
   schemaCacheKeyDriver,
