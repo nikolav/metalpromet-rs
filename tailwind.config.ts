@@ -6,6 +6,7 @@ import reduce from "lodash/reduce";
 
 import { darkRootClass } from "./app/config/vars.env.public";
 
+/** @type {import('tailwindcss').Config} */
 export default {
   // Safer default for Vue/Nuxt (SSR friendly + predictable)
   darkMode: ["selector", `.${darkRootClass}`],
@@ -26,8 +27,14 @@ export default {
 
   // Keep empty unless you *need* dynamic class support
   safelist: [
-    { pattern: /^(bg|text|border|ring|outline)-v-(.+)$/ },
-    { pattern: /^(bg|text|border|ring|outline)-v-(.+)\/\d+$/ },
+    {
+      pattern:
+        /^(bg|text|border|ring|outline|divide)-v-(.+)$/,
+    },
+    {
+      pattern:
+        /^(bg|text|border|ring|outline|divide)-v-(.+)\/\d+$/,
+    },
   ],
 
   // Keep empty unless you intentionally want to prevent some utilities
