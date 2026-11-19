@@ -31,7 +31,7 @@ const toggleOverlayForm = useToggleFlag();
 <template>
   <AppBoxPageWrap class="page--contact">
     <AppSheetSectionRoot
-      :title="$t('Metal-Promet • Kontakt')"
+      :title="$t('Metal-Promet')"
       :subtitle="`Oprema za industriju, konstrukcije, ${d.mobile.value ? '<br />' : ''}stolarija i plastifikacija`"
       :props-item="{ class: 'pt-4 pb-6' }"
       :props-title="{ class: 'text-h4 text-wrap' }"

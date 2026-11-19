@@ -3,35 +3,28 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = withDefaults(defineProps<{ propsSheet?: any }>(), {
-  propsSheet: {},
+const props = withDefaults(defineProps<{ propsContent?: any }>(), {
+  propsContent: {},
 });
 // @@eos
 </script>
 
 <template>
-  <ClientOnly>
+  <ClientOnly class="component--AppOverlayScreen">
     <VDialog
       fullscreen
       :scrim="false"
       transition="app-transition-slide-y-r"
       v-bind="$attrs"
     >
-      <VSheet
+      <VCard
+        variant="flat"
         tile
-        elevation="0"
-        class="app-container-reset position-relative"
-        v-bind="props.propsSheet"
+        class="position-relative pa-0 ma-0"
+        v-bind="props.propsContent"
       >
         <slot />
-      </VSheet>
+      </VCard>
     </VDialog>
   </ClientOnly>
 </template>
-
-<!-- scoped component styles -->
-<style lang="scss" scoped></style>
-<!-- css modules, per-class hashing -->
-<style module></style>
-<!-- global styles -->
-<style lang="scss"></style>

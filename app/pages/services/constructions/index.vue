@@ -151,7 +151,7 @@ const heightAppNavBar = computed(
         },
         {
           title: 'ALU konstrukcije',
-          title_sm: 'Al konstrukcije',
+          title_sm: 'ALU okviri',
           icon: {
             icon: 'material-symbols:home-outline',
             props: {},

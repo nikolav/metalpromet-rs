@@ -1,20 +1,12 @@
 <script setup lang="ts">
-import { useDisplay, useTheme } from "vuetify";
+import { useDisplay } from "vuetify";
 
 import { isPresent } from "~/utils/is-present";
 import { useToggleFlag } from "~/composables/utils/use-toggle-flag";
 
-// defineOptions({
-//   name: "COMPONENT_NAME",
-//   inheritAttrs: false,
-// });
-
-const d = useDisplay();
 const { $$ } = useNuxtApp();
+const d = useDisplay();
 const localePath = useLocalePath();
-
-const theme = useTheme();
-const isDark = computed(() => theme.global.current.value.dark);
 
 const toggleNavMenu = useToggleFlag();
 
@@ -72,43 +64,32 @@ const mergeItemProps = $$.deepmerge();
       <AppOverlayScreen
         v-model="toggleNavMenu.isActive.value"
         transition="app-transition-slide-in-out-x-full"
-        :props-sheet="{
-          class: 'space-y-4',
-        }"
       >
-        <!-- nav:header -->
+        <!-- header -->
         <VListItem
-          class="ps-2 pe-0 mx-0 [font-variant-caps:small-caps] !bg-[url('/images/stock/019.png')] !bg-no-repeat *!bg-cover !bg-[79%_0%] bg-[size:133%] !bg-blend-color-dodge"
-          :class="{
-            '!bg-[rgba(var(--v-theme-ui),.122)]': !isDark,
-            '!bg-[rgba(var(--v-theme-ui),.33)]': isDark,
-          }"
+          class="ps-2 pe-0 mx-0 [font-variant-caps:small-caps] !bg-v-surface-variant"
           prepend-gap=".5rem"
-          elevation="1"
         >
           <template #append>
             <AppBtnClose @click="toggleNavMenu.off" />
           </template>
           <template #prepend>
             <IconX
-              icon="local:logo-mp"
+              icon="local:logo-mp-title"
               size="2rem"
               class="text-[rgba(var(--v-theme-ui),1)] mx-1"
             />
           </template>
-          <VListItemTitle>Metal-Promet</VListItemTitle>
-          <VListItemSubtitle class="opacity-50">Mladenovac</VListItemSubtitle>
         </VListItem>
 
         <!-- nav:links -->
         <VList
+          variant="flat"
           tile
-          color="accent"
-          bg-color="transparent"
+          color="primary"
+          prepend-gap="1.22rem"
+          class="space-y-2 px-2"
           @click="toggleNavMenu.off"
-          variant="text"
-          prepend-gap="1rem"
-          class="space-y-1 mx-1"
           :items="
             navItems.map((node) =>
               isPresent(node.type)
