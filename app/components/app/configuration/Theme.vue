@@ -39,7 +39,7 @@ onNuxtReady(() => {
 
 useHead({
   htmlAttrs: {
-    class: { [$$.config<string>("theme.darkRootClass ")!]: themeIsDark },
+    class: { [$$.config<string>("theme.darkRootClass", "")!]: themeIsDark },
   },
 });
 
