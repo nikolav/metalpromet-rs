@@ -563,19 +563,6 @@ const appNavHeight = computed(() =>
                 text: `Naši kapaciteti su organizovani kao <strong>podrška industrijama koje opslužujemo</strong>: građevinarstvu, energetici, procesnoj i prerađivačkoj proizvodnji, javnom sektoru i izvoznim tržištima. Svaki kapacitet je razvijen tako da odgovori na njihove specifične zahteve &dash; od preciznosti i standarda do rokova i obima.`,
               },
               {
-                icon: { name: 'local:certificate-trusted', size: '2.5rem' },
-                title: 'Partner za Vaš projekat',
-                image: {
-                  src: '/images/stock/018a.jpg',
-                  classes: 'object-[right_top]',
-                },
-                link: {
-                  to: 'contact',
-                  text: 'Zatražite ponudu',
-                },
-                text: `Proizvodna baza u Mladenovcu, sa svojim integrisanim pristupom, predstavlja središte sa kojeg upravljamo efikasnom realizacijom projekata u Šumadiji i okruženju. Ovakav organizacioni model čini nas <strong>pouzdanim partnerom za kompletnu izradu i montažu industrijske opreme i metalnih konstrukcija</strong> u opštinama centralne Srbije.`,
-              },
-              {
                 icon: { name: 'mdi:truck-flatbed', size: '2.5rem' },
                 title: `Vaša ideja &dash; naša briga`,
                 image: {
@@ -588,7 +575,19 @@ const appNavHeight = computed(() =>
                 },
                 text: `Naši montažni timovi dostupni su u svim većim gradovima Srbije, uključujući Beograd, Novi Sad i Niš, kao i u okolnim mestima poput Avale, Kosmaja, Aranđelovca i Sopota, čime <strong>osiguravamo da kvalitetna izrada bude praćena i profesionalnom montažom</strong> &dash; gde god da se vaš objekat nalazi.`,
               },
-
+              {
+                icon: { name: 'local:certificate-trusted', size: '2.5rem' },
+                title: 'Partner za Vaš projekat',
+                image: {
+                  src: '/images/stock/018a.jpg',
+                  classes: 'object-[right_top]',
+                },
+                link: {
+                  to: 'contact',
+                  text: 'Zatražite ponudu',
+                },
+                text: `Proizvodna baza u Mladenovcu, sa svojim integrisanim pristupom, predstavlja središte sa kojeg upravljamo efikasnom realizacijom projekata u Šumadiji i okruženju. Ovakav organizacioni model čini nas <strong>pouzdanim partnerom za kompletnu izradu i montažu industrijske opreme i metalnih konstrukcija</strong> u opštinama centralne Srbije.`,
+              },
               {
                 icon: { name: 'mdi:diamond-stone', size: '2.5rem' },
                 title: 'Kvalitet zagarantovan',
