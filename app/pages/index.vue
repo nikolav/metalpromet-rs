@@ -547,6 +547,22 @@ const appNavHeight = computed(() =>
                 text: `Specijalizovani smo za izradu komponenti i jedinica za industrijski sektor i metalnih konstrukcija visoke nosivosti prilagođenih najstrožim standardima čvrstoće i bezbednosti. Svaki proizvod prolazi hemijsko čišćenje i obradu, uz mogućnost nanošenja prajmera, čime obezbeđujemo vrhunsku otpornost na koroziju i habanje. Od kapija i ograda do reaktora i rezervoara procesne opreme &dash; <strong>nudimo kompletna rešenja od ideje do montaže</strong>, u zemlji i inostranstvu.`,
               },
               {
+                icon: {
+                  name: 'material-symbols:rocket-launch',
+                  size: '2.25rem',
+                },
+                title: `U službi vaše misije`,
+                image: {
+                  src: '/images/stock/138.jpg',
+                  classes: 'object-[22%]',
+                },
+                link: {
+                  to: 'services',
+                  text: 'Saznajte više',
+                },
+                text: `Naši kapaciteti su organizovani kao <strong>podrška industrijama koje opslužujemo</strong>: građevinarstvu, energetici, procesnoj i prerađivačkoj proizvodnji, javnom sektoru i izvoznim tržištima. Svaki kapacitet je razvijen tako da odgovori na njihove specifične zahteve &dash; od preciznosti i standarda do rokova i obima.`,
+              },
+              {
                 icon: { name: 'local:certificate-trusted', size: '2.5rem' },
                 title: 'Partner za Vaš projekat',
                 image: {
