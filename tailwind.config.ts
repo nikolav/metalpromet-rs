@@ -5,7 +5,7 @@ import { default as pluginContainerQueries } from "@tailwindcss/container-querie
 import reduce from "lodash/reduce";
 
 import { darkRootClass } from "./app/config/vars.env.public";
-import { displayDefaults as screens } from "./app/assets/breakpoints/index";
+import { displayDefaults as screens } from "./app/assets/breakpoints";
 
 /** @type {import('tailwindcss').Config} */
 export default {
