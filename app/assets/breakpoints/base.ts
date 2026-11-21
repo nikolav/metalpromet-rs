@@ -4,10 +4,9 @@ export const displayDefaults = <VuetifyOptions["display"]>{
   mobileBreakpoint: "sm",
   thresholds: {
     xs: 0,
-    sm: 599.98,
-    md: 959.98,
-    lg: 1279.98,
-    xl: 1919.98,
-    xxl: 2559.98,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1320,
   },
 };

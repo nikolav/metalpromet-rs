@@ -5,6 +5,7 @@ import { default as pluginContainerQueries } from "@tailwindcss/container-querie
 import reduce from "lodash/reduce";
 
 import { darkRootClass } from "./app/config/vars.env.public";
+import { displayDefaults as screens } from "./app/assets/breakpoints/index";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -28,12 +29,10 @@ export default {
   // Keep empty unless you *need* dynamic class support
   safelist: [
     {
-      pattern:
-        /^(bg|text|border|ring|outline|divide)-v-(.+)$/,
+      pattern: /^(bg|text|border|ring|outline|divide)-v-(.+)$/,
     },
     {
-      pattern:
-        /^(bg|text|border|ring|outline|divide)-v-(.+)\/\d+$/,
+      pattern: /^(bg|text|border|ring|outline|divide)-v-(.+)\/\d+$/,
     },
   ],
 
@@ -42,14 +41,14 @@ export default {
 
   theme: {
     extend: {
-      screens: {
-        xs: "0px",
-        sm: "600px",
-        md: "960px",
-        lg: "1280px",
-        xl: "1920px",
-        "2xl": "2560px",
-      },
+      screens: reduce(
+        screens?.thresholds ?? {},
+        (res, w, breakpoint) => {
+          res[breakpoint] = `${w}px`;
+          return res;
+        },
+        <any>{},
+      ),
 
       colors: {
         current: "currentColor",
