@@ -119,7 +119,7 @@ const mergeItemProps = $$.deepmerge();
     <template v-else>
       <VAppBarTitle>
         <NuxtLinkLocale
-          :to="localePath({ name: 'index' })"
+          :to="$localePath({ name: 'index' })"
           class="no-underline text-inherit"
           title="Metal-Promet Mladenovac"
         >
@@ -134,10 +134,3 @@ const mergeItemProps = $$.deepmerge();
     </template>
   </VAppBar>
 </template>
-
-<!-- global styles -->
-<style lang="scss">
-#ID-53dade55-8738-53dd-87a1-4203e9914854 .v-field__field {
-  margin-inline-start: 2px;
-}
-</style>

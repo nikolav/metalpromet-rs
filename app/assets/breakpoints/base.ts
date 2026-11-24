@@ -8,5 +8,6 @@ export const displayDefaults = <VuetifyOptions["display"]>{
     md: 960,
     lg: 1280,
     xl: 1320,
+    xxl: 2560,
   },
 };

@@ -147,18 +147,18 @@ export default defineNuxtConfig({
   // ---------------------------------------------------------------------------
   app: {
     head: {
-      htmlAttrs: { lang: defaultLocale },
       charset: "utf-8",
       viewport:
         "width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1",
       title: "metalpromet.rs",
-      titleTemplate: "%s | metalpromet.rs",
+      titleTemplate: "%s • metalpromet.rs",
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
       meta: [
         { name: "description", content: "NuxtApp --starter" },
         { name: "theme-color", content: "#fafafa" },
         { name: "format-detection", content: "telephone=no" },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      htmlAttrs: { lang: defaultLocale },
       bodyAttrs: {},
       script: [],
     },

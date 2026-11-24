@@ -1,6 +1,4 @@
-// @use "vuetify/settings";
-
-// @use "vuetify/settings" with (
+// #https://v3.vuetifyjs.com/en/api/globals/
 @forward "vuetify/settings" with (
   // $layers: true,
   // # VBadge
@@ -9,17 +7,13 @@
   // $badge-height: 22px,
   // $badge-min-width: 22px,
   // $badge-border-radius: 11px,
-  $rounded:
-    (
-      "2lg": 12px,
-      "3lg": 16px,
-      "4lg": 20px,
-      "2xl": 32px,
-      "3xl": 48px,
-    ),
+  // $rounded: (
+  //     "2lg": $border-radius-root_ * 4,
+  //     "2xl": $border-radius-root_ * 12,
+  //   ),
+  // #https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/styles/settings/_utilities.scss
   // tailwind first utils set
-  $utilities:
-    (
+  $utilities: (
       // // =========================================================================
       // // Keep: Vuetify-specific / still useful even with Tailwind
       // // =========================================================================
@@ -128,7 +122,7 @@
       // "text-overflow": false,
       // "text-transform": false,
       // "typography": false,
-      // "white-space": false,,
+       // "white-space": false,
     ),
   // mostly unused in production
   $color-pack: false

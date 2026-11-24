@@ -44,7 +44,7 @@ export default {
       screens: reduce(
         display?.thresholds ?? {},
         (res, w, breakpoint) => {
-          res[breakpoint] = `${w}px`;
+          res["xxl" !== breakpoint ? breakpoint : "2xl"] = `${w}px`;
           return res;
         },
         <any>{},
